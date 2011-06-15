@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="config"
+    nsURI="simulatorConfig" nsPrefix="simulatorConfig">
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modes" upperBound="-1"
+        eType="#//Mode" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryActions" upperBound="-1"
+        eType="#//ModeEntryAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buttonBehaviours" upperBound="-1"
+        eType="#//ButtonBehaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModeEntryAction" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeDisplay" eSuperTypes="#//ModeEntryAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ButtonBehaviour" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayButtonBehaviour" eSuperTypes="#//ButtonBehaviour"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModeButtonBehaviour" eSuperTypes="#//ButtonBehaviour"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlarmButtonBehaviour" eSuperTypes="#//ButtonBehaviour"/>
+</ecore:EPackage>

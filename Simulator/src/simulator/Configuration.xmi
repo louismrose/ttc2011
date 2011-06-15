@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulatorConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulatorConfig="simulatorConfig" xsi:schemaLocation="simulatorConfig config.ecore">
+  <modes name="On">
+    <buttonBehaviours xsi:type="simulatorConfig:ModeButtonBehaviour"/>
+  </modes>
+  <modes name="Off">
+    <buttonBehaviours xsi:type="simulatorConfig:ModeButtonBehaviour"/>
+  </modes>
+</simulatorConfig:Configuration>

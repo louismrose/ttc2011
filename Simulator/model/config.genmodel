@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Simulator/src"
+    modelPluginID="Simulator" modelName="Config" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>config.ecore</foreignModel>
+  <genPackages prefix="Config" basePackage="simulator" disposableProviderFactory="true"
+      ecorePackage="config.ecore#/">
+    <genClasses ecoreClass="config.ecore#//Configuration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference config.ecore#//Configuration/modes"/>
+    </genClasses>
+    <genClasses ecoreClass="config.ecore#//Mode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute config.ecore#//Mode/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference config.ecore#//Mode/buttonBehaviours"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="config.ecore#//ButtonBehaviour"/>
+    <genClasses ecoreClass="config.ecore#//DisplayButtonBehaviour"/>
+    <genClasses ecoreClass="config.ecore#//ModeButtonBehaviour"/>
+    <genClasses ecoreClass="config.ecore#//AlarmButtonBehaviour"/>
+  </genPackages>
+</genmodel:GenModel>

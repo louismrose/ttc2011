@@ -1,0 +1,24 @@
+@namespace(uri="simulatorConfig", prefix="simulatorConfig")
+package config;
+
+class Configuration {
+   val Mode[*] modes;
+}
+
+class Mode {
+   attr String name;
+   val ModeEntryAction[*] entryActions;
+   val ButtonBehaviour[*] buttonBehaviours;
+}
+
+abstract class ModeEntryAction {}
+
+class ChangeDisplay extends ModeEntryAction {
+   attr String text;
+}
+
+abstract class ButtonBehaviour {}
+
+class DisplayButtonBehaviour extends ButtonBehaviour {}
+class ModeButtonBehaviour extends ButtonBehaviour {}
+class AlarmButtonBehaviour extends ButtonBehaviour {}

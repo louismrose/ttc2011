@@ -1,0 +1,10 @@
+* Alarm should go off
+* Button for changing the display type (e.g. 24 vs 12 hour)
+
+- Stopwatch mode should change the function of each button
+- Set alarm time?
+- Timer?
+- Day of the week?
+- Date?
+
+- Other simulation controls: whatever is needed when building the reference implementation
