@@ -1,0 +1,51 @@
+@namespace(uri="ssl", prefix="ssl")
+package ssl;
+
+class Specification {
+   val Testcase[*] testcases;
+}
+
+class Testcase {
+   val Given[1] given;
+   val When[0..1] when;
+   val Then[1] then;
+}
+
+class Given {
+   val Condition[1..*] conditions;
+}
+
+class When {
+   val Action[1..*] actions;
+}
+
+class Then {
+   val Observation[1..*] observations;
+}
+
+abstract class Condition {}
+
+class SetMode extends Condition {
+	attr String mode;
+}
+
+abstract class Action {}
+
+class PressButton extends Action {
+   attr String button;
+}
+
+abstract class Observation {}
+
+class ObserveMode extends Observation {
+   attr String mode;
+}
+
+class ObserveBinding extends Observation {
+   attr String button;
+   attr String name;
+}
+
+class ObserveDisplay extends Observation {
+   attr String value;
+}
