@@ -26,26 +26,26 @@ class Then {
 abstract class Condition {}
 
 class SetMode extends Condition {
-	attr String mode;
+	attr String[1] mode;
 }
 
 abstract class Action {}
 
 class PressButton extends Action {
-   attr String button;
+   attr String[1] button;
 }
 
 abstract class Observation {}
 
 class ObserveMode extends Observation {
-   attr String mode;
+   attr String[1] mode;
 }
 
 class ObserveBinding extends Observation {
-   attr String button;
-   attr String name;
+   attr String[1] button;
+   attr String[1] name;
 }
 
 class ObserveDisplay extends Observation {
-   attr String value;
+   attr String[1] value;
 }

@@ -4,3 +4,7 @@ Bundle-Name: SimulatorSpecificationLanguage
 Bundle-SymbolicName: SimulatorSpecificationLanguage;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.6.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: ssl,
+ ssl.impl,
+ ssl.util
