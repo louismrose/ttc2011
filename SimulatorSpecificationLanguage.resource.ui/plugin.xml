@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="ssl.resource.ssl.ui.SslUIMetaInformation" id="ssl.resource.ssl.ui.SslUIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="ssl.resource.ssl.ui.SslEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="ssl" icon="icons/editor_icon.gif" id="ssl.resource.ssl.ui.SslEditor" name="EMFText ssl Editor">
+			<contentTypeBinding contentTypeId="SimulatorSpecificationLanguage.resource"/>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="ssl.resource.ssl.ui.SslPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Ssl Text Editor" id="ssl.resource.ssl.ui.SslPreferencePage" class="ssl.resource.ssl.ui.SslPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="ssl.resource.ssl.ui.SslSyntaxColoringPreferencePage" class="ssl.resource.ssl.ui.SslSyntaxColoringPreferencePage" category="ssl.resource.ssl.ui.SslPreferencePage">
+		</page>
+		<page name="Brackets" id="ssl.resource.ssl.ui.SslBracketPreferencePage" class="ssl.resource.ssl.ui.SslBracketPreferencePage" category="ssl.resource.ssl.ui.SslPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="ssl.resource.ssl.ui.SslNewFileWizard" id="ssl.resource.ssl.ui.SslNewFileWizard" name="EMFText .ssl file">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="ssl.resource.ssl.ui.SslMarkerResolutionGenerator" markerType="SimulatorSpecificationLanguage.resource.problem" />
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="ssl.resource.ssl.ui.SslAnnotationModelFactory" extensions="ssl" />
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="SimulatorSpecificationLanguage.resource" name=".ssl File" base-type="org.eclipse.core.runtime.text" file-extensions="ssl"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="ssl" id="SimulatorSpecificationLanguage.resource.ui.provider" />
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="SimulatorSpecificationLanguage.resource.ui.occurences" />
+		<type name="SimulatorSpecificationLanguage.resource.ui.occurences.declaration" super="SimulatorSpecificationLanguage.resource.ui.occurences" />
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="SimulatorSpecificationLanguage.resource.ui.occurences" label="Occurrences (in .ssl files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="ssl.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="ssl.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="ssl.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="ssl.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="ssl.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="ssl.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="ssl.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="ssl.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="ssl.occurrenceTextStyle" textStylePreferenceValue="NONE" />
+		<specification annotationType="SimulatorSpecificationLanguage.resource.ui.occurences.declaration" label="Declarations (in .ssl files)" textPreferenceKey="ssl.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="ssl.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="ssl.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="ssl.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="ssl.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="ssl.declarationTextStyle" textStylePreferenceValue="NONE" />
+	</extension>
+	
+</plugin>

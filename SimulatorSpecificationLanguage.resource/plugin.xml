@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax">
+		<metaInformationProvider class="ssl.resource.ssl.mopp.SslMetaInformation" id="ssl.resource.ssl.mopp.SslMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension id="SimulatorSpecificationLanguage.resource.problem" name="EMFText Problem" point="org.eclipse.core.resources.markers">
+		<persistent value="true">
+		</persistent>
+		<super type="org.eclipse.core.resources.problemmarker">
+		</super>
+		<super type="org.eclipse.core.resources.textmarker">
+		</super>
+	</extension>
+	
+	<extension id="SimulatorSpecificationLanguage.resource.nature" name="ssl nature" point="org.eclipse.core.resources.natures">
+		<runtime>
+			<run class="ssl.resource.ssl.mopp.SslNature" />
+		</runtime>
+		<builder id="SimulatorSpecificationLanguage.resource.builder" />
+	</extension>
+	
+	<extension point="org.eclipse.core.resources.builders" id="SimulatorSpecificationLanguage.resource.builder" name="ssl Builder">
+		<builder hasNature="true">
+			<run class="ssl.resource.ssl.mopp.SslBuilderAdapter" />
+		</builder>
+	</extension>
+	
+	<extension-point id="SimulatorSpecificationLanguage.resource.default_load_options" name="Default Load Options" schema="schema/default_load_options.exsd"/>
+	
+	<extension point="org.eclipse.emf.ecore.extension_parser">
+		<parser class="ssl.resource.ssl.mopp.SslResourceFactoryDelegator" type="ssl">
+		</parser>
+	</extension>
+	
+	<extension-point id="SimulatorSpecificationLanguage.resource.additional_extension_parser" name="Additional Extension Parser" schema="schema/additional_extension_parser.exsd"/>
+	
+</plugin>
