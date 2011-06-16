@@ -17,5 +17,5 @@ package simulator.config;
  * @model
  * @generated
  */
-public interface DisplayButtonBehaviour extends ButtonBehaviour {
+public interface DisplayButtonBehaviour extends Action {
 } // DisplayButtonBehaviour

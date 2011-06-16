@@ -15,11 +15,16 @@ public class SslSyntaxCoverageInformationProvider {
 			ssl.SslPackage.eINSTANCE.getGiven(),
 			ssl.SslPackage.eINSTANCE.getWhen(),
 			ssl.SslPackage.eINSTANCE.getThen(),
-			ssl.SslPackage.eINSTANCE.getSetMode(),
+			ssl.SslPackage.eINSTANCE.getCheckMode(),
+			ssl.SslPackage.eINSTANCE.getCheckLabel(),
+			ssl.SslPackage.eINSTANCE.getCheckTimePastOther(),
 			ssl.SslPackage.eINSTANCE.getPressButton(),
 			ssl.SslPackage.eINSTANCE.getObserveMode(),
-			ssl.SslPackage.eINSTANCE.getObserveBinding(),
-			ssl.SslPackage.eINSTANCE.getObserveDisplay(),
+			ssl.SslPackage.eINSTANCE.getObserveButton(),
+			ssl.SslPackage.eINSTANCE.getObserveLabelValue(),
+			ssl.SslPackage.eINSTANCE.getObserveLabelVariable(),
+			ssl.SslPackage.eINSTANCE.getObserveVariableChange(),
+			ssl.SslPackage.eINSTANCE.getObserveRing(),
 		};
 	}
 	

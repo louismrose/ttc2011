@@ -39,118 +39,124 @@ import ssl.Testcase;
  */
 public class SpecificationImpl extends EObjectImpl implements Specification {
 	/**
-	 * The cached value of the '{@link #getTestcases() <em>Testcases</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getTestcases() <em>Testcases</em>}' containment reference list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTestcases()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getTestcases()
+   * @generated
+   * @ordered
+   */
 	protected EList<Testcase> testcases;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected SpecificationImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return SslPackage.Literals.SPECIFICATION;
-	}
+    return SslPackage.Literals.SPECIFICATION;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public EList<Testcase> getTestcases() {
-		if (testcases == null) {
-			testcases = new EObjectContainmentEList<Testcase>(Testcase.class, this, SslPackage.SPECIFICATION__TESTCASES);
-		}
-		return testcases;
-	}
+    if (testcases == null)
+    {
+      testcases = new EObjectContainmentEList<Testcase>(Testcase.class, this, SslPackage.SPECIFICATION__TESTCASES);
+    }
+    return testcases;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SslPackage.SPECIFICATION__TESTCASES:
-				return ((InternalEList<?>)getTestcases()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case SslPackage.SPECIFICATION__TESTCASES:
+        return ((InternalEList<?>)getTestcases()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SslPackage.SPECIFICATION__TESTCASES:
-				return getTestcases();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case SslPackage.SPECIFICATION__TESTCASES:
+        return getTestcases();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SslPackage.SPECIFICATION__TESTCASES:
-				getTestcases().clear();
-				getTestcases().addAll((Collection<? extends Testcase>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case SslPackage.SPECIFICATION__TESTCASES:
+        getTestcases().clear();
+        getTestcases().addAll((Collection<? extends Testcase>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SslPackage.SPECIFICATION__TESTCASES:
-				getTestcases().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case SslPackage.SPECIFICATION__TESTCASES:
+        getTestcases().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SslPackage.SPECIFICATION__TESTCASES:
-				return testcases != null && !testcases.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case SslPackage.SPECIFICATION__TESTCASES:
+        return testcases != null && !testcases.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
 } //SpecificationImpl

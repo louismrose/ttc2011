@@ -20,7 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link simulator.config.Mode#getName <em>Name</em>}</li>
  *   <li>{@link simulator.config.Mode#getEntryActions <em>Entry Actions</em>}</li>
- *   <li>{@link simulator.config.Mode#getButtonBehaviours <em>Button Behaviours</em>}</li>
+ *   <li>{@link simulator.config.Mode#getButtons <em>Buttons</em>}</li>
+ *   <li>{@link simulator.config.Mode#getVariables <em>Variables</em>}</li>
+ *   <li>{@link simulator.config.Mode#getConstants <em>Constants</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,7 +59,7 @@ public interface Mode extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Entry Actions</b></em>' containment reference list.
-	 * The list contents are of type {@link simulator.config.ModeEntryAction}.
+	 * The list contents are of type {@link simulator.config.Action}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Entry Actions</em>' containment reference list isn't clear,
@@ -69,22 +71,54 @@ public interface Mode extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ModeEntryAction> getEntryActions();
+	EList<Action> getEntryActions();
 
 	/**
-	 * Returns the value of the '<em><b>Button Behaviours</b></em>' containment reference list.
-	 * The list contents are of type {@link simulator.config.ButtonBehaviour}.
+	 * Returns the value of the '<em><b>Buttons</b></em>' containment reference list.
+	 * The list contents are of type {@link simulator.config.Button}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Button Behaviours</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Buttons</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Button Behaviours</em>' containment reference list.
-	 * @see simulator.config.ConfigPackage#getMode_ButtonBehaviours()
+	 * @return the value of the '<em>Buttons</em>' containment reference list.
+	 * @see simulator.config.ConfigPackage#getMode_Buttons()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ButtonBehaviour> getButtonBehaviours();
+	EList<Button> getButtons();
+
+	/**
+	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link simulator.config.Variable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variables</em>' containment reference list.
+	 * @see simulator.config.ConfigPackage#getMode_Variables()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Variable> getVariables();
+
+	/**
+	 * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
+	 * The list contents are of type {@link simulator.config.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constants</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constants</em>' containment reference list.
+	 * @see simulator.config.ConfigPackage#getMode_Constants()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getConstants();
 
 } // Mode

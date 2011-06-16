@@ -20,7 +20,7 @@ import simulator.config.DisplayButtonBehaviour;
  *
  * @generated
  */
-public class DisplayButtonBehaviourImpl extends ButtonBehaviourImpl implements DisplayButtonBehaviour {
+public class DisplayButtonBehaviourImpl extends ActionImpl implements DisplayButtonBehaviour {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

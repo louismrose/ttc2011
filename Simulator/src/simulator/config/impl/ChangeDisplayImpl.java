@@ -9,11 +9,13 @@ package simulator.config.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import simulator.config.ChangeDisplay;
 import simulator.config.ConfigPackage;
+import simulator.config.Displayable;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,32 +24,22 @@ import simulator.config.ConfigPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link simulator.config.impl.ChangeDisplayImpl#getText <em>Text</em>}</li>
+ *   <li>{@link simulator.config.impl.ChangeDisplayImpl#getNewValue <em>New Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ChangeDisplayImpl extends ModeEntryActionImpl implements ChangeDisplay {
+public class ChangeDisplayImpl extends ActionImpl implements ChangeDisplay {
 	/**
-	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * The cached value of the '{@link #getNewValue() <em>New Value</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getText()
+	 * @see #getNewValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getText()
-	 * @generated
-	 * @ordered
-	 */
-	protected String text = TEXT_EDEFAULT;
+	protected Displayable newValue;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,8 +65,16 @@ public class ChangeDisplayImpl extends ModeEntryActionImpl implements ChangeDisp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getText() {
-		return text;
+	public Displayable getNewValue() {
+		if (newValue != null && newValue.eIsProxy()) {
+			InternalEObject oldNewValue = (InternalEObject)newValue;
+			newValue = (Displayable)eResolveProxy(oldNewValue);
+			if (newValue != oldNewValue) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ConfigPackage.CHANGE_DISPLAY__NEW_VALUE, oldNewValue, newValue));
+			}
+		}
+		return newValue;
 	}
 
 	/**
@@ -82,11 +82,20 @@ public class ChangeDisplayImpl extends ModeEntryActionImpl implements ChangeDisp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setText(String newText) {
-		String oldText = text;
-		text = newText;
+	public Displayable basicGetNewValue() {
+		return newValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNewValue(Displayable newNewValue) {
+		Displayable oldNewValue = newValue;
+		newValue = newNewValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.CHANGE_DISPLAY__TEXT, oldText, text));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.CHANGE_DISPLAY__NEW_VALUE, oldNewValue, newValue));
 	}
 
 	/**
@@ -97,8 +106,9 @@ public class ChangeDisplayImpl extends ModeEntryActionImpl implements ChangeDisp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ConfigPackage.CHANGE_DISPLAY__TEXT:
-				return getText();
+			case ConfigPackage.CHANGE_DISPLAY__NEW_VALUE:
+				if (resolve) return getNewValue();
+				return basicGetNewValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,8 +121,8 @@ public class ChangeDisplayImpl extends ModeEntryActionImpl implements ChangeDisp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ConfigPackage.CHANGE_DISPLAY__TEXT:
-				setText((String)newValue);
+			case ConfigPackage.CHANGE_DISPLAY__NEW_VALUE:
+				setNewValue((Displayable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,8 +136,8 @@ public class ChangeDisplayImpl extends ModeEntryActionImpl implements ChangeDisp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.CHANGE_DISPLAY__TEXT:
-				setText(TEXT_EDEFAULT);
+			case ConfigPackage.CHANGE_DISPLAY__NEW_VALUE:
+				setNewValue((Displayable)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -141,26 +151,10 @@ public class ChangeDisplayImpl extends ModeEntryActionImpl implements ChangeDisp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ConfigPackage.CHANGE_DISPLAY__TEXT:
-				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case ConfigPackage.CHANGE_DISPLAY__NEW_VALUE:
+				return newValue != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (text: ");
-		result.append(text);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ChangeDisplayImpl

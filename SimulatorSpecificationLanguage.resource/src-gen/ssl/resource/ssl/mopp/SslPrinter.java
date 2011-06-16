@@ -68,8 +68,16 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 			print_ssl_Then((ssl.Then) element, globaltab, out);
 			return;
 		}
-		if (element instanceof ssl.SetMode) {
-			print_ssl_SetMode((ssl.SetMode) element, globaltab, out);
+		if (element instanceof ssl.CheckMode) {
+			print_ssl_CheckMode((ssl.CheckMode) element, globaltab, out);
+			return;
+		}
+		if (element instanceof ssl.CheckLabel) {
+			print_ssl_CheckLabel((ssl.CheckLabel) element, globaltab, out);
+			return;
+		}
+		if (element instanceof ssl.CheckTimePastOther) {
+			print_ssl_CheckTimePastOther((ssl.CheckTimePastOther) element, globaltab, out);
 			return;
 		}
 		if (element instanceof ssl.PressButton) {
@@ -80,12 +88,24 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 			print_ssl_ObserveMode((ssl.ObserveMode) element, globaltab, out);
 			return;
 		}
-		if (element instanceof ssl.ObserveBinding) {
-			print_ssl_ObserveBinding((ssl.ObserveBinding) element, globaltab, out);
+		if (element instanceof ssl.ObserveButton) {
+			print_ssl_ObserveButton((ssl.ObserveButton) element, globaltab, out);
 			return;
 		}
-		if (element instanceof ssl.ObserveDisplay) {
-			print_ssl_ObserveDisplay((ssl.ObserveDisplay) element, globaltab, out);
+		if (element instanceof ssl.ObserveLabelValue) {
+			print_ssl_ObserveLabelValue((ssl.ObserveLabelValue) element, globaltab, out);
+			return;
+		}
+		if (element instanceof ssl.ObserveLabelVariable) {
+			print_ssl_ObserveLabelVariable((ssl.ObserveLabelVariable) element, globaltab, out);
+			return;
+		}
+		if (element instanceof ssl.ObserveVariableChange) {
+			print_ssl_ObserveVariableChange((ssl.ObserveVariableChange) element, globaltab, out);
+			return;
+		}
+		if (element instanceof ssl.ObserveRing) {
+			print_ssl_ObserveRing((ssl.ObserveRing) element, globaltab, out);
 			return;
 		}
 		
@@ -218,7 +238,7 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (CsString)
-		out.print("given");
+		out.print("Given");
 		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("conditions");
@@ -251,7 +271,7 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (CsString)
-		out.print("when");
+		out.print("When");
 		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("actions");
@@ -284,7 +304,7 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (CsString)
-		out.print("then");
+		out.print("Then");
 		out.print(" ");
 		// DEFINITION PART BEGINS (Containment)
 		count = printCountingMap.get("observations");
@@ -303,7 +323,7 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		}
 	}
 	
-	public void print_ssl_SetMode(ssl.SetMode element, String outertab, java.io.PrintWriter out) {
+	public void print_ssl_CheckMode(ssl.CheckMode element, String outertab, java.io.PrintWriter out) {
 		// The printCountingMap contains a mapping from feature names to the number of
 		// remaining elements that still need to be printed. The map is initialized with
 		// the number of elements stored in each structural feature. For lists this is the
@@ -311,7 +331,7 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// 0 (if the feature is null).
 		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(1);
 		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.SET_MODE__MODE));
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_MODE__MODE));
 		printCountingMap.put("mode", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
@@ -321,11 +341,11 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("mode");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.SET_MODE__MODE));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_MODE__MODE));
 			if (o != null) {
 				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
 				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.SET_MODE__MODE), element));
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_MODE__MODE), element));
 				out.print(" ");
 			}
 			printCountingMap.put("mode", count - 1);
@@ -333,6 +353,98 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// DEFINITION PART BEGINS (CsString)
 		out.print("\"");
 		out.print(" ");
+	}
+	
+	public void print_ssl_CheckLabel(ssl.CheckLabel element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__LABEL_TYPE));
+		printCountingMap.put("labelType", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__VALUE));
+		printCountingMap.put("value", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		int count;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("the \"");
+		out.print(" ");
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("labelType");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__LABEL_TYPE));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__LABEL_TYPE), element));
+				out.print(" ");
+			}
+			printCountingMap.put("labelType", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print("\" is showing \"");
+		out.print(" ");
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("value");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__VALUE));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__VALUE), element));
+				out.print(" ");
+			}
+			printCountingMap.put("value", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print("\"");
+		out.print(" ");
+	}
+	
+	public void print_ssl_CheckTimePastOther(ssl.CheckTimePastOther element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME));
+		printCountingMap.put("firstVariableName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME));
+		printCountingMap.put("secondVariableName", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		int count;
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("firstVariableName");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME), element));
+				out.print(" ");
+			}
+			printCountingMap.put("firstVariableName", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(" is past ");
+		out.print(" ");
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("secondVariableName");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME), element));
+				out.print(" ");
+			}
+			printCountingMap.put("secondVariableName", count - 1);
+		}
 	}
 	
 	public void print_ssl_PressButton(ssl.PressButton element, String outertab, java.io.PrintWriter out) {
@@ -399,7 +511,7 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		out.print(" ");
 	}
 	
-	public void print_ssl_ObserveBinding(ssl.ObserveBinding element, String outertab, java.io.PrintWriter out) {
+	public void print_ssl_ObserveButton(ssl.ObserveButton element, String outertab, java.io.PrintWriter out) {
 		// The printCountingMap contains a mapping from feature names to the number of
 		// remaining elements that still need to be printed. The map is initialized with
 		// the number of elements stored in each structural feature. For lists this is the
@@ -407,9 +519,9 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// 0 (if the feature is null).
 		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
 		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__BUTTON));
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__BUTTON));
 		printCountingMap.put("button", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__NAME));
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__NAME));
 		printCountingMap.put("name", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
@@ -419,26 +531,26 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("button");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__BUTTON));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__BUTTON));
 			if (o != null) {
 				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
 				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__BUTTON), element));
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__BUTTON), element));
 				out.print(" ");
 			}
 			printCountingMap.put("button", count - 1);
 		}
 		// DEFINITION PART BEGINS (CsString)
-		out.print(" button must be bound to \"");
+		out.print(" button must be called \"");
 		out.print(" ");
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("name");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__NAME));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__NAME));
 			if (o != null) {
 				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
 				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__NAME), element));
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__NAME), element));
 				out.print(" ");
 			}
 			printCountingMap.put("name", count - 1);
@@ -448,35 +560,153 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		out.print(" ");
 	}
 	
-	public void print_ssl_ObserveDisplay(ssl.ObserveDisplay element, String outertab, java.io.PrintWriter out) {
+	public void print_ssl_ObserveLabelValue(ssl.ObserveLabelValue element, String outertab, java.io.PrintWriter out) {
 		// The printCountingMap contains a mapping from feature names to the number of
 		// remaining elements that still need to be printed. The map is initialized with
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(1);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
 		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_DISPLAY__VALUE));
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__LABEL_TYPE));
+		printCountingMap.put("labelType", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__VALUE));
 		printCountingMap.put("value", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (CsString)
-		out.print("the display must show \"");
+		out.print("the \"");
+		out.print(" ");
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("labelType");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__LABEL_TYPE));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__LABEL_TYPE), element));
+				out.print(" ");
+			}
+			printCountingMap.put("labelType", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print("\" must show \"");
 		out.print(" ");
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("value");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_DISPLAY__VALUE));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__VALUE));
 			if (o != null) {
 				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
 				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_DISPLAY__VALUE), element));
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__VALUE), element));
 				out.print(" ");
 			}
 			printCountingMap.put("value", count - 1);
 		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print("\"");
+		out.print(" ");
+	}
+	
+	public void print_ssl_ObserveLabelVariable(ssl.ObserveLabelVariable element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE));
+		printCountingMap.put("labelType", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME));
+		printCountingMap.put("variableName", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		int count;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("the \"");
+		out.print(" ");
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("labelType");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE), element));
+				out.print(" ");
+			}
+			printCountingMap.put("labelType", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print("\" must show the ");
+		out.print(" ");
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("variableName");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME), element));
+				out.print(" ");
+			}
+			printCountingMap.put("variableName", count - 1);
+		}
+	}
+	
+	public void print_ssl_ObserveVariableChange(ssl.ObserveVariableChange element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__VARIABLE_NAME));
+		printCountingMap.put("variableName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__UNIT));
+		printCountingMap.put("unit", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		int count;
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("variableName");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__VARIABLE_NAME));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__VARIABLE_NAME), element));
+				out.print(" ");
+			}
+			printCountingMap.put("variableName", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(" must be incremented by 1 ");
+		out.print(" ");
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("unit");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__UNIT));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__UNIT), element));
+				out.print(" ");
+			}
+			printCountingMap.put("unit", count - 1);
+		}
+	}
+	
+	public void print_ssl_ObserveRing(ssl.ObserveRing element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		// print collected hidden tokens
+		// DEFINITION PART BEGINS (CsString)
+		out.print("the alarm must ring");
 		out.print(" ");
 	}
 	

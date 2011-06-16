@@ -23,12 +23,16 @@ public abstract class WatchFactory {
 	public abstract Watch createWatch() throws IOException; 	
 	
 	protected static Watch configurationToWatch(Configuration config) {
+		final Watch watch = new Watch();
+		
 		final List<Mode> modes = new LinkedList<Mode>();
 
 		for (simulator.config.Mode mode : config.getModes()) {
-			modes.add(new Mode(mode));
+			modes.add(new Mode(watch, mode));
 		}
 		
-		return new Watch(modes);
+		watch.addModes(modes);
+		
+		return watch;
 	}
 }

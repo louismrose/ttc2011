@@ -16,6 +16,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
+import simulator.model.actions.NextModeAction;
 import simulator.model.util.DateUtils;
 import simulator.trace.Stimulus;
 import simulator.trace.Trace;
@@ -31,25 +32,32 @@ public class Watch implements Serializable {
 	private final Simulation simulation = new Simulation(trace);
 
 	private final Display display = new Display();
-	private final Modes modes;
+	private Modes modes;
 	
 	private final Alarm alarm;
 	
 	
-	public Watch() {
+	public static Watch createDefaultWatch() {
 		//final Mode stopwatchMode = new Mode("stopwatch", new ModeButtonBehaviour());
 		
-		this(new Mode("time", new AlarmButtonBehaviour(), new ModeButtonBehaviour(), new DisplayButtonBehaviour()));
+		final Watch watch = new Watch();
+		
+		watch.addModes(new Mode("on",  new Button("mode", new NextModeAction())),
+		               new Mode("off", new Button("mode", new NextModeAction())));
+		
+		return watch;
 	}
 	
-	public Watch(Mode... modes) {
-		this(Arrays.asList(modes));
-	}
-	
-	public Watch(Collection<Mode> modes) {
+	public Watch() {
 		final Date alarmTime = DateUtils.add(simulation.getCurrentTime(), Calendar.MINUTE, 3);
 		alarm = new Alarm(alarmTime);
-		
+	}
+	
+	public void addModes(Mode... modes) {
+		addModes(Arrays.asList(modes));
+	}
+	
+	public void addModes(Collection<Mode> modes) {
 		this.modes = new Modes(modes);
 		this.modes.setWatch(this);
 	}
@@ -92,5 +100,13 @@ public class Watch implements Serializable {
 	
 	public String getDisplayText() {
 		return display.getText(simulation.getCurrentTime());
+	}
+
+	public TimeVariable getTimeVariable(String variableName) {
+		return modes.getTimeVariable(variableName);
+	}
+
+	public Displayable getConstant(String value) {
+		return modes.getConstant(value);
 	}
 }

@@ -76,32 +76,60 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 				return createConfigurationAdapter();
 			}
 			@Override
+			public Adapter caseNumberAndString(NumberAndString object) {
+				return createNumberAndStringAdapter();
+			}
+			@Override
 			public Adapter caseMode(Mode object) {
 				return createModeAdapter();
 			}
 			@Override
-			public Adapter caseModeEntryAction(ModeEntryAction object) {
-				return createModeEntryActionAdapter();
+			public Adapter caseButton(Button object) {
+				return createButtonAdapter();
+			}
+			@Override
+			public Adapter caseAction(Action object) {
+				return createActionAdapter();
 			}
 			@Override
 			public Adapter caseChangeDisplay(ChangeDisplay object) {
 				return createChangeDisplayAdapter();
 			}
 			@Override
-			public Adapter caseButtonBehaviour(ButtonBehaviour object) {
-				return createButtonBehaviourAdapter();
+			public Adapter caseChangeIndicator(ChangeIndicator object) {
+				return createChangeIndicatorAdapter();
+			}
+			@Override
+			public Adapter caseNextMode(NextMode object) {
+				return createNextModeAdapter();
 			}
 			@Override
 			public Adapter caseDisplayButtonBehaviour(DisplayButtonBehaviour object) {
 				return createDisplayButtonBehaviourAdapter();
 			}
 			@Override
-			public Adapter caseModeButtonBehaviour(ModeButtonBehaviour object) {
-				return createModeButtonBehaviourAdapter();
+			public Adapter caseEvaluateExpression(EvaluateExpression object) {
+				return createEvaluateExpressionAdapter();
 			}
 			@Override
-			public Adapter caseAlarmButtonBehaviour(AlarmButtonBehaviour object) {
-				return createAlarmButtonBehaviourAdapter();
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
+			}
+			@Override
+			public Adapter caseIncrementTimeVariable(IncrementTimeVariable object) {
+				return createIncrementTimeVariableAdapter();
+			}
+			@Override
+			public Adapter caseDisplayable(Displayable object) {
+				return createDisplayableAdapter();
+			}
+			@Override
+			public Adapter caseConstant(Constant object) {
+				return createConstantAdapter();
+			}
+			@Override
+			public Adapter caseVariable(Variable object) {
+				return createVariableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -138,6 +166,20 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.NumberAndString <em>Number And String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.NumberAndString
+	 * @generated
+	 */
+	public Adapter createNumberAndStringAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link simulator.config.Mode <em>Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -152,16 +194,30 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link simulator.config.ModeEntryAction <em>Mode Entry Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link simulator.config.Button <em>Button</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see simulator.config.ModeEntryAction
+	 * @see simulator.config.Button
 	 * @generated
 	 */
-	public Adapter createModeEntryActionAdapter() {
+	public Adapter createButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.Action
+	 * @generated
+	 */
+	public Adapter createActionAdapter() {
 		return null;
 	}
 
@@ -180,16 +236,30 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link simulator.config.ButtonBehaviour <em>Button Behaviour</em>}'.
+	 * Creates a new adapter for an object of class '{@link simulator.config.ChangeIndicator <em>Change Indicator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see simulator.config.ButtonBehaviour
+	 * @see simulator.config.ChangeIndicator
 	 * @generated
 	 */
-	public Adapter createButtonBehaviourAdapter() {
+	public Adapter createChangeIndicatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.NextMode <em>Next Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.NextMode
+	 * @generated
+	 */
+	public Adapter createNextModeAdapter() {
 		return null;
 	}
 
@@ -208,30 +278,86 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link simulator.config.ModeButtonBehaviour <em>Mode Button Behaviour</em>}'.
+	 * Creates a new adapter for an object of class '{@link simulator.config.EvaluateExpression <em>Evaluate Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see simulator.config.ModeButtonBehaviour
+	 * @see simulator.config.EvaluateExpression
 	 * @generated
 	 */
-	public Adapter createModeButtonBehaviourAdapter() {
+	public Adapter createEvaluateExpressionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link simulator.config.AlarmButtonBehaviour <em>Alarm Button Behaviour</em>}'.
+	 * Creates a new adapter for an object of class '{@link simulator.config.Expression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see simulator.config.AlarmButtonBehaviour
+	 * @see simulator.config.Expression
 	 * @generated
 	 */
-	public Adapter createAlarmButtonBehaviourAdapter() {
+	public Adapter createExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.IncrementTimeVariable <em>Increment Time Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.IncrementTimeVariable
+	 * @generated
+	 */
+	public Adapter createIncrementTimeVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.Displayable <em>Displayable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.Displayable
+	 * @generated
+	 */
+	public Adapter createDisplayableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.Constant <em>Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.Constant
+	 * @generated
+	 */
+	public Adapter createConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.Variable
+	 * @generated
+	 */
+	public Adapter createVariableAdapter() {
 		return null;
 	}
 

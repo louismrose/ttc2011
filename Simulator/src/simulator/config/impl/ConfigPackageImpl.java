@@ -8,21 +8,30 @@ package simulator.config.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import simulator.config.AlarmButtonBehaviour;
-import simulator.config.ButtonBehaviour;
+import simulator.config.Action;
+import simulator.config.Button;
 import simulator.config.ChangeDisplay;
+import simulator.config.ChangeIndicator;
 import simulator.config.ConfigFactory;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
+import simulator.config.Constant;
 import simulator.config.DisplayButtonBehaviour;
+import simulator.config.Displayable;
+import simulator.config.EvaluateExpression;
+import simulator.config.Expression;
+import simulator.config.IncrementTimeVariable;
 import simulator.config.Mode;
-import simulator.config.ModeButtonBehaviour;
-import simulator.config.ModeEntryAction;
+import simulator.config.NextMode;
+import simulator.config.NumberAndString;
+import simulator.config.UnitOfTime;
+import simulator.config.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +52,13 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass numberAndStringEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass modeEClass = null;
 
 	/**
@@ -50,7 +66,14 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modeEntryActionEClass = null;
+	private EClass buttonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,7 +87,14 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass buttonBehaviourEClass = null;
+	private EClass changeIndicatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nextModeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,14 +108,49 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modeButtonBehaviourEClass = null;
+	private EClass evaluateExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass alarmButtonBehaviourEClass = null;
+	private EClass expressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass incrementTimeVariableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass displayableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum unitOfTimeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -171,6 +236,33 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNumberAndString() {
+		return numberAndStringEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumberAndString_Number() {
+		return (EAttribute)numberAndStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNumberAndString_String() {
+		return (EAttribute)numberAndStringEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMode() {
 		return modeEClass;
 	}
@@ -198,7 +290,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMode_ButtonBehaviours() {
+	public EReference getMode_Buttons() {
 		return (EReference)modeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -207,8 +299,53 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModeEntryAction() {
-		return modeEntryActionEClass;
+	public EReference getMode_Variables() {
+		return (EReference)modeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMode_Constants() {
+		return (EReference)modeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getButton() {
+		return buttonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getButton_Name() {
+		return (EAttribute)buttonEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getButton_Behaviour() {
+		return (EReference)buttonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAction() {
+		return actionEClass;
 	}
 
 	/**
@@ -225,8 +362,8 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getChangeDisplay_Text() {
-		return (EAttribute)changeDisplayEClass.getEStructuralFeatures().get(0);
+	public EReference getChangeDisplay_NewValue() {
+		return (EReference)changeDisplayEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -234,8 +371,26 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getButtonBehaviour() {
-		return buttonBehaviourEClass;
+	public EClass getChangeIndicator() {
+		return changeIndicatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChangeIndicator_NewValue() {
+		return (EReference)changeIndicatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNextMode() {
+		return nextModeEClass;
 	}
 
 	/**
@@ -252,8 +407,8 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModeButtonBehaviour() {
-		return modeButtonBehaviourEClass;
+	public EClass getEvaluateExpression() {
+		return evaluateExpressionEClass;
 	}
 
 	/**
@@ -261,8 +416,98 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAlarmButtonBehaviour() {
-		return alarmButtonBehaviourEClass;
+	public EReference getEvaluateExpression_Expression() {
+		return (EReference)evaluateExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExpression() {
+		return expressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIncrementTimeVariable() {
+		return incrementTimeVariableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIncrementTimeVariable_Variable() {
+		return (EReference)incrementTimeVariableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIncrementTimeVariable_Unit() {
+		return (EAttribute)incrementTimeVariableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDisplayable() {
+		return displayableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstant() {
+		return constantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstant_Value() {
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariable() {
+		return variableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariable_Name() {
+		return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getUnitOfTime() {
+		return unitOfTimeEEnum;
 	}
 
 	/**
@@ -296,23 +541,52 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		configurationEClass = createEClass(CONFIGURATION);
 		createEReference(configurationEClass, CONFIGURATION__MODES);
 
+		numberAndStringEClass = createEClass(NUMBER_AND_STRING);
+		createEAttribute(numberAndStringEClass, NUMBER_AND_STRING__NUMBER);
+		createEAttribute(numberAndStringEClass, NUMBER_AND_STRING__STRING);
+
 		modeEClass = createEClass(MODE);
 		createEAttribute(modeEClass, MODE__NAME);
 		createEReference(modeEClass, MODE__ENTRY_ACTIONS);
-		createEReference(modeEClass, MODE__BUTTON_BEHAVIOURS);
+		createEReference(modeEClass, MODE__BUTTONS);
+		createEReference(modeEClass, MODE__VARIABLES);
+		createEReference(modeEClass, MODE__CONSTANTS);
 
-		modeEntryActionEClass = createEClass(MODE_ENTRY_ACTION);
+		buttonEClass = createEClass(BUTTON);
+		createEAttribute(buttonEClass, BUTTON__NAME);
+		createEReference(buttonEClass, BUTTON__BEHAVIOUR);
+
+		actionEClass = createEClass(ACTION);
 
 		changeDisplayEClass = createEClass(CHANGE_DISPLAY);
-		createEAttribute(changeDisplayEClass, CHANGE_DISPLAY__TEXT);
+		createEReference(changeDisplayEClass, CHANGE_DISPLAY__NEW_VALUE);
 
-		buttonBehaviourEClass = createEClass(BUTTON_BEHAVIOUR);
+		changeIndicatorEClass = createEClass(CHANGE_INDICATOR);
+		createEReference(changeIndicatorEClass, CHANGE_INDICATOR__NEW_VALUE);
+
+		nextModeEClass = createEClass(NEXT_MODE);
 
 		displayButtonBehaviourEClass = createEClass(DISPLAY_BUTTON_BEHAVIOUR);
 
-		modeButtonBehaviourEClass = createEClass(MODE_BUTTON_BEHAVIOUR);
+		evaluateExpressionEClass = createEClass(EVALUATE_EXPRESSION);
+		createEReference(evaluateExpressionEClass, EVALUATE_EXPRESSION__EXPRESSION);
 
-		alarmButtonBehaviourEClass = createEClass(ALARM_BUTTON_BEHAVIOUR);
+		expressionEClass = createEClass(EXPRESSION);
+
+		incrementTimeVariableEClass = createEClass(INCREMENT_TIME_VARIABLE);
+		createEReference(incrementTimeVariableEClass, INCREMENT_TIME_VARIABLE__VARIABLE);
+		createEAttribute(incrementTimeVariableEClass, INCREMENT_TIME_VARIABLE__UNIT);
+
+		displayableEClass = createEClass(DISPLAYABLE);
+
+		constantEClass = createEClass(CONSTANT);
+		createEAttribute(constantEClass, CONSTANT__VALUE);
+
+		variableEClass = createEClass(VARIABLE);
+		createEAttribute(variableEClass, VARIABLE__NAME);
+
+		// Create enums
+		unitOfTimeEEnum = createEEnum(UNIT_OF_TIME);
 	}
 
 	/**
@@ -343,32 +617,67 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		changeDisplayEClass.getESuperTypes().add(this.getModeEntryAction());
-		displayButtonBehaviourEClass.getESuperTypes().add(this.getButtonBehaviour());
-		modeButtonBehaviourEClass.getESuperTypes().add(this.getButtonBehaviour());
-		alarmButtonBehaviourEClass.getESuperTypes().add(this.getButtonBehaviour());
+		changeDisplayEClass.getESuperTypes().add(this.getAction());
+		changeIndicatorEClass.getESuperTypes().add(this.getAction());
+		nextModeEClass.getESuperTypes().add(this.getAction());
+		displayButtonBehaviourEClass.getESuperTypes().add(this.getAction());
+		evaluateExpressionEClass.getESuperTypes().add(this.getAction());
+		incrementTimeVariableEClass.getESuperTypes().add(this.getExpression());
+		constantEClass.getESuperTypes().add(this.getDisplayable());
+		variableEClass.getESuperTypes().add(this.getDisplayable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfiguration_Modes(), this.getMode(), null, "modes", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(numberAndStringEClass, NumberAndString.class, "NumberAndString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumberAndString_Number(), ecorePackage.getEInt(), "number", null, 0, 1, NumberAndString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumberAndString_String(), ecorePackage.getEString(), "string", null, 0, 1, NumberAndString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(modeEClass, Mode.class, "Mode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMode_EntryActions(), this.getModeEntryAction(), null, "entryActions", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMode_ButtonBehaviours(), this.getButtonBehaviour(), null, "buttonBehaviours", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMode_EntryActions(), this.getAction(), null, "entryActions", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMode_Buttons(), this.getButton(), null, "buttons", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMode_Variables(), this.getVariable(), null, "variables", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMode_Constants(), this.getConstant(), null, "constants", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(modeEntryActionEClass, ModeEntryAction.class, "ModeEntryAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getButton_Name(), ecorePackage.getEString(), "name", null, 1, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getButton_Behaviour(), this.getAction(), null, "behaviour", null, 1, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(changeDisplayEClass, ChangeDisplay.class, "ChangeDisplay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getChangeDisplay_Text(), ecorePackage.getEString(), "text", null, 0, 1, ChangeDisplay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getChangeDisplay_NewValue(), this.getDisplayable(), null, "newValue", null, 1, 1, ChangeDisplay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(buttonBehaviourEClass, ButtonBehaviour.class, "ButtonBehaviour", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(changeIndicatorEClass, ChangeIndicator.class, "ChangeIndicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getChangeIndicator_NewValue(), this.getDisplayable(), null, "newValue", null, 1, 1, ChangeIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nextModeEClass, NextMode.class, "NextMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(displayButtonBehaviourEClass, DisplayButtonBehaviour.class, "DisplayButtonBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(modeButtonBehaviourEClass, ModeButtonBehaviour.class, "ModeButtonBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(evaluateExpressionEClass, EvaluateExpression.class, "EvaluateExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEvaluateExpression_Expression(), this.getExpression(), null, "expression", null, 1, 1, EvaluateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(alarmButtonBehaviourEClass, AlarmButtonBehaviour.class, "AlarmButtonBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(incrementTimeVariableEClass, IncrementTimeVariable.class, "IncrementTimeVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIncrementTimeVariable_Variable(), this.getVariable(), null, "variable", null, 1, 1, IncrementTimeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIncrementTimeVariable_Unit(), this.getUnitOfTime(), "unit", null, 1, 1, IncrementTimeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(displayableEClass, Displayable.class, "Displayable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConstant_Value(), ecorePackage.getEString(), "value", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(unitOfTimeEEnum, UnitOfTime.class, "UnitOfTime");
+		addEEnumLiteral(unitOfTimeEEnum, UnitOfTime.HOUR);
+		addEEnumLiteral(unitOfTimeEEnum, UnitOfTime.MINUTE);
 
 		// Create resource
 		createResource(eNS_URI);

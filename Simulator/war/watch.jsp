@@ -1,3 +1,8 @@
+<%@page import="simulator.model.factory.FileBasedWatchFactory"%>
+<%@page import="simulator.execution.model.SimulationState"%>
+<%@page import="simulator.config.Configuration"%>
+<%@page import="simulator.config.ConfigPackage"%>
+<%@page import="simulator.EObjectStore"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="java.util.Collections"%>
 <%@page import="java.util.List"%>
@@ -14,13 +19,24 @@
 </head>
 <%
 	if (session.getAttribute("watch") == null) {
-		session.setAttribute("watch", new Watch());
+		session.setAttribute("watch", Watch.createDefaultWatch());
 	}
 
 	final Watch watch = (Watch)session.getAttribute("watch");
+	
+	
+	
+	if (session.getAttribute("state") == null) {
+		final Configuration configuration = new FileBasedWatchFactory().createConfiguration();
+		session.setAttribute("state", new SimulationState(configuration));
+	}
+	
+	final SimulationState state = (SimulationState)session.getAttribute("state");
 %>
 <body>
-	<div id="debug"><p><%=session.getId()%> : <%=session.getCreationTime()%></p></div>
+	<div id="debug">
+		<p><%=session.getId()%> : <%=session.getCreationTime()%></p>
+	</div>
 	<div id="simulation">
 	  <div id="outputs">
 	    <span id="time">
@@ -37,7 +53,7 @@
 	     <% } %>
 	    </span>
 	    <span id="mode">
-	      <b>Mode:</b> <%=watch.getModes().getCurrentMode().getName()%>
+	      <b>Mode:</b> <%=state.getCurrentMode()%>
 	    </span>
 	  </div>
 	

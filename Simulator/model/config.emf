@@ -5,20 +5,60 @@ class Configuration {
    val Mode[*] modes;
 }
 
+class NumberAndString {
+   attr int number;
+   attr String string;
+}
+
 class Mode {
    attr String name;
-   val ModeEntryAction[*] entryActions;
-   val ButtonBehaviour[*] buttonBehaviours;
+   val Action[*] entryActions;
+   val Button[*] buttons;
+   val Variable[*] variables;
+   val Constant[*] constants;
 }
 
-abstract class ModeEntryAction {}
-
-class ChangeDisplay extends ModeEntryAction {
-   attr String text;
+class Button {
+   attr String[1] name;
+   val Action[1] behaviour;
 }
 
-abstract class ButtonBehaviour {}
+abstract class Action {}
 
-class DisplayButtonBehaviour extends ButtonBehaviour {}
-class ModeButtonBehaviour extends ButtonBehaviour {}
-class AlarmButtonBehaviour extends ButtonBehaviour {}
+class ChangeDisplay extends Action {
+   ref Displayable[1] newValue;
+}
+
+class ChangeIndicator extends Action {
+	ref Displayable[1] newValue;
+}
+
+class NextMode extends Action {}
+
+class DisplayButtonBehaviour extends Action {}
+
+class EvaluateExpression extends Action {
+   val Expression[1] expression;
+}
+
+class Expression {}
+
+class IncrementTimeVariable extends Expression {
+   ref Variable[1] variable;
+   attr UnitOfTime[1] unit;
+}
+
+abstract class Displayable {}
+
+class Constant extends Displayable {
+   attr String[1] value;
+}
+
+class Variable extends Displayable {
+   attr String[1] name;
+}
+
+enum UnitOfTime {
+   hour = 0;
+   minute = 1;
+}

@@ -28,19 +28,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface When extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
-	 * The list contents are of type {@link ssl.Action}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
+   * The list contents are of type {@link ssl.Action}.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions</em>' containment reference list.
-	 * @see ssl.SslPackage#getWhen_Actions()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Actions</em>' containment reference list.
+   * @see ssl.SslPackage#getWhen_Actions()
+   * @model containment="true" required="true"
+   * @generated
+   */
 	EList<Action> getActions();
 
 } // When

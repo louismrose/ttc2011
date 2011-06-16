@@ -113,24 +113,44 @@ public class SslPrinter2 implements ssl.resource.ssl.ISslTextPrinter {
 			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_4, foundFormattingElements);
 			return;
 		}
-		if (element instanceof ssl.SetMode) {
+		if (element instanceof ssl.CheckMode) {
 			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_5, foundFormattingElements);
 			return;
 		}
-		if (element instanceof ssl.PressButton) {
+		if (element instanceof ssl.CheckLabel) {
 			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6, foundFormattingElements);
 			return;
 		}
-		if (element instanceof ssl.ObserveMode) {
+		if (element instanceof ssl.CheckTimePastOther) {
 			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_7, foundFormattingElements);
 			return;
 		}
-		if (element instanceof ssl.ObserveBinding) {
+		if (element instanceof ssl.PressButton) {
 			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8, foundFormattingElements);
 			return;
 		}
-		if (element instanceof ssl.ObserveDisplay) {
+		if (element instanceof ssl.ObserveMode) {
 			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9, foundFormattingElements);
+			return;
+		}
+		if (element instanceof ssl.ObserveButton) {
+			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10, foundFormattingElements);
+			return;
+		}
+		if (element instanceof ssl.ObserveLabelValue) {
+			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11, foundFormattingElements);
+			return;
+		}
+		if (element instanceof ssl.ObserveLabelVariable) {
+			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12, foundFormattingElements);
+			return;
+		}
+		if (element instanceof ssl.ObserveVariableChange) {
+			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13, foundFormattingElements);
+			return;
+		}
+		if (element instanceof ssl.ObserveRing) {
+			printInternal(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14, foundFormattingElements);
 			return;
 		}
 		

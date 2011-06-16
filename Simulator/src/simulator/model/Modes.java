@@ -53,4 +53,12 @@ public class Modes implements Serializable {
 			mode.setWatch(watch);
 		}
 	}
+
+	public TimeVariable getTimeVariable(String variableName) {
+		return currentMode.getTimeVariable(variableName);
+	}
+
+	public Displayable getConstant(String value) {
+		return currentMode.getConstant(value);
+	}
 }

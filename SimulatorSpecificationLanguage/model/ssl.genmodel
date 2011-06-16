@@ -6,6 +6,14 @@
     complianceLevel="5.0" copyrightFields="false">
   <foreignModel>ssl.ecore</foreignModel>
   <genPackages prefix="Ssl" disposableProviderFactory="true" ecorePackage="ssl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ssl.ecore#//LabelType">
+      <genEnumLiterals ecoreEnumLiteral="ssl.ecore#//LabelType/display"/>
+      <genEnumLiterals ecoreEnumLiteral="ssl.ecore#//LabelType/indicator"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ssl.ecore#//UnitOfTime">
+      <genEnumLiterals ecoreEnumLiteral="ssl.ecore#//UnitOfTime/hour"/>
+      <genEnumLiterals ecoreEnumLiteral="ssl.ecore#//UnitOfTime/minute"/>
+    </genEnums>
     <genClasses ecoreClass="ssl.ecore#//Specification">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssl.ecore#//Specification/testcases"/>
     </genClasses>
@@ -24,8 +32,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssl.ecore#//Then/observations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="ssl.ecore#//Condition"/>
-    <genClasses ecoreClass="ssl.ecore#//SetMode">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//SetMode/mode"/>
+    <genClasses ecoreClass="ssl.ecore#//CheckTimePastOther">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckTimePastOther/firstVariableName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckTimePastOther/secondVariableName"/>
+    </genClasses>
+    <genClasses ecoreClass="ssl.ecore#//CheckMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckMode/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="ssl.ecore#//CheckLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckLabel/labelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckLabel/value"/>
     </genClasses>
     <genClasses image="false" ecoreClass="ssl.ecore#//Action"/>
     <genClasses ecoreClass="ssl.ecore#//PressButton">
@@ -35,12 +51,22 @@
     <genClasses ecoreClass="ssl.ecore#//ObserveMode">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveMode/mode"/>
     </genClasses>
-    <genClasses ecoreClass="ssl.ecore#//ObserveBinding">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveBinding/button"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveBinding/name"/>
+    <genClasses ecoreClass="ssl.ecore#//ObserveButton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveButton/button"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveButton/name"/>
     </genClasses>
-    <genClasses ecoreClass="ssl.ecore#//ObserveDisplay">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveDisplay/value"/>
+    <genClasses ecoreClass="ssl.ecore#//ObserveLabelValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveLabelValue/labelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveLabelValue/value"/>
     </genClasses>
+    <genClasses ecoreClass="ssl.ecore#//ObserveLabelVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveLabelVariable/labelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveLabelVariable/variableName"/>
+    </genClasses>
+    <genClasses ecoreClass="ssl.ecore#//ObserveVariableChange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveVariableChange/variableName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveVariableChange/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="ssl.ecore#//ObserveRing"/>
   </genPackages>
 </genmodel:GenModel>

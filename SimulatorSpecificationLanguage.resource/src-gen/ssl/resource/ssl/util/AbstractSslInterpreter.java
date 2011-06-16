@@ -44,14 +44,32 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 	
 	public ResultType interprete(org.eclipse.emf.ecore.EObject object, ContextType context) {
 		ResultType result = null;
-		if (object instanceof ssl.ObserveDisplay) {
-			result = interprete_ssl_ObserveDisplay((ssl.ObserveDisplay) object, context);
+		if (object instanceof ssl.ObserveRing) {
+			result = interprete_ssl_ObserveRing((ssl.ObserveRing) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof ssl.ObserveBinding) {
-			result = interprete_ssl_ObserveBinding((ssl.ObserveBinding) object, context);
+		if (object instanceof ssl.ObserveVariableChange) {
+			result = interprete_ssl_ObserveVariableChange((ssl.ObserveVariableChange) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof ssl.ObserveLabelVariable) {
+			result = interprete_ssl_ObserveLabelVariable((ssl.ObserveLabelVariable) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof ssl.ObserveLabelValue) {
+			result = interprete_ssl_ObserveLabelValue((ssl.ObserveLabelValue) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof ssl.ObserveButton) {
+			result = interprete_ssl_ObserveButton((ssl.ObserveButton) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -80,8 +98,20 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof ssl.SetMode) {
-			result = interprete_ssl_SetMode((ssl.SetMode) object, context);
+		if (object instanceof ssl.CheckLabel) {
+			result = interprete_ssl_CheckLabel((ssl.CheckLabel) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof ssl.CheckMode) {
+			result = interprete_ssl_CheckMode((ssl.CheckMode) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof ssl.CheckTimePastOther) {
+			result = interprete_ssl_CheckTimePastOther((ssl.CheckTimePastOther) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -149,7 +179,15 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 		return null;
 	}
 	
-	public ResultType interprete_ssl_SetMode(ssl.SetMode object, ContextType context) {
+	public ResultType interprete_ssl_CheckTimePastOther(ssl.CheckTimePastOther object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_ssl_CheckMode(ssl.CheckMode object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_ssl_CheckLabel(ssl.CheckLabel object, ContextType context) {
 		return null;
 	}
 	
@@ -169,11 +207,23 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 		return null;
 	}
 	
-	public ResultType interprete_ssl_ObserveBinding(ssl.ObserveBinding object, ContextType context) {
+	public ResultType interprete_ssl_ObserveButton(ssl.ObserveButton object, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_ssl_ObserveDisplay(ssl.ObserveDisplay object, ContextType context) {
+	public ResultType interprete_ssl_ObserveLabelValue(ssl.ObserveLabelValue object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_ssl_ObserveLabelVariable(ssl.ObserveLabelVariable object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_ssl_ObserveVariableChange(ssl.ObserveVariableChange object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_ssl_ObserveRing(ssl.ObserveRing object, ContextType context) {
 		return null;
 	}
 	

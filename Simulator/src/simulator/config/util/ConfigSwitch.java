@@ -93,49 +93,95 @@ public class ConfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ConfigPackage.NUMBER_AND_STRING: {
+				NumberAndString numberAndString = (NumberAndString)theEObject;
+				T result = caseNumberAndString(numberAndString);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ConfigPackage.MODE: {
 				Mode mode = (Mode)theEObject;
 				T result = caseMode(mode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.MODE_ENTRY_ACTION: {
-				ModeEntryAction modeEntryAction = (ModeEntryAction)theEObject;
-				T result = caseModeEntryAction(modeEntryAction);
+			case ConfigPackage.BUTTON: {
+				Button button = (Button)theEObject;
+				T result = caseButton(button);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ConfigPackage.CHANGE_DISPLAY: {
 				ChangeDisplay changeDisplay = (ChangeDisplay)theEObject;
 				T result = caseChangeDisplay(changeDisplay);
-				if (result == null) result = caseModeEntryAction(changeDisplay);
+				if (result == null) result = caseAction(changeDisplay);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.BUTTON_BEHAVIOUR: {
-				ButtonBehaviour buttonBehaviour = (ButtonBehaviour)theEObject;
-				T result = caseButtonBehaviour(buttonBehaviour);
+			case ConfigPackage.CHANGE_INDICATOR: {
+				ChangeIndicator changeIndicator = (ChangeIndicator)theEObject;
+				T result = caseChangeIndicator(changeIndicator);
+				if (result == null) result = caseAction(changeIndicator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.NEXT_MODE: {
+				NextMode nextMode = (NextMode)theEObject;
+				T result = caseNextMode(nextMode);
+				if (result == null) result = caseAction(nextMode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ConfigPackage.DISPLAY_BUTTON_BEHAVIOUR: {
 				DisplayButtonBehaviour displayButtonBehaviour = (DisplayButtonBehaviour)theEObject;
 				T result = caseDisplayButtonBehaviour(displayButtonBehaviour);
-				if (result == null) result = caseButtonBehaviour(displayButtonBehaviour);
+				if (result == null) result = caseAction(displayButtonBehaviour);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.MODE_BUTTON_BEHAVIOUR: {
-				ModeButtonBehaviour modeButtonBehaviour = (ModeButtonBehaviour)theEObject;
-				T result = caseModeButtonBehaviour(modeButtonBehaviour);
-				if (result == null) result = caseButtonBehaviour(modeButtonBehaviour);
+			case ConfigPackage.EVALUATE_EXPRESSION: {
+				EvaluateExpression evaluateExpression = (EvaluateExpression)theEObject;
+				T result = caseEvaluateExpression(evaluateExpression);
+				if (result == null) result = caseAction(evaluateExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.ALARM_BUTTON_BEHAVIOUR: {
-				AlarmButtonBehaviour alarmButtonBehaviour = (AlarmButtonBehaviour)theEObject;
-				T result = caseAlarmButtonBehaviour(alarmButtonBehaviour);
-				if (result == null) result = caseButtonBehaviour(alarmButtonBehaviour);
+			case ConfigPackage.EXPRESSION: {
+				Expression expression = (Expression)theEObject;
+				T result = caseExpression(expression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.INCREMENT_TIME_VARIABLE: {
+				IncrementTimeVariable incrementTimeVariable = (IncrementTimeVariable)theEObject;
+				T result = caseIncrementTimeVariable(incrementTimeVariable);
+				if (result == null) result = caseExpression(incrementTimeVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.DISPLAYABLE: {
+				Displayable displayable = (Displayable)theEObject;
+				T result = caseDisplayable(displayable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.CONSTANT: {
+				Constant constant = (Constant)theEObject;
+				T result = caseConstant(constant);
+				if (result == null) result = caseDisplayable(constant);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.VARIABLE: {
+				Variable variable = (Variable)theEObject;
+				T result = caseVariable(variable);
+				if (result == null) result = caseDisplayable(variable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -159,6 +205,21 @@ public class ConfigSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number And String</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number And String</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberAndString(NumberAndString object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Mode</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -174,17 +235,32 @@ public class ConfigSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mode Entry Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mode Entry Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Button</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModeEntryAction(ModeEntryAction object) {
+	public T caseButton(Button object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAction(Action object) {
 		return null;
 	}
 
@@ -204,17 +280,32 @@ public class ConfigSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Button Behaviour</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Change Indicator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Button Behaviour</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Change Indicator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseButtonBehaviour(ButtonBehaviour object) {
+	public T caseChangeIndicator(ChangeIndicator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Next Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Next Mode</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNextMode(NextMode object) {
 		return null;
 	}
 
@@ -234,32 +325,92 @@ public class ConfigSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mode Button Behaviour</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Evaluate Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mode Button Behaviour</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Evaluate Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModeButtonBehaviour(ModeButtonBehaviour object) {
+	public T caseEvaluateExpression(EvaluateExpression object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alarm Button Behaviour</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alarm Button Behaviour</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAlarmButtonBehaviour(AlarmButtonBehaviour object) {
+	public T caseExpression(Expression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Increment Time Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Increment Time Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIncrementTimeVariable(IncrementTimeVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Displayable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Displayable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDisplayable(Displayable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstant(Constant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariable(Variable object) {
 		return null;
 	}
 

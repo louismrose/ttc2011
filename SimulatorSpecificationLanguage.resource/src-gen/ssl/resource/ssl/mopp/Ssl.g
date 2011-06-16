@@ -293,8 +293,14 @@ options {
 			if (type.getInstanceClass() == ssl.Then.class) {
 				return parse_ssl_Then();
 			}
-			if (type.getInstanceClass() == ssl.SetMode.class) {
-				return parse_ssl_SetMode();
+			if (type.getInstanceClass() == ssl.CheckMode.class) {
+				return parse_ssl_CheckMode();
+			}
+			if (type.getInstanceClass() == ssl.CheckLabel.class) {
+				return parse_ssl_CheckLabel();
+			}
+			if (type.getInstanceClass() == ssl.CheckTimePastOther.class) {
+				return parse_ssl_CheckTimePastOther();
 			}
 			if (type.getInstanceClass() == ssl.PressButton.class) {
 				return parse_ssl_PressButton();
@@ -302,11 +308,20 @@ options {
 			if (type.getInstanceClass() == ssl.ObserveMode.class) {
 				return parse_ssl_ObserveMode();
 			}
-			if (type.getInstanceClass() == ssl.ObserveBinding.class) {
-				return parse_ssl_ObserveBinding();
+			if (type.getInstanceClass() == ssl.ObserveButton.class) {
+				return parse_ssl_ObserveButton();
 			}
-			if (type.getInstanceClass() == ssl.ObserveDisplay.class) {
-				return parse_ssl_ObserveDisplay();
+			if (type.getInstanceClass() == ssl.ObserveLabelValue.class) {
+				return parse_ssl_ObserveLabelValue();
+			}
+			if (type.getInstanceClass() == ssl.ObserveLabelVariable.class) {
+				return parse_ssl_ObserveLabelVariable();
+			}
+			if (type.getInstanceClass() == ssl.ObserveVariableChange.class) {
+				return parse_ssl_ObserveVariableChange();
+			}
+			if (type.getInstanceClass() == ssl.ObserveRing.class) {
+				return parse_ssl_ObserveRing();
 			}
 		}
 		throw new ssl.resource.ssl.mopp.SslUnexpectedContentTypeException(typeObject);
@@ -419,7 +434,7 @@ options {
 				break;
 			}
 		}
-		int followSetID = 28;
+		int followSetID = 46;
 		int i;
 		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
 			org.antlr.runtime3_2_0.CommonToken nextToken = (org.antlr.runtime3_2_0.CommonToken) tokenStream.get(i);
@@ -830,7 +845,7 @@ parse_ssl_Given returns [ssl.Given element = null]
 @init{
 }
 :
-	a0 = 'given' {
+	a0 = 'Given' {
 		if (element == null) {
 			element = ssl.SslFactory.eINSTANCE.createGiven();
 			incompleteObjects.push(element);
@@ -843,6 +858,8 @@ parse_ssl_Given returns [ssl.Given element = null]
 	{
 		// expected elements (follow set)
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 5, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 5, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 5, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
 	}
 	
 	(
@@ -871,6 +888,8 @@ parse_ssl_Given returns [ssl.Given element = null]
 	)+	{
 		// expected elements (follow set)
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
@@ -881,7 +900,7 @@ parse_ssl_When returns [ssl.When element = null]
 @init{
 }
 :
-	a0 = 'when' {
+	a0 = 'When' {
 		if (element == null) {
 			element = ssl.SslFactory.eINSTANCE.createWhen();
 			incompleteObjects.push(element);
@@ -893,7 +912,7 @@ parse_ssl_When returns [ssl.When element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 7, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 7, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
 	}
 	
 	(
@@ -921,7 +940,7 @@ parse_ssl_When returns [ssl.When element = null]
 		
 	)+	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 8, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 8, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 8, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
@@ -931,7 +950,7 @@ parse_ssl_Then returns [ssl.Then element = null]
 @init{
 }
 :
-	a0 = 'then' {
+	a0 = 'Then' {
 		if (element == null) {
 			element = ssl.SslFactory.eINSTANCE.createThen();
 			incompleteObjects.push(element);
@@ -943,9 +962,12 @@ parse_ssl_Then returns [ssl.Then element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
 	}
 	
 	(
@@ -973,21 +995,24 @@ parse_ssl_Then returns [ssl.Then element = null]
 		
 	)+	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
 
-parse_ssl_SetMode returns [ssl.SetMode element = null]
+parse_ssl_CheckMode returns [ssl.CheckMode element = null]
 @init{
 }
 :
 	a0 = 'the watch is in mode \"' {
 		if (element == null) {
-			element = ssl.SslFactory.eINSTANCE.createSetMode();
+			element = ssl.SslFactory.eINSTANCE.createCheckMode();
 			incompleteObjects.push(element);
 			// initialize boolean attributes
 		}
@@ -997,7 +1022,7 @@ parse_ssl_SetMode returns [ssl.SetMode element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 11);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 11);
 	}
 	
 	(
@@ -1007,7 +1032,7 @@ parse_ssl_SetMode returns [ssl.SetMode element = null]
 				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
 			}
 			if (element == null) {
-				element = ssl.SslFactory.eINSTANCE.createSetMode();
+				element = ssl.SslFactory.eINSTANCE.createCheckMode();
 				incompleteObjects.push(element);
 				// initialize boolean attributes
 			}
@@ -1015,14 +1040,14 @@ parse_ssl_SetMode returns [ssl.SetMode element = null]
 				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 				tokenResolver.setOptions(getOptions());
 				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.SET_MODE__MODE), result);
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_MODE__MODE), result);
 				Object resolvedObject = result.getResolvedToken();
 				if (resolvedObject == null) {
 					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
 				}
 				java.lang.String resolved = (java.lang.String)resolvedObject;
 				if (resolved != null) {
-					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.SET_MODE__MODE), resolved);
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_MODE__MODE), resolved);
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
@@ -1033,12 +1058,12 @@ parse_ssl_SetMode returns [ssl.SetMode element = null]
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 12);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 12);
 	}
 	
 	a2 = '\"' {
 		if (element == null) {
-			element = ssl.SslFactory.eINSTANCE.createSetMode();
+			element = ssl.SslFactory.eINSTANCE.createCheckMode();
 			incompleteObjects.push(element);
 			// initialize boolean attributes
 		}
@@ -1049,8 +1074,237 @@ parse_ssl_SetMode returns [ssl.SetMode element = null]
 	{
 		// expected elements (follow set)
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+	}
+	
+;
+
+parse_ssl_CheckLabel returns [ssl.CheckLabel element = null]
+@init{
+}
+:
+	a0 = 'the \"' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createCheckLabel();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6_0_0_0, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_15, 14);
+	}
+	
+	(
+		a1 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+			}
+			if (element == null) {
+				element = ssl.SslFactory.eINSTANCE.createCheckLabel();
+				incompleteObjects.push(element);
+				// initialize boolean attributes
+			}
+			if (a1 != null) {
+				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__LABEL_TYPE), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
+				}
+				ssl.LabelType resolved = (ssl.LabelType)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__LABEL_TYPE), resolved);
+					completedElement(resolved, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6_0_0_1, resolved);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_16, 15);
+	}
+	
+	a2 = '\" is showing \"' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createCheckLabel();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6_0_0_2, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_17, 16);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_18, 16);
+	}
+	
+	(
+		(
+			a3 = TEXT			
+			{
+				if (terminateParsing) {
+					throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+				}
+				if (element == null) {
+					element = ssl.SslFactory.eINSTANCE.createCheckLabel();
+					incompleteObjects.push(element);
+					// initialize boolean attributes
+				}
+				if (a3 != null) {
+					ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+					tokenResolver.setOptions(getOptions());
+					ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+					tokenResolver.resolve(a3.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__VALUE), result);
+					Object resolvedObject = result.getResolvedToken();
+					if (resolvedObject == null) {
+						addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a3).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a3).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a3).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a3).getStopIndex());
+					}
+					java.lang.String resolved = (java.lang.String)resolvedObject;
+					if (resolved != null) {
+						element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_LABEL__VALUE), resolved);
+						completedElement(resolved, false);
+					}
+					collectHiddenTokens(element);
+					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6_0_0_3, resolved);
+					copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
+				}
+			}
+		)
+		
+	)?	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_18, 17);
+	}
+	
+	a4 = '\"' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createCheckLabel();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6_0_0_4, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a4, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+	}
+	
+;
+
+parse_ssl_CheckTimePastOther returns [ssl.CheckTimePastOther element = null]
+@init{
+}
+:
+	(
+		a0 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+			}
+			if (element == null) {
+				element = ssl.SslFactory.eINSTANCE.createCheckTimePastOther();
+				incompleteObjects.push(element);
+				// initialize boolean attributes
+			}
+			if (a0 != null) {
+				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME), resolved);
+					completedElement(resolved, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_7_0_0_0, resolved);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_19, 19);
+	}
+	
+	a1 = ' is past ' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createCheckTimePastOther();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_7_0_0_1, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_20, 20);
+	}
+	
+	(
+		a2 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+			}
+			if (element == null) {
+				element = ssl.SslFactory.eINSTANCE.createCheckTimePastOther();
+				incompleteObjects.push(element);
+				// initialize boolean attributes
+			}
+			if (a2 != null) {
+				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME), resolved);
+					completedElement(resolved, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_7_0_0_2, resolved);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
 ;
@@ -1066,12 +1320,12 @@ parse_ssl_PressButton returns [ssl.PressButton element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 14);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_21, 22);
 	}
 	
 	(
@@ -1100,14 +1354,14 @@ parse_ssl_PressButton returns [ssl.PressButton element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 15);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_22, 23);
 	}
 	
 	a2 = ' button is pressed' {
@@ -1117,13 +1371,13 @@ parse_ssl_PressButton returns [ssl.PressButton element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_6_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 16, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 16, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 24, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 24, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
 ;
@@ -1139,12 +1393,12 @@ parse_ssl_ObserveMode returns [ssl.ObserveMode element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_7_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 17);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_23, 25);
 	}
 	
 	(
@@ -1173,14 +1427,14 @@ parse_ssl_ObserveMode returns [ssl.ObserveMode element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_7_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 18);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_24, 26);
 	}
 	
 	a2 = '\"' {
@@ -1190,36 +1444,39 @@ parse_ssl_ObserveMode returns [ssl.ObserveMode element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_7_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 19, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 19, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 19, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 19, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
 
-parse_ssl_ObserveBinding returns [ssl.ObserveBinding element = null]
+parse_ssl_ObserveButton returns [ssl.ObserveButton element = null]
 @init{
 }
 :
 	a0 = 'the ' {
 		if (element == null) {
-			element = ssl.SslFactory.eINSTANCE.createObserveBinding();
+			element = ssl.SslFactory.eINSTANCE.createObserveButton();
 			incompleteObjects.push(element);
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 20);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_25, 28);
 	}
 	
 	(
@@ -1229,7 +1486,7 @@ parse_ssl_ObserveBinding returns [ssl.ObserveBinding element = null]
 				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
 			}
 			if (element == null) {
-				element = ssl.SslFactory.eINSTANCE.createObserveBinding();
+				element = ssl.SslFactory.eINSTANCE.createObserveButton();
 				incompleteObjects.push(element);
 				// initialize boolean attributes
 			}
@@ -1237,40 +1494,40 @@ parse_ssl_ObserveBinding returns [ssl.ObserveBinding element = null]
 				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 				tokenResolver.setOptions(getOptions());
 				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__BUTTON), result);
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__BUTTON), result);
 				Object resolvedObject = result.getResolvedToken();
 				if (resolvedObject == null) {
 					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
 				}
 				java.lang.String resolved = (java.lang.String)resolvedObject;
 				if (resolved != null) {
-					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__BUTTON), resolved);
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__BUTTON), resolved);
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_15, 21);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_26, 29);
 	}
 	
-	a2 = ' button must be bound to \"' {
+	a2 = ' button must be called \"' {
 		if (element == null) {
-			element = ssl.SslFactory.eINSTANCE.createObserveBinding();
+			element = ssl.SslFactory.eINSTANCE.createObserveButton();
 			incompleteObjects.push(element);
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_16, 22);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_27, 30);
 	}
 	
 	(
@@ -1280,7 +1537,7 @@ parse_ssl_ObserveBinding returns [ssl.ObserveBinding element = null]
 				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
 			}
 			if (element == null) {
-				element = ssl.SslFactory.eINSTANCE.createObserveBinding();
+				element = ssl.SslFactory.eINSTANCE.createObserveButton();
 				incompleteObjects.push(element);
 				// initialize boolean attributes
 			}
@@ -1288,64 +1545,67 @@ parse_ssl_ObserveBinding returns [ssl.ObserveBinding element = null]
 				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 				tokenResolver.setOptions(getOptions());
 				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a3.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__NAME), result);
+				tokenResolver.resolve(a3.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__NAME), result);
 				Object resolvedObject = result.getResolvedToken();
 				if (resolvedObject == null) {
 					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a3).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a3).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a3).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a3).getStopIndex());
 				}
 				java.lang.String resolved = (java.lang.String)resolvedObject;
 				if (resolved != null) {
-					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BINDING__NAME), resolved);
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_BUTTON__NAME), resolved);
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_3, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_3, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_17, 23);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_28, 31);
 	}
 	
 	a4 = '\"' {
 		if (element == null) {
-			element = ssl.SslFactory.eINSTANCE.createObserveBinding();
+			element = ssl.SslFactory.eINSTANCE.createObserveButton();
 			incompleteObjects.push(element);
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_4, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_4, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a4, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 24, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 24, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 24, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 24, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
 
-parse_ssl_ObserveDisplay returns [ssl.ObserveDisplay element = null]
+parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null]
 @init{
 }
 :
-	a0 = 'the display must show \"' {
+	a0 = 'the \"' {
 		if (element == null) {
-			element = ssl.SslFactory.eINSTANCE.createObserveDisplay();
+			element = ssl.SslFactory.eINSTANCE.createObserveLabelValue();
 			incompleteObjects.push(element);
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_18, 25);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_29, 33);
 	}
 	
 	(
@@ -1355,7 +1615,7 @@ parse_ssl_ObserveDisplay returns [ssl.ObserveDisplay element = null]
 				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
 			}
 			if (element == null) {
-				element = ssl.SslFactory.eINSTANCE.createObserveDisplay();
+				element = ssl.SslFactory.eINSTANCE.createObserveLabelValue();
 				incompleteObjects.push(element);
 				// initialize boolean attributes
 			}
@@ -1363,50 +1623,349 @@ parse_ssl_ObserveDisplay returns [ssl.ObserveDisplay element = null]
 				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
 				tokenResolver.setOptions(getOptions());
 				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
-				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_DISPLAY__VALUE), result);
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__LABEL_TYPE), result);
 				Object resolvedObject = result.getResolvedToken();
 				if (resolvedObject == null) {
 					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
 				}
-				java.lang.String resolved = (java.lang.String)resolvedObject;
+				ssl.LabelType resolved = (ssl.LabelType)resolvedObject;
 				if (resolved != null) {
-					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_DISPLAY__VALUE), resolved);
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__LABEL_TYPE), resolved);
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_19, 26);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_30, 34);
 	}
 	
-	a2 = '\"' {
+	a2 = '\" must show \"' {
 		if (element == null) {
-			element = ssl.SslFactory.eINSTANCE.createObserveDisplay();
+			element = ssl.SslFactory.eINSTANCE.createObserveLabelValue();
 			incompleteObjects.push(element);
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_31, 35);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_32, 35);
+	}
+	
+	(
+		(
+			a3 = TEXT			
+			{
+				if (terminateParsing) {
+					throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+				}
+				if (element == null) {
+					element = ssl.SslFactory.eINSTANCE.createObserveLabelValue();
+					incompleteObjects.push(element);
+					// initialize boolean attributes
+				}
+				if (a3 != null) {
+					ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+					tokenResolver.setOptions(getOptions());
+					ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+					tokenResolver.resolve(a3.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__VALUE), result);
+					Object resolvedObject = result.getResolvedToken();
+					if (resolvedObject == null) {
+						addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a3).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a3).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a3).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a3).getStopIndex());
+					}
+					java.lang.String resolved = (java.lang.String)resolvedObject;
+					if (resolved != null) {
+						element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VALUE__VALUE), resolved);
+						completedElement(resolved, false);
+					}
+					collectHiddenTokens(element);
+					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_3, resolved);
+					copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
+				}
+			}
+		)
+		
+	)?	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_32, 36);
+	}
+	
+	a4 = '\"' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createObserveLabelValue();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_4, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a4, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+	}
+	
+;
+
+parse_ssl_ObserveLabelVariable returns [ssl.ObserveLabelVariable element = null]
+@init{
+}
+:
+	a0 = 'the \"' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createObserveLabelVariable();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_0, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_33, 38);
+	}
+	
+	(
+		a1 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+			}
+			if (element == null) {
+				element = ssl.SslFactory.eINSTANCE.createObserveLabelVariable();
+				incompleteObjects.push(element);
+				// initialize boolean attributes
+			}
+			if (a1 != null) {
+				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
+				}
+				ssl.LabelType resolved = (ssl.LabelType)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE), resolved);
+					completedElement(resolved, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_1, resolved);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_34, 39);
+	}
+	
+	a2 = '\" must show the ' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createObserveLabelVariable();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_2, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_35, 40);
+	}
+	
+	(
+		a3 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+			}
+			if (element == null) {
+				element = ssl.SslFactory.eINSTANCE.createObserveLabelVariable();
+				incompleteObjects.push(element);
+				// initialize boolean attributes
+			}
+			if (a3 != null) {
+				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a3.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a3).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a3).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a3).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a3).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME), resolved);
+					completedElement(resolved, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_3, resolved);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+	}
+	
+;
+
+parse_ssl_ObserveVariableChange returns [ssl.ObserveVariableChange element = null]
+@init{
+}
+:
+	(
+		a0 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+			}
+			if (element == null) {
+				element = ssl.SslFactory.eINSTANCE.createObserveVariableChange();
+				incompleteObjects.push(element);
+				// initialize boolean attributes
+			}
+			if (a0 != null) {
+				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__VARIABLE_NAME), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__VARIABLE_NAME), resolved);
+					completedElement(resolved, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_0, resolved);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_36, 42);
+	}
+	
+	a1 = ' must be incremented by 1 ' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createObserveVariableChange();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_1, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_37, 43);
+	}
+	
+	(
+		a2 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+			}
+			if (element == null) {
+				element = ssl.SslFactory.eINSTANCE.createObserveVariableChange();
+				incompleteObjects.push(element);
+				// initialize boolean attributes
+			}
+			if (a2 != null) {
+				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__UNIT), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStopIndex());
+				}
+				ssl.UnitOfTime resolved = (ssl.UnitOfTime)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.OBSERVE_VARIABLE_CHANGE__UNIT), resolved);
+					completedElement(resolved, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_2, resolved);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+	}
+	
+;
+
+parse_ssl_ObserveRing returns [ssl.ObserveRing element = null]
+@init{
+}
+:
+	a0 = 'the alarm must ring' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createObserveRing();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_0, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
 
 parse_ssl_Condition returns [ssl.Condition element = null]
 :
-	c0 = parse_ssl_SetMode{ element = c0; /* this is a subclass or primitive expression choice */ }
+	c0 = parse_ssl_CheckMode{ element = c0; /* this is a subclass or primitive expression choice */ }
+	|	c1 = parse_ssl_CheckLabel{ element = c1; /* this is a subclass or primitive expression choice */ }
+	|	c2 = parse_ssl_CheckTimePastOther{ element = c2; /* this is a subclass or primitive expression choice */ }
 	
 ;
 
@@ -1419,8 +1978,11 @@ parse_ssl_Action returns [ssl.Action element = null]
 parse_ssl_Observation returns [ssl.Observation element = null]
 :
 	c0 = parse_ssl_ObserveMode{ element = c0; /* this is a subclass or primitive expression choice */ }
-	|	c1 = parse_ssl_ObserveBinding{ element = c1; /* this is a subclass or primitive expression choice */ }
-	|	c2 = parse_ssl_ObserveDisplay{ element = c2; /* this is a subclass or primitive expression choice */ }
+	|	c1 = parse_ssl_ObserveButton{ element = c1; /* this is a subclass or primitive expression choice */ }
+	|	c2 = parse_ssl_ObserveLabelValue{ element = c2; /* this is a subclass or primitive expression choice */ }
+	|	c3 = parse_ssl_ObserveLabelVariable{ element = c3; /* this is a subclass or primitive expression choice */ }
+	|	c4 = parse_ssl_ObserveVariableChange{ element = c4; /* this is a subclass or primitive expression choice */ }
+	|	c5 = parse_ssl_ObserveRing{ element = c5; /* this is a subclass or primitive expression choice */ }
 	
 ;
 

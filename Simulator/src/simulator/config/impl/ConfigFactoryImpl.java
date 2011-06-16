@@ -7,6 +7,7 @@
 package simulator.config.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -61,13 +62,50 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ConfigPackage.CONFIGURATION: return createConfiguration();
+			case ConfigPackage.NUMBER_AND_STRING: return createNumberAndString();
 			case ConfigPackage.MODE: return createMode();
+			case ConfigPackage.BUTTON: return createButton();
 			case ConfigPackage.CHANGE_DISPLAY: return createChangeDisplay();
+			case ConfigPackage.CHANGE_INDICATOR: return createChangeIndicator();
+			case ConfigPackage.NEXT_MODE: return createNextMode();
 			case ConfigPackage.DISPLAY_BUTTON_BEHAVIOUR: return createDisplayButtonBehaviour();
-			case ConfigPackage.MODE_BUTTON_BEHAVIOUR: return createModeButtonBehaviour();
-			case ConfigPackage.ALARM_BUTTON_BEHAVIOUR: return createAlarmButtonBehaviour();
+			case ConfigPackage.EVALUATE_EXPRESSION: return createEvaluateExpression();
+			case ConfigPackage.EXPRESSION: return createExpression();
+			case ConfigPackage.INCREMENT_TIME_VARIABLE: return createIncrementTimeVariable();
+			case ConfigPackage.CONSTANT: return createConstant();
+			case ConfigPackage.VARIABLE: return createVariable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case ConfigPackage.UNIT_OF_TIME:
+				return createUnitOfTimeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case ConfigPackage.UNIT_OF_TIME:
+				return convertUnitOfTimeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -86,9 +124,29 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NumberAndString createNumberAndString() {
+		NumberAndStringImpl numberAndString = new NumberAndStringImpl();
+		return numberAndString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Mode createMode() {
 		ModeImpl mode = new ModeImpl();
 		return mode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Button createButton() {
+		ButtonImpl button = new ButtonImpl();
+		return button;
 	}
 
 	/**
@@ -106,6 +164,26 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ChangeIndicator createChangeIndicator() {
+		ChangeIndicatorImpl changeIndicator = new ChangeIndicatorImpl();
+		return changeIndicator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NextMode createNextMode() {
+		NextModeImpl nextMode = new NextModeImpl();
+		return nextMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DisplayButtonBehaviour createDisplayButtonBehaviour() {
 		DisplayButtonBehaviourImpl displayButtonBehaviour = new DisplayButtonBehaviourImpl();
 		return displayButtonBehaviour;
@@ -116,9 +194,9 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeButtonBehaviour createModeButtonBehaviour() {
-		ModeButtonBehaviourImpl modeButtonBehaviour = new ModeButtonBehaviourImpl();
-		return modeButtonBehaviour;
+	public EvaluateExpression createEvaluateExpression() {
+		EvaluateExpressionImpl evaluateExpression = new EvaluateExpressionImpl();
+		return evaluateExpression;
 	}
 
 	/**
@@ -126,9 +204,59 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AlarmButtonBehaviour createAlarmButtonBehaviour() {
-		AlarmButtonBehaviourImpl alarmButtonBehaviour = new AlarmButtonBehaviourImpl();
-		return alarmButtonBehaviour;
+	public Expression createExpression() {
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IncrementTimeVariable createIncrementTimeVariable() {
+		IncrementTimeVariableImpl incrementTimeVariable = new IncrementTimeVariableImpl();
+		return incrementTimeVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constant createConstant() {
+		ConstantImpl constant = new ConstantImpl();
+		return constant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable createVariable() {
+		VariableImpl variable = new VariableImpl();
+		return variable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnitOfTime createUnitOfTimeFromString(EDataType eDataType, String initialValue) {
+		UnitOfTime result = UnitOfTime.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUnitOfTimeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

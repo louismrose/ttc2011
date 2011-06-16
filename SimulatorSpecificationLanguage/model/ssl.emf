@@ -2,50 +2,86 @@
 package ssl;
 
 class Specification {
-   val Testcase[*] testcases;
+  val Testcase[*] testcases;
 }
 
 class Testcase {
-   val Given[1] given;
-   val When[0..1] when;
-   val Then[1] then;
+  val Given[1] given;
+  val When when;
+  val Then[1] then;
 }
 
 class Given {
-   val Condition[1..*] conditions;
+  val Condition[+] conditions;
 }
 
 class When {
-   val Action[1..*] actions;
+  val Action[+] actions;
 }
 
 class Then {
-   val Observation[1..*] observations;
+  val Observation[+] observations;
 }
 
-abstract class Condition {}
-
-class SetMode extends Condition {
-	attr String[1] mode;
+abstract class Condition {
 }
 
-abstract class Action {}
+class CheckTimePastOther extends Condition {
+    attr String[1] firstVariableName;
+    attr String[1] secondVariableName;
+}
+
+class CheckMode extends Condition {
+  attr String[1] mode;
+}
+
+class CheckLabel extends Condition {
+  attr LabelType[1] labelType;
+  attr String[0..1] value;
+}
+
+abstract class Action {
+}
 
 class PressButton extends Action {
-   attr String[1] button;
+  attr String[1] button;
 }
 
-abstract class Observation {}
+abstract class Observation {
+}
 
 class ObserveMode extends Observation {
-   attr String[1] mode;
+  attr String[1] mode;
 }
 
-class ObserveBinding extends Observation {
-   attr String[1] button;
-   attr String[1] name;
+class ObserveButton extends Observation {
+  attr String[1] button;
+  attr String[1] name;
 }
 
-class ObserveDisplay extends Observation {
-   attr String[1] value;
+class ObserveLabelValue extends Observation {
+  attr LabelType[1] labelType;
+  attr String value;
+}
+
+class ObserveLabelVariable extends Observation {
+  attr LabelType[1] labelType;
+  attr String[1] variableName;
+}
+
+class ObserveVariableChange extends Observation {
+  attr String[1] variableName;
+  attr UnitOfTime[1] unit;
+}
+
+class ObserveRing extends Observation {}
+
+enum LabelType {
+  display = 0;
+  indicator = 1;
+}
+
+enum UnitOfTime {
+   hour = 0;
+   minute = 1;
 }

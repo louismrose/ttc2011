@@ -6,19 +6,25 @@
 import org.antlr.runtime3_2_0.*;
 
 public class SslLexer extends Lexer {
-    public static final int T__16=16;
-    public static final int T__15=15;
-    public static final int T__12=12;
-    public static final int T__11=11;
-    public static final int T__14=14;
-    public static final int T__13=13;
-    public static final int T__10=10;
+    public static final int T__22=22;
+    public static final int T__21=21;
+    public static final int T__20=20;
     public static final int WHITESPACE=5;
     public static final int TEXT=4;
     public static final int EOF=-1;
     public static final int T__9=9;
     public static final int T__8=8;
     public static final int T__7=7;
+    public static final int T__19=19;
+    public static final int T__16=16;
+    public static final int T__15=15;
+    public static final int T__18=18;
+    public static final int T__17=17;
+    public static final int T__12=12;
+    public static final int T__11=11;
+    public static final int T__14=14;
+    public static final int T__13=13;
+    public static final int T__10=10;
     public static final int LINEBREAK=6;
 
     	public java.util.List<org.antlr.runtime3_2_0.RecognitionException> lexerExceptions  = new java.util.ArrayList<org.antlr.runtime3_2_0.RecognitionException>();
@@ -48,10 +54,10 @@ public class SslLexer extends Lexer {
         try {
             int _type = T__7;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:16:6: ( 'given' )
-            // Ssl.g:16:8: 'given'
+            // Ssl.g:16:6: ( 'Given' )
+            // Ssl.g:16:8: 'Given'
             {
-            match("given"); 
+            match("Given"); 
 
 
             }
@@ -69,10 +75,10 @@ public class SslLexer extends Lexer {
         try {
             int _type = T__8;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:17:6: ( 'when' )
-            // Ssl.g:17:8: 'when'
+            // Ssl.g:17:6: ( 'When' )
+            // Ssl.g:17:8: 'When'
             {
-            match("when"); 
+            match("When"); 
 
 
             }
@@ -90,10 +96,10 @@ public class SslLexer extends Lexer {
         try {
             int _type = T__9;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:18:6: ( 'then' )
-            // Ssl.g:18:8: 'then'
+            // Ssl.g:18:6: ( 'Then' )
+            // Ssl.g:18:8: 'Then'
             {
-            match("then"); 
+            match("Then"); 
 
 
             }
@@ -152,10 +158,10 @@ public class SslLexer extends Lexer {
         try {
             int _type = T__12;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:21:7: ( 'the ' )
-            // Ssl.g:21:9: 'the '
+            // Ssl.g:21:7: ( 'the \\\"' )
+            // Ssl.g:21:9: 'the \\\"'
             {
-            match("the "); 
+            match("the \""); 
 
 
             }
@@ -173,10 +179,10 @@ public class SslLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:22:7: ( ' button is pressed' )
-            // Ssl.g:22:9: ' button is pressed'
+            // Ssl.g:22:7: ( '\\\" is showing \\\"' )
+            // Ssl.g:22:9: '\\\" is showing \\\"'
             {
-            match(" button is pressed"); 
+            match("\" is showing \""); 
 
 
             }
@@ -194,10 +200,10 @@ public class SslLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:23:7: ( 'the watch must be in mode \\\"' )
-            // Ssl.g:23:9: 'the watch must be in mode \\\"'
+            // Ssl.g:23:7: ( ' is past ' )
+            // Ssl.g:23:9: ' is past '
             {
-            match("the watch must be in mode \""); 
+            match(" is past "); 
 
 
             }
@@ -215,10 +221,10 @@ public class SslLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:24:7: ( ' button must be bound to \\\"' )
-            // Ssl.g:24:9: ' button must be bound to \\\"'
+            // Ssl.g:24:7: ( 'the ' )
+            // Ssl.g:24:9: 'the '
             {
-            match(" button must be bound to \""); 
+            match("the "); 
 
 
             }
@@ -236,10 +242,10 @@ public class SslLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:25:7: ( 'the display must show \\\"' )
-            // Ssl.g:25:9: 'the display must show \\\"'
+            // Ssl.g:25:7: ( ' button is pressed' )
+            // Ssl.g:25:9: ' button is pressed'
             {
-            match("the display must show \""); 
+            match(" button is pressed"); 
 
 
             }
@@ -252,18 +258,144 @@ public class SslLexer extends Lexer {
     }
     // $ANTLR end "T__16"
 
+    // $ANTLR start "T__17"
+    public final void mT__17() throws RecognitionException {
+        try {
+            int _type = T__17;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Ssl.g:26:7: ( 'the watch must be in mode \\\"' )
+            // Ssl.g:26:9: 'the watch must be in mode \\\"'
+            {
+            match("the watch must be in mode \""); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__17"
+
+    // $ANTLR start "T__18"
+    public final void mT__18() throws RecognitionException {
+        try {
+            int _type = T__18;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Ssl.g:27:7: ( ' button must be called \\\"' )
+            // Ssl.g:27:9: ' button must be called \\\"'
+            {
+            match(" button must be called \""); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__18"
+
+    // $ANTLR start "T__19"
+    public final void mT__19() throws RecognitionException {
+        try {
+            int _type = T__19;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Ssl.g:28:7: ( '\\\" must show \\\"' )
+            // Ssl.g:28:9: '\\\" must show \\\"'
+            {
+            match("\" must show \""); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__19"
+
+    // $ANTLR start "T__20"
+    public final void mT__20() throws RecognitionException {
+        try {
+            int _type = T__20;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Ssl.g:29:7: ( '\\\" must show the ' )
+            // Ssl.g:29:9: '\\\" must show the '
+            {
+            match("\" must show the "); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__20"
+
+    // $ANTLR start "T__21"
+    public final void mT__21() throws RecognitionException {
+        try {
+            int _type = T__21;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Ssl.g:30:7: ( ' must be incremented by 1 ' )
+            // Ssl.g:30:9: ' must be incremented by 1 '
+            {
+            match(" must be incremented by 1 "); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__21"
+
+    // $ANTLR start "T__22"
+    public final void mT__22() throws RecognitionException {
+        try {
+            int _type = T__22;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // Ssl.g:31:7: ( 'the alarm must ring' )
+            // Ssl.g:31:9: 'the alarm must ring'
+            {
+            match("the alarm must ring"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__22"
+
     // $ANTLR start "TEXT"
     public final void mTEXT() throws RecognitionException {
         try {
             int _type = TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:1427:5: ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ ) )
-            // Ssl.g:1428:2: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ )
+            // Ssl.g:1989:5: ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ ) )
+            // Ssl.g:1990:2: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ )
             {
-            // Ssl.g:1428:2: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ )
-            // Ssl.g:1428:3: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+
+            // Ssl.g:1990:2: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+ )
+            // Ssl.g:1990:3: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+
             {
-            // Ssl.g:1428:3: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+
+            // Ssl.g:1990:3: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '-' )+
             int cnt1=0;
             loop1:
             do {
@@ -320,11 +452,11 @@ public class SslLexer extends Lexer {
         try {
             int _type = WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:1430:11: ( ( ( ' ' | '\\t' | '\\f' ) ) )
-            // Ssl.g:1431:2: ( ( ' ' | '\\t' | '\\f' ) )
+            // Ssl.g:1992:11: ( ( ( ' ' | '\\t' | '\\f' ) ) )
+            // Ssl.g:1993:2: ( ( ' ' | '\\t' | '\\f' ) )
             {
-            // Ssl.g:1431:2: ( ( ' ' | '\\t' | '\\f' ) )
-            // Ssl.g:1431:3: ( ' ' | '\\t' | '\\f' )
+            // Ssl.g:1993:2: ( ( ' ' | '\\t' | '\\f' ) )
+            // Ssl.g:1993:3: ( ' ' | '\\t' | '\\f' )
             {
             if ( input.LA(1)=='\t'||input.LA(1)=='\f'||input.LA(1)==' ' ) {
                 input.consume();
@@ -355,13 +487,13 @@ public class SslLexer extends Lexer {
         try {
             int _type = LINEBREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Ssl.g:1434:10: ( ( ( '\\r\\n' | '\\r' | '\\n' ) ) )
-            // Ssl.g:1435:2: ( ( '\\r\\n' | '\\r' | '\\n' ) )
+            // Ssl.g:1996:10: ( ( ( '\\r\\n' | '\\r' | '\\n' ) ) )
+            // Ssl.g:1997:2: ( ( '\\r\\n' | '\\r' | '\\n' ) )
             {
-            // Ssl.g:1435:2: ( ( '\\r\\n' | '\\r' | '\\n' ) )
-            // Ssl.g:1435:3: ( '\\r\\n' | '\\r' | '\\n' )
+            // Ssl.g:1997:2: ( ( '\\r\\n' | '\\r' | '\\n' ) )
+            // Ssl.g:1997:3: ( '\\r\\n' | '\\r' | '\\n' )
             {
-            // Ssl.g:1435:3: ( '\\r\\n' | '\\r' | '\\n' )
+            // Ssl.g:1997:3: ( '\\r\\n' | '\\r' | '\\n' )
             int alt2=3;
             int LA2_0 = input.LA(1);
 
@@ -385,7 +517,7 @@ public class SslLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // Ssl.g:1435:4: '\\r\\n'
+                    // Ssl.g:1997:4: '\\r\\n'
                     {
                     match("\r\n"); 
 
@@ -393,14 +525,14 @@ public class SslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Ssl.g:1435:13: '\\r'
+                    // Ssl.g:1997:13: '\\r'
                     {
                     match('\r'); 
 
                     }
                     break;
                 case 3 :
-                    // Ssl.g:1435:20: '\\n'
+                    // Ssl.g:1997:20: '\\n'
                     {
                     match('\n'); 
 
@@ -425,8 +557,8 @@ public class SslLexer extends Lexer {
     // $ANTLR end "LINEBREAK"
 
     public void mTokens() throws RecognitionException {
-        // Ssl.g:1:8: ( T__7 | T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | TEXT | WHITESPACE | LINEBREAK )
-        int alt3=13;
+        // Ssl.g:1:8: ( T__7 | T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | TEXT | WHITESPACE | LINEBREAK )
+        int alt3=19;
         alt3 = dfa3.predict(input);
         switch (alt3) {
             case 1 :
@@ -500,21 +632,63 @@ public class SslLexer extends Lexer {
                 }
                 break;
             case 11 :
-                // Ssl.g:1:67: TEXT
+                // Ssl.g:1:67: T__17
+                {
+                mT__17(); 
+
+                }
+                break;
+            case 12 :
+                // Ssl.g:1:73: T__18
+                {
+                mT__18(); 
+
+                }
+                break;
+            case 13 :
+                // Ssl.g:1:79: T__19
+                {
+                mT__19(); 
+
+                }
+                break;
+            case 14 :
+                // Ssl.g:1:85: T__20
+                {
+                mT__20(); 
+
+                }
+                break;
+            case 15 :
+                // Ssl.g:1:91: T__21
+                {
+                mT__21(); 
+
+                }
+                break;
+            case 16 :
+                // Ssl.g:1:97: T__22
+                {
+                mT__22(); 
+
+                }
+                break;
+            case 17 :
+                // Ssl.g:1:103: TEXT
                 {
                 mTEXT(); 
 
                 }
                 break;
-            case 12 :
-                // Ssl.g:1:72: WHITESPACE
+            case 18 :
+                // Ssl.g:1:108: WHITESPACE
                 {
                 mWHITESPACE(); 
 
                 }
                 break;
-            case 13 :
-                // Ssl.g:1:83: LINEBREAK
+            case 19 :
+                // Ssl.g:1:119: LINEBREAK
                 {
                 mLINEBREAK(); 
 
@@ -528,68 +702,92 @@ public class SslLexer extends Lexer {
 
     protected DFA3 dfa3 = new DFA3(this);
     static final String DFA3_eotS =
-        "\1\uffff\3\6\1\uffff\1\7\3\uffff\3\6\1\uffff\3\6\1\uffff\1\6\1\27"+
-        "\1\30\1\33\1\uffff\1\35\23\uffff";
+        "\1\uffff\4\7\1\17\1\10\3\uffff\4\7\5\uffff\4\7\3\uffff\1\7\1\41"+
+        "\1\42\1\46\2\uffff\1\51\36\uffff";
     static final String DFA3_eofS =
-        "\52\uffff";
+        "\77\uffff";
     static final String DFA3_minS =
-        "\1\11\1\151\2\150\1\uffff\1\142\3\uffff\1\166\2\145\1\165\1\145"+
-        "\1\156\1\40\1\164\1\156\2\55\1\144\1\164\1\55\2\uffff\1\141\2\uffff"+
-        "\1\157\1\uffff\1\164\1\156\1\143\1\40\1\150\1\151\1\40\2\uffff\1"+
-        "\151\2\uffff";
+        "\1\11\1\151\3\150\1\40\1\142\3\uffff\1\166\3\145\1\151\2\uffff\1"+
+        "\165\1\uffff\1\145\2\156\1\40\1\uffff\1\165\1\164\1\156\2\55\1\42"+
+        "\1\163\1\164\1\55\2\uffff\1\141\3\uffff\1\164\1\157\1\uffff\1\164"+
+        "\1\40\1\156\1\143\1\163\1\40\2\150\1\151\1\40\1\157\2\uffff\1\151"+
+        "\1\167\2\uffff\1\40\1\42\2\uffff";
     static final String DFA3_maxS =
-        "\1\172\1\151\2\150\1\uffff\1\142\3\uffff\1\166\2\145\1\165\1\145"+
-        "\2\156\1\164\1\156\2\172\1\167\1\164\1\172\2\uffff\1\141\2\uffff"+
-        "\1\157\1\uffff\1\164\1\156\1\143\1\40\1\150\1\155\1\40\2\uffff\1"+
-        "\155\2\uffff";
+        "\1\172\1\151\3\150\1\40\1\155\3\uffff\1\166\3\145\1\155\2\uffff"+
+        "\1\165\1\uffff\1\145\2\156\1\40\1\uffff\1\165\1\164\1\156\2\172"+
+        "\1\167\1\163\1\164\1\172\2\uffff\1\141\3\uffff\1\164\1\157\1\uffff"+
+        "\1\164\1\40\1\156\1\143\1\163\1\40\2\150\1\155\1\40\1\157\2\uffff"+
+        "\1\155\1\167\2\uffff\1\40\1\164\2\uffff";
     static final String DFA3_acceptS =
-        "\4\uffff\1\5\1\uffff\1\13\1\14\1\15\16\uffff\1\2\1\3\1\uffff\1\12"+
-        "\1\6\1\uffff\1\1\7\uffff\1\7\1\11\1\uffff\1\4\1\10";
+        "\7\uffff\1\21\1\22\1\23\5\uffff\1\5\1\10\1\uffff\1\17\4\uffff\1"+
+        "\7\11\uffff\1\2\1\3\1\uffff\1\6\1\20\1\11\2\uffff\1\1\13\uffff\1"+
+        "\12\1\14\2\uffff\1\4\1\13\2\uffff\1\15\1\16";
     static final String DFA3_specialS =
-        "\52\uffff}>";
+        "\77\uffff}>";
     static final String[] DFA3_transitionS = {
-            "\1\7\1\10\1\uffff\1\7\1\10\22\uffff\1\5\1\uffff\1\4\12\uffff"+
-            "\1\6\2\uffff\12\6\7\uffff\32\6\4\uffff\1\6\1\uffff\6\6\1\1\14"+
-            "\6\1\3\2\6\1\2\3\6",
-            "\1\11",
+            "\1\10\1\11\1\uffff\1\10\1\11\22\uffff\1\6\1\uffff\1\5\12\uffff"+
+            "\1\7\2\uffff\12\7\7\uffff\6\7\1\1\14\7\1\3\2\7\1\2\3\7\4\uffff"+
+            "\1\7\1\uffff\23\7\1\4\6\7",
             "\1\12",
             "\1\13",
-            "",
             "\1\14",
-            "",
-            "",
-            "",
             "\1\15",
             "\1\16",
-            "\1\17",
-            "\1\20",
-            "\1\21",
-            "\1\22",
-            "\1\24\115\uffff\1\23",
+            "\1\21\6\uffff\1\20\3\uffff\1\22",
+            "",
+            "",
+            "",
+            "\1\23",
+            "\1\24",
             "\1\25",
             "\1\26",
-            "\1\6\2\uffff\12\6\7\uffff\32\6\4\uffff\1\6\1\uffff\32\6",
-            "\1\6\2\uffff\12\6\7\uffff\32\6\4\uffff\1\6\1\uffff\32\6",
-            "\1\32\22\uffff\1\31",
-            "\1\34",
-            "\1\6\2\uffff\12\6\7\uffff\32\6\4\uffff\1\6\1\uffff\32\6",
+            "\1\27\3\uffff\1\30",
             "",
+            "",
+            "\1\31",
+            "",
+            "\1\32",
+            "\1\33",
+            "\1\34",
+            "\1\35",
             "",
             "\1\36",
-            "",
-            "",
             "\1\37",
-            "",
             "\1\40",
-            "\1\41",
-            "\1\42",
-            "\1\43",
-            "\1\44",
-            "\1\45\3\uffff\1\46",
+            "\1\7\2\uffff\12\7\7\uffff\32\7\4\uffff\1\7\1\uffff\32\7",
+            "\1\7\2\uffff\12\7\7\uffff\32\7\4\uffff\1\7\1\uffff\32\7",
+            "\1\44\76\uffff\1\45\25\uffff\1\43",
             "\1\47",
+            "\1\50",
+            "\1\7\2\uffff\12\7\7\uffff\32\7\4\uffff\1\7\1\uffff\32\7",
             "",
             "",
-            "\1\50\3\uffff\1\51",
+            "\1\52",
+            "",
+            "",
+            "",
+            "\1\53",
+            "\1\54",
+            "",
+            "\1\55",
+            "\1\56",
+            "\1\57",
+            "\1\60",
+            "\1\61",
+            "\1\62",
+            "\1\63",
+            "\1\64",
+            "\1\65\3\uffff\1\66",
+            "\1\67",
+            "\1\70",
+            "",
+            "",
+            "\1\71\3\uffff\1\72",
+            "\1\73",
+            "",
+            "",
+            "\1\74",
+            "\1\75\121\uffff\1\76",
             "",
             ""
     };
@@ -624,7 +822,7 @@ public class SslLexer extends Lexer {
             this.transition = DFA3_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__7 | T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | TEXT | WHITESPACE | LINEBREAK );";
+            return "1:1: Tokens : ( T__7 | T__8 | T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | TEXT | WHITESPACE | LINEBREAK );";
         }
     }
  

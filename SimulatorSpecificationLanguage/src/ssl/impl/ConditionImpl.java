@@ -24,22 +24,22 @@ import ssl.SslPackage;
  */
 public abstract class ConditionImpl extends EObjectImpl implements Condition {
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ConditionImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return SslPackage.Literals.CONDITION;
-	}
+    return SslPackage.Literals.CONDITION;
+  }
 
 } //ConditionImpl

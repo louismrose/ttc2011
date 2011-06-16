@@ -19,7 +19,7 @@ public abstract class AbstractServlet extends HttpServlet {
 
 	protected Watch getOrCreateWatch(HttpSession session) {
 		if (session.getAttribute("watch") == null) {
-			session.setAttribute("watch", new Watch());
+			session.setAttribute("watch", Watch.createDefaultWatch());
 		}
 		
 		return (Watch)session.getAttribute("watch");

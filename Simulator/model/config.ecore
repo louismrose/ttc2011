@@ -7,19 +7,56 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="modes" upperBound="-1"
         eType="#//Mode" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberAndString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entryActions" upperBound="-1"
-        eType="#//ModeEntryAction" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buttonBehaviours" upperBound="-1"
-        eType="#//ButtonBehaviour" containment="true"/>
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buttons" upperBound="-1"
+        eType="#//Button" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//Variable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
+        eType="#//Constant" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModeEntryAction" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ChangeDisplay" eSuperTypes="#//ModeEntryAction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Button">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" lowerBound="1"
+        eType="#//Action" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ButtonBehaviour" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DisplayButtonBehaviour" eSuperTypes="#//ButtonBehaviour"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ModeButtonBehaviour" eSuperTypes="#//ButtonBehaviour"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AlarmButtonBehaviour" eSuperTypes="#//ButtonBehaviour"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeDisplay" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newValue" lowerBound="1"
+        eType="#//Displayable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeIndicator" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newValue" lowerBound="1"
+        eType="#//Displayable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NextMode" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayButtonBehaviour" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EvaluateExpression" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IncrementTimeVariable" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
+        eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" lowerBound="1" eType="#//UnitOfTime"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Displayable" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//Displayable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Displayable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UnitOfTime">
+    <eLiterals name="hour"/>
+    <eLiterals name="minute" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

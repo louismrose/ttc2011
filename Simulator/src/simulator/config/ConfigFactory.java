@@ -35,6 +35,15 @@ public interface ConfigFactory extends EFactory {
 	Configuration createConfiguration();
 
 	/**
+	 * Returns a new object of class '<em>Number And String</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number And String</em>'.
+	 * @generated
+	 */
+	NumberAndString createNumberAndString();
+
+	/**
 	 * Returns a new object of class '<em>Mode</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,6 +51,15 @@ public interface ConfigFactory extends EFactory {
 	 * @generated
 	 */
 	Mode createMode();
+
+	/**
+	 * Returns a new object of class '<em>Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Button</em>'.
+	 * @generated
+	 */
+	Button createButton();
 
 	/**
 	 * Returns a new object of class '<em>Change Display</em>'.
@@ -53,6 +71,24 @@ public interface ConfigFactory extends EFactory {
 	ChangeDisplay createChangeDisplay();
 
 	/**
+	 * Returns a new object of class '<em>Change Indicator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Change Indicator</em>'.
+	 * @generated
+	 */
+	ChangeIndicator createChangeIndicator();
+
+	/**
+	 * Returns a new object of class '<em>Next Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Next Mode</em>'.
+	 * @generated
+	 */
+	NextMode createNextMode();
+
+	/**
 	 * Returns a new object of class '<em>Display Button Behaviour</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,22 +98,49 @@ public interface ConfigFactory extends EFactory {
 	DisplayButtonBehaviour createDisplayButtonBehaviour();
 
 	/**
-	 * Returns a new object of class '<em>Mode Button Behaviour</em>'.
+	 * Returns a new object of class '<em>Evaluate Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mode Button Behaviour</em>'.
+	 * @return a new object of class '<em>Evaluate Expression</em>'.
 	 * @generated
 	 */
-	ModeButtonBehaviour createModeButtonBehaviour();
+	EvaluateExpression createEvaluateExpression();
 
 	/**
-	 * Returns a new object of class '<em>Alarm Button Behaviour</em>'.
+	 * Returns a new object of class '<em>Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alarm Button Behaviour</em>'.
+	 * @return a new object of class '<em>Expression</em>'.
 	 * @generated
 	 */
-	AlarmButtonBehaviour createAlarmButtonBehaviour();
+	Expression createExpression();
+
+	/**
+	 * Returns a new object of class '<em>Increment Time Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Increment Time Variable</em>'.
+	 * @generated
+	 */
+	IncrementTimeVariable createIncrementTimeVariable();
+
+	/**
+	 * Returns a new object of class '<em>Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constant</em>'.
+	 * @generated
+	 */
+	Constant createConstant();
+
+	/**
+	 * Returns a new object of class '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable</em>'.
+	 * @generated
+	 */
+	Variable createVariable();
 
 	/**
 	 * Returns the package supported by this factory.

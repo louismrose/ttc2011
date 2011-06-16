@@ -1,6 +1,14 @@
+Done:
 * Alarm should go off
 * Button for changing the display type (e.g. 24 vs 12 hour)
 
+Refactorings:
+- Continue to restructure such that the execution of the watch is separate from the data model (to avoid polluting the EMF model with operations)
+-- Configuration should be loaded from built-in XMI on first request (which hits watch.jsp)
+-- watch.jsp should be decoupled from Watch, and instead should grab data from SimulationState
+-- reinstate tracing
+
+Other functions?
 - Stopwatch mode should change the function of each button
 - Set alarm time?
 - Timer?
@@ -8,3 +16,4 @@
 - Date?
 
 - Other simulation controls: whatever is needed when building the reference implementation
+

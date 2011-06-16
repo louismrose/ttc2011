@@ -39,118 +39,124 @@ import ssl.Then;
  */
 public class ThenImpl extends EObjectImpl implements Then {
 	/**
-	 * The cached value of the '{@link #getObservations() <em>Observations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getObservations() <em>Observations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getObservations()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getObservations()
+   * @generated
+   * @ordered
+   */
 	protected EList<Observation> observations;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ThenImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return SslPackage.Literals.THEN;
-	}
+    return SslPackage.Literals.THEN;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public EList<Observation> getObservations() {
-		if (observations == null) {
-			observations = new EObjectContainmentEList<Observation>(Observation.class, this, SslPackage.THEN__OBSERVATIONS);
-		}
-		return observations;
-	}
+    if (observations == null)
+    {
+      observations = new EObjectContainmentEList<Observation>(Observation.class, this, SslPackage.THEN__OBSERVATIONS);
+    }
+    return observations;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SslPackage.THEN__OBSERVATIONS:
-				return ((InternalEList<?>)getObservations()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case SslPackage.THEN__OBSERVATIONS:
+        return ((InternalEList<?>)getObservations()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SslPackage.THEN__OBSERVATIONS:
-				return getObservations();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case SslPackage.THEN__OBSERVATIONS:
+        return getObservations();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SslPackage.THEN__OBSERVATIONS:
-				getObservations().clear();
-				getObservations().addAll((Collection<? extends Observation>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case SslPackage.THEN__OBSERVATIONS:
+        getObservations().clear();
+        getObservations().addAll((Collection<? extends Observation>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SslPackage.THEN__OBSERVATIONS:
-				getObservations().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case SslPackage.THEN__OBSERVATIONS:
+        getObservations().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SslPackage.THEN__OBSERVATIONS:
-				return observations != null && !observations.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case SslPackage.THEN__OBSERVATIONS:
+        return observations != null && !observations.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
 } //ThenImpl

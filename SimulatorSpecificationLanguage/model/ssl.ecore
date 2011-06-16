@@ -27,8 +27,19 @@
         upperBound="-1" eType="#//Observation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SetMode" eSuperTypes="#//Condition">
+  <eClassifiers xsi:type="ecore:EClass" name="CheckTimePastOther" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstVariableName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="secondVariableName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckMode" eSuperTypes="#//Condition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckLabel" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelType" lowerBound="1"
+        eType="#//LabelType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="PressButton" eSuperTypes="#//Action">
@@ -39,12 +50,34 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObserveMode" eSuperTypes="#//Observation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObserveBinding" eSuperTypes="#//Observation">
+  <eClassifiers xsi:type="ecore:EClass" name="ObserveButton" eSuperTypes="#//Observation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="button" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObserveDisplay" eSuperTypes="#//Observation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObserveLabelValue" eSuperTypes="#//Observation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelType" lowerBound="1"
+        eType="#//LabelType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObserveLabelVariable" eSuperTypes="#//Observation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelType" lowerBound="1"
+        eType="#//LabelType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObserveVariableChange" eSuperTypes="#//Observation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" lowerBound="1" eType="#//UnitOfTime"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObserveRing" eSuperTypes="#//Observation"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="LabelType">
+    <eLiterals name="display"/>
+    <eLiterals name="indicator" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UnitOfTime">
+    <eLiterals name="hour"/>
+    <eLiterals name="minute" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -25,6 +25,12 @@ import simulator.util.EmfUtil;
 
 public class FileBasedWatchFactory extends WatchFactory {
 	
+	public Configuration createConfiguration() {
+		final Resource configResource = EmfUtil.createResourceSet(ConfigPackage.eINSTANCE).getResource(URI.createFileURI(getFile("Configuration.xmi", ControlsServlet.class).getAbsolutePath()), true);
+		
+		return (Configuration)configResource.getContents().get(0);
+	}
+	
 	public Watch createWatch() {
 		final Resource configResource = EmfUtil.createResourceSet(ConfigPackage.eINSTANCE).getResource(URI.createFileURI(getFile("Configuration.xmi", ControlsServlet.class).getAbsolutePath()), true);
 		

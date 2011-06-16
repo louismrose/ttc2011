@@ -6,6 +6,7 @@ OPTIONS {
 	resourcePluginID   = "SimulatorSpecificationLanguage.resource";
 	resourceUIPluginID = "SimulatorSpecificationLanguage.resource.ui";
 	reloadGeneratorModel = "true";
+	generateCodeFromGeneratorModel = "true";
 }
 
 RULES {
@@ -13,17 +14,20 @@ RULES {
 	
 	Testcase ::= given when? then;
 	
-	Given ::= "given" conditions+;
+	Given ::= "Given" conditions+;
 	
-	When ::= "when" actions+;
+	When ::= "When" actions+;
 	
-	Then ::= "then" observations+;
+	Then ::= "Then" observations+;
 	
 	
 	// Conditions
 	
-	SetMode ::= "the watch is in mode \"" mode[TEXT] "\"";
+	CheckMode ::= "the watch is in mode \"" mode[TEXT] "\"";
 	
+	CheckLabel ::= "the \"" labelType[TEXT] "\" is showing \"" value[TEXT]? "\"";
+	
+	CheckTimePastOther ::= firstVariableName[TEXT] " is past " secondVariableName[TEXT];
 	
 	// Actions
 	
@@ -34,7 +38,13 @@ RULES {
 	
 	ObserveMode ::= "the watch must be in mode \"" mode[TEXT] "\"";
 	
-	ObserveBinding ::= "the " button[TEXT] " button must be bound to \"" name[TEXT] "\"";
+	ObserveButton ::= "the " button[TEXT] " button must be called \"" name[TEXT] "\"";
 	
-	ObserveDisplay ::= "the display must show \"" value[TEXT] "\"";
+	ObserveLabelValue ::= "the \"" labelType[TEXT] "\" must show \"" value[TEXT]? "\"";
+	
+	ObserveLabelVariable ::= "the \"" labelType[TEXT] "\" must show the " variableName[TEXT];
+	
+	ObserveVariableChange ::= variableName[TEXT] " must be incremented by 1 " unit[TEXT];
+	
+	ObserveRing ::= "the alarm must ring";
 }

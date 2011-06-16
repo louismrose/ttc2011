@@ -15,7 +15,7 @@ package simulator.config;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link simulator.config.ChangeDisplay#getText <em>Text</em>}</li>
+ *   <li>{@link simulator.config.ChangeDisplay#getNewValue <em>New Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,31 +23,31 @@ package simulator.config;
  * @model
  * @generated
  */
-public interface ChangeDisplay extends ModeEntryAction {
+public interface ChangeDisplay extends Action {
 	/**
-	 * Returns the value of the '<em><b>Text</b></em>' attribute.
+	 * Returns the value of the '<em><b>New Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
+	 * If the meaning of the '<em>New Value</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text</em>' attribute.
-	 * @see #setText(String)
-	 * @see simulator.config.ConfigPackage#getChangeDisplay_Text()
-	 * @model
+	 * @return the value of the '<em>New Value</em>' reference.
+	 * @see #setNewValue(Displayable)
+	 * @see simulator.config.ConfigPackage#getChangeDisplay_NewValue()
+	 * @model required="true"
 	 * @generated
 	 */
-	String getText();
+	Displayable getNewValue();
 
 	/**
-	 * Sets the value of the '{@link simulator.config.ChangeDisplay#getText <em>Text</em>}' attribute.
+	 * Sets the value of the '{@link simulator.config.ChangeDisplay#getNewValue <em>New Value</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Text</em>' attribute.
-	 * @see #getText()
+	 * @param value the new value of the '<em>New Value</em>' reference.
+	 * @see #getNewValue()
 	 * @generated
 	 */
-	void setText(String value);
+	void setNewValue(Displayable value);
 
 } // ChangeDisplay
