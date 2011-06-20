@@ -12,5 +12,7 @@ Export-Package: simulator.trace,
  simulator.trace.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.xmi
+ org.eclipse.emf.ecore.xmi,
+ org.junit4;bundle-version="4.8.1",
+ org.mockito_1.8.4;bundle-version="1.8.4"
 Bundle-ActivationPolicy: lazy

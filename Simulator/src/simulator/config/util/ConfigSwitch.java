@@ -117,9 +117,17 @@ public class ConfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ConfigPackage.CHANGE_OUTPUT_ACTION: {
+				ChangeOutputAction changeOutputAction = (ChangeOutputAction)theEObject;
+				T result = caseChangeOutputAction(changeOutputAction);
+				if (result == null) result = caseAction(changeOutputAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ConfigPackage.CHANGE_DISPLAY: {
 				ChangeDisplay changeDisplay = (ChangeDisplay)theEObject;
 				T result = caseChangeDisplay(changeDisplay);
+				if (result == null) result = caseChangeOutputAction(changeDisplay);
 				if (result == null) result = caseAction(changeDisplay);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -127,6 +135,7 @@ public class ConfigSwitch<T> {
 			case ConfigPackage.CHANGE_INDICATOR: {
 				ChangeIndicator changeIndicator = (ChangeIndicator)theEObject;
 				T result = caseChangeIndicator(changeIndicator);
+				if (result == null) result = caseChangeOutputAction(changeIndicator);
 				if (result == null) result = caseAction(changeIndicator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -261,6 +270,21 @@ public class ConfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Change Output Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Change Output Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChangeOutputAction(ChangeOutputAction object) {
 		return null;
 	}
 

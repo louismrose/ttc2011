@@ -92,6 +92,10 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 				return createActionAdapter();
 			}
 			@Override
+			public Adapter caseChangeOutputAction(ChangeOutputAction object) {
+				return createChangeOutputActionAdapter();
+			}
+			@Override
 			public Adapter caseChangeDisplay(ChangeDisplay object) {
 				return createChangeDisplayAdapter();
 			}
@@ -218,6 +222,20 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.ChangeOutputAction <em>Change Output Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.ChangeOutputAction
+	 * @generated
+	 */
+	public Adapter createChangeOutputActionAdapter() {
 		return null;
 	}
 

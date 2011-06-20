@@ -25,13 +25,12 @@ class Button {
 
 abstract class Action {}
 
-class ChangeDisplay extends Action {
-   ref Displayable[1] newValue;
-}
+abstract class ChangeOutputAction extends Action {
+   ref Displayable[1] newValue;   
+} 
 
-class ChangeIndicator extends Action {
-	ref Displayable[1] newValue;
-}
+class ChangeDisplay extends ChangeOutputAction {}
+class ChangeIndicator extends ChangeOutputAction {}
 
 class NextMode extends Action {}
 

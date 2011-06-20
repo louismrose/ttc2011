@@ -1,5 +1,6 @@
+<%@page import="simulator.config.Button"%>
 <%@page import="simulator.model.factory.FileBasedWatchFactory"%>
-<%@page import="simulator.execution.model.SimulationState"%>
+<%@page import="simulator.execution.model.Simulation"%>
 <%@page import="simulator.config.Configuration"%>
 <%@page import="simulator.config.ConfigPackage"%>
 <%@page import="simulator.EObjectStore"%>
@@ -18,20 +19,12 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <%
-	if (session.getAttribute("watch") == null) {
-		session.setAttribute("watch", Watch.createDefaultWatch());
-	}
-
-	final Watch watch = (Watch)session.getAttribute("watch");
-	
-	
-	
 	if (session.getAttribute("state") == null) {
 		final Configuration configuration = new FileBasedWatchFactory().createConfiguration();
-		session.setAttribute("state", new SimulationState(configuration));
+		session.setAttribute("state", new Simulation(configuration));
 	}
 	
-	final SimulationState state = (SimulationState)session.getAttribute("state");
+	final Simulation state = (Simulation)session.getAttribute("state");
 %>
 <body>
 	<div id="debug">
@@ -40,20 +33,14 @@
 	<div id="simulation">
 	  <div id="outputs">
 	    <span id="time">
-	      <%=watch.getDisplayText()%>
+	      <%=state.getDisplayText()%>
 	    </span>
 	    <span id="alarm_status">
 	      <b>Alarm:</b>
-	      <% if (watch.isAlarmTime()) { %>
-	      	ringing!
-	      <% } else if (watch.getAlarm().getIndicator().isShowing()) { %>
-	      	prepared
-	      <% } else { %>
-	      	not prepared
-	     <% } %>
+	      <%=state.getIndicatorText()%>
 	    </span>
 	    <span id="mode">
-	      <b>Mode:</b> <%=state.getCurrentMode()%>
+	      <b>Mode:</b> <%=state.getCurrentMode().getName()%>
 	    </span>
 	  </div>
 	
@@ -62,8 +49,8 @@
 	  	
 	    <ul>
 	    <% int buttonIndex = 0; %>
-	    <% for (String buttonName : watch.getModes().getCurrentMode().getButtonNames()) { %>
-	      <li><a href="/button?id=<%=buttonIndex%>"/><%=buttonName%></a></li>
+	    <% for (Button button : state.getCurrentMode().getButtons()) { %>
+	      <li><a href="/button?id=<%=buttonIndex%>"/><%=button.getName()%></a></li>
 	    <%
 	      buttonIndex = buttonIndex + 1;
 	    }
@@ -95,7 +82,7 @@
   	<h2>Simulation Output</h2>
   	<ul id="trace">
   		<% int index = 0;
-  		   final List<TraceElement> elements = new LinkedList<TraceElement>(watch.getTrace().getElements());
+  		   final List<TraceElement> elements = new LinkedList<TraceElement>(state.getTrace().getElements());
   		   Collections.reverse(elements);
   		%>
   		<% for (TraceElement element : elements) { %>

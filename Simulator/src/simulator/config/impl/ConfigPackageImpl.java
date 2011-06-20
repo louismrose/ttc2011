@@ -18,6 +18,7 @@ import simulator.config.Action;
 import simulator.config.Button;
 import simulator.config.ChangeDisplay;
 import simulator.config.ChangeIndicator;
+import simulator.config.ChangeOutputAction;
 import simulator.config.ConfigFactory;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
@@ -74,6 +75,13 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * @generated
 	 */
 	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass changeOutputActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -353,6 +361,24 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getChangeOutputAction() {
+		return changeOutputActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChangeOutputAction_NewValue() {
+		return (EReference)changeOutputActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getChangeDisplay() {
 		return changeDisplayEClass;
 	}
@@ -362,26 +388,8 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getChangeDisplay_NewValue() {
-		return (EReference)changeDisplayEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getChangeIndicator() {
 		return changeIndicatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getChangeIndicator_NewValue() {
-		return (EReference)changeIndicatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -558,11 +566,12 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 
 		actionEClass = createEClass(ACTION);
 
+		changeOutputActionEClass = createEClass(CHANGE_OUTPUT_ACTION);
+		createEReference(changeOutputActionEClass, CHANGE_OUTPUT_ACTION__NEW_VALUE);
+
 		changeDisplayEClass = createEClass(CHANGE_DISPLAY);
-		createEReference(changeDisplayEClass, CHANGE_DISPLAY__NEW_VALUE);
 
 		changeIndicatorEClass = createEClass(CHANGE_INDICATOR);
-		createEReference(changeIndicatorEClass, CHANGE_INDICATOR__NEW_VALUE);
 
 		nextModeEClass = createEClass(NEXT_MODE);
 
@@ -617,8 +626,9 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		changeDisplayEClass.getESuperTypes().add(this.getAction());
-		changeIndicatorEClass.getESuperTypes().add(this.getAction());
+		changeOutputActionEClass.getESuperTypes().add(this.getAction());
+		changeDisplayEClass.getESuperTypes().add(this.getChangeOutputAction());
+		changeIndicatorEClass.getESuperTypes().add(this.getChangeOutputAction());
 		nextModeEClass.getESuperTypes().add(this.getAction());
 		displayButtonBehaviourEClass.getESuperTypes().add(this.getAction());
 		evaluateExpressionEClass.getESuperTypes().add(this.getAction());
@@ -647,11 +657,12 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(changeOutputActionEClass, ChangeOutputAction.class, "ChangeOutputAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getChangeOutputAction_NewValue(), this.getDisplayable(), null, "newValue", null, 1, 1, ChangeOutputAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(changeDisplayEClass, ChangeDisplay.class, "ChangeDisplay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChangeDisplay_NewValue(), this.getDisplayable(), null, "newValue", null, 1, 1, ChangeDisplay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(changeIndicatorEClass, ChangeIndicator.class, "ChangeIndicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChangeIndicator_NewValue(), this.getDisplayable(), null, "newValue", null, 1, 1, ChangeIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nextModeEClass, NextMode.class, "NextMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

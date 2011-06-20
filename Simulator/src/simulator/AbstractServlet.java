@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import simulator.model.Watch;
+import simulator.config.Configuration;
+import simulator.execution.model.Simulation;
+import simulator.model.factory.FileBasedWatchFactory;
 
 @SuppressWarnings("serial")
 public abstract class AbstractServlet extends HttpServlet {
@@ -17,15 +19,16 @@ public abstract class AbstractServlet extends HttpServlet {
 		req.getRequestDispatcher(templateName).forward(req, resp);
 	}
 
-	protected Watch getOrCreateWatch(HttpSession session) {
-		if (session.getAttribute("watch") == null) {
-			session.setAttribute("watch", Watch.createDefaultWatch());
+	protected Simulation getOrCreateState(HttpSession session) throws IOException {
+		if (session.getAttribute("state") == null) {
+			final Configuration config = new FileBasedWatchFactory().createConfiguration();
+			session.setAttribute("state", new Simulation(config));
 		}
 		
-		return (Watch)session.getAttribute("watch");
+		return (Simulation)session.getAttribute("state");
 	}
 	
-	protected void setWatch(Watch watch, HttpSession session) {
-		session.setAttribute("watch", watch);
+	protected void update(Simulation state, HttpSession session) {
+		session.setAttribute("state", state);
 	}
 }

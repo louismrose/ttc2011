@@ -7,7 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import simulator.model.Watch;
+import simulator.config.Configuration;
+import simulator.execution.model.Simulation;
 import simulator.model.factory.FileBasedWatchFactory;
 import simulator.model.factory.UploadedWatchFactory;
 import simulator.util.EmfUtil;
@@ -18,21 +19,22 @@ public class ControlsServlet extends AbstractServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		final Watch watch = getOrCreateWatch(req.getSession());
+		final Simulation state = getOrCreateState(req.getSession());
 		
 		final String controlType = req.getParameter("name");
 		
 		if ("advance".equals(controlType)) {		
-			watch.getSimualtion().advanceTime(Calendar.HOUR);
-			setWatch(watch, req.getSession());
+			state.advanceTime(Calendar.HOUR);
+			update(state, req.getSession());
 			render("watch.jsp", req, resp);
 			
 		} else if ("trace".equals(controlType)) {
 			resp.setContentType("text/xml");
-			EmfUtil.serialise(watch.getTrace(), resp.getOutputStream());		
+			EmfUtil.serialise(state.getTrace(), resp.getOutputStream());		
 		
 		} else if ("load".equals(controlType)) {
-			setWatch(new FileBasedWatchFactory().createWatch(), req.getSession());
+			final Configuration configuration = new FileBasedWatchFactory().createConfiguration();
+			update(new Simulation(configuration), req.getSession());
 			render("watch.jsp", req, resp);
 		}
 	}
@@ -40,7 +42,8 @@ public class ControlsServlet extends AbstractServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		setWatch(new UploadedWatchFactory(req).createWatch(), req.getSession());
+		final Configuration configuration = new UploadedWatchFactory(req).createConfiguration();
+		update(new Simulation(configuration), req.getSession());
 		render("watch.jsp", req, resp);
 	}
 }

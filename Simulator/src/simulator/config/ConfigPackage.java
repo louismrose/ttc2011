@@ -246,14 +246,14 @@ public interface ConfigPackage extends EPackage {
 	int ACTION_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link simulator.config.impl.ChangeDisplayImpl <em>Change Display</em>}' class.
+	 * The meta object id for the '{@link simulator.config.impl.ChangeOutputActionImpl <em>Change Output Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see simulator.config.impl.ChangeDisplayImpl
-	 * @see simulator.config.impl.ConfigPackageImpl#getChangeDisplay()
+	 * @see simulator.config.impl.ChangeOutputActionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getChangeOutputAction()
 	 * @generated
 	 */
-	int CHANGE_DISPLAY = 5;
+	int CHANGE_OUTPUT_ACTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -262,7 +262,35 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHANGE_DISPLAY__NEW_VALUE = ACTION_FEATURE_COUNT + 0;
+	int CHANGE_OUTPUT_ACTION__NEW_VALUE = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Change Output Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANGE_OUTPUT_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.ChangeDisplayImpl <em>Change Display</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.ChangeDisplayImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getChangeDisplay()
+	 * @generated
+	 */
+	int CHANGE_DISPLAY = 6;
+
+	/**
+	 * The feature id for the '<em><b>New Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANGE_DISPLAY__NEW_VALUE = CHANGE_OUTPUT_ACTION__NEW_VALUE;
 
 	/**
 	 * The number of structural features of the '<em>Change Display</em>' class.
@@ -271,7 +299,7 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHANGE_DISPLAY_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+	int CHANGE_DISPLAY_FEATURE_COUNT = CHANGE_OUTPUT_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simulator.config.impl.ChangeIndicatorImpl <em>Change Indicator</em>}' class.
@@ -281,7 +309,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeIndicator()
 	 * @generated
 	 */
-	int CHANGE_INDICATOR = 6;
+	int CHANGE_INDICATOR = 7;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -290,7 +318,7 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHANGE_INDICATOR__NEW_VALUE = ACTION_FEATURE_COUNT + 0;
+	int CHANGE_INDICATOR__NEW_VALUE = CHANGE_OUTPUT_ACTION__NEW_VALUE;
 
 	/**
 	 * The number of structural features of the '<em>Change Indicator</em>' class.
@@ -299,7 +327,7 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHANGE_INDICATOR_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+	int CHANGE_INDICATOR_FEATURE_COUNT = CHANGE_OUTPUT_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simulator.config.impl.NextModeImpl <em>Next Mode</em>}' class.
@@ -309,7 +337,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getNextMode()
 	 * @generated
 	 */
-	int NEXT_MODE = 7;
+	int NEXT_MODE = 8;
 
 	/**
 	 * The number of structural features of the '<em>Next Mode</em>' class.
@@ -328,7 +356,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getDisplayButtonBehaviour()
 	 * @generated
 	 */
-	int DISPLAY_BUTTON_BEHAVIOUR = 8;
+	int DISPLAY_BUTTON_BEHAVIOUR = 9;
 
 	/**
 	 * The number of structural features of the '<em>Display Button Behaviour</em>' class.
@@ -347,7 +375,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getEvaluateExpression()
 	 * @generated
 	 */
-	int EVALUATE_EXPRESSION = 9;
+	int EVALUATE_EXPRESSION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -375,7 +403,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 10;
+	int EXPRESSION = 11;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -394,7 +422,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getIncrementTimeVariable()
 	 * @generated
 	 */
-	int INCREMENT_TIME_VARIABLE = 11;
+	int INCREMENT_TIME_VARIABLE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -431,7 +459,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getDisplayable()
 	 * @generated
 	 */
-	int DISPLAYABLE = 12;
+	int DISPLAYABLE = 13;
 
 	/**
 	 * The number of structural features of the '<em>Displayable</em>' class.
@@ -450,7 +478,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getConstant()
 	 * @generated
 	 */
-	int CONSTANT = 13;
+	int CONSTANT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -478,7 +506,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 14;
+	int VARIABLE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -506,7 +534,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getUnitOfTime()
 	 * @generated
 	 */
-	int UNIT_OF_TIME = 15;
+	int UNIT_OF_TIME = 16;
 
 
 	/**
@@ -670,6 +698,27 @@ public interface ConfigPackage extends EPackage {
 	EClass getAction();
 
 	/**
+	 * Returns the meta object for class '{@link simulator.config.ChangeOutputAction <em>Change Output Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Change Output Action</em>'.
+	 * @see simulator.config.ChangeOutputAction
+	 * @generated
+	 */
+	EClass getChangeOutputAction();
+
+	/**
+	 * Returns the meta object for the reference '{@link simulator.config.ChangeOutputAction#getNewValue <em>New Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>New Value</em>'.
+	 * @see simulator.config.ChangeOutputAction#getNewValue()
+	 * @see #getChangeOutputAction()
+	 * @generated
+	 */
+	EReference getChangeOutputAction_NewValue();
+
+	/**
 	 * Returns the meta object for class '{@link simulator.config.ChangeDisplay <em>Change Display</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -680,17 +729,6 @@ public interface ConfigPackage extends EPackage {
 	EClass getChangeDisplay();
 
 	/**
-	 * Returns the meta object for the reference '{@link simulator.config.ChangeDisplay#getNewValue <em>New Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>New Value</em>'.
-	 * @see simulator.config.ChangeDisplay#getNewValue()
-	 * @see #getChangeDisplay()
-	 * @generated
-	 */
-	EReference getChangeDisplay_NewValue();
-
-	/**
 	 * Returns the meta object for class '{@link simulator.config.ChangeIndicator <em>Change Indicator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -699,17 +737,6 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getChangeIndicator();
-
-	/**
-	 * Returns the meta object for the reference '{@link simulator.config.ChangeIndicator#getNewValue <em>New Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>New Value</em>'.
-	 * @see simulator.config.ChangeIndicator#getNewValue()
-	 * @see #getChangeIndicator()
-	 * @generated
-	 */
-	EReference getChangeIndicator_NewValue();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.config.NextMode <em>Next Mode</em>}'.
@@ -1009,6 +1036,24 @@ public interface ConfigPackage extends EPackage {
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
+		 * The meta object literal for the '{@link simulator.config.impl.ChangeOutputActionImpl <em>Change Output Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.ChangeOutputActionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getChangeOutputAction()
+		 * @generated
+		 */
+		EClass CHANGE_OUTPUT_ACTION = eINSTANCE.getChangeOutputAction();
+
+		/**
+		 * The meta object literal for the '<em><b>New Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHANGE_OUTPUT_ACTION__NEW_VALUE = eINSTANCE.getChangeOutputAction_NewValue();
+
+		/**
 		 * The meta object literal for the '{@link simulator.config.impl.ChangeDisplayImpl <em>Change Display</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1019,14 +1064,6 @@ public interface ConfigPackage extends EPackage {
 		EClass CHANGE_DISPLAY = eINSTANCE.getChangeDisplay();
 
 		/**
-		 * The meta object literal for the '<em><b>New Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CHANGE_DISPLAY__NEW_VALUE = eINSTANCE.getChangeDisplay_NewValue();
-
-		/**
 		 * The meta object literal for the '{@link simulator.config.impl.ChangeIndicatorImpl <em>Change Indicator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1035,14 +1072,6 @@ public interface ConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CHANGE_INDICATOR = eINSTANCE.getChangeIndicator();
-
-		/**
-		 * The meta object literal for the '<em><b>New Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CHANGE_INDICATOR__NEW_VALUE = eINSTANCE.getChangeIndicator_NewValue();
 
 		/**
 		 * The meta object literal for the '{@link simulator.config.impl.NextModeImpl <em>Next Mode</em>}' class.

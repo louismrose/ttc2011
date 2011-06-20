@@ -28,14 +28,13 @@
         eType="#//Action" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ChangeDisplay" eSuperTypes="#//Action">
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeOutputAction" abstract="true"
+      eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="newValue" lowerBound="1"
         eType="#//Displayable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChangeIndicator" eSuperTypes="#//Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="newValue" lowerBound="1"
-        eType="#//Displayable"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeDisplay" eSuperTypes="#//ChangeOutputAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeIndicator" eSuperTypes="#//ChangeOutputAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="NextMode" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="DisplayButtonBehaviour" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvaluateExpression" eSuperTypes="#//Action">

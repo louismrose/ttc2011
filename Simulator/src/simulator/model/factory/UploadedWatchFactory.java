@@ -36,6 +36,10 @@ public class UploadedWatchFactory extends WatchFactory {
 	}
 	
 	public Watch createWatch() throws IOException {
+		return configurationToWatch(createConfiguration());
+	}
+
+	public Configuration createConfiguration() throws IOException {
 		try {
 			final FileItemFactory factory = new DiskFileItemFactory();
 			final ServletFileUpload upload = new ServletFileUpload(factory);
@@ -46,8 +50,8 @@ public class UploadedWatchFactory extends WatchFactory {
 			
 			resource.load(uploadedFile.getInputStream(), Collections.emptyMap());
 		
-			return configurationToWatch((Configuration)resource.getContents().get(0)); 
-	
+			return (Configuration)resource.getContents().get(0);
+		
 		} catch (FileUploadException e) {
 			throw new IOException("Error encountered whilst uploading file", e);
 		}
