@@ -10,7 +10,11 @@
  ******************************************************************************/
 package simulator.execution.model;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.verify;
+
+import java.util.Date;
 
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -26,5 +30,19 @@ public class StateTests {
 		state.nextMode();
 		
 		verify(observer).modeChanged(state);
+	}
+	
+	@Test
+	public void variableShouldBeUniqueToMode() throws Exception {
+		final State state = new State(2);
+		
+		final Date value = new Date();
+		state.setVariable("time", value);
+		state.nextMode();
+		
+		assertNull(state.getVariable("time"));
+		
+		state.nextMode();
+		assertEquals(value, state.getVariable("time"));
 	}
 }

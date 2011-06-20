@@ -12,6 +12,9 @@ package simulator.execution.model;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -20,14 +23,16 @@ import simulator.config.ChangeDisplay;
 import simulator.config.ChangeIndicator;
 import simulator.config.ConfigFactory;
 import simulator.config.Constant;
+import simulator.config.Displayable;
+import simulator.config.Variable;
 
 public class RunnableActionTests {
 
 	private final State state = mock(State.class);
  
 	@Test
-	public void changeDisplay() throws Exception {
-		final Action action = createChangeDisplayAction("foo");
+	public void changeDisplayToConstant() throws Exception {
+		final Action action = createChangeDisplayAction(createConstant("foo"));
 		
 		new RunnableAction(action).run(state);
 		
@@ -35,12 +40,24 @@ public class RunnableActionTests {
 	}
 	
 	@Test
-	public void changeIndicator() throws Exception {
-		final Action action = createChangeIndicatorAction("bar");
+	public void changeIndicatorToConstant() throws Exception {
+		final Action action = createChangeIndicatorAction(createConstant("bar"));
 		
 		new RunnableAction(action).run(state);
 		
 		verify(state).setIndicatorText("bar");
+	}
+	
+	@Test
+	public void changeDisplayToVariable() throws Exception {
+		final Action action = createChangeDisplayAction(createVariable("time"));
+		
+		final Date variableValue = new Date();
+		when(state.getVariable("time")).thenReturn(variableValue);
+		
+		new RunnableAction(action).run(state);
+		
+		verify(state).setDisplayText(variableValue.toString());
 	}
 	
 	@Test
@@ -51,16 +68,17 @@ public class RunnableActionTests {
 		
 		verify(state).nextMode();
 	}
+	
 
-	private static ChangeDisplay createChangeDisplayAction(String newValue) {
+	private static ChangeDisplay createChangeDisplayAction(Displayable newValue) {
 		final ChangeDisplay changeDisplayAction = ConfigFactory.eINSTANCE.createChangeDisplay();
-		changeDisplayAction.setNewValue(createConstant(newValue));
+		changeDisplayAction.setNewValue(newValue);
 		return changeDisplayAction;
 	}
 	
-	private static ChangeIndicator createChangeIndicatorAction(String newValue) {
+	private static ChangeIndicator createChangeIndicatorAction(Displayable newValue) {
 		final ChangeIndicator changeIndicatorAction = ConfigFactory.eINSTANCE.createChangeIndicator();
-		changeIndicatorAction.setNewValue(createConstant(newValue));
+		changeIndicatorAction.setNewValue(newValue);
 		return changeIndicatorAction;
 	}
 
@@ -68,5 +86,11 @@ public class RunnableActionTests {
 		final Constant constant = ConfigFactory.eINSTANCE.createConstant();
 		constant.setValue(value);
 		return constant;
+	}
+	
+	private static Variable createVariable(String variableName) {
+		final Variable variable = ConfigFactory.eINSTANCE.createVariable();
+		variable.setName(variableName);
+		return variable;
 	}
 }

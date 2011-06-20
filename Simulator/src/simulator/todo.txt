@@ -1,6 +1,9 @@
-Done:
-* Alarm should go off
-* Button for changing the display type (e.g. 24 vs 12 hour)
+* Fix State to handle variables with same name in different modes?
+* Displaying variables
+- Sounding the alarm
+- Advance time
+- Tracing
+
 
 
 Other functions?

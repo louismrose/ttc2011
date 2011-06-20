@@ -15,7 +15,8 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({RunnableActionTests.class, StateTests.class, ModesTests.class})
+@SuiteClasses({EvaluatableExpressionTests.class, RunnableActionTests.class,
+               StateTests.class, ModesTests.class})
 public class ExecutionTestSuite {
 
 }

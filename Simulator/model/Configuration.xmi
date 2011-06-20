@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulatorConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulatorConfig="simulatorConfig">
+  <modes name="time">
+    <buttons name="mode">
+      <behaviour xsi:type="simulatorConfig:NextMode"/>
+    </buttons>
+    <buttons name="setAlarm">
+      <behaviour xsi:type="simulatorConfig:ChangeIndicator" newValue="//@modes.0/@constants.1"/>
+    </buttons>
+    <variables name="time"/>
+    <constants value="set"/>
+    <constants value="unset"/>
+  </modes>
+  <modes name="alarmTime">
+    <buttons name="mode">
+      <behaviour xsi:type="simulatorConfig:NextMode"/>
+    </buttons>
+    <buttons name="hour">
+      <behaviour xsi:type="simulatorConfig:EvaluateExpression">
+        <expression xsi:type="simulatorConfig:IncrementTimeVariable" variable="//@modes.1/@variables.0"/>
+      </behaviour>
+    </buttons>
+    <buttons name="minute">
+      <behaviour xsi:type="simulatorConfig:EvaluateExpression">
+        <expression xsi:type="simulatorConfig:IncrementTimeVariable" variable="//@modes.1/@variables.0" unit="minute"/>
+      </behaviour>
+    </buttons>
+    <variables name="alarmTime"/>
+  </modes>
+</simulatorConfig:Configuration>

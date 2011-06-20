@@ -11,8 +11,11 @@
 package simulator.execution.model;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class State implements Serializable {
 
@@ -23,6 +26,7 @@ public class State implements Serializable {
 	private String indicatorText;
 	private int currentModeIndex = 0;
 	
+	private final Map<VariableKey, Date> variableValues = new HashMap<VariableKey, Date>();
 	private final int totalNumberOfModes;
 	
 	private transient List<ModeObserver> observers;
@@ -49,6 +53,14 @@ public class State implements Serializable {
 	
 	public void setIndicatorText(String indicatorText) {
 		this.indicatorText = indicatorText;
+	}
+	
+	public Date getVariable(String variableName) {
+		return variableValues.get(new VariableKey(currentModeIndex, variableName));
+	}
+
+	public void setVariable(String variableName, Date value) {
+		variableValues.put(new VariableKey(currentModeIndex, variableName), value);
 	}
 	
 	public int getCurrentModeIndex() {
@@ -80,5 +92,39 @@ public class State implements Serializable {
 		}
 		
 		return observers;
+	}
+	
+	
+	private static class VariableKey {
+		
+		private final int modeIndex;
+		private final String name;
+		
+		public VariableKey(int modeIndex, String name) {
+			this.modeIndex = modeIndex;
+			this.name = name;
+		}
+		
+		@Override
+		public boolean equals(Object o) {
+			if (!(o instanceof VariableKey))
+				return false;
+			
+			
+			final VariableKey other = (VariableKey)o;
+			
+			return this.modeIndex == other.modeIndex &&
+			       this.name.equals(other.name);
+		}
+		
+		@Override
+		public int hashCode() {
+			return this.modeIndex + this.name.hashCode();
+		}
+		
+		@Override
+		public String toString() {
+			return modeIndex + ": " + name;
+		}	
 	}
 }
