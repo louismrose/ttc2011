@@ -12,9 +12,15 @@ package simulator.execution.model;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
 
 import simulator.config.Configuration;
 import simulator.config.Mode;
+import simulator.config.UnitOfTime;
+import simulator.execution.model.state.State;
+import simulator.model.util.DateUtils;
 import simulator.trace.Stimulus;
 import simulator.trace.Trace;
 import simulator.trace.TraceFactory;
@@ -73,9 +79,15 @@ public class Simulation implements Serializable {
 		stimulus.getParams().add("" + index);
 		trace.getElements().add(stimulus);
 	}
+	
+	public Collection<VariableWithValue> getVariableValues() {
+		return state.getVariableValues();
+	}
 
-	public void advanceTime(int unit) {
-		// TODO Auto-generated method stub
+	public void incrementVariable(String variableName, UnitOfTime unit) {
+		final Date currentValue = state.getValueOf(variableName);
+		final Date newValue = DateUtils.add(currentValue, unit == UnitOfTime.HOUR ? Calendar.HOUR : Calendar.MINUTE, 1);
 		
-	}	
+		state.setValueOf(variableName, newValue);
+	}
 }

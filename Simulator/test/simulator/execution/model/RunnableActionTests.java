@@ -25,6 +25,7 @@ import simulator.config.ConfigFactory;
 import simulator.config.Constant;
 import simulator.config.Displayable;
 import simulator.config.Variable;
+import simulator.execution.model.state.State;
 
 public class RunnableActionTests {
 
@@ -50,10 +51,11 @@ public class RunnableActionTests {
 	
 	@Test
 	public void changeDisplayToVariable() throws Exception {
-		final Action action = createChangeDisplayAction(createVariable("time"));
+		final Variable variable = createVariable("time");
+		final Action action = createChangeDisplayAction(variable);
 		
 		final Date variableValue = new Date();
-		when(state.getVariable("time")).thenReturn(variableValue);
+		when(state.getValueOf(variable)).thenReturn(variableValue);
 		
 		new RunnableAction(action).run(state);
 		

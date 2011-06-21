@@ -12,9 +12,13 @@ package simulator.execution.model;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
+
 import simulator.config.Action;
 import simulator.config.Button;
 import simulator.config.Mode;
+import simulator.config.Variable;
+import simulator.execution.model.state.State;
 
 public class Modes implements ModeObserver {
 	
@@ -29,27 +33,33 @@ public class Modes implements ModeObserver {
 	}
 	
 	public void pressButton(int buttonIndex, State state) {
-		final Button button = getCurrentMode(state).getButtons().get(buttonIndex);
-		
-		run(button.getBehaviour(), state);
+		run(getButton(buttonIndex, state).getBehaviour(), state);
+	}
+
+	private Button getButton(int buttonIndex, State state) {
+		return getCurrentMode(state).getButtons().get(buttonIndex);
 	}
 	
 	@Override
 	public void modeChanged(State state) {
+		initialiseVariablesOfCurrentMode(state);
 		runEntryActionsOfCurrentMode(state);
 	}
-	
-	private void runEntryActionsOfCurrentMode(State state) {
-		runEntryActionsOf(getCurrentMode(state), state);
-	}
 
-	private void runEntryActionsOf(Mode mode, State state) {
-		for (Action entryAction : mode.getEntryActions()) {
-			run(entryAction, state);
+	private void initialiseVariablesOfCurrentMode(State state) {
+		for (Variable variable : getCurrentMode(state).getVariables()) {
+			state.initialiseValueOf(variable);
 		}
 	}
+	
+	
+	private void runEntryActionsOfCurrentMode(State state) {
+		run(getCurrentMode(state).getEntryActions(), state);
+	}
 
-	private void run(Action action, State state) {
-		new RunnableAction(action).run(state);
+	private void run(EList<Action> actions, State state) {
+		for (Action action : actions) {
+			new RunnableAction(action).run(state);
+		}
 	}
 }

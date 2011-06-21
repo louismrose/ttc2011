@@ -6,15 +6,19 @@
  */
 package simulator.config.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import simulator.config.Action;
 import simulator.config.Button;
 import simulator.config.ConfigPackage;
@@ -55,14 +59,14 @@ public class ButtonImpl extends EObjectImpl implements Button {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBehaviour() <em>Behaviour</em>}' containment reference.
+	 * The cached value of the '{@link #getBehaviour() <em>Behaviour</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBehaviour()
 	 * @generated
 	 * @ordered
 	 */
-	protected Action behaviour;
+	protected EList<Action> behaviour;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,42 +113,11 @@ public class ButtonImpl extends EObjectImpl implements Button {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Action getBehaviour() {
+	public EList<Action> getBehaviour() {
+		if (behaviour == null) {
+			behaviour = new EObjectContainmentEList<Action>(Action.class, this, ConfigPackage.BUTTON__BEHAVIOUR);
+		}
 		return behaviour;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBehaviour(Action newBehaviour, NotificationChain msgs) {
-		Action oldBehaviour = behaviour;
-		behaviour = newBehaviour;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ConfigPackage.BUTTON__BEHAVIOUR, oldBehaviour, newBehaviour);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBehaviour(Action newBehaviour) {
-		if (newBehaviour != behaviour) {
-			NotificationChain msgs = null;
-			if (behaviour != null)
-				msgs = ((InternalEObject)behaviour).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.BUTTON__BEHAVIOUR, null, msgs);
-			if (newBehaviour != null)
-				msgs = ((InternalEObject)newBehaviour).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ConfigPackage.BUTTON__BEHAVIOUR, null, msgs);
-			msgs = basicSetBehaviour(newBehaviour, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.BUTTON__BEHAVIOUR, newBehaviour, newBehaviour));
 	}
 
 	/**
@@ -156,7 +129,7 @@ public class ButtonImpl extends EObjectImpl implements Button {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ConfigPackage.BUTTON__BEHAVIOUR:
-				return basicSetBehaviour(null, msgs);
+				return ((InternalEList<?>)getBehaviour()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -182,6 +155,7 @@ public class ButtonImpl extends EObjectImpl implements Button {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -189,7 +163,8 @@ public class ButtonImpl extends EObjectImpl implements Button {
 				setName((String)newValue);
 				return;
 			case ConfigPackage.BUTTON__BEHAVIOUR:
-				setBehaviour((Action)newValue);
+				getBehaviour().clear();
+				getBehaviour().addAll((Collection<? extends Action>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,7 +182,7 @@ public class ButtonImpl extends EObjectImpl implements Button {
 				setName(NAME_EDEFAULT);
 				return;
 			case ConfigPackage.BUTTON__BEHAVIOUR:
-				setBehaviour((Action)null);
+				getBehaviour().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -224,7 +199,7 @@ public class ButtonImpl extends EObjectImpl implements Button {
 			case ConfigPackage.BUTTON__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ConfigPackage.BUTTON__BEHAVIOUR:
-				return behaviour != null;
+				return behaviour != null && !behaviour.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

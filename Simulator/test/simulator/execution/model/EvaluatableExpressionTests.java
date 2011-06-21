@@ -24,39 +24,41 @@ import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
+import simulator.execution.model.state.State;
 import simulator.model.util.DateUtils;
 
 public class EvaluatableExpressionTests {
 
 	private final State state = mock(State.class);
+	private final Variable variable = createVariable("time");
 	 
 	@Test
 	public void incrementTimeVariableByAnHour() throws Exception {
 		final Date originalValue = new Date();		
-		when(state.getVariable("time")).thenReturn(originalValue);
+		when(state.getValueOf(variable)).thenReturn(originalValue);
 
-		final Expression expression = createIncrementTimeVariableExpression("time", UnitOfTime.HOUR);
+		final Expression expression = createIncrementTimeVariableExpression(variable, UnitOfTime.HOUR);
 		new EvaluatableExpression(expression).evaluate(state);
 		
-		verify(state).setVariable("time", DateUtils.add(originalValue, Calendar.HOUR, 1));
+		verify(state).setValueOf(variable, DateUtils.add(originalValue, Calendar.HOUR, 1));
 	}
 	
 	@Test
 	public void incrementTimeVariableByAMinute() throws Exception {
 		final Date originalValue = new Date();		
-		when(state.getVariable("time")).thenReturn(originalValue);
+		when(state.getValueOf(variable)).thenReturn(originalValue);
 
-		final Expression expression = createIncrementTimeVariableExpression("time", UnitOfTime.MINUTE);
+		final Expression expression = createIncrementTimeVariableExpression(variable, UnitOfTime.MINUTE);
 		new EvaluatableExpression(expression).evaluate(state);
 		
-		verify(state).setVariable("time", DateUtils.add(originalValue, Calendar.MINUTE, 1));
+		verify(state).setValueOf(variable, DateUtils.add(originalValue, Calendar.MINUTE, 1));
 	}
 
 	
-	private static Expression createIncrementTimeVariableExpression(String variableName, UnitOfTime increment) {
+	private static Expression createIncrementTimeVariableExpression(Variable variable, UnitOfTime increment) {
 		final IncrementTimeVariable expression = ConfigFactory.eINSTANCE.createIncrementTimeVariable();
 		expression.setUnit(increment);
-		expression.setVariable(createVariable(variableName));
+		expression.setVariable(variable);
 		return expression;
 	}
 

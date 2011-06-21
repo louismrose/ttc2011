@@ -21,6 +21,7 @@ import simulator.config.Displayable;
 import simulator.config.EvaluateExpression;
 import simulator.config.NextMode;
 import simulator.config.Variable;
+import simulator.execution.model.state.State;
 
 public class RunnableAction {
 
@@ -74,10 +75,9 @@ public class RunnableAction {
 			value = ((Constant) displayable).getValue();
 		
 		} else if (displayable instanceof Variable) {
-			final String variableName = ((Variable) displayable).getName();
-			final Date variableValue = state.getVariable(variableName);
+			final Date variableValue = state.getValueOf(((Variable)displayable));
 			
-			value = (variableValue == null ? null : variableValue.toString());
+			value = (variableValue == null ? null : TimeFormatter.twentyFourHourFormatter.format(variableValue));
 		
 		} else {
 			throw new IllegalArgumentException("Unknown type of Displayable: " + displayable);			

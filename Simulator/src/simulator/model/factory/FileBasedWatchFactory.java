@@ -17,7 +17,7 @@ import java.net.URLDecoder;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import simulator.ControlsServlet;
+import simulator.VariablesServlet;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
 import simulator.model.Watch;
@@ -26,13 +26,13 @@ import simulator.util.EmfUtil;
 public class FileBasedWatchFactory extends WatchFactory {
 	
 	public Configuration createConfiguration() {
-		final Resource configResource = EmfUtil.createResourceSet(ConfigPackage.eINSTANCE).getResource(URI.createFileURI(getFile("Configuration.xmi", ControlsServlet.class).getAbsolutePath()), true);
+		final Resource configResource = EmfUtil.createResourceSet(ConfigPackage.eINSTANCE).getResource(URI.createFileURI(getFile("Configuration.xmi", VariablesServlet.class).getAbsolutePath()), true);
 		
 		return (Configuration)configResource.getContents().get(0);
 	}
 	
 	public Watch createWatch() {
-		final Resource configResource = EmfUtil.createResourceSet(ConfigPackage.eINSTANCE).getResource(URI.createFileURI(getFile("Configuration.xmi", ControlsServlet.class).getAbsolutePath()), true);
+		final Resource configResource = EmfUtil.createResourceSet(ConfigPackage.eINSTANCE).getResource(URI.createFileURI(getFile("Configuration.xmi", VariablesServlet.class).getAbsolutePath()), true);
 		
 		return configurationToWatch((Configuration)configResource.getContents().get(0));
 	}

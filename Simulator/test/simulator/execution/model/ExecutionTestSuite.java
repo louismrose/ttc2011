@@ -14,6 +14,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import simulator.execution.model.state.StateTests;
+
 @RunWith(Suite.class)
 @SuiteClasses({EvaluatableExpressionTests.class, RunnableActionTests.class,
                StateTests.class, ModesTests.class})

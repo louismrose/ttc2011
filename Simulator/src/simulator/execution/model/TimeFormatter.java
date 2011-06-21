@@ -8,7 +8,7 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.model;
+package simulator.execution.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

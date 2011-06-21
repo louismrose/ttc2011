@@ -10,10 +10,23 @@
  ******************************************************************************/
 package simulator.execution.model;
 
-import simulator.execution.model.state.State;
+import java.util.Date;
 
-public interface ModeObserver {
+public class VariableWithValue {
 
-	public void modeChanged(State state);
-
+	private final String name;
+	private final String value;
+	
+	public VariableWithValue(String name, Date value) {
+		this.name  = name;
+		this.value = TimeFormatter.twentyFourHourFormatter.format(value);
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getValue() {
+		return value;
+	}
 }

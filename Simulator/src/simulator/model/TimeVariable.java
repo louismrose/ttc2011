@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import simulator.config.Variable;
+import simulator.execution.model.TimeFormatter;
 
 
 public class TimeVariable extends Displayable {

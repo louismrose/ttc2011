@@ -1,9 +1,10 @@
 * Fix State to handle variables with same name in different modes?
 * Displaying variables
+* Variable view in simulator
 - Sounding the alarm
-- Advance time
 - Tracing
-
+- Deploy to GAE and test there
+- Anything else needed for Alarm.xmi to work properly
 
 
 Other functions?

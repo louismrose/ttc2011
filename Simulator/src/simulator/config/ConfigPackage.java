@@ -209,7 +209,7 @@ public interface ConfigPackage extends EPackage {
 	int BUTTON__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Behaviour</b></em>' containment reference.
+	 * The feature id for the '<em><b>Behaviour</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -677,10 +677,10 @@ public interface ConfigPackage extends EPackage {
 	EAttribute getButton_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link simulator.config.Button#getBehaviour <em>Behaviour</em>}'.
+	 * Returns the meta object for the containment reference list '{@link simulator.config.Button#getBehaviour <em>Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Behaviour</em>'.
+	 * @return the meta object for the containment reference list '<em>Behaviour</em>'.
 	 * @see simulator.config.Button#getBehaviour()
 	 * @see #getButton()
 	 * @generated
@@ -1018,7 +1018,7 @@ public interface ConfigPackage extends EPackage {
 		EAttribute BUTTON__NAME = eINSTANCE.getButton_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Behaviour</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Behaviour</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

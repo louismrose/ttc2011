@@ -1,3 +1,4 @@
+<%@page import="simulator.execution.model.VariableWithValue"%>
 <%@page import="simulator.config.Button"%>
 <%@page import="simulator.model.factory.FileBasedWatchFactory"%>
 <%@page import="simulator.execution.model.Simulation"%>
@@ -24,7 +25,7 @@
 		session.setAttribute("state", new Simulation(configuration));
 	}
 	
-	final Simulation state = (Simulation)session.getAttribute("state");
+	final Simulation simulation = (Simulation)session.getAttribute("state");
 %>
 <body>
 	<div id="debug">
@@ -33,14 +34,14 @@
 	<div id="simulation">
 	  <div id="outputs">
 	    <span id="time">
-	      <%=state.getDisplayText()%>
+	      <%=simulation.getDisplayText()%>
 	    </span>
 	    <span id="alarm_status">
-	      <b>Alarm:</b>
-	      <%=state.getIndicatorText()%>
+	      <b>Indicator:</b>
+	      <%=simulation.getIndicatorText()%>
 	    </span>
 	    <span id="mode">
-	      <b>Mode:</b> <%=state.getCurrentMode().getName()%>
+	      <b>Mode:</b> <%=simulation.getCurrentMode().getName()%>
 	    </span>
 	  </div>
 	
@@ -49,29 +50,41 @@
 	  	
 	    <ul>
 	    <% int buttonIndex = 0; %>
-	    <% for (Button button : state.getCurrentMode().getButtons()) { %>
+	    <% for (Button button : simulation.getCurrentMode().getButtons()) { %>
 	      <li><a href="/button?id=<%=buttonIndex%>"/><%=button.getName()%></a></li>
-	    <%
-	      buttonIndex = buttonIndex + 1;
-	    }
-	    %>
+	    <% 	buttonIndex++; %>
+	    <% } %>
 	    </ul>
 	  </div>
 	  
-	  <div id="controls">
-	  	<h3>Simulation Controls</h3>
+	  <div id="variables">
+	  	<h3>Variables</h3>
 	  
-	    <ul>
-			<li><a href="/controls?name=advance"/>Advance time</a></li>
-			<li><a href="/controls?name=reset"/>Reset time</a></li>
-			<li><a href="/controls?name=trace"/>Execute all test cases</a></li>
-	    </ul>
+	    <table>
+	    	<tr>
+	    		<th>Name</th>
+	    		<th>Value</th>
+	    		<th>Controls</th>
+	    	</tr>
+	    	<% int variableIndex = 0; %>
+			<% for (VariableWithValue variable : simulation.getVariableValues()) { %>
+			<tr>
+				<td><%=variable.getName()%></td>
+				<td><%=variable.getValue()%></td>
+				<td>
+				    <a href="/variables?name=<%=variable.getName()%>&command=hour">+1 hour</a>
+				    <a href="/variables?name=<%=variable.getName()%>&command=minute">+1 minute</a>
+				</td>
+			</tr>
+			<% 	variableIndex++; %>
+			<% } %>
+	    </table>
 	  </div>
 	  
 	  <div id="configuration">
 	    <h3>Upload new configuration</h3>
 	      
-		<form action="/controls?name=load" enctype="multipart/form-data" method="POST">
+		<form action="/configure?name=load" enctype="multipart/form-data" method="POST">
 			<input type="file" name="model"/>
 			<input type="Submit" value="Upload File"/>
 		</form>
@@ -82,7 +95,7 @@
   	<h2>Simulation Output</h2>
   	<ul id="trace">
   		<% int index = 0;
-  		   final List<TraceElement> elements = new LinkedList<TraceElement>(state.getTrace().getElements());
+  		   final List<TraceElement> elements = new LinkedList<TraceElement>(simulation.getTrace().getElements());
   		   Collections.reverse(elements);
   		%>
   		<% for (TraceElement element : elements) { %>

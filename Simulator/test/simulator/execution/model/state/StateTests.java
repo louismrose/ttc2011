@@ -8,18 +8,27 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.execution.model;
+package simulator.execution.model.state;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.verify;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import simulator.config.ConfigFactory;
+import simulator.config.Variable;
+import simulator.execution.model.ModeObserver;
+import simulator.execution.model.state.State;
+import simulator.model.util.DateUtils;
+
 public class StateTests {
+
+	private final Variable variable = createVariable("time");
 
 	@Test
 	public void nextModeNotifiesObservers() throws Exception {
@@ -37,12 +46,37 @@ public class StateTests {
 		final State state = new State(2);
 		
 		final Date value = new Date();
-		state.setVariable("time", value);
+		state.setValueOf(variable, value);
 		state.nextMode();
 		
-		assertNull(state.getVariable("time"));
+		assertNull(state.getValueOf(variable));
 		
 		state.nextMode();
-		assertEquals(value, state.getVariable("time"));
+		assertEquals(value, state.getValueOf(variable));
+	}
+	
+	@Test
+	public void intialiseVariableShouldUseCurrentTime() throws Exception {
+		final State state = new State();
+		
+		state.initialiseValueOf(variable);
+		assertEquals(new Date(), state.getValueOf(variable));
+	}
+	
+	@Test
+	public void intialiseVariableShouldNotOverwriteExistingValue() throws Exception {
+		final State state = new State();
+		
+		final Date yesterday = DateUtils.add(new Date(), Calendar.HOUR, -24);
+		state.setValueOf(variable, yesterday);
+		
+		state.initialiseValueOf(variable);
+		assertEquals(yesterday, state.getValueOf(variable));
+	}
+	
+	private static Variable createVariable(String variableName) {
+		final Variable variable = ConfigFactory.eINSTANCE.createVariable();
+		variable.setName(variableName);
+		return variable;
 	}
 }

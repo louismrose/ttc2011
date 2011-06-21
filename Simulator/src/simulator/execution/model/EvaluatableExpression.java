@@ -16,6 +16,8 @@ import java.util.Date;
 import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
 import simulator.config.UnitOfTime;
+import simulator.config.Variable;
+import simulator.execution.model.state.State;
 import simulator.model.util.DateUtils;
 
 public class EvaluatableExpression {
@@ -36,11 +38,11 @@ public class EvaluatableExpression {
 	}
 
 	private void run(IncrementTimeVariable expression, State state) {
-		final String variableName = expression.getVariable().getName();
-		final int unitOfTime      = (expression.getUnit() == UnitOfTime.HOUR ? Calendar.HOUR : Calendar.MINUTE);
+		final Variable variable = expression.getVariable();
+		final int unitOfTime    = (expression.getUnit() == UnitOfTime.HOUR ? Calendar.HOUR : Calendar.MINUTE);
 		
-		final Date currentValue = state.getVariable(variableName);
+		final Date currentValue = state.getValueOf(variable);
 		final Date newValue     = DateUtils.add(currentValue, unitOfTime, 1);
-		state.setVariable(variableName, newValue);
+		state.setValueOf(variable, newValue);
 	}
 }

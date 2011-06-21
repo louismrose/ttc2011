@@ -6,6 +6,7 @@
  */
 package simulator.config;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -53,29 +54,19 @@ public interface Button extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Behaviour</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Behaviour</b></em>' containment reference list.
+	 * The list contents are of type {@link simulator.config.Action}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Behaviour</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Behaviour</em>' containment reference.
-	 * @see #setBehaviour(Action)
+	 * @return the value of the '<em>Behaviour</em>' containment reference list.
 	 * @see simulator.config.ConfigPackage#getButton_Behaviour()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Action getBehaviour();
-
-	/**
-	 * Sets the value of the '{@link simulator.config.Button#getBehaviour <em>Behaviour</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Behaviour</em>' containment reference.
-	 * @see #getBehaviour()
-	 * @generated
-	 */
-	void setBehaviour(Action value);
+	EList<Action> getBehaviour();
 
 } // Button

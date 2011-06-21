@@ -12,7 +12,7 @@ package simulator.model.actions;
 
 import java.io.Serializable;
 
-import simulator.model.TimeFormatter;
+import simulator.execution.model.TimeFormatter;
 import simulator.model.Watch;
 
 

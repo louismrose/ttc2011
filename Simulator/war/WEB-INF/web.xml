@@ -28,13 +28,23 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     </servlet-mapping>
 	
 	<servlet>
-		<servlet-name>Controls</servlet-name>
-		<servlet-class>simulator.ControlsServlet</servlet-class>
+		<servlet-name>Variables</servlet-name>
+		<servlet-class>simulator.VariablesServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Controls</servlet-name>
-		<url-pattern>/controls</url-pattern>
+		<servlet-name>Variables</servlet-name>
+		<url-pattern>/variables</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Configure</servlet-name>
+		<servlet-class>simulator.ConfigureServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Configure</servlet-name>
+		<url-pattern>/configure</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>Button</servlet-name>
 		<servlet-class>simulator.ButtonServlet</servlet-class>

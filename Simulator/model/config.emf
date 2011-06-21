@@ -20,7 +20,7 @@ class Mode {
 
 class Button {
    attr String[1] name;
-   val Action[1] behaviour;
+   val Action[1..*] behaviour;
 }
 
 abstract class Action {}
