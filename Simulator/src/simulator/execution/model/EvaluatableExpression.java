@@ -10,15 +10,10 @@
  ******************************************************************************/
 package simulator.execution.model;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
-import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 import simulator.execution.model.state.State;
-import simulator.model.util.DateUtils;
 
 public class EvaluatableExpression {
 
@@ -38,11 +33,9 @@ public class EvaluatableExpression {
 	}
 
 	private void run(IncrementTimeVariable expression, State state) {
-		final Variable variable = expression.getVariable();
-		final int unitOfTime    = (expression.getUnit() == UnitOfTime.HOUR ? Calendar.HOUR : Calendar.MINUTE);
-		
-		final Date currentValue = state.getValueOf(variable);
-		final Date newValue     = DateUtils.add(currentValue, unitOfTime, 1);
+		final Variable variable = expression.getVariable();		
+		final Time currentValue = state.getValueOf(variable);
+		final Time newValue     = currentValue.increment(expression.getUnit());
 		state.setValueOf(variable, newValue);
 	}
 }

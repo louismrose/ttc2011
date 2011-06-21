@@ -14,7 +14,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.verify;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.Test;
@@ -23,8 +22,7 @@ import org.mockito.Mockito;
 import simulator.config.ConfigFactory;
 import simulator.config.Variable;
 import simulator.execution.model.ModeObserver;
-import simulator.execution.model.state.State;
-import simulator.model.util.DateUtils;
+import simulator.execution.model.Time;
 
 public class StateTests {
 
@@ -45,7 +43,7 @@ public class StateTests {
 	public void variableShouldBeUniqueToMode() throws Exception {
 		final State state = new State(2);
 		
-		final Date value = new Date();
+		final Time value = new Time();
 		state.setValueOf(variable, value);
 		state.nextMode();
 		
@@ -60,14 +58,14 @@ public class StateTests {
 		final State state = new State();
 		
 		state.initialiseValueOf(variable);
-		assertEquals(new Date(), state.getValueOf(variable));
+		assertEquals(new Time(), state.getValueOf(variable));
 	}
 	
 	@Test
 	public void intialiseVariableShouldNotOverwriteExistingValue() throws Exception {
 		final State state = new State();
 		
-		final Date yesterday = DateUtils.add(new Date(), Calendar.HOUR, -24);
+		final Time yesterday = Time.hoursAgo(24);
 		state.setValueOf(variable, yesterday);
 		
 		state.initialiseValueOf(variable);

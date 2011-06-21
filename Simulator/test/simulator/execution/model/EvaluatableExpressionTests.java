@@ -14,9 +14,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import org.junit.Test;
 
 import simulator.config.ConfigFactory;
@@ -25,7 +22,6 @@ import simulator.config.IncrementTimeVariable;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 import simulator.execution.model.state.State;
-import simulator.model.util.DateUtils;
 
 public class EvaluatableExpressionTests {
 
@@ -34,24 +30,24 @@ public class EvaluatableExpressionTests {
 	 
 	@Test
 	public void incrementTimeVariableByAnHour() throws Exception {
-		final Date originalValue = new Date();		
+		final Time originalValue = new Time();		
 		when(state.getValueOf(variable)).thenReturn(originalValue);
 
 		final Expression expression = createIncrementTimeVariableExpression(variable, UnitOfTime.HOUR);
 		new EvaluatableExpression(expression).evaluate(state);
 		
-		verify(state).setValueOf(variable, DateUtils.add(originalValue, Calendar.HOUR, 1));
+		verify(state).setValueOf(variable, originalValue.increment(UnitOfTime.HOUR));
 	}
 	
 	@Test
 	public void incrementTimeVariableByAMinute() throws Exception {
-		final Date originalValue = new Date();		
+		final Time originalValue = new Time();		
 		when(state.getValueOf(variable)).thenReturn(originalValue);
 
 		final Expression expression = createIncrementTimeVariableExpression(variable, UnitOfTime.MINUTE);
 		new EvaluatableExpression(expression).evaluate(state);
 		
-		verify(state).setValueOf(variable, DateUtils.add(originalValue, Calendar.MINUTE, 1));
+		verify(state).setValueOf(variable, originalValue.increment(UnitOfTime.MINUTE));
 	}
 
 	

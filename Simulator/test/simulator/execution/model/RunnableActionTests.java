@@ -14,8 +14,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Date;
-
 import org.junit.Test;
 
 import simulator.config.Action;
@@ -54,12 +52,12 @@ public class RunnableActionTests {
 		final Variable variable = createVariable("time");
 		final Action action = createChangeDisplayAction(variable);
 		
-		final Date variableValue = new Date();
+		final Time variableValue = new Time();
 		when(state.getValueOf(variable)).thenReturn(variableValue);
 		
 		new RunnableAction(action).run(state);
 		
-		verify(state).setDisplayText(variableValue.toString());
+		verify(state).setDisplayText(variableValue.formatWith(TimeFormatter.twentyFourHourFormatter));
 	}
 	
 	@Test

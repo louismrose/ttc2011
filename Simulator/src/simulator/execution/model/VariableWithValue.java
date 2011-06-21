@@ -10,16 +10,15 @@
  ******************************************************************************/
 package simulator.execution.model;
 
-import java.util.Date;
 
 public class VariableWithValue {
 
 	private final String name;
 	private final String value;
 	
-	public VariableWithValue(String name, Date value) {
+	public VariableWithValue(String name, Time value) {
 		this.name  = name;
-		this.value = TimeFormatter.twentyFourHourFormatter.format(value);
+		this.value = value.formatWith(TimeFormatter.twentyFourHourFormatter);
 	}
 	
 	public String getName() {

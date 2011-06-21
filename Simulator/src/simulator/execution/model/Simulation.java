@@ -12,15 +12,12 @@ package simulator.execution.model;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 import simulator.config.Configuration;
 import simulator.config.Mode;
 import simulator.config.UnitOfTime;
 import simulator.execution.model.state.State;
-import simulator.model.util.DateUtils;
 import simulator.trace.Stimulus;
 import simulator.trace.Trace;
 import simulator.trace.TraceFactory;
@@ -85,8 +82,8 @@ public class Simulation implements Serializable {
 	}
 
 	public void incrementVariable(String variableName, UnitOfTime unit) {
-		final Date currentValue = state.getValueOf(variableName);
-		final Date newValue = DateUtils.add(currentValue, unit == UnitOfTime.HOUR ? Calendar.HOUR : Calendar.MINUTE, 1);
+		final Time currentValue = state.getValueOf(variableName);
+		final Time newValue     = currentValue.increment(unit);
 		
 		state.setValueOf(variableName, newValue);
 	}

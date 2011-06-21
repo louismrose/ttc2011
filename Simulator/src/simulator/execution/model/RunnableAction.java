@@ -10,8 +10,6 @@
  ******************************************************************************/
 package simulator.execution.model;
 
-import java.util.Date;
-
 import simulator.config.Action;
 import simulator.config.ChangeDisplay;
 import simulator.config.ChangeIndicator;
@@ -75,9 +73,9 @@ public class RunnableAction {
 			value = ((Constant) displayable).getValue();
 		
 		} else if (displayable instanceof Variable) {
-			final Date variableValue = state.getValueOf(((Variable)displayable));
+			final Time variableValue = state.getValueOf(((Variable)displayable));
 			
-			value = (variableValue == null ? null : TimeFormatter.twentyFourHourFormatter.format(variableValue));
+			value = (variableValue == null ? null : variableValue.formatWith(TimeFormatter.twentyFourHourFormatter));
 		
 		} else {
 			throw new IllegalArgumentException("Unknown type of Displayable: " + displayable);			

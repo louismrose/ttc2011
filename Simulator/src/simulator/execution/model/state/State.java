@@ -12,12 +12,12 @@ package simulator.execution.model.state;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 import simulator.config.Variable;
 import simulator.execution.model.ModeObserver;
+import simulator.execution.model.Time;
 import simulator.execution.model.VariableWithValue;
 import simulator.execution.model.state.VariableState.VariableKey;
 
@@ -59,19 +59,19 @@ public class State implements Serializable {
 		this.indicatorText = indicatorText;
 	}
 	
-	public Date getValueOf(String variableName) {
+	public Time getValueOf(String variableName) {
 		return variables.getValueOf(keyFor(variableName));
 	}
 	
-	public Date getValueOf(Variable variable) {
+	public Time getValueOf(Variable variable) {
 		return getValueOf(variable.getName());
 	}
 
-	public void setValueOf(String variableName, Date value) {
+	public void setValueOf(String variableName, Time value) {
 		variables.setValueOf(keyFor(variableName), value);
 	}
 	
-	public void setValueOf(Variable variable, Date value) {
+	public void setValueOf(Variable variable, Time value) {
 		setValueOf(variable.getName(), value);
 	}
 	
