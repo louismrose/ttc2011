@@ -93,12 +93,6 @@ public class ConfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.NUMBER_AND_STRING: {
-				NumberAndString numberAndString = (NumberAndString)theEObject;
-				T result = caseNumberAndString(numberAndString);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ConfigPackage.MODE: {
 				Mode mode = (Mode)theEObject;
 				T result = caseMode(mode);
@@ -210,21 +204,6 @@ public class ConfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseConfiguration(Configuration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Number And String</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Number And String</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNumberAndString(NumberAndString object) {
 		return null;
 	}
 

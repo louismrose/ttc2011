@@ -80,50 +80,31 @@ public interface ConfigPackage extends EPackage {
 	int CONFIGURATION__MODES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__VARIABLES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Constants</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__CONSTANTS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link simulator.config.impl.NumberAndStringImpl <em>Number And String</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see simulator.config.impl.NumberAndStringImpl
-	 * @see simulator.config.impl.ConfigPackageImpl#getNumberAndString()
-	 * @generated
-	 */
-	int NUMBER_AND_STRING = 1;
-
-	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_AND_STRING__NUMBER = 0;
-
-	/**
-	 * The feature id for the '<em><b>String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_AND_STRING__STRING = 1;
-
-	/**
-	 * The number of structural features of the '<em>Number And String</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_AND_STRING_FEATURE_COUNT = 2;
+	int CONFIGURATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link simulator.config.impl.ModeImpl <em>Mode</em>}' class.
@@ -133,7 +114,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getMode()
 	 * @generated
 	 */
-	int MODE = 2;
+	int MODE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -163,31 +144,13 @@ public interface ConfigPackage extends EPackage {
 	int MODE__BUTTONS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__VARIABLES = 3;
-
-	/**
-	 * The feature id for the '<em><b>Constants</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE__CONSTANTS = 4;
-
-	/**
 	 * The number of structural features of the '<em>Mode</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODE_FEATURE_COUNT = 5;
+	int MODE_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link simulator.config.impl.ButtonImpl <em>Button</em>}' class.
@@ -197,7 +160,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getButton()
 	 * @generated
 	 */
-	int BUTTON = 3;
+	int BUTTON = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -234,7 +197,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 4;
+	int ACTION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -253,7 +216,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeOutputAction()
 	 * @generated
 	 */
-	int CHANGE_OUTPUT_ACTION = 5;
+	int CHANGE_OUTPUT_ACTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -281,7 +244,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeDisplay()
 	 * @generated
 	 */
-	int CHANGE_DISPLAY = 6;
+	int CHANGE_DISPLAY = 5;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -309,7 +272,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeIndicator()
 	 * @generated
 	 */
-	int CHANGE_INDICATOR = 7;
+	int CHANGE_INDICATOR = 6;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -337,7 +300,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getNextMode()
 	 * @generated
 	 */
-	int NEXT_MODE = 8;
+	int NEXT_MODE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Next Mode</em>' class.
@@ -356,7 +319,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getDisplayButtonBehaviour()
 	 * @generated
 	 */
-	int DISPLAY_BUTTON_BEHAVIOUR = 9;
+	int DISPLAY_BUTTON_BEHAVIOUR = 8;
 
 	/**
 	 * The number of structural features of the '<em>Display Button Behaviour</em>' class.
@@ -375,7 +338,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getEvaluateExpression()
 	 * @generated
 	 */
-	int EVALUATE_EXPRESSION = 10;
+	int EVALUATE_EXPRESSION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -403,7 +366,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 11;
+	int EXPRESSION = 10;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -422,7 +385,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getIncrementTimeVariable()
 	 * @generated
 	 */
-	int INCREMENT_TIME_VARIABLE = 12;
+	int INCREMENT_TIME_VARIABLE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -459,7 +422,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getDisplayable()
 	 * @generated
 	 */
-	int DISPLAYABLE = 13;
+	int DISPLAYABLE = 12;
 
 	/**
 	 * The number of structural features of the '<em>Displayable</em>' class.
@@ -478,7 +441,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getConstant()
 	 * @generated
 	 */
-	int CONSTANT = 14;
+	int CONSTANT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -506,7 +469,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 15;
+	int VARIABLE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -534,7 +497,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getUnitOfTime()
 	 * @generated
 	 */
-	int UNIT_OF_TIME = 16;
+	int UNIT_OF_TIME = 15;
 
 
 	/**
@@ -559,36 +522,26 @@ public interface ConfigPackage extends EPackage {
 	EReference getConfiguration_Modes();
 
 	/**
-	 * Returns the meta object for class '{@link simulator.config.NumberAndString <em>Number And String</em>}'.
+	 * Returns the meta object for the containment reference list '{@link simulator.config.Configuration#getVariables <em>Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Number And String</em>'.
-	 * @see simulator.config.NumberAndString
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
+	 * @see simulator.config.Configuration#getVariables()
+	 * @see #getConfiguration()
 	 * @generated
 	 */
-	EClass getNumberAndString();
+	EReference getConfiguration_Variables();
 
 	/**
-	 * Returns the meta object for the attribute '{@link simulator.config.NumberAndString#getNumber <em>Number</em>}'.
+	 * Returns the meta object for the containment reference list '{@link simulator.config.Configuration#getConstants <em>Constants</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Number</em>'.
-	 * @see simulator.config.NumberAndString#getNumber()
-	 * @see #getNumberAndString()
+	 * @return the meta object for the containment reference list '<em>Constants</em>'.
+	 * @see simulator.config.Configuration#getConstants()
+	 * @see #getConfiguration()
 	 * @generated
 	 */
-	EAttribute getNumberAndString_Number();
-
-	/**
-	 * Returns the meta object for the attribute '{@link simulator.config.NumberAndString#getString <em>String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>String</em>'.
-	 * @see simulator.config.NumberAndString#getString()
-	 * @see #getNumberAndString()
-	 * @generated
-	 */
-	EAttribute getNumberAndString_String();
+	EReference getConfiguration_Constants();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.config.Mode <em>Mode</em>}'.
@@ -632,28 +585,6 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMode_Buttons();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link simulator.config.Mode#getVariables <em>Variables</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variables</em>'.
-	 * @see simulator.config.Mode#getVariables()
-	 * @see #getMode()
-	 * @generated
-	 */
-	EReference getMode_Variables();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link simulator.config.Mode#getConstants <em>Constants</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Constants</em>'.
-	 * @see simulator.config.Mode#getConstants()
-	 * @see #getMode()
-	 * @generated
-	 */
-	EReference getMode_Constants();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.config.Button <em>Button</em>}'.
@@ -924,30 +855,20 @@ public interface ConfigPackage extends EPackage {
 		EReference CONFIGURATION__MODES = eINSTANCE.getConfiguration_Modes();
 
 		/**
-		 * The meta object literal for the '{@link simulator.config.impl.NumberAndStringImpl <em>Number And String</em>}' class.
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see simulator.config.impl.NumberAndStringImpl
-		 * @see simulator.config.impl.ConfigPackageImpl#getNumberAndString()
 		 * @generated
 		 */
-		EClass NUMBER_AND_STRING = eINSTANCE.getNumberAndString();
+		EReference CONFIGURATION__VARIABLES = eINSTANCE.getConfiguration_Variables();
 
 		/**
-		 * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Constants</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMBER_AND_STRING__NUMBER = eINSTANCE.getNumberAndString_Number();
-
-		/**
-		 * The meta object literal for the '<em><b>String</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NUMBER_AND_STRING__STRING = eINSTANCE.getNumberAndString_String();
+		EReference CONFIGURATION__CONSTANTS = eINSTANCE.getConfiguration_Constants();
 
 		/**
 		 * The meta object literal for the '{@link simulator.config.impl.ModeImpl <em>Mode</em>}' class.
@@ -982,22 +903,6 @@ public interface ConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODE__BUTTONS = eINSTANCE.getMode_Buttons();
-
-		/**
-		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODE__VARIABLES = eINSTANCE.getMode_Variables();
-
-		/**
-		 * The meta object literal for the '<em><b>Constants</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODE__CONSTANTS = eINSTANCE.getMode_Constants();
 
 		/**
 		 * The meta object literal for the '{@link simulator.config.impl.ButtonImpl <em>Button</em>}' class.

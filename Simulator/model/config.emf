@@ -3,19 +3,14 @@ package config;
 
 class Configuration {
    val Mode[*] modes;
-}
-
-class NumberAndString {
-   attr int number;
-   attr String string;
+   val Variable[*] variables;
+   val Constant[*] constants;
 }
 
 class Mode {
    attr String name;
    val Action[*] entryActions;
    val Button[*] buttons;
-   val Variable[*] variables;
-   val Constant[*] constants;
 }
 
 class Button {

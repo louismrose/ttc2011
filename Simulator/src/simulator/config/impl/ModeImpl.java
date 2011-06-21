@@ -25,9 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import simulator.config.Action;
 import simulator.config.Button;
 import simulator.config.ConfigPackage;
-import simulator.config.Constant;
 import simulator.config.Mode;
-import simulator.config.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,8 +37,6 @@ import simulator.config.Variable;
  *   <li>{@link simulator.config.impl.ModeImpl#getName <em>Name</em>}</li>
  *   <li>{@link simulator.config.impl.ModeImpl#getEntryActions <em>Entry Actions</em>}</li>
  *   <li>{@link simulator.config.impl.ModeImpl#getButtons <em>Buttons</em>}</li>
- *   <li>{@link simulator.config.impl.ModeImpl#getVariables <em>Variables</em>}</li>
- *   <li>{@link simulator.config.impl.ModeImpl#getConstants <em>Constants</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,26 +82,6 @@ public class ModeImpl extends EObjectImpl implements Mode {
 	 * @ordered
 	 */
 	protected EList<Button> buttons;
-
-	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVariables()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Variable> variables;
-
-	/**
-	 * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConstants()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Constant> constants;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,30 +152,6 @@ public class ModeImpl extends EObjectImpl implements Mode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Variable> getVariables() {
-		if (variables == null) {
-			variables = new EObjectContainmentEList<Variable>(Variable.class, this, ConfigPackage.MODE__VARIABLES);
-		}
-		return variables;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getConstants() {
-		if (constants == null) {
-			constants = new EObjectContainmentEList<Constant>(Constant.class, this, ConfigPackage.MODE__CONSTANTS);
-		}
-		return constants;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -207,10 +159,6 @@ public class ModeImpl extends EObjectImpl implements Mode {
 				return ((InternalEList<?>)getEntryActions()).basicRemove(otherEnd, msgs);
 			case ConfigPackage.MODE__BUTTONS:
 				return ((InternalEList<?>)getButtons()).basicRemove(otherEnd, msgs);
-			case ConfigPackage.MODE__VARIABLES:
-				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
-			case ConfigPackage.MODE__CONSTANTS:
-				return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -229,10 +177,6 @@ public class ModeImpl extends EObjectImpl implements Mode {
 				return getEntryActions();
 			case ConfigPackage.MODE__BUTTONS:
 				return getButtons();
-			case ConfigPackage.MODE__VARIABLES:
-				return getVariables();
-			case ConfigPackage.MODE__CONSTANTS:
-				return getConstants();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,14 +201,6 @@ public class ModeImpl extends EObjectImpl implements Mode {
 				getButtons().clear();
 				getButtons().addAll((Collection<? extends Button>)newValue);
 				return;
-			case ConfigPackage.MODE__VARIABLES:
-				getVariables().clear();
-				getVariables().addAll((Collection<? extends Variable>)newValue);
-				return;
-			case ConfigPackage.MODE__CONSTANTS:
-				getConstants().clear();
-				getConstants().addAll((Collection<? extends Constant>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -286,12 +222,6 @@ public class ModeImpl extends EObjectImpl implements Mode {
 			case ConfigPackage.MODE__BUTTONS:
 				getButtons().clear();
 				return;
-			case ConfigPackage.MODE__VARIABLES:
-				getVariables().clear();
-				return;
-			case ConfigPackage.MODE__CONSTANTS:
-				getConstants().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -310,10 +240,6 @@ public class ModeImpl extends EObjectImpl implements Mode {
 				return entryActions != null && !entryActions.isEmpty();
 			case ConfigPackage.MODE__BUTTONS:
 				return buttons != null && !buttons.isEmpty();
-			case ConfigPackage.MODE__VARIABLES:
-				return variables != null && !variables.isEmpty();
-			case ConfigPackage.MODE__CONSTANTS:
-				return constants != null && !constants.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

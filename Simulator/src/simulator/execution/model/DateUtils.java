@@ -8,22 +8,18 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.model.actions;
+package simulator.execution.model;
 
-import simulator.model.Watch;
-import simulator.model.expressions.Expression;
+import java.util.Calendar;
+import java.util.Date;
 
-public class EvaluateExpressionAction implements Action {
+public class DateUtils {
 
-	private final Expression expression;
-	
-	public EvaluateExpressionAction(simulator.config.EvaluateExpression action) {
-		this.expression = Expression.createFrom(action.getExpression());
+	public static Date add(Date augend, int unit, int amount) {
+		final Calendar calendar = Calendar.getInstance();
+		
+		calendar.setTime(augend);
+		calendar.add(unit, amount);
+		return calendar.getTime();
 	}
-
-	@Override
-	public void run(Watch watch) {
-		expression.evaluate(watch);
-	}
-
 }

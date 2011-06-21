@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link simulator.config.Configuration#getModes <em>Modes</em>}</li>
+ *   <li>{@link simulator.config.Configuration#getVariables <em>Variables</em>}</li>
+ *   <li>{@link simulator.config.Configuration#getConstants <em>Constants</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,5 +44,37 @@ public interface Configuration extends EObject {
 	 * @generated
 	 */
 	EList<Mode> getModes();
+
+	/**
+	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
+	 * The list contents are of type {@link simulator.config.Variable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variables</em>' containment reference list.
+	 * @see simulator.config.ConfigPackage#getConfiguration_Variables()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Variable> getVariables();
+
+	/**
+	 * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
+	 * The list contents are of type {@link simulator.config.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constants</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constants</em>' containment reference list.
+	 * @see simulator.config.ConfigPackage#getConfiguration_Constants()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getConstants();
 
 } // Configuration

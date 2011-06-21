@@ -14,7 +14,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import simulator.config.UnitOfTime;
-import simulator.model.util.DateUtils;
 
 public class Time {
 

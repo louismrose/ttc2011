@@ -8,7 +8,7 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.model.factory;
+package simulator.config.factory;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -20,23 +20,15 @@ import org.eclipse.emf.ecore.resource.Resource;
 import simulator.VariablesServlet;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
-import simulator.model.Watch;
 import simulator.util.EmfUtil;
 
-public class FileBasedWatchFactory extends WatchFactory {
+public class FileBasedConfigurationFactory implements ConfigurationFactory {
 	
 	public Configuration createConfiguration() {
 		final Resource configResource = EmfUtil.createResourceSet(ConfigPackage.eINSTANCE).getResource(URI.createFileURI(getFile("Configuration.xmi", VariablesServlet.class).getAbsolutePath()), true);
 		
 		return (Configuration)configResource.getContents().get(0);
 	}
-	
-	public Watch createWatch() {
-		final Resource configResource = EmfUtil.createResourceSet(ConfigPackage.eINSTANCE).getResource(URI.createFileURI(getFile("Configuration.xmi", VariablesServlet.class).getAbsolutePath()), true);
-		
-		return configurationToWatch((Configuration)configResource.getContents().get(0));
-	}
-	
 	
 	private static File getFile(String name, Class<?> relativeTo) {
 		try {

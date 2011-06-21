@@ -1,7 +1,7 @@
 * Fix State to handle variables with same name in different modes?
 * Displaying variables
 * Variable view in simulator
-- Variables and constants should not be mode-specific
+* Variables and constants should not be mode-specific
 - Current time should be a built-in variable (@time)
 - Sounding the alarm
 - Tracing

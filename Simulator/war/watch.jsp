@@ -1,6 +1,6 @@
 <%@page import="simulator.execution.model.VariableWithValue"%>
 <%@page import="simulator.config.Button"%>
-<%@page import="simulator.model.factory.FileBasedWatchFactory"%>
+<%@page import="simulator.model.factory.FileBasedConfigurationFactory"%>
 <%@page import="simulator.execution.model.Simulation"%>
 <%@page import="simulator.config.Configuration"%>
 <%@page import="simulator.config.ConfigPackage"%>
@@ -21,7 +21,7 @@
 </head>
 <%
 	if (session.getAttribute("state") == null) {
-		final Configuration configuration = new FileBasedWatchFactory().createConfiguration();
+		final Configuration configuration = new FileBasedConfigurationFactory().createConfiguration();
 		session.setAttribute("state", new Simulation(configuration));
 	}
 	

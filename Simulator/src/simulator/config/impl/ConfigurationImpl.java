@@ -22,7 +22,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
+import simulator.config.Constant;
 import simulator.config.Mode;
+import simulator.config.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +34,8 @@ import simulator.config.Mode;
  * The following features are implemented:
  * <ul>
  *   <li>{@link simulator.config.impl.ConfigurationImpl#getModes <em>Modes</em>}</li>
+ *   <li>{@link simulator.config.impl.ConfigurationImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link simulator.config.impl.ConfigurationImpl#getConstants <em>Constants</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +51,26 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected EList<Mode> modes;
+
+	/**
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Variable> variables;
+
+	/**
+	 * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstants()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Constant> constants;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,11 +108,39 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Variable> getVariables() {
+		if (variables == null) {
+			variables = new EObjectContainmentEList<Variable>(Variable.class, this, ConfigPackage.CONFIGURATION__VARIABLES);
+		}
+		return variables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getConstants() {
+		if (constants == null) {
+			constants = new EObjectContainmentEList<Constant>(Constant.class, this, ConfigPackage.CONFIGURATION__CONSTANTS);
+		}
+		return constants;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ConfigPackage.CONFIGURATION__MODES:
 				return ((InternalEList<?>)getModes()).basicRemove(otherEnd, msgs);
+			case ConfigPackage.CONFIGURATION__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+			case ConfigPackage.CONFIGURATION__CONSTANTS:
+				return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -103,6 +155,10 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		switch (featureID) {
 			case ConfigPackage.CONFIGURATION__MODES:
 				return getModes();
+			case ConfigPackage.CONFIGURATION__VARIABLES:
+				return getVariables();
+			case ConfigPackage.CONFIGURATION__CONSTANTS:
+				return getConstants();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -120,6 +176,14 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				getModes().clear();
 				getModes().addAll((Collection<? extends Mode>)newValue);
 				return;
+			case ConfigPackage.CONFIGURATION__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends Variable>)newValue);
+				return;
+			case ConfigPackage.CONFIGURATION__CONSTANTS:
+				getConstants().clear();
+				getConstants().addAll((Collection<? extends Constant>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -135,6 +199,12 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case ConfigPackage.CONFIGURATION__MODES:
 				getModes().clear();
 				return;
+			case ConfigPackage.CONFIGURATION__VARIABLES:
+				getVariables().clear();
+				return;
+			case ConfigPackage.CONFIGURATION__CONSTANTS:
+				getConstants().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -149,6 +219,10 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 		switch (featureID) {
 			case ConfigPackage.CONFIGURATION__MODES:
 				return modes != null && !modes.isEmpty();
+			case ConfigPackage.CONFIGURATION__VARIABLES:
+				return variables != null && !variables.isEmpty();
+			case ConfigPackage.CONFIGURATION__CONSTANTS:
+				return constants != null && !constants.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

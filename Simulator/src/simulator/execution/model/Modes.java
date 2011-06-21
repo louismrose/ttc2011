@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
 import simulator.config.Action;
 import simulator.config.Button;
 import simulator.config.Mode;
-import simulator.config.Variable;
 import simulator.execution.model.state.State;
 
 public class Modes implements ModeObserver {
@@ -42,17 +41,9 @@ public class Modes implements ModeObserver {
 	
 	@Override
 	public void modeChanged(State state) {
-		initialiseVariablesOfCurrentMode(state);
 		runEntryActionsOfCurrentMode(state);
 	}
 
-	private void initialiseVariablesOfCurrentMode(State state) {
-		for (Variable variable : getCurrentMode(state).getVariables()) {
-			state.initialiseValueOf(variable);
-		}
-	}
-	
-	
 	private void runEntryActionsOfCurrentMode(State state) {
 		run(getCurrentMode(state).getEntryActions(), state);
 	}

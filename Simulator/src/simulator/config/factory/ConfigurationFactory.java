@@ -8,18 +8,14 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.model.util;
+package simulator.config.factory;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.io.IOException;
 
-public class DateUtils {
+import simulator.config.Configuration;
 
-	public static Date add(Date augend, int unit, int amount) {
-		final Calendar calendar = Calendar.getInstance();
-		
-		calendar.setTime(augend);
-		calendar.add(unit, amount);
-		return calendar.getTime();
-	}
+public interface ConfigurationFactory {
+	
+	public Configuration createConfiguration() throws IOException; 	
+
 }

@@ -62,7 +62,6 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ConfigPackage.CONFIGURATION: return createConfiguration();
-			case ConfigPackage.NUMBER_AND_STRING: return createNumberAndString();
 			case ConfigPackage.MODE: return createMode();
 			case ConfigPackage.BUTTON: return createButton();
 			case ConfigPackage.CHANGE_DISPLAY: return createChangeDisplay();
@@ -117,16 +116,6 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	public Configuration createConfiguration() {
 		ConfigurationImpl configuration = new ConfigurationImpl();
 		return configuration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NumberAndString createNumberAndString() {
-		NumberAndStringImpl numberAndString = new NumberAndStringImpl();
-		return numberAndString;
 	}
 
 	/**

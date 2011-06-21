@@ -11,10 +11,7 @@
 package simulator.execution.model.state;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.verify;
-
-import java.util.Date;
 
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -40,16 +37,13 @@ public class StateTests {
 	}
 	
 	@Test
-	public void variableShouldBeUniqueToMode() throws Exception {
+	public void variableShouldBeSharedBetweenModes() throws Exception {
 		final State state = new State(2);
 		
 		final Time value = new Time();
 		state.setValueOf(variable, value);
 		state.nextMode();
 		
-		assertNull(state.getValueOf(variable));
-		
-		state.nextMode();
 		assertEquals(value, state.getValueOf(variable));
 	}
 	

@@ -6,7 +6,6 @@
  */
 package simulator.config;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

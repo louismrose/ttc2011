@@ -14,6 +14,6 @@
       </behaviour>
       <behaviour xsi:type="simulatorConfig:ChangeDisplay" newValue="_fudg4JvfEeCu7pen7GHQ0w"/>
     </buttons>
-    <variables xmi:id="_fudg4JvfEeCu7pen7GHQ0w" name="time"/>
   </modes>
+  <variables xmi:id="_fudg4JvfEeCu7pen7GHQ0w" name="time"/>
 </simulatorConfig:Configuration>

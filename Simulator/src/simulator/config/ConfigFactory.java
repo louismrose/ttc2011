@@ -35,15 +35,6 @@ public interface ConfigFactory extends EFactory {
 	Configuration createConfiguration();
 
 	/**
-	 * Returns a new object of class '<em>Number And String</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number And String</em>'.
-	 * @generated
-	 */
-	NumberAndString createNumberAndString();
-
-	/**
 	 * Returns a new object of class '<em>Mode</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

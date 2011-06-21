@@ -6,16 +6,10 @@
  */
 package simulator.config.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import simulator.config.ChangeIndicator;
 import simulator.config.ConfigPackage;
-import simulator.config.Displayable;
 
 /**
  * <!-- begin-user-doc -->

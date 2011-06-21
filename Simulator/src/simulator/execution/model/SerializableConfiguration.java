@@ -28,7 +28,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import simulator.EObjectSerialiser;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
+import simulator.config.Constant;
 import simulator.config.Mode;
+import simulator.config.Variable;
 
 public class SerializableConfiguration implements Configuration, Serializable {
 
@@ -57,82 +59,112 @@ public class SerializableConfiguration implements Configuration, Serializable {
 		return configuration;
 	}
 
+	@Override
 	public EList<Mode> getModes() {
 		return getConfiguration().getModes();
 	}
+	
+	@Override
+	public EList<Variable> getVariables() {
+		return getConfiguration().getVariables();
+	}
 
+	@Override
+	public EList<Constant> getConstants() {
+		return getConfiguration().getConstants();
+	}
+
+	@Override
 	public EList<Adapter> eAdapters() {
 		return getConfiguration().eAdapters();
 	}
 
+	@Override
 	public boolean eDeliver() {
 		return getConfiguration().eDeliver();
 	}
 
+	@Override
 	public void eSetDeliver(boolean deliver) {
 		getConfiguration().eSetDeliver(deliver);
 	}
 
+	@Override
 	public void eNotify(Notification notification) {
 		getConfiguration().eNotify(notification);
 	}
 
+	@Override
 	public EClass eClass() {
 		return getConfiguration().eClass();
 	}
 
+	@Override
 	public Resource eResource() {
 		return getConfiguration().eResource();
 	}
 
+	@Override
 	public EObject eContainer() {
 		return getConfiguration().eContainer();
 	}
 
+	@Override
 	public EStructuralFeature eContainingFeature() {
 		return getConfiguration().eContainingFeature();
 	}
 
+	@Override
 	public EReference eContainmentFeature() {
 		return getConfiguration().eContainmentFeature();
 	}
 
+	@Override
 	public EList<EObject> eContents() {
 		return getConfiguration().eContents();
 	}
 
+	@Override
 	public TreeIterator<EObject> eAllContents() {
 		return getConfiguration().eAllContents();
 	}
 
+	@Override
 	public boolean eIsProxy() {
 		return getConfiguration().eIsProxy();
 	}
 
+	@Override
 	public EList<EObject> eCrossReferences() {
 		return getConfiguration().eCrossReferences();
 	}
 
+	@Override
 	public Object eGet(EStructuralFeature feature) {
 		return getConfiguration().eGet(feature);
 	}
 
+	@Override
 	public Object eGet(EStructuralFeature feature, boolean resolve) {
 		return getConfiguration().eGet(feature, resolve);
 	}
 
+	@Override
 	public void eSet(EStructuralFeature feature, Object newValue) {
 		getConfiguration().eSet(feature, newValue);
 	}
 
+	@Override
 	public boolean eIsSet(EStructuralFeature feature) {
 		return getConfiguration().eIsSet(feature);
 	}
 
+	@Override
 	public void eUnset(EStructuralFeature feature) {
 		getConfiguration().eUnset(feature);
 	}
 
+	@Override
 	public Object eInvoke(EOperation operation, EList<?> arguments) throws InvocationTargetException {
 		return getConfiguration().eInvoke(operation, arguments);
 	}

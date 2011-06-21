@@ -8,7 +8,7 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.model.factory;
+package simulator.config.factory;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -24,21 +24,16 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
-import simulator.model.Watch;
 import simulator.util.EmfUtil;
 
-public class UploadedWatchFactory extends WatchFactory {
+public class UploadedConfigurationFactory implements ConfigurationFactory {
 	
 	private final HttpServletRequest request;
 	
-	public UploadedWatchFactory(HttpServletRequest request) {
+	public UploadedConfigurationFactory(HttpServletRequest request) {
 		this.request = request;
 	}
 	
-	public Watch createWatch() throws IOException {
-		return configurationToWatch(createConfiguration());
-	}
-
 	public Configuration createConfiguration() throws IOException {
 		try {
 			final FileItemFactory factory = new DiskFileItemFactory();

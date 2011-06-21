@@ -18,5 +18,4 @@ package simulator.config;
  * @generated
  */
 public interface ChangeDisplay extends ChangeOutputAction {
-
 } // ChangeDisplay

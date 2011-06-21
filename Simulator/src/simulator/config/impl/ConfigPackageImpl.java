@@ -30,7 +30,6 @@ import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
 import simulator.config.Mode;
 import simulator.config.NextMode;
-import simulator.config.NumberAndString;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 
@@ -47,13 +46,6 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * @generated
 	 */
 	private EClass configurationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass numberAndStringEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,8 +236,8 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNumberAndString() {
-		return numberAndStringEClass;
+	public EReference getConfiguration_Variables() {
+		return (EReference)configurationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -253,17 +245,8 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNumberAndString_Number() {
-		return (EAttribute)numberAndStringEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNumberAndString_String() {
-		return (EAttribute)numberAndStringEClass.getEStructuralFeatures().get(1);
+	public EReference getConfiguration_Constants() {
+		return (EReference)configurationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -300,24 +283,6 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 */
 	public EReference getMode_Buttons() {
 		return (EReference)modeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMode_Variables() {
-		return (EReference)modeEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMode_Constants() {
-		return (EReference)modeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -548,17 +513,13 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		// Create classes and their features
 		configurationEClass = createEClass(CONFIGURATION);
 		createEReference(configurationEClass, CONFIGURATION__MODES);
-
-		numberAndStringEClass = createEClass(NUMBER_AND_STRING);
-		createEAttribute(numberAndStringEClass, NUMBER_AND_STRING__NUMBER);
-		createEAttribute(numberAndStringEClass, NUMBER_AND_STRING__STRING);
+		createEReference(configurationEClass, CONFIGURATION__VARIABLES);
+		createEReference(configurationEClass, CONFIGURATION__CONSTANTS);
 
 		modeEClass = createEClass(MODE);
 		createEAttribute(modeEClass, MODE__NAME);
 		createEReference(modeEClass, MODE__ENTRY_ACTIONS);
 		createEReference(modeEClass, MODE__BUTTONS);
-		createEReference(modeEClass, MODE__VARIABLES);
-		createEReference(modeEClass, MODE__CONSTANTS);
 
 		buttonEClass = createEClass(BUTTON);
 		createEAttribute(buttonEClass, BUTTON__NAME);
@@ -639,17 +600,13 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfiguration_Modes(), this.getMode(), null, "modes", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(numberAndStringEClass, NumberAndString.class, "NumberAndString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumberAndString_Number(), ecorePackage.getEInt(), "number", null, 0, 1, NumberAndString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNumberAndString_String(), ecorePackage.getEString(), "string", null, 0, 1, NumberAndString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_Variables(), this.getVariable(), null, "variables", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_Constants(), this.getConstant(), null, "constants", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modeEClass, Mode.class, "Mode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMode_EntryActions(), this.getAction(), null, "entryActions", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMode_Buttons(), this.getButton(), null, "buttons", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMode_Variables(), this.getVariable(), null, "variables", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMode_Constants(), this.getConstant(), null, "constants", null, 0, -1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getButton_Name(), ecorePackage.getEString(), "name", null, 1, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

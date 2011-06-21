@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import simulator.config.Configuration;
+import simulator.config.factory.FileBasedConfigurationFactory;
 import simulator.execution.model.Simulation;
-import simulator.model.factory.FileBasedWatchFactory;
 
 @SuppressWarnings("serial")
 public abstract class AbstractServlet extends HttpServlet {
@@ -21,7 +21,7 @@ public abstract class AbstractServlet extends HttpServlet {
 
 	protected Simulation getOrCreateState(HttpSession session) throws IOException {
 		if (session.getAttribute("state") == null) {
-			final Configuration config = new FileBasedWatchFactory().createConfiguration();
+			final Configuration config = new FileBasedConfigurationFactory().createConfiguration();
 			session.setAttribute("state", new Simulation(config));
 		}
 		

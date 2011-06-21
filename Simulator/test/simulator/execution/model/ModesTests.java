@@ -11,9 +11,6 @@
 package simulator.execution.model;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 
@@ -25,7 +22,6 @@ import simulator.config.ChangeIndicator;
 import simulator.config.ConfigFactory;
 import simulator.config.Constant;
 import simulator.config.Mode;
-import simulator.config.Variable;
 import simulator.execution.model.state.State;
 
 public class ModesTests {
@@ -52,27 +48,6 @@ public class ModesTests {
 		// TODO rephrase this test so that its outcome is not reliant on the behaviour of the changeDisplay/indicator actions
 	}
 	
-	@Test
-	public void modesRespondsToChangeInModeByIntialisingVariables() throws Exception {
-		final Mode firstMode  = createMode("First");
-		final Mode secondMode = createMode("Second");
-		final Modes modes     = new Modes(Arrays.asList(firstMode, secondMode));
-		
-		final Variable firstVariable  = createVariable("foo");
-		final Variable secondVariable = createVariable("bar");
-		
-		secondMode.getVariables().add(firstVariable);
-		secondMode.getVariables().add(secondVariable);
-		
-		final State state = mock(State.class);
-		when(state.getCurrentModeIndex()).thenReturn(1);
-		
-		modes.modeChanged(state);
-						
-		verify(state).initialiseValueOf(firstVariable);
-		verify(state).initialiseValueOf(secondVariable);
-	}
-	
 	private static Mode createMode(String name) {
 		final Mode mode = ConfigFactory.eINSTANCE.createMode();
 		mode.setName(name);
@@ -95,11 +70,5 @@ public class ModesTests {
 		final Constant constant = ConfigFactory.eINSTANCE.createConstant();
 		constant.setValue(value);
 		return constant;
-	}
-	
-	private static Variable createVariable(String variableName) {
-		final Variable variable = ConfigFactory.eINSTANCE.createVariable();
-		variable.setName(variableName);
-		return variable;
 	}
 }

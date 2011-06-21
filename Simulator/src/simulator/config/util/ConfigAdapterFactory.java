@@ -76,10 +76,6 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 				return createConfigurationAdapter();
 			}
 			@Override
-			public Adapter caseNumberAndString(NumberAndString object) {
-				return createNumberAndStringAdapter();
-			}
-			@Override
 			public Adapter caseMode(Mode object) {
 				return createModeAdapter();
 			}
@@ -166,20 +162,6 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConfigurationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link simulator.config.NumberAndString <em>Number And String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see simulator.config.NumberAndString
-	 * @generated
-	 */
-	public Adapter createNumberAndStringAdapter() {
 		return null;
 	}
 

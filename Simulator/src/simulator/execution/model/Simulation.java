@@ -17,6 +17,7 @@ import java.util.Collection;
 import simulator.config.Configuration;
 import simulator.config.Mode;
 import simulator.config.UnitOfTime;
+import simulator.config.Variable;
 import simulator.execution.model.state.State;
 import simulator.trace.Stimulus;
 import simulator.trace.Trace;
@@ -37,6 +38,17 @@ public class Simulation implements Serializable {
 		this.configuration = new SerializableConfiguration(configuration);
 		this.state = new State(configuration.getModes().size());
 		
+		initialiseVariables();
+		initialiseFirstMode();
+	}
+
+	private void initialiseVariables() {
+		for (Variable variable : configuration.getVariables()) {
+			state.initialiseValueOf(variable);
+		}
+	}
+	
+	private void initialiseFirstMode() {
 		getModes().modeChanged(state);
 	}
 
@@ -82,9 +94,10 @@ public class Simulation implements Serializable {
 	}
 
 	public void incrementVariable(String variableName, UnitOfTime unit) {
-		final Time currentValue = state.getValueOf(variableName);
-		final Time newValue     = currentValue.increment(unit);
-		
-		state.setValueOf(variableName, newValue);
+		state.incrementValue(variableName, unit);
+	}
+
+	public Time getValueOf(String variableName) {
+		return state.getValueOf(variableName);
 	}
 }
