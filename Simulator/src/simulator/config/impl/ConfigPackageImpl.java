@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import simulator.config.Action;
+import simulator.config.AlarmEvent;
 import simulator.config.Button;
 import simulator.config.ChangeDisplay;
 import simulator.config.ChangeIndicator;
@@ -23,9 +24,9 @@ import simulator.config.ConfigFactory;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
 import simulator.config.Constant;
-import simulator.config.DisplayButtonBehaviour;
 import simulator.config.Displayable;
 import simulator.config.EvaluateExpression;
+import simulator.config.Event;
 import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
 import simulator.config.Mode;
@@ -66,6 +67,20 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass eventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass alarmEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass actionEClass = null;
 
 	/**
@@ -95,13 +110,6 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * @generated
 	 */
 	private EClass nextModeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass displayButtonBehaviourEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,6 +262,15 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getConfiguration_Events() {
+		return (EReference)configurationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMode() {
 		return modeEClass;
 	}
@@ -317,6 +334,42 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEvent() {
+		return eventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAlarmEvent() {
+		return alarmEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAlarmEvent_Trigger() {
+		return (EReference)alarmEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAlarmEvent_AlarmTime() {
+		return (EReference)alarmEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAction() {
 		return actionEClass;
 	}
@@ -364,15 +417,6 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 */
 	public EClass getNextMode() {
 		return nextModeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDisplayButtonBehaviour() {
-		return displayButtonBehaviourEClass;
 	}
 
 	/**
@@ -515,6 +559,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		createEReference(configurationEClass, CONFIGURATION__MODES);
 		createEReference(configurationEClass, CONFIGURATION__VARIABLES);
 		createEReference(configurationEClass, CONFIGURATION__CONSTANTS);
+		createEReference(configurationEClass, CONFIGURATION__EVENTS);
 
 		modeEClass = createEClass(MODE);
 		createEAttribute(modeEClass, MODE__NAME);
@@ -524,6 +569,12 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		buttonEClass = createEClass(BUTTON);
 		createEAttribute(buttonEClass, BUTTON__NAME);
 		createEReference(buttonEClass, BUTTON__BEHAVIOUR);
+
+		eventEClass = createEClass(EVENT);
+
+		alarmEventEClass = createEClass(ALARM_EVENT);
+		createEReference(alarmEventEClass, ALARM_EVENT__TRIGGER);
+		createEReference(alarmEventEClass, ALARM_EVENT__ALARM_TIME);
 
 		actionEClass = createEClass(ACTION);
 
@@ -535,8 +586,6 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		changeIndicatorEClass = createEClass(CHANGE_INDICATOR);
 
 		nextModeEClass = createEClass(NEXT_MODE);
-
-		displayButtonBehaviourEClass = createEClass(DISPLAY_BUTTON_BEHAVIOUR);
 
 		evaluateExpressionEClass = createEClass(EVALUATE_EXPRESSION);
 		createEReference(evaluateExpressionEClass, EVALUATE_EXPRESSION__EXPRESSION);
@@ -587,11 +636,11 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		alarmEventEClass.getESuperTypes().add(this.getEvent());
 		changeOutputActionEClass.getESuperTypes().add(this.getAction());
 		changeDisplayEClass.getESuperTypes().add(this.getChangeOutputAction());
 		changeIndicatorEClass.getESuperTypes().add(this.getChangeOutputAction());
 		nextModeEClass.getESuperTypes().add(this.getAction());
-		displayButtonBehaviourEClass.getESuperTypes().add(this.getAction());
 		evaluateExpressionEClass.getESuperTypes().add(this.getAction());
 		incrementTimeVariableEClass.getESuperTypes().add(this.getExpression());
 		constantEClass.getESuperTypes().add(this.getDisplayable());
@@ -602,6 +651,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEReference(getConfiguration_Modes(), this.getMode(), null, "modes", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Variables(), this.getVariable(), null, "variables", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Constants(), this.getConstant(), null, "constants", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_Events(), this.getEvent(), null, "events", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modeEClass, Mode.class, "Mode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -611,6 +661,12 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getButton_Name(), ecorePackage.getEString(), "name", null, 1, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getButton_Behaviour(), this.getAction(), null, "behaviour", null, 1, -1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(eventEClass, Event.class, "Event", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(alarmEventEClass, AlarmEvent.class, "AlarmEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAlarmEvent_Trigger(), this.getVariable(), null, "trigger", null, 1, 1, AlarmEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAlarmEvent_AlarmTime(), this.getVariable(), null, "alarmTime", null, 1, 1, AlarmEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -622,8 +678,6 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEClass(changeIndicatorEClass, ChangeIndicator.class, "ChangeIndicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(nextModeEClass, NextMode.class, "NextMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(displayButtonBehaviourEClass, DisplayButtonBehaviour.class, "DisplayButtonBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(evaluateExpressionEClass, EvaluateExpression.class, "EvaluateExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvaluateExpression_Expression(), this.getExpression(), null, "expression", null, 1, 1, EvaluateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

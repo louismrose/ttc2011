@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link simulator.config.Configuration#getModes <em>Modes</em>}</li>
  *   <li>{@link simulator.config.Configuration#getVariables <em>Variables</em>}</li>
  *   <li>{@link simulator.config.Configuration#getConstants <em>Constants</em>}</li>
+ *   <li>{@link simulator.config.Configuration#getEvents <em>Events</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +77,21 @@ public interface Configuration extends EObject {
 	 * @generated
 	 */
 	EList<Constant> getConstants();
+
+	/**
+	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
+	 * The list contents are of type {@link simulator.config.Event}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Events</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Events</em>' containment reference list.
+	 * @see simulator.config.ConfigPackage#getConfiguration_Events()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Event> getEvents();
 
 } // Configuration

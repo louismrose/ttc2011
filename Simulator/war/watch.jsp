@@ -1,6 +1,6 @@
-<%@page import="simulator.execution.model.VariableWithValue"%>
+<%@page import="simulator.execution.model.state.VariableWithValue"%>
 <%@page import="simulator.config.Button"%>
-<%@page import="simulator.model.factory.FileBasedConfigurationFactory"%>
+<%@page import="simulator.config.factory.FileBasedConfigurationFactory"%>
 <%@page import="simulator.execution.model.Simulation"%>
 <%@page import="simulator.config.Configuration"%>
 <%@page import="simulator.config.ConfigPackage"%>
@@ -11,7 +11,6 @@
 <%@page import="simulator.trace.presenter.TraceElementPresenter"%>
 <%@page import="simulator.trace.TraceElement"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="simulator.model.Watch"%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
@@ -36,12 +35,15 @@
 	    <span id="time">
 	      <%=simulation.getDisplayText()%>
 	    </span>
-	    <span id="alarm_status">
+	    <span id="indicator">
 	      <b>Indicator:</b>
 	      <%=simulation.getIndicatorText()%>
 	    </span>
 	    <span id="mode">
 	      <b>Mode:</b> <%=simulation.getCurrentMode().getName()%>
+	    </span>
+	    <span id="alarm_status">
+	      <b>Alarm:</b> <%=simulation.getAlarmStatus()%>
 	    </span>
 	  </div>
 	

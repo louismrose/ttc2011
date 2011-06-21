@@ -8,25 +8,27 @@ package simulator.config.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import simulator.config.ConfigPackage;
-import simulator.config.DisplayButtonBehaviour;
+import simulator.config.Event;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Display Button Behaviour</b></em>'.
+ * An implementation of the model object '<em><b>Event</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class DisplayButtonBehaviourImpl extends ActionImpl implements DisplayButtonBehaviour {
+public abstract class EventImpl extends EObjectImpl implements Event {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DisplayButtonBehaviourImpl() {
+	protected EventImpl() {
 		super();
 	}
 
@@ -37,7 +39,7 @@ public class DisplayButtonBehaviourImpl extends ActionImpl implements DisplayBut
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.DISPLAY_BUTTON_BEHAVIOUR;
+		return ConfigPackage.Literals.EVENT;
 	}
 
-} //DisplayButtonBehaviourImpl
+} //EventImpl

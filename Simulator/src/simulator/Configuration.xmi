@@ -16,4 +16,6 @@
     </buttons>
   </modes>
   <variables xmi:id="_fudg4JvfEeCu7pen7GHQ0w" name="time"/>
+  <variables xmi:id="_fudg4JvfEeCu7pen7GHQ0z" name="alarmTime"/>
+  <events xsi:type="simulatorConfig:AlarmEvent" trigger="_fudg4JvfEeCu7pen7GHQ0w" alarmTime="_fudg4JvfEeCu7pen7GHQ0z"/>
 </simulatorConfig:Configuration>

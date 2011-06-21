@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
 import simulator.config.Constant;
+import simulator.config.Event;
 import simulator.config.Mode;
 import simulator.config.Variable;
 
@@ -36,6 +37,7 @@ import simulator.config.Variable;
  *   <li>{@link simulator.config.impl.ConfigurationImpl#getModes <em>Modes</em>}</li>
  *   <li>{@link simulator.config.impl.ConfigurationImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link simulator.config.impl.ConfigurationImpl#getConstants <em>Constants</em>}</li>
+ *   <li>{@link simulator.config.impl.ConfigurationImpl#getEvents <em>Events</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +73,16 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected EList<Constant> constants;
+
+	/**
+	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvents()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Event> events;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +144,18 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Event> getEvents() {
+		if (events == null) {
+			events = new EObjectContainmentEList<Event>(Event.class, this, ConfigPackage.CONFIGURATION__EVENTS);
+		}
+		return events;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -141,6 +165,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
 			case ConfigPackage.CONFIGURATION__CONSTANTS:
 				return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
+			case ConfigPackage.CONFIGURATION__EVENTS:
+				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -159,6 +185,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return getVariables();
 			case ConfigPackage.CONFIGURATION__CONSTANTS:
 				return getConstants();
+			case ConfigPackage.CONFIGURATION__EVENTS:
+				return getEvents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,6 +212,10 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				getConstants().clear();
 				getConstants().addAll((Collection<? extends Constant>)newValue);
 				return;
+			case ConfigPackage.CONFIGURATION__EVENTS:
+				getEvents().clear();
+				getEvents().addAll((Collection<? extends Event>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -205,6 +237,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case ConfigPackage.CONFIGURATION__CONSTANTS:
 				getConstants().clear();
 				return;
+			case ConfigPackage.CONFIGURATION__EVENTS:
+				getEvents().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -223,6 +258,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return variables != null && !variables.isEmpty();
 			case ConfigPackage.CONFIGURATION__CONSTANTS:
 				return constants != null && !constants.isEmpty();
+			case ConfigPackage.CONFIGURATION__EVENTS:
+				return events != null && !events.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

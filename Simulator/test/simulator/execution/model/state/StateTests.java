@@ -18,7 +18,6 @@ import org.mockito.Mockito;
 
 import simulator.config.ConfigFactory;
 import simulator.config.Variable;
-import simulator.execution.model.ModeObserver;
 import simulator.execution.model.Time;
 
 public class StateTests {

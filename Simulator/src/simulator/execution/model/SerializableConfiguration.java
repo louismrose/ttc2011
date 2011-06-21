@@ -29,6 +29,7 @@ import simulator.EObjectSerialiser;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
 import simulator.config.Constant;
+import simulator.config.Event;
 import simulator.config.Mode;
 import simulator.config.Variable;
 
@@ -72,6 +73,11 @@ public class SerializableConfiguration implements Configuration, Serializable {
 	@Override
 	public EList<Constant> getConstants() {
 		return getConfiguration().getConstants();
+	}
+	
+	@Override
+	public EList<Event> getEvents() {
+		return getConfiguration().getEvents();
 	}
 
 	@Override

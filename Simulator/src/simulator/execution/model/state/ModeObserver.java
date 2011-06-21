@@ -8,24 +8,11 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.execution.model;
+package simulator.execution.model.state;
 
 
-public class VariableWithValue {
+public interface ModeObserver {
 
-	private final String name;
-	private final String value;
-	
-	public VariableWithValue(String name, Time value) {
-		this.name  = name;
-		this.value = value.formatWith(TimeFormatter.twentyFourHourFormatter);
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public String getValue() {
-		return value;
-	}
+	public void modeChanged(State state);
+
 }

@@ -98,13 +98,22 @@ public interface ConfigPackage extends EPackage {
 	int CONFIGURATION__CONSTANTS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__EVENTS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = 3;
+	int CONFIGURATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link simulator.config.impl.ModeImpl <em>Mode</em>}' class.
@@ -190,6 +199,62 @@ public interface ConfigPackage extends EPackage {
 	int BUTTON_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link simulator.config.impl.EventImpl <em>Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.EventImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getEvent()
+	 * @generated
+	 */
+	int EVENT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.AlarmEventImpl <em>Alarm Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.AlarmEventImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getAlarmEvent()
+	 * @generated
+	 */
+	int ALARM_EVENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Trigger</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALARM_EVENT__TRIGGER = EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Alarm Time</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALARM_EVENT__ALARM_TIME = EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Alarm Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALARM_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link simulator.config.impl.ActionImpl <em>Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,7 +262,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 3;
+	int ACTION = 5;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -216,7 +281,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeOutputAction()
 	 * @generated
 	 */
-	int CHANGE_OUTPUT_ACTION = 4;
+	int CHANGE_OUTPUT_ACTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -244,7 +309,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeDisplay()
 	 * @generated
 	 */
-	int CHANGE_DISPLAY = 5;
+	int CHANGE_DISPLAY = 7;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -272,7 +337,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeIndicator()
 	 * @generated
 	 */
-	int CHANGE_INDICATOR = 6;
+	int CHANGE_INDICATOR = 8;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -300,7 +365,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getNextMode()
 	 * @generated
 	 */
-	int NEXT_MODE = 7;
+	int NEXT_MODE = 9;
 
 	/**
 	 * The number of structural features of the '<em>Next Mode</em>' class.
@@ -312,25 +377,6 @@ public interface ConfigPackage extends EPackage {
 	int NEXT_MODE_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link simulator.config.impl.DisplayButtonBehaviourImpl <em>Display Button Behaviour</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see simulator.config.impl.DisplayButtonBehaviourImpl
-	 * @see simulator.config.impl.ConfigPackageImpl#getDisplayButtonBehaviour()
-	 * @generated
-	 */
-	int DISPLAY_BUTTON_BEHAVIOUR = 8;
-
-	/**
-	 * The number of structural features of the '<em>Display Button Behaviour</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_BUTTON_BEHAVIOUR_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link simulator.config.impl.EvaluateExpressionImpl <em>Evaluate Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,7 +384,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getEvaluateExpression()
 	 * @generated
 	 */
-	int EVALUATE_EXPRESSION = 9;
+	int EVALUATE_EXPRESSION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -366,7 +412,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 10;
+	int EXPRESSION = 11;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -385,7 +431,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getIncrementTimeVariable()
 	 * @generated
 	 */
-	int INCREMENT_TIME_VARIABLE = 11;
+	int INCREMENT_TIME_VARIABLE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -422,7 +468,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getDisplayable()
 	 * @generated
 	 */
-	int DISPLAYABLE = 12;
+	int DISPLAYABLE = 13;
 
 	/**
 	 * The number of structural features of the '<em>Displayable</em>' class.
@@ -441,7 +487,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getConstant()
 	 * @generated
 	 */
-	int CONSTANT = 13;
+	int CONSTANT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -469,7 +515,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 14;
+	int VARIABLE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -497,7 +543,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getUnitOfTime()
 	 * @generated
 	 */
-	int UNIT_OF_TIME = 15;
+	int UNIT_OF_TIME = 16;
 
 
 	/**
@@ -542,6 +588,17 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConfiguration_Constants();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link simulator.config.Configuration#getEvents <em>Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Events</em>'.
+	 * @see simulator.config.Configuration#getEvents()
+	 * @see #getConfiguration()
+	 * @generated
+	 */
+	EReference getConfiguration_Events();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.config.Mode <em>Mode</em>}'.
@@ -619,6 +676,48 @@ public interface ConfigPackage extends EPackage {
 	EReference getButton_Behaviour();
 
 	/**
+	 * Returns the meta object for class '{@link simulator.config.Event <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event</em>'.
+	 * @see simulator.config.Event
+	 * @generated
+	 */
+	EClass getEvent();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.AlarmEvent <em>Alarm Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Alarm Event</em>'.
+	 * @see simulator.config.AlarmEvent
+	 * @generated
+	 */
+	EClass getAlarmEvent();
+
+	/**
+	 * Returns the meta object for the reference '{@link simulator.config.AlarmEvent#getTrigger <em>Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Trigger</em>'.
+	 * @see simulator.config.AlarmEvent#getTrigger()
+	 * @see #getAlarmEvent()
+	 * @generated
+	 */
+	EReference getAlarmEvent_Trigger();
+
+	/**
+	 * Returns the meta object for the reference '{@link simulator.config.AlarmEvent#getAlarmTime <em>Alarm Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Alarm Time</em>'.
+	 * @see simulator.config.AlarmEvent#getAlarmTime()
+	 * @see #getAlarmEvent()
+	 * @generated
+	 */
+	EReference getAlarmEvent_AlarmTime();
+
+	/**
 	 * Returns the meta object for class '{@link simulator.config.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -678,16 +777,6 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNextMode();
-
-	/**
-	 * Returns the meta object for class '{@link simulator.config.DisplayButtonBehaviour <em>Display Button Behaviour</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Display Button Behaviour</em>'.
-	 * @see simulator.config.DisplayButtonBehaviour
-	 * @generated
-	 */
-	EClass getDisplayButtonBehaviour();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.config.EvaluateExpression <em>Evaluate Expression</em>}'.
@@ -871,6 +960,14 @@ public interface ConfigPackage extends EPackage {
 		EReference CONFIGURATION__CONSTANTS = eINSTANCE.getConfiguration_Constants();
 
 		/**
+		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFIGURATION__EVENTS = eINSTANCE.getConfiguration_Events();
+
+		/**
 		 * The meta object literal for the '{@link simulator.config.impl.ModeImpl <em>Mode</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -931,6 +1028,42 @@ public interface ConfigPackage extends EPackage {
 		EReference BUTTON__BEHAVIOUR = eINSTANCE.getButton_Behaviour();
 
 		/**
+		 * The meta object literal for the '{@link simulator.config.impl.EventImpl <em>Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.EventImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getEvent()
+		 * @generated
+		 */
+		EClass EVENT = eINSTANCE.getEvent();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.AlarmEventImpl <em>Alarm Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.AlarmEventImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getAlarmEvent()
+		 * @generated
+		 */
+		EClass ALARM_EVENT = eINSTANCE.getAlarmEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALARM_EVENT__TRIGGER = eINSTANCE.getAlarmEvent_Trigger();
+
+		/**
+		 * The meta object literal for the '<em><b>Alarm Time</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALARM_EVENT__ALARM_TIME = eINSTANCE.getAlarmEvent_AlarmTime();
+
+		/**
 		 * The meta object literal for the '{@link simulator.config.impl.ActionImpl <em>Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -987,16 +1120,6 @@ public interface ConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NEXT_MODE = eINSTANCE.getNextMode();
-
-		/**
-		 * The meta object literal for the '{@link simulator.config.impl.DisplayButtonBehaviourImpl <em>Display Button Behaviour</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see simulator.config.impl.DisplayButtonBehaviourImpl
-		 * @see simulator.config.impl.ConfigPackageImpl#getDisplayButtonBehaviour()
-		 * @generated
-		 */
-		EClass DISPLAY_BUTTON_BEHAVIOUR = eINSTANCE.getDisplayButtonBehaviour();
 
 		/**
 		 * The meta object literal for the '{@link simulator.config.impl.EvaluateExpressionImpl <em>Evaluate Expression</em>}' class.

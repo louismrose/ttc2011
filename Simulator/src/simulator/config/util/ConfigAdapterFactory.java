@@ -84,6 +84,14 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 				return createButtonAdapter();
 			}
 			@Override
+			public Adapter caseEvent(Event object) {
+				return createEventAdapter();
+			}
+			@Override
+			public Adapter caseAlarmEvent(AlarmEvent object) {
+				return createAlarmEventAdapter();
+			}
+			@Override
 			public Adapter caseAction(Action object) {
 				return createActionAdapter();
 			}
@@ -102,10 +110,6 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNextMode(NextMode object) {
 				return createNextModeAdapter();
-			}
-			@Override
-			public Adapter caseDisplayButtonBehaviour(DisplayButtonBehaviour object) {
-				return createDisplayButtonBehaviourAdapter();
 			}
 			@Override
 			public Adapter caseEvaluateExpression(EvaluateExpression object) {
@@ -194,6 +198,34 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.Event <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.Event
+	 * @generated
+	 */
+	public Adapter createEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.AlarmEvent <em>Alarm Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.AlarmEvent
+	 * @generated
+	 */
+	public Adapter createAlarmEventAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link simulator.config.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -260,20 +292,6 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNextModeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link simulator.config.DisplayButtonBehaviour <em>Display Button Behaviour</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see simulator.config.DisplayButtonBehaviour
-	 * @generated
-	 */
-	public Adapter createDisplayButtonBehaviourAdapter() {
 		return null;
 	}
 

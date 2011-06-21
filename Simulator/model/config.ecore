@@ -10,6 +10,8 @@
         eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
         eType="#//Constant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//Event" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -23,6 +25,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" lowerBound="1"
         upperBound="-1" eType="#//Action" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlarmEvent" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" lowerBound="1"
+        eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alarmTime" lowerBound="1"
+        eType="#//Variable"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeOutputAction" abstract="true"
       eSuperTypes="#//Action">
@@ -32,7 +41,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ChangeDisplay" eSuperTypes="#//ChangeOutputAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeIndicator" eSuperTypes="#//ChangeOutputAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="NextMode" eSuperTypes="#//Action"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DisplayButtonBehaviour" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvaluateExpression" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
         eType="#//Expression" containment="true"/>

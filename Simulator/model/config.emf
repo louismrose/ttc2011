@@ -5,6 +5,7 @@ class Configuration {
    val Mode[*] modes;
    val Variable[*] variables;
    val Constant[*] constants;
+   val Event[*] events;
 }
 
 class Mode {
@@ -18,6 +19,13 @@ class Button {
    val Action[1..*] behaviour;
 }
 
+abstract class Event {}
+
+class AlarmEvent extends Event {
+   ref Variable[1] trigger;
+   ref Variable[1] alarmTime;
+}
+
 abstract class Action {}
 
 abstract class ChangeOutputAction extends Action {
@@ -28,8 +36,6 @@ class ChangeDisplay extends ChangeOutputAction {}
 class ChangeIndicator extends ChangeOutputAction {}
 
 class NextMode extends Action {}
-
-class DisplayButtonBehaviour extends Action {}
 
 class EvaluateExpression extends Action {
    val Expression[1] expression;

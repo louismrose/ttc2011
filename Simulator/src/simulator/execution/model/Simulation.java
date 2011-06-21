@@ -15,10 +15,12 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import simulator.config.Configuration;
+import simulator.config.Event;
 import simulator.config.Mode;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 import simulator.execution.model.state.State;
+import simulator.execution.model.state.VariableWithValue;
 import simulator.trace.Stimulus;
 import simulator.trace.Trace;
 import simulator.trace.TraceFactory;
@@ -39,12 +41,19 @@ public class Simulation implements Serializable {
 		this.state = new State(configuration.getModes().size());
 		
 		initialiseVariables();
+		initialiseEvents();
 		initialiseFirstMode();
 	}
 
 	private void initialiseVariables() {
 		for (Variable variable : configuration.getVariables()) {
 			state.initialiseValueOf(variable);
+		}
+	}
+	
+	private void initialiseEvents() {
+		for (final Event event : configuration.getEvents()) {
+			state.addVariableObserver(new SchedulableEvent(event));
 		}
 	}
 	
@@ -71,6 +80,10 @@ public class Simulation implements Serializable {
 	
 	public String getIndicatorText() {
 		return state.getIndicatorText();
+	}
+	
+	public String getAlarmStatus() {
+		return state.isAlarmRinging() ? "ringing" : "silent";
 	}
 	
 	public Trace getTrace() {

@@ -8,12 +8,11 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.execution.model;
+package simulator.execution.model.state;
 
-import simulator.execution.model.state.State;
 
-public interface ModeObserver {
+public interface VariableObserver {
 
-	public void modeChanged(State state);
-
+	public void variableChanged(VariableWithValue variable, State state);
+	
 }

@@ -18,9 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import simulator.config.UnitOfTime;
 import simulator.execution.model.Time;
-import simulator.execution.model.VariableWithValue;
 
 public class VariableState implements Serializable {
 	
@@ -49,12 +47,5 @@ public class VariableState implements Serializable {
 	
 	public void initialiseValueOf(String variableName) {
 		if (!variableValues.containsKey(variableName)) variableValues.put(variableName, new Time());
-	}
-
-	public void increment(String variableName, UnitOfTime unit) {
-		final Time currentValue = getValueOf(variableName);
-		final Time newValue     = currentValue.increment(unit);
-		
-		setValueOf(variableName, newValue);
 	}
 }

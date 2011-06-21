@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import simulator.config.Action;
 import simulator.config.Button;
 import simulator.config.Mode;
+import simulator.execution.model.state.ModeObserver;
 import simulator.execution.model.state.State;
 
 public class Modes implements ModeObserver {

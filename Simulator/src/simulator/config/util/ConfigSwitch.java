@@ -105,6 +105,19 @@ public class ConfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ConfigPackage.EVENT: {
+				Event event = (Event)theEObject;
+				T result = caseEvent(event);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.ALARM_EVENT: {
+				AlarmEvent alarmEvent = (AlarmEvent)theEObject;
+				T result = caseAlarmEvent(alarmEvent);
+				if (result == null) result = caseEvent(alarmEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ConfigPackage.ACTION: {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
@@ -138,13 +151,6 @@ public class ConfigSwitch<T> {
 				NextMode nextMode = (NextMode)theEObject;
 				T result = caseNextMode(nextMode);
 				if (result == null) result = caseAction(nextMode);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ConfigPackage.DISPLAY_BUTTON_BEHAVIOUR: {
-				DisplayButtonBehaviour displayButtonBehaviour = (DisplayButtonBehaviour)theEObject;
-				T result = caseDisplayButtonBehaviour(displayButtonBehaviour);
-				if (result == null) result = caseAction(displayButtonBehaviour);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -238,6 +244,36 @@ public class ConfigSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvent(Event object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Alarm Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Alarm Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAlarmEvent(AlarmEvent object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -309,21 +345,6 @@ public class ConfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseNextMode(NextMode object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Display Button Behaviour</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Display Button Behaviour</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDisplayButtonBehaviour(DisplayButtonBehaviour object) {
 		return null;
 	}
 

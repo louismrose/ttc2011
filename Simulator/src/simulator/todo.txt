@@ -2,8 +2,7 @@
 * Displaying variables
 * Variable view in simulator
 * Variables and constants should not be mode-specific
-- Current time should be a built-in variable (@time)
-- Sounding the alarm
+* Sounding the alarm
 - Tracing
 - Deploy to GAE and test there
 - Anything else needed for Alarm.xmi to work properly

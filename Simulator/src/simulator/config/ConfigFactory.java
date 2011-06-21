@@ -53,6 +53,15 @@ public interface ConfigFactory extends EFactory {
 	Button createButton();
 
 	/**
+	 * Returns a new object of class '<em>Alarm Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alarm Event</em>'.
+	 * @generated
+	 */
+	AlarmEvent createAlarmEvent();
+
+	/**
 	 * Returns a new object of class '<em>Change Display</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,15 +87,6 @@ public interface ConfigFactory extends EFactory {
 	 * @generated
 	 */
 	NextMode createNextMode();
-
-	/**
-	 * Returns a new object of class '<em>Display Button Behaviour</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Display Button Behaviour</em>'.
-	 * @generated
-	 */
-	DisplayButtonBehaviour createDisplayButtonBehaviour();
 
 	/**
 	 * Returns a new object of class '<em>Evaluate Expression</em>'.

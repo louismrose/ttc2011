@@ -64,10 +64,10 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 			case ConfigPackage.CONFIGURATION: return createConfiguration();
 			case ConfigPackage.MODE: return createMode();
 			case ConfigPackage.BUTTON: return createButton();
+			case ConfigPackage.ALARM_EVENT: return createAlarmEvent();
 			case ConfigPackage.CHANGE_DISPLAY: return createChangeDisplay();
 			case ConfigPackage.CHANGE_INDICATOR: return createChangeIndicator();
 			case ConfigPackage.NEXT_MODE: return createNextMode();
-			case ConfigPackage.DISPLAY_BUTTON_BEHAVIOUR: return createDisplayButtonBehaviour();
 			case ConfigPackage.EVALUATE_EXPRESSION: return createEvaluateExpression();
 			case ConfigPackage.EXPRESSION: return createExpression();
 			case ConfigPackage.INCREMENT_TIME_VARIABLE: return createIncrementTimeVariable();
@@ -143,6 +143,16 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AlarmEvent createAlarmEvent() {
+		AlarmEventImpl alarmEvent = new AlarmEventImpl();
+		return alarmEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ChangeDisplay createChangeDisplay() {
 		ChangeDisplayImpl changeDisplay = new ChangeDisplayImpl();
 		return changeDisplay;
@@ -166,16 +176,6 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	public NextMode createNextMode() {
 		NextModeImpl nextMode = new NextModeImpl();
 		return nextMode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DisplayButtonBehaviour createDisplayButtonBehaviour() {
-		DisplayButtonBehaviourImpl displayButtonBehaviour = new DisplayButtonBehaviourImpl();
-		return displayButtonBehaviour;
 	}
 
 	/**

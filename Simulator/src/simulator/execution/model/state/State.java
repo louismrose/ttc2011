@@ -17,9 +17,7 @@ import java.util.List;
 
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
-import simulator.execution.model.ModeObserver;
 import simulator.execution.model.Time;
-import simulator.execution.model.VariableWithValue;
 
 public class State implements Serializable {
 
@@ -29,11 +27,14 @@ public class State implements Serializable {
 	private String displayText = "";
 	private String indicatorText = "";
 	private int currentModeIndex = 0;
+	private boolean alarmRinging = false;
 	
 	private final VariableState variables = new VariableState();
 	private final int totalNumberOfModes;
 	
-	private transient List<ModeObserver> observers;
+	private transient List<ModeObserver> modeObservers;
+	private final List<VariableObserver> variableObservers = new LinkedList<VariableObserver>();
+
 	
 	public State() {
 		this(1);
@@ -41,6 +42,14 @@ public class State implements Serializable {
 	
 	public State(int totalNumberOfModes) {
 		this.totalNumberOfModes = totalNumberOfModes;
+	}
+	
+	public boolean isAlarmRinging() {
+		return alarmRinging;
+	}
+
+	public void setAlarmRinging(boolean alarmRinging) {
+		this.alarmRinging = alarmRinging;
 	}
 
 	public String getDisplayText() {
@@ -67,20 +76,27 @@ public class State implements Serializable {
 		return getValueOf(variable.getName());
 	}
 
-	public void setValueOf(String variableName, Time value) {
-		variables.setValueOf(variableName, value);
-	}
-	
 	public void setValueOf(Variable variable, Time value) {
 		setValueOf(variable.getName(), value);
 	}
-	
-	public void initialiseValueOf(String variableName) {
-		variables.initialiseValueOf(variableName);
+
+	public void setValueOf(String variableName, Time value) {
+		variables.setValueOf(variableName, value);
+		notifyVariableObservers(new VariableWithValue(variableName, value));
 	}
 	
 	public void initialiseValueOf(Variable variable) {
 		initialiseValueOf(variable.getName());
+	}
+		
+	public void initialiseValueOf(String variableName) {
+		variables.initialiseValueOf(variableName);
+	}
+	
+	private void notifyVariableObservers(VariableWithValue variable) {
+		for (VariableObserver observer : variableObservers) {
+			observer.variableChanged(variable, this);
+		}
 	}
 	
 	public Collection<VariableWithValue> getVariableValues() {
@@ -88,7 +104,10 @@ public class State implements Serializable {
 	}
 	
 	public void incrementValue(String variableName, UnitOfTime unit) {
-		variables.increment(variableName, unit);
+		final Time currentValue = getValueOf(variableName);
+		final Time newValue     = currentValue.increment(unit);
+		
+		setValueOf(variableName, newValue);
 	}
 
 	public int getCurrentModeIndex() {
@@ -97,6 +116,10 @@ public class State implements Serializable {
 	
 	public void addModeObserver(ModeObserver observer) {
 		getObservers().add(observer);
+	}
+	
+	public void addVariableObserver(VariableObserver observer) {
+		variableObservers.add(observer);
 	}
 	
 	public void nextMode() {
@@ -115,10 +138,10 @@ public class State implements Serializable {
 	}
 	
 	private List<ModeObserver> getObservers() {
-		if (observers == null) {
-			 observers = new LinkedList<ModeObserver>();
+		if (modeObservers == null) {
+			 modeObservers = new LinkedList<ModeObserver>();
 		}
 		
-		return observers;
+		return modeObservers;
 	}
 }
