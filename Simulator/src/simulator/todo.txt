@@ -3,8 +3,8 @@
 * Variable view in simulator
 * Variables and constants should not be mode-specific
 * Sounding the alarm
+* Deploy to GAE and test there
 - Tracing
-- Deploy to GAE and test there
 - Anything else needed for Alarm.xmi to work properly
 
 

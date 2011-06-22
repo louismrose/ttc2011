@@ -10,6 +10,9 @@
  ******************************************************************************/
 package simulator.persistence;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import org.eclipse.emf.ecore.EObject;
@@ -22,11 +25,10 @@ public class SerializableEObject<T extends EObject> implements Serializable {
 	
 	private final EObjectSerializer serializer = new EObjectSerializer();
 	
-	private final String serialisedObject;
+	private transient String serialisedObject;
 	private transient T object;
 	
 	public SerializableEObject(T object) {
-		this.serialisedObject = serializer.serialize(object);
 		this.object = object;
 	}
 	
@@ -37,5 +39,15 @@ public class SerializableEObject<T extends EObject> implements Serializable {
 		}
 		
 		return object;
+	}
+	
+	private void writeObject(ObjectOutputStream out) throws IOException {
+		out.defaultWriteObject();
+		out.writeObject(serializer.serialize(object));
+	}
+	
+	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+		in.defaultReadObject();
+		serialisedObject = (String)in.readObject();
 	}
 }
