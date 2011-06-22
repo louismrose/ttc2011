@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import simulator.config.Configuration;
-import simulator.config.factory.FileBasedConfigurationFactory;
 import simulator.execution.model.Simulation;
 
 @SuppressWarnings("serial")
@@ -19,16 +17,11 @@ public abstract class AbstractServlet extends HttpServlet {
 		req.getRequestDispatcher(templateName).forward(req, resp);
 	}
 
-	protected Simulation getOrCreateState(HttpSession session) throws IOException {
-		if (session.getAttribute("state") == null) {
-			final Configuration config = new FileBasedConfigurationFactory().createConfiguration();
-			session.setAttribute("state", new Simulation(config));
-		}
-		
-		return (Simulation)session.getAttribute("state");
+	protected Simulation getOrCreateSimulation(HttpSession session) throws IOException {
+		return new SessionManager(session).getOrCreateSimulation();
 	}
 	
-	protected void update(Simulation state, HttpSession session) {
-		session.setAttribute("state", state);
+	protected void update(Simulation simulation, HttpSession session) {
+		new SessionManager(session).update(simulation);
 	}
 }

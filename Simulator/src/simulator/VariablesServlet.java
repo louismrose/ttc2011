@@ -15,7 +15,7 @@ public class VariablesServlet extends AbstractServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		final Simulation simulation = getOrCreateState(req.getSession());
+		final Simulation simulation = getOrCreateSimulation(req.getSession());
 		
 		final String variableName = req.getParameter("name");
 		final UnitOfTime unit = "hour".equals(req.getParameter("command")) ? UnitOfTime.HOUR : UnitOfTime.MINUTE;

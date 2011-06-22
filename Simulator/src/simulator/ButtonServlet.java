@@ -16,9 +16,9 @@ public class ButtonServlet extends AbstractServlet {
 		final String id = req.getParameter("id");
 		
 		if (id != null) {
-			final Simulation state = getOrCreateState(req.getSession());
-			state.pressButton(Integer.parseInt(id));
-			update(state, req.getSession());
+			final Simulation simulation = getOrCreateSimulation(req.getSession());
+			simulation.pressButton(Integer.parseInt(id));
+			update(simulation, req.getSession());
 		}
 
 		render("watch.jsp", req, resp);

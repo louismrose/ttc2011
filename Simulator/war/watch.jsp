@@ -1,3 +1,4 @@
+<%@page import="simulator.SessionManager"%>
 <%@page import="simulator.execution.model.state.VariableWithValue"%>
 <%@page import="simulator.config.Button"%>
 <%@page import="simulator.config.factory.FileBasedConfigurationFactory"%>
@@ -16,12 +17,7 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <%
-	if (session.getAttribute("state") == null) {
-		final Configuration configuration = new FileBasedConfigurationFactory().createConfiguration();
-		session.setAttribute("state", new Simulation(configuration));
-	}
-	
-	final Simulation simulation = (Simulation)session.getAttribute("state");
+	final Simulation simulation = new SessionManager(session).getOrCreateSimulation();
 %>
 <body>
 	<div id="debug">
