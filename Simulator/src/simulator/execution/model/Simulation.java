@@ -22,10 +22,7 @@ import simulator.config.Variable;
 import simulator.execution.model.state.State;
 import simulator.execution.model.state.VariableWithValue;
 import simulator.persistence.SerializableConfiguration;
-import simulator.persistence.SerializableTrace;
-import simulator.trace.Stimulus;
 import simulator.trace.Trace;
-import simulator.trace.TraceFactory;
 
 public class Simulation implements Serializable {
 
@@ -33,7 +30,6 @@ public class Simulation implements Serializable {
 	private static final long serialVersionUID = 8378817217535302346L;
 	
 	private final SerializableConfiguration configuration;
-	private final SerializableTrace trace = new SerializableTrace();
 	private final State state;
 	
 	private transient Modes modes;
@@ -89,19 +85,11 @@ public class Simulation implements Serializable {
 	}
 	
 	public Trace getTrace() {
-		return trace.getTrace();
+		return state.getTrace();
 	}
 	
 	public void pressButton(int buttonIndex) {
-		addButtonPressToTrace(buttonIndex);
 		getModes().pressButton(buttonIndex, state);
-	}
-	
-	private void addButtonPressToTrace(int index) {
-		final Stimulus stimulus = TraceFactory.eINSTANCE.createStimulus();
-		stimulus.setType("button");
-		stimulus.getParams().add("" + index);
-		trace.getElements().add(stimulus);
 	}
 	
 	public Collection<VariableWithValue> getVariableValues() {
@@ -109,7 +97,7 @@ public class Simulation implements Serializable {
 	}
 
 	public void incrementVariable(String variableName, UnitOfTime unit) {
-		state.incrementValue(variableName, unit);
+		state.incrementValueOf(variableName, unit);
 	}
 
 	public Time getValueOf(String variableName) {

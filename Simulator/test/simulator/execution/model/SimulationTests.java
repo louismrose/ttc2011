@@ -11,14 +11,11 @@
 package simulator.execution.model;
 
 import static org.junit.Assert.assertEquals;
-
-import java.util.Arrays;
+import static simulator.test.util.ConfigurationFactory.createConfiguration;
+import static simulator.test.util.ConfigurationFactory.createVariable;
 
 import org.junit.Test;
 
-import simulator.config.ConfigFactory;
-import simulator.config.Configuration;
-import simulator.config.Mode;
 import simulator.config.Variable;
 
 public class SimulationTests {
@@ -32,24 +29,5 @@ public class SimulationTests {
 		
 		assertEquals(new Time(), simulation.getValueOf(firstVariable.getName()));
 		assertEquals(new Time(), simulation.getValueOf(secondVariable.getName()));
-	}
-	
-	private static Configuration createConfiguration(Variable... variables) {
-		final Configuration configuration = ConfigFactory.eINSTANCE.createConfiguration();
-		configuration.getModes().add(createMode("default"));
-		configuration.getVariables().addAll(Arrays.asList(variables));
-		return configuration;
-	}
-
-	private static Mode createMode(String name) {
-		final Mode mode = ConfigFactory.eINSTANCE.createMode();
-		mode.setName(name);
-		return mode;
-	}
-	
-	private static Variable createVariable(String variableName) {
-		final Variable variable = ConfigFactory.eINSTANCE.createVariable();
-		variable.setName(variableName);
-		return variable;
 	}
 }

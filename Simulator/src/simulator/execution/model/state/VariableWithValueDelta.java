@@ -10,9 +10,30 @@
  ******************************************************************************/
 package simulator.execution.model.state;
 
+import simulator.execution.model.Time;
 
-public interface VariableObserver {
 
-	public void variableChanged(VariableWithValueDelta variable, State state);
+public class VariableWithValueDelta {
+
+	private final String name;
+	private final Time oldValue;
+	private final Time newValue;
 	
+	public VariableWithValueDelta(String name, Time oldValue, Time newValue) {
+		this.name  = name;
+		this.oldValue = oldValue;
+		this.newValue = newValue;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public Time getOldValue() {
+		return oldValue;
+	}
+	
+	public Time getNewValue() {
+		return newValue;
+	}
 }

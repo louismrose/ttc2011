@@ -13,12 +13,12 @@ package simulator.execution.model;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static simulator.test.util.ConfigurationFactory.createIncrementTimeVariableExpression;
+import static simulator.test.util.ConfigurationFactory.createVariable;
 
 import org.junit.Test;
 
-import simulator.config.ConfigFactory;
 import simulator.config.Expression;
-import simulator.config.IncrementTimeVariable;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 import simulator.execution.model.state.State;
@@ -48,19 +48,5 @@ public class EvaluatableExpressionTests {
 		new EvaluatableExpression(expression).evaluate(state);
 		
 		verify(state).setValueOf(variable, originalValue.increment(UnitOfTime.MINUTE));
-	}
-
-	
-	private static Expression createIncrementTimeVariableExpression(Variable variable, UnitOfTime increment) {
-		final IncrementTimeVariable expression = ConfigFactory.eINSTANCE.createIncrementTimeVariable();
-		expression.setUnit(increment);
-		expression.setVariable(variable);
-		return expression;
-	}
-
-	private static Variable createVariable(String name) {
-		final Variable variable = ConfigFactory.eINSTANCE.createVariable();
-		variable.setName(name);
-		return variable;
 	}
 }

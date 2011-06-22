@@ -10,6 +10,7 @@
  ******************************************************************************/
 package simulator.execution.model;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
@@ -24,6 +25,10 @@ public class Modes implements ModeObserver {
 	
 	private final List<Mode> modes;
 	
+	public Modes(Mode... modes) {
+		this(Arrays.asList(modes));
+	}
+	
 	public Modes(List<Mode> modes) {
 		this.modes = modes;
 	}
@@ -33,6 +38,7 @@ public class Modes implements ModeObserver {
 	}
 	
 	public void pressButton(int buttonIndex, State state) {
+		state.addStimulusToTrace("ButtonPress", "" + buttonIndex);
 		run(getButton(buttonIndex, state).getBehaviour(), state);
 	}
 

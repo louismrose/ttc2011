@@ -56,6 +56,7 @@ public class RunnableAction {
 	}
 	
 	private void run(NextMode nextModeAction, State state) {
+		state.addEventToTrace("NextMode", state.getCurrentModeIndex(), state.getNextModeIndex());
 		state.nextMode();
 	}
 	

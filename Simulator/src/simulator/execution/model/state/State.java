@@ -18,6 +18,12 @@ import java.util.List;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 import simulator.execution.model.Time;
+import simulator.persistence.SerializableTrace;
+import simulator.trace.Event;
+import simulator.trace.Stimulus;
+import simulator.trace.Trace;
+import simulator.trace.TraceElement;
+import simulator.trace.TraceFactory;
 
 public class State implements Serializable {
 
@@ -28,6 +34,8 @@ public class State implements Serializable {
 	private String indicatorText = "";
 	private int currentModeIndex = 0;
 	private boolean alarmRinging = false;
+	
+	private final SerializableTrace trace = new SerializableTrace();
 	
 	private final VariableState variables = new VariableState();
 	private final int totalNumberOfModes;
@@ -68,6 +76,28 @@ public class State implements Serializable {
 		this.indicatorText = indicatorText;
 	}
 	
+	public Trace getTrace() {
+		return trace.getTrace();
+	}
+	
+	public void addStimulusToTrace(String type, Object... params) {
+		addToTrace(TraceFactory.eINSTANCE.createStimulus(), type, params);
+	}
+	
+	public void addEventToTrace(String type, Object... params) {
+		addToTrace(TraceFactory.eINSTANCE.createEvent(), type, params);
+	}
+
+	private void addToTrace(TraceElement traceElement, String type, Object... params) {
+		traceElement.setType(type);
+		
+		for (Object param : params) {
+			traceElement.getParams().add(param.toString());			
+		}
+		
+		trace.getElements().add(traceElement);
+	}
+	
 	public Time getValueOf(String variableName) {
 		return variables.getValueOf(variableName);
 	}
@@ -80,9 +110,10 @@ public class State implements Serializable {
 		setValueOf(variable.getName(), value);
 	}
 
-	public void setValueOf(String variableName, Time value) {
-		variables.setValueOf(variableName, value);
-		notifyVariableObservers(new VariableWithValue(variableName, value));
+	public void setValueOf(String variableName, Time newValue) {
+		final Time oldValue = variables.getValueOf(variableName);
+		variables.setValueOf(variableName, newValue);
+		notifyVariableObservers(new VariableWithValueDelta(variableName, oldValue, newValue));
 	}
 	
 	public void initialiseValueOf(Variable variable) {
@@ -93,7 +124,7 @@ public class State implements Serializable {
 		variables.initialiseValueOf(variableName);
 	}
 	
-	private void notifyVariableObservers(VariableWithValue variable) {
+	private void notifyVariableObservers(VariableWithValueDelta variable) {
 		for (VariableObserver observer : variableObservers) {
 			observer.variableChanged(variable, this);
 		}
@@ -103,19 +134,24 @@ public class State implements Serializable {
 		return variables.getValues(currentModeIndex);
 	}
 	
-	public void incrementValue(String variableName, UnitOfTime unit) {
+	public void incrementValueOf(String variableName, UnitOfTime unit) {
 		final Time currentValue = getValueOf(variableName);
 		final Time newValue     = currentValue.increment(unit);
 		
+		addStimulusToTrace("ManualVariableChange", currentValue.toString(), newValue.toString());
 		setValueOf(variableName, newValue);
 	}
 
 	public int getCurrentModeIndex() {
 		return currentModeIndex;
 	}
+
+	public int getNextModeIndex() {
+		return (currentModeIndex + 1) % totalNumberOfModes;
+	}
 	
 	public void addModeObserver(ModeObserver observer) {
-		getObservers().add(observer);
+		getModeObservers().add(observer);
 	}
 	
 	public void addVariableObserver(VariableObserver observer) {
@@ -128,16 +164,16 @@ public class State implements Serializable {
 	}
 
 	private void incrementModeIndex() {
-		currentModeIndex = (currentModeIndex + 1) % totalNumberOfModes;
+		currentModeIndex = getNextModeIndex();
 	}
 	
 	private void notifyModeObservers() {
-		for (ModeObserver observer : getObservers()) {
+		for (ModeObserver observer : getModeObservers()) {
 			observer.modeChanged(this);
 		}
 	}
 	
-	private List<ModeObserver> getObservers() {
+	private List<ModeObserver> getModeObservers() {
 		if (modeObservers == null) {
 			 modeObservers = new LinkedList<ModeObserver>();
 		}

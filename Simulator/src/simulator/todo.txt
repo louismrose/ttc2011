@@ -4,7 +4,9 @@
 * Variables and constants should not be mode-specific
 * Sounding the alarm
 * Deploy to GAE and test there
-- Tracing
+* Tracing for stimuli
+- Tracing for other actions
+- Represent variable changes as environmental changes in trace?
 - Anything else needed for Alarm.xmi to work properly
 
 

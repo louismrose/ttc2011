@@ -16,7 +16,7 @@ import simulator.config.AlarmEvent;
 import simulator.config.Event;
 import simulator.execution.model.state.State;
 import simulator.execution.model.state.VariableObserver;
-import simulator.execution.model.state.VariableWithValue;
+import simulator.execution.model.state.VariableWithValueDelta;
 
 public class SchedulableEvent implements VariableObserver, Serializable {
 
@@ -32,7 +32,7 @@ public class SchedulableEvent implements VariableObserver, Serializable {
 	}
 	
 	@Override
-	public void variableChanged(VariableWithValue variable, State state) {
+	public void variableChanged(VariableWithValueDelta variable, State state) {
 		if (triggerName.equals(variable.getName()) || alarmTimeName.equals(variable.getName())) {
 			final boolean valuesAreEqual = state.getValueOf(triggerName).equals(state.getValueOf(alarmTimeName));
 

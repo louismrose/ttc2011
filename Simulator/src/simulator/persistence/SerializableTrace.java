@@ -10,7 +10,6 @@
  ******************************************************************************/
 package simulator.persistence;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 
@@ -37,11 +36,11 @@ public class SerializableTrace implements Trace, Serializable {
 	
 	private final SerializableEObject<Trace> serializableTrace;
 	
-	public SerializableTrace() throws IOException {
+	public SerializableTrace() {
 		this(TraceFactory.eINSTANCE.createTrace());
 	}
 	
-	public SerializableTrace(Trace trace) throws IOException {
+	public SerializableTrace(Trace trace) {
 		this.serializableTrace = new SerializableEObject<Trace>(trace);
 	}
 	
