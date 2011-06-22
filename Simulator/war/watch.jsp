@@ -3,14 +3,11 @@
 <%@page import="simulator.config.factory.FileBasedConfigurationFactory"%>
 <%@page import="simulator.execution.model.Simulation"%>
 <%@page import="simulator.config.Configuration"%>
-<%@page import="simulator.config.ConfigPackage"%>
-<%@page import="simulator.EObjectStore"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="java.util.Collections"%>
 <%@page import="java.util.List"%>
 <%@page import="simulator.trace.presenter.TraceElementPresenter"%>
 <%@page import="simulator.trace.TraceElement"%>
-<%@page import="java.text.SimpleDateFormat"%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
