@@ -9,15 +9,12 @@ package simulator.trace.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import simulator.trace.EnvironmentalChange;
-import simulator.trace.Event;
-import simulator.trace.Stimulus;
-import simulator.trace.Trace;
-import simulator.trace.TraceFactory;
-import simulator.trace.TracePackage;
+import simulator.trace.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +23,6 @@ import simulator.trace.TracePackage;
  * @generated
  */
 public class TraceFactoryImpl extends EFactoryImpl implements TraceFactory {
-	
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->

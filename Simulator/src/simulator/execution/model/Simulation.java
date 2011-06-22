@@ -21,6 +21,8 @@ import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 import simulator.execution.model.state.State;
 import simulator.execution.model.state.VariableWithValue;
+import simulator.persistence.SerializableConfiguration;
+import simulator.persistence.SerializableTrace;
 import simulator.trace.Stimulus;
 import simulator.trace.Trace;
 import simulator.trace.TraceFactory;
@@ -31,8 +33,8 @@ public class Simulation implements Serializable {
 	private static final long serialVersionUID = 8378817217535302346L;
 	
 	private final SerializableConfiguration configuration;
+	private final SerializableTrace trace = new SerializableTrace();
 	private final State state;
-	private final Trace trace = TraceFactory.eINSTANCE.createTrace();
 	
 	private transient Modes modes;
 	

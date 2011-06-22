@@ -21,6 +21,7 @@ public class VariablesServlet extends AbstractServlet {
 		final UnitOfTime unit = "hour".equals(req.getParameter("command")) ? UnitOfTime.HOUR : UnitOfTime.MINUTE;
 		
 		simulation.incrementVariable(variableName, unit);
+		update(simulation, req.getSession());
 		
 		render("watch.jsp", req, resp);
 		

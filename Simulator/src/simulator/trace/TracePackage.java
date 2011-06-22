@@ -350,6 +350,7 @@ public interface TracePackage extends EPackage {
 		 * @generated
 		 */
 		EClass TRACE = eINSTANCE.getTrace();
+
 		/**
 		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
@@ -357,6 +358,7 @@ public interface TracePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRACE__ELEMENTS = eINSTANCE.getTrace_Elements();
+
 		/**
 		 * The meta object literal for the '{@link simulator.trace.impl.TraceElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -366,6 +368,7 @@ public interface TracePackage extends EPackage {
 		 * @generated
 		 */
 		EClass TRACE_ELEMENT = eINSTANCE.getTraceElement();
+
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -373,6 +376,7 @@ public interface TracePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRACE_ELEMENT__TYPE = eINSTANCE.getTraceElement_Type();
+
 		/**
 		 * The meta object literal for the '<em><b>Params</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
@@ -380,6 +384,7 @@ public interface TracePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRACE_ELEMENT__PARAMS = eINSTANCE.getTraceElement_Params();
+
 		/**
 		 * The meta object literal for the '{@link simulator.trace.impl.StimulusImpl <em>Stimulus</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -389,6 +394,7 @@ public interface TracePackage extends EPackage {
 		 * @generated
 		 */
 		EClass STIMULUS = eINSTANCE.getStimulus();
+
 		/**
 		 * The meta object literal for the '{@link simulator.trace.impl.EventImpl <em>Event</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -398,6 +404,7 @@ public interface TracePackage extends EPackage {
 		 * @generated
 		 */
 		EClass EVENT = eINSTANCE.getEvent();
+
 		/**
 		 * The meta object literal for the '{@link simulator.trace.impl.EnvironmentalChangeImpl <em>Environmental Change</em>}' class.
 		 * <!-- begin-user-doc -->

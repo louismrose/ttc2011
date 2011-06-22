@@ -11,12 +11,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import simulator.trace.EnvironmentalChange;
-import simulator.trace.Event;
-import simulator.trace.Stimulus;
-import simulator.trace.Trace;
-import simulator.trace.TraceElement;
-import simulator.trace.TracePackage;
+import simulator.trace.*;
 
 /**
  * <!-- begin-user-doc -->
