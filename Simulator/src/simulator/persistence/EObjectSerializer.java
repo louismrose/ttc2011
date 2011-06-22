@@ -17,7 +17,6 @@ import java.io.Serializable;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
 
 import simulator.util.EmfUtil;
 
@@ -28,13 +27,11 @@ public class EObjectSerializer implements Serializable {
 
 	public String serialize(EObject object) throws SerializationException {
 		try {
-			final ByteArrayOutputStream os = new ByteArrayOutputStream();
+			final ByteArrayOutputStream destination = new ByteArrayOutputStream();
 			
-			final Resource resource = EmfUtil.createResource(object.eClass().getEPackage());
-			resource.getContents().add(object);
-			resource.save(os, null);
-			
-			return new String(os.toByteArray(), "UTF-8");
+			EmfUtil.serialise(object, destination);
+		
+			return new String(destination.toByteArray(), "UTF-8");
 		
 		} catch (IOException e) {
 			throw new SerializationException("Error encountered whilst serializing " + object, e);
@@ -43,13 +40,9 @@ public class EObjectSerializer implements Serializable {
 	
 	public EObject deserialize(EPackage metamodel, String serialised) throws SerializationException {
 		try {
-			final ByteArrayInputStream is = new ByteArrayInputStream(serialised.getBytes("UTF-8"));
+			final ByteArrayInputStream source = new ByteArrayInputStream(serialised.getBytes("UTF-8"));
 			
-			final Resource resource = EmfUtil.createResource(metamodel);
-			
-			resource.load(is, null);
-
-			return resource.getContents().get(0);
+			return EmfUtil.deserialise(metamodel, source);
 		
 		} catch (IOException e) {
 			throw new SerializationException("Error encountered whilst deserializing: " + serialised, e);

@@ -11,6 +11,7 @@
 package simulator.util;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.eclipse.emf.common.util.URI;
@@ -41,5 +42,11 @@ public final class EmfUtil {
 		final Resource resource = EmfUtil.createResource(modelElement.eClass().getEPackage());
 		resource.getContents().add(modelElement);
 		resource.save(destination, null);
+	}
+	
+	public static EObject deserialise(EPackage metamodel, InputStream source) throws IOException {
+		final Resource resource = EmfUtil.createResource(metamodel);
+		resource.load(source, null);
+		return resource.getContents().get(0);
 	}
 }
