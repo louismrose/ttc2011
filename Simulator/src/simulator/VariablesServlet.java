@@ -24,10 +24,5 @@ public class VariablesServlet extends AbstractServlet {
 		update(simulation, req.getSession());
 		
 		render("watch.jsp", req, resp);
-		
-//		if ("trace".equals(req.getParameter("name"))) {
-//			resp.setContentType("text/xml");
-//			EmfUtil.serialise(state.getTrace(), resp.getOutputStream());		
-//		}
 	}
 }

@@ -108,7 +108,7 @@
   	</ul>
   	
   	<p>
-  		<a href="/controls?name=trace"/>Download as EMF model</a>
+  		<a href="/trace"/>Download as EMF model</a>
   	</p>
   </div>
 </body>

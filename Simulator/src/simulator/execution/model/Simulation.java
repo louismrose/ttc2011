@@ -89,7 +89,7 @@ public class Simulation implements Serializable {
 	}
 	
 	public Trace getTrace() {
-		return trace;
+		return trace.getTrace();
 	}
 	
 	public void pressButton(int buttonIndex) {

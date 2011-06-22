@@ -53,7 +53,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Button</servlet-name>
 		<url-pattern>/button</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Trace</servlet-name>
+		<servlet-class>simulator.TraceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Trace</servlet-name>
+		<url-pattern>/trace</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
-		<welcome-file>button</welcome-file>
+		<welcome-file>watch.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
