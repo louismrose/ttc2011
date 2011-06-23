@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import simulator.trace.EnvironmentalChange;
-import simulator.trace.Event;
+import simulator.trace.Response;
 import simulator.trace.Stimulus;
 import simulator.trace.Trace;
 import simulator.trace.TraceElement;
@@ -54,7 +54,7 @@ public class TracePackageImpl extends EPackageImpl implements TracePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eventEClass = null;
+	private EClass responseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,8 +183,8 @@ public class TracePackageImpl extends EPackageImpl implements TracePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvent() {
-		return eventEClass;
+	public EClass getResponse() {
+		return responseEClass;
 	}
 
 	/**
@@ -233,7 +233,7 @@ public class TracePackageImpl extends EPackageImpl implements TracePackage {
 
 		stimulusEClass = createEClass(STIMULUS);
 
-		eventEClass = createEClass(EVENT);
+		responseEClass = createEClass(RESPONSE);
 
 		environmentalChangeEClass = createEClass(ENVIRONMENTAL_CHANGE);
 	}
@@ -267,7 +267,7 @@ public class TracePackageImpl extends EPackageImpl implements TracePackage {
 
 		// Add supertypes to classes
 		stimulusEClass.getESuperTypes().add(this.getTraceElement());
-		eventEClass.getESuperTypes().add(this.getTraceElement());
+		responseEClass.getESuperTypes().add(this.getTraceElement());
 		environmentalChangeEClass.getESuperTypes().add(this.getTraceElement());
 
 		// Initialize classes and features; add operations and parameters
@@ -280,7 +280,7 @@ public class TracePackageImpl extends EPackageImpl implements TracePackage {
 
 		initEClass(stimulusEClass, Stimulus.class, "Stimulus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(responseEClass, Response.class, "Response", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(environmentalChangeEClass, EnvironmentalChange.class, "EnvironmentalChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

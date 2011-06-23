@@ -162,14 +162,14 @@ public interface TracePackage extends EPackage {
 	int STIMULUS_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link simulator.trace.impl.EventImpl <em>Event</em>}' class.
+	 * The meta object id for the '{@link simulator.trace.impl.ResponseImpl <em>Response</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see simulator.trace.impl.EventImpl
-	 * @see simulator.trace.impl.TracePackageImpl#getEvent()
+	 * @see simulator.trace.impl.ResponseImpl
+	 * @see simulator.trace.impl.TracePackageImpl#getResponse()
 	 * @generated
 	 */
-	int EVENT = 3;
+	int RESPONSE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -178,7 +178,7 @@ public interface TracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__TYPE = TRACE_ELEMENT__TYPE;
+	int RESPONSE__TYPE = TRACE_ELEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Params</b></em>' attribute list.
@@ -187,16 +187,16 @@ public interface TracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__PARAMS = TRACE_ELEMENT__PARAMS;
+	int RESPONSE__PARAMS = TRACE_ELEMENT__PARAMS;
 
 	/**
-	 * The number of structural features of the '<em>Event</em>' class.
+	 * The number of structural features of the '<em>Response</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 0;
+	int RESPONSE_FEATURE_COUNT = TRACE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simulator.trace.impl.EnvironmentalChangeImpl <em>Environmental Change</em>}' class.
@@ -300,14 +300,14 @@ public interface TracePackage extends EPackage {
 	EClass getStimulus();
 
 	/**
-	 * Returns the meta object for class '{@link simulator.trace.Event <em>Event</em>}'.
+	 * Returns the meta object for class '{@link simulator.trace.Response <em>Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Event</em>'.
-	 * @see simulator.trace.Event
+	 * @return the meta object for class '<em>Response</em>'.
+	 * @see simulator.trace.Response
 	 * @generated
 	 */
-	EClass getEvent();
+	EClass getResponse();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.trace.EnvironmentalChange <em>Environmental Change</em>}'.
@@ -396,14 +396,14 @@ public interface TracePackage extends EPackage {
 		EClass STIMULUS = eINSTANCE.getStimulus();
 
 		/**
-		 * The meta object literal for the '{@link simulator.trace.impl.EventImpl <em>Event</em>}' class.
+		 * The meta object literal for the '{@link simulator.trace.impl.ResponseImpl <em>Response</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see simulator.trace.impl.EventImpl
-		 * @see simulator.trace.impl.TracePackageImpl#getEvent()
+		 * @see simulator.trace.impl.ResponseImpl
+		 * @see simulator.trace.impl.TracePackageImpl#getResponse()
 		 * @generated
 		 */
-		EClass EVENT = eINSTANCE.getEvent();
+		EClass RESPONSE = eINSTANCE.getResponse();
 
 		/**
 		 * The meta object literal for the '{@link simulator.trace.impl.EnvironmentalChangeImpl <em>Environmental Change</em>}' class.

@@ -19,8 +19,6 @@ import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 import simulator.execution.model.Time;
 import simulator.persistence.SerializableTrace;
-import simulator.trace.Event;
-import simulator.trace.Stimulus;
 import simulator.trace.Trace;
 import simulator.trace.TraceElement;
 import simulator.trace.TraceFactory;
@@ -84,8 +82,12 @@ public class State implements Serializable {
 		addToTrace(TraceFactory.eINSTANCE.createStimulus(), type, params);
 	}
 	
-	public void addEventToTrace(String type, Object... params) {
-		addToTrace(TraceFactory.eINSTANCE.createEvent(), type, params);
+	public void addResponseToTrace(String type, Object... params) {
+		addToTrace(TraceFactory.eINSTANCE.createResponse(), type, params);
+	}
+	
+	public void addEnvironmetalChangeToTrace(String type, Object... params) {
+		addToTrace(TraceFactory.eINSTANCE.createEnvironmentalChange(), type, params);
 	}
 
 	private void addToTrace(TraceElement traceElement, String type, Object... params) {
@@ -116,12 +118,12 @@ public class State implements Serializable {
 		notifyVariableObservers(new VariableWithValueDelta(variableName, oldValue, newValue));
 	}
 	
-	public void initialiseValueOf(Variable variable) {
-		initialiseValueOf(variable.getName());
+	public Time initialiseValueOf(Variable variable) {
+		return initialiseValueOf(variable.getName());
 	}
 		
-	public void initialiseValueOf(String variableName) {
-		variables.initialiseValueOf(variableName);
+	public Time initialiseValueOf(String variableName) {
+		return variables.initialiseValueOf(variableName);
 	}
 	
 	private void notifyVariableObservers(VariableWithValueDelta variable) {
@@ -138,7 +140,7 @@ public class State implements Serializable {
 		final Time currentValue = getValueOf(variableName);
 		final Time newValue     = currentValue.increment(unit);
 		
-		addStimulusToTrace("ManualVariableChange", currentValue.toString(), newValue.toString());
+		addEnvironmetalChangeToTrace("ManualIncrementVariable", currentValue.toString(), newValue.toString());
 		setValueOf(variableName, newValue);
 	}
 

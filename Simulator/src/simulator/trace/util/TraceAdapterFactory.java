@@ -84,8 +84,8 @@ public class TraceAdapterFactory extends AdapterFactoryImpl {
 				return createStimulusAdapter();
 			}
 			@Override
-			public Adapter caseEvent(Event object) {
-				return createEventAdapter();
+			public Adapter caseResponse(Response object) {
+				return createResponseAdapter();
 			}
 			@Override
 			public Adapter caseEnvironmentalChange(EnvironmentalChange object) {
@@ -154,16 +154,16 @@ public class TraceAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link simulator.trace.Event <em>Event</em>}'.
+	 * Creates a new adapter for an object of class '{@link simulator.trace.Response <em>Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see simulator.trace.Event
+	 * @see simulator.trace.Response
 	 * @generated
 	 */
-	public Adapter createEventAdapter() {
+	public Adapter createResponseAdapter() {
 		return null;
 	}
 

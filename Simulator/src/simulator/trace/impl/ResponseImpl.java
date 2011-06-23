@@ -8,25 +8,25 @@ package simulator.trace.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import simulator.trace.Event;
+import simulator.trace.Response;
 import simulator.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Event</b></em>'.
+ * An implementation of the model object '<em><b>Response</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class EventImpl extends TraceElementImpl implements Event {
+public class ResponseImpl extends TraceElementImpl implements Response {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EventImpl() {
+	protected ResponseImpl() {
 		super();
 	}
 
@@ -37,7 +37,7 @@ public class EventImpl extends TraceElementImpl implements Event {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TracePackage.Literals.EVENT;
+		return TracePackage.Literals.RESPONSE;
 	}
 
-} //EventImpl
+} //ResponseImpl

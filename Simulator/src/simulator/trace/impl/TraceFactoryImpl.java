@@ -62,7 +62,7 @@ public class TraceFactoryImpl extends EFactoryImpl implements TraceFactory {
 		switch (eClass.getClassifierID()) {
 			case TracePackage.TRACE: return createTrace();
 			case TracePackage.STIMULUS: return createStimulus();
-			case TracePackage.EVENT: return createEvent();
+			case TracePackage.RESPONSE: return createResponse();
 			case TracePackage.ENVIRONMENTAL_CHANGE: return createEnvironmentalChange();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -94,9 +94,9 @@ public class TraceFactoryImpl extends EFactoryImpl implements TraceFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Event createEvent() {
-		EventImpl event = new EventImpl();
-		return event;
+	public Response createResponse() {
+		ResponseImpl response = new ResponseImpl();
+		return response;
 	}
 
 	/**

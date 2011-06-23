@@ -36,6 +36,8 @@ public class EvaluatableExpression {
 		final Variable variable = expression.getVariable();		
 		final Time currentValue = state.getValueOf(variable);
 		final Time newValue     = currentValue.increment(expression.getUnit());
+		
+		state.addResponseToTrace("IncrementVariable", variable.getName(), currentValue, newValue);
 		state.setValueOf(variable, newValue);
 	}
 }

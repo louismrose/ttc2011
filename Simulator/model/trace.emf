@@ -14,7 +14,7 @@ class Stimulus extends TraceElement {
  
 }
 
-class Event extends TraceElement {
+class Response extends TraceElement {
    
 }
 

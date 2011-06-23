@@ -14,14 +14,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static simulator.test.util.ConfigurationFactory.*;
 
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.junit.Test;
 
 import simulator.config.UnitOfTime;
 import simulator.execution.model.state.State;
-import simulator.trace.Event;
+import simulator.trace.EnvironmentalChange;
+import simulator.trace.Response;
 import simulator.trace.Stimulus;
 import simulator.trace.TraceElement;
 
@@ -43,7 +45,7 @@ public class TracingTests {
 	}
 	
 	@Test
-	public void incrementingVariableGeneratesAStimulusTraceElement() throws Exception {
+	public void incrementingVariableGeneratesAnEnvironmentalChangeTraceElement() throws Exception {
 		state.initialiseValueOf("time");
 		
 		final Time originalValue = state.getValueOf("time");
@@ -53,23 +55,69 @@ public class TracingTests {
 		final EList<TraceElement> traceElements = state.getTrace().getElements();
 		
 		assertEquals(1, traceElements.size());
-		assertTraceElementEquals(traceElements.get(0), Stimulus.class, "ManualVariableChange", originalValue.toString(), incrementedValue.toString());
+		assertTraceElementEquals(traceElements.get(0), EnvironmentalChange.class, "ManualIncrementVariable", originalValue, incrementedValue);
 	}
 	
 	@Test
-	public void changingModeGeneratesAnEventTraceElement() throws Exception {
+	public void changingDisplayGeneratesResponseTraceElement() throws Exception {
+		state.setDisplayText("foo");
+		new RunnableAction(createChangeDisplayAction(createConstant("bar"))).run(state);
+		
+		final EList<TraceElement> traceElements = state.getTrace().getElements();
+		
+		assertEquals(1,          traceElements.size());
+		assertTraceElementEquals(traceElements.get(0), Response.class, "ChangeDisplay", "foo", "bar");
+	}
+	
+	@Test
+	public void changingIndicatorGeneratesResponseTraceElement() throws Exception {
+		state.setIndicatorText("foo");
+		new RunnableAction(createChangeIndicatorAction(createConstant("bar"))).run(state);
+		
+		final EList<TraceElement> traceElements = state.getTrace().getElements();
+		
+		assertEquals(1,          traceElements.size());
+		assertTraceElementEquals(traceElements.get(0), Response.class, "ChangeIndicator", "foo", "bar");
+	}
+	
+	@Test
+	public void changingModeGeneratesResponseTraceElement() throws Exception {
 		new RunnableAction(createNextModeAction()).run(state);
 		
 		final EList<TraceElement> traceElements = state.getTrace().getElements();
 		
 		assertEquals(1,          traceElements.size());
-		assertTraceElementEquals(traceElements.get(0), Event.class, "NextMode", "0", "1");
+		assertTraceElementEquals(traceElements.get(0), Response.class, "NextMode", "0", "1");
 	}
 	
+	@Test
+	public void incrementingVariableGeneratesResponseTraceElement() throws Exception {
+		final Time initialValue     = state.initialiseValueOf("time");
+		final Time incrementedValue = initialValue.increment(UnitOfTime.MINUTE);
+		
+		new EvaluatableExpression(createIncrementTimeVariableExpression(createVariable("time"), UnitOfTime.MINUTE)).evaluate(state);
+		
+		final EList<TraceElement> traceElements = state.getTrace().getElements();
+		
+		assertEquals(1,          traceElements.size());
+		assertTraceElementEquals(traceElements.get(0), Response.class, "IncrementVariable", "time", initialValue, incrementedValue);
+	}
+	
+	
 
-	private static void assertTraceElementEquals(TraceElement traceElement, Class<? extends TraceElement> clazz, String type, String... params) {
+	private static void assertTraceElementEquals(TraceElement traceElement, Class<? extends TraceElement> clazz, String type, Object... params) {
 		assertTrue(clazz.isInstance(traceElement));
 		assertEquals(type, traceElement.getType());
-		assertEquals(Arrays.asList(params), traceElement.getParams());
+		assertEquals(asStringList(params), traceElement.getParams());
+	}
+
+	private static List<String> asStringList(Object... list) {
+		final List<String> stringList = new LinkedList<String>();
+		
+		for (Object element : list) {
+			stringList.add(element.toString());
+		}
+		
+		return stringList;
 	}
 }

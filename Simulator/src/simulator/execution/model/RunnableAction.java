@@ -48,15 +48,19 @@ public class RunnableAction {
 	}
 	
 	private void run(ChangeDisplay changeDisplayAction, State state) {
-		state.setDisplayText(extractValue(changeDisplayAction, state));
+		final String newDisplayText = extractValue(changeDisplayAction, state);
+		state.addResponseToTrace("ChangeDisplay", state.getDisplayText(), newDisplayText);
+		state.setDisplayText(newDisplayText);
 	}
 	
 	private void run(ChangeIndicator changeIndicatorAction, State state) {
-		state.setIndicatorText(extractValue(changeIndicatorAction, state));
+		final String newIndicatorText = extractValue(changeIndicatorAction, state);
+		state.addResponseToTrace("ChangeIndicator", state.getIndicatorText(), newIndicatorText);
+		state.setIndicatorText(newIndicatorText);
 	}
 	
 	private void run(NextMode nextModeAction, State state) {
-		state.addEventToTrace("NextMode", state.getCurrentModeIndex(), state.getNextModeIndex());
+		state.addResponseToTrace("NextMode", state.getCurrentModeIndex(), state.getNextModeIndex());
 		state.nextMode();
 	}
 	

@@ -45,7 +45,16 @@ public class VariableState implements Serializable {
 		variableValues.put(variableName, value);
 	}
 	
-	public void initialiseValueOf(String variableName) {
-		if (!variableValues.containsKey(variableName)) variableValues.put(variableName, new Time());
+	/**
+	 * @return the value to which this variable was initialised,
+	 *         or null if this variable already has a value
+	 */
+	public Time initialiseValueOf(String variableName) {
+		if (variableValues.containsKey(variableName))
+			return null;
+			
+		final Time newValue = new Time();
+		variableValues.put(variableName, newValue);
+		return newValue;
 	}
 }

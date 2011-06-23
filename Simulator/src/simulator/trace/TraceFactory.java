@@ -44,13 +44,13 @@ public interface TraceFactory extends EFactory {
 	Stimulus createStimulus();
 
 	/**
-	 * Returns a new object of class '<em>Event</em>'.
+	 * Returns a new object of class '<em>Response</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Event</em>'.
+	 * @return a new object of class '<em>Response</em>'.
 	 * @generated
 	 */
-	Event createEvent();
+	Response createResponse();
 
 	/**
 	 * Returns a new object of class '<em>Environmental Change</em>'.
