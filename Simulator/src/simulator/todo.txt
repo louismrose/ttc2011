@@ -5,17 +5,15 @@
 * Sounding the alarm
 * Deploy to GAE and test there
 * Tracing for stimuli
-- Tracing for other actions
-- Represent variable changes as environmental changes in trace?
+* Tracing for other actions
+* Represent variable changes as environmental changes in trace?
 - Anything else needed for Alarm.xmi to work properly
 
 
 Other functions?
-- Stopwatch mode should change the function of each button
-- Set alarm time?
 - Timer?
 - Day of the week?
 - Date?
 
-- Other simulation controls: whatever is needed when building the reference implementation
-
+Other simulation controls?
+- Is anything more needed when building the reference implementation?
