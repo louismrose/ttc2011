@@ -19,6 +19,7 @@ import simulator.config.ChangeIndicator;
 import simulator.config.ConfigFactory;
 import simulator.config.Configuration;
 import simulator.config.Constant;
+import simulator.config.DisplayMatchesCondition;
 import simulator.config.Displayable;
 import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
@@ -83,5 +84,11 @@ public class ConfigurationFactory {
 		final Variable variable = ConfigFactory.eINSTANCE.createVariable();
 		variable.setName(variableName);
 		return variable;
+	}
+
+	public static DisplayMatchesCondition createDisplayMatchesCondition(Displayable displayable) {
+		final DisplayMatchesCondition guard = ConfigFactory.eINSTANCE.createDisplayMatchesCondition();
+		guard.setValueToMatch(displayable);
+		return guard;
 	}
 }

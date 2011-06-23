@@ -164,6 +164,14 @@ public class SslSwitch<T> {
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SslPackage.ENTERS_MODE:
+      {
+        EntersMode entersMode = (EntersMode)theEObject;
+        T result = caseEntersMode(entersMode);
+        if (result == null) result = caseAction(entersMode);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SslPackage.PRESS_BUTTON:
       {
         PressButton pressButton = (PressButton)theEObject;
@@ -195,10 +203,19 @@ public class SslSwitch<T> {
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SslPackage.OBSERVE_OUTPUT:
+      {
+        ObserveOutput observeOutput = (ObserveOutput)theEObject;
+        T result = caseObserveOutput(observeOutput);
+        if (result == null) result = caseObservation(observeOutput);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SslPackage.OBSERVE_LABEL_VALUE:
       {
         ObserveLabelValue observeLabelValue = (ObserveLabelValue)theEObject;
         T result = caseObserveLabelValue(observeLabelValue);
+        if (result == null) result = caseObserveOutput(observeLabelValue);
         if (result == null) result = caseObservation(observeLabelValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -207,6 +224,7 @@ public class SslSwitch<T> {
       {
         ObserveLabelVariable observeLabelVariable = (ObserveLabelVariable)theEObject;
         T result = caseObserveLabelVariable(observeLabelVariable);
+        if (result == null) result = caseObserveOutput(observeLabelVariable);
         if (result == null) result = caseObservation(observeLabelVariable);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -385,6 +403,22 @@ public class SslSwitch<T> {
   }
 
 	/**
+   * Returns the result of interpreting the object as an instance of '<em>Enters Mode</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enters Mode</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEntersMode(EntersMode object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Press Button</em>'.
    * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -441,6 +475,22 @@ public class SslSwitch<T> {
    * @generated
    */
   public T caseObserveButton(ObserveButton object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Observe Output</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Observe Output</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseObserveOutput(ObserveOutput object)
   {
     return null;
   }

@@ -14,10 +14,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import simulator.execution.model.action.EvaluatableExpressionTests;
+import simulator.execution.model.action.RunnableActionGroupTests;
+import simulator.execution.model.action.RunnableActionTests;
 import simulator.execution.model.state.StateTests;
 
 @RunWith(Suite.class)
-@SuiteClasses({EvaluatableExpressionTests.class, RunnableActionTests.class,
+@SuiteClasses({EvaluatableExpressionTests.class, RunnableActionTests.class, RunnableActionGroupTests.class,
                StateTests.class, ModesTests.class, SimulationTests.class, TracingTests.class})
 public class ExecutionTestSuite {
 

@@ -105,22 +105,74 @@ public class ConfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ConfigPackage.EVENT: {
-				Event event = (Event)theEObject;
-				T result = caseEvent(event);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ConfigPackage.ALARM_EVENT: {
-				AlarmEvent alarmEvent = (AlarmEvent)theEObject;
-				T result = caseAlarmEvent(alarmEvent);
-				if (result == null) result = caseEvent(alarmEvent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ConfigPackage.ACTION: {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.CONDITION: {
+				Condition condition = (Condition)theEObject;
+				T result = caseCondition(condition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.OUTPUT_MATCHES_CONDITION: {
+				OutputMatchesCondition outputMatchesCondition = (OutputMatchesCondition)theEObject;
+				T result = caseOutputMatchesCondition(outputMatchesCondition);
+				if (result == null) result = caseCondition(outputMatchesCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.AND_CONDITION: {
+				AndCondition andCondition = (AndCondition)theEObject;
+				T result = caseAndCondition(andCondition);
+				if (result == null) result = caseCondition(andCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.OR_CONDITION: {
+				OrCondition orCondition = (OrCondition)theEObject;
+				T result = caseOrCondition(orCondition);
+				if (result == null) result = caseCondition(orCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.NOT_CONDITION: {
+				NotCondition notCondition = (NotCondition)theEObject;
+				T result = caseNotCondition(notCondition);
+				if (result == null) result = caseCondition(notCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.DISPLAY_MATCHES_CONDITION: {
+				DisplayMatchesCondition displayMatchesCondition = (DisplayMatchesCondition)theEObject;
+				T result = caseDisplayMatchesCondition(displayMatchesCondition);
+				if (result == null) result = caseOutputMatchesCondition(displayMatchesCondition);
+				if (result == null) result = caseCondition(displayMatchesCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.INDICATOR_MATCHES_CONDITION: {
+				IndicatorMatchesCondition indicatorMatchesCondition = (IndicatorMatchesCondition)theEObject;
+				T result = caseIndicatorMatchesCondition(indicatorMatchesCondition);
+				if (result == null) result = caseOutputMatchesCondition(indicatorMatchesCondition);
+				if (result == null) result = caseCondition(indicatorMatchesCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.VARIABLE_COMPARISON_CONDITION: {
+				VariableComparisonCondition variableComparisonCondition = (VariableComparisonCondition)theEObject;
+				T result = caseVariableComparisonCondition(variableComparisonCondition);
+				if (result == null) result = caseCondition(variableComparisonCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.VARIABLE_EQUALS_CONDITION: {
+				VariableEqualsCondition variableEqualsCondition = (VariableEqualsCondition)theEObject;
+				T result = caseVariableEqualsCondition(variableEqualsCondition);
+				if (result == null) result = caseVariableComparisonCondition(variableEqualsCondition);
+				if (result == null) result = caseCondition(variableEqualsCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -151,6 +203,20 @@ public class ConfigSwitch<T> {
 				NextMode nextMode = (NextMode)theEObject;
 				T result = caseNextMode(nextMode);
 				if (result == null) result = caseAction(nextMode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.SOUND_ALARM: {
+				SoundAlarm soundAlarm = (SoundAlarm)theEObject;
+				T result = caseSoundAlarm(soundAlarm);
+				if (result == null) result = caseAction(soundAlarm);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.SILENCE_ALARM: {
+				SilenceAlarm silenceAlarm = (SilenceAlarm)theEObject;
+				T result = caseSilenceAlarm(silenceAlarm);
+				if (result == null) result = caseAction(silenceAlarm);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -244,36 +310,6 @@ public class ConfigSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvent(Event object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alarm Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alarm Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAlarmEvent(AlarmEvent object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -285,6 +321,141 @@ public class ConfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Output Matches Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Output Matches Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOutputMatchesCondition(OutputMatchesCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>And Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>And Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAndCondition(AndCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Or Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Or Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrCondition(OrCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Not Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Not Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNotCondition(NotCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Display Matches Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Display Matches Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDisplayMatchesCondition(DisplayMatchesCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Indicator Matches Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Indicator Matches Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIndicatorMatchesCondition(IndicatorMatchesCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Comparison Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Comparison Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariableComparisonCondition(VariableComparisonCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Equals Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Equals Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariableEqualsCondition(VariableEqualsCondition object) {
 		return null;
 	}
 
@@ -345,6 +516,36 @@ public class ConfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseNextMode(NextMode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sound Alarm</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sound Alarm</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSoundAlarm(SoundAlarm object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Silence Alarm</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Silence Alarm</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSilenceAlarm(SilenceAlarm object) {
 		return null;
 	}
 

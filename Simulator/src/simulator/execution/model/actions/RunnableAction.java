@@ -8,28 +8,43 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.execution.model;
+package simulator.execution.model.actions;
 
 import simulator.config.Action;
 import simulator.config.ChangeDisplay;
 import simulator.config.ChangeIndicator;
-import simulator.config.ChangeOutputAction;
-import simulator.config.Constant;
 import simulator.config.Displayable;
 import simulator.config.EvaluateExpression;
 import simulator.config.NextMode;
-import simulator.config.Variable;
+import simulator.config.SilenceAlarm;
+import simulator.config.SoundAlarm;
 import simulator.execution.model.state.State;
 
 public class RunnableAction {
 
 	private final Action action;
+	private final EvaluatableCondition guard;
 	
 	public RunnableAction(Action action) {
+		this(action, EvaluatableCondition.createFrom(action.getGuard()));
+	}
+	
+	RunnableAction(Action action, EvaluatableCondition guard) {
 		this.action = action;
+		this.guard  = guard;
+	}
+	
+	public boolean isSatisified(State state) {
+		return guard.isSatisfied(state);
 	}
 	
 	public void run(State state) {
+		if (isSatisified(state)) {
+			runActionSpecificLogic(state);
+		}
+	}
+
+	private void runActionSpecificLogic(State state) {
 		if (action instanceof ChangeDisplay) {
 			run((ChangeDisplay)action, state);	
 		
@@ -42,19 +57,25 @@ public class RunnableAction {
 		} else if (action instanceof EvaluateExpression) {
 			run((EvaluateExpression)action, state);
 		
+		} else if (action instanceof SoundAlarm) {
+			run((SoundAlarm)action, state);
+		
+		} else if (action instanceof SilenceAlarm) {
+			run((SilenceAlarm)action, state);
+			
 		} else {
 			throw new IllegalStateException("Unknown type of Action: " + action);
 		}
 	}
 	
 	private void run(ChangeDisplay changeDisplayAction, State state) {
-		final String newDisplayText = extractValue(changeDisplayAction, state);
+		final String newDisplayText = extractValue(changeDisplayAction.getNewValue(), state);
 		state.addResponseToTrace("ChangeDisplay", state.getDisplayText(), newDisplayText);
 		state.setDisplayText(newDisplayText);
 	}
 	
 	private void run(ChangeIndicator changeIndicatorAction, State state) {
-		final String newIndicatorText = extractValue(changeIndicatorAction, state);
+		final String newIndicatorText = extractValue(changeIndicatorAction.getNewValue(), state);
 		state.addResponseToTrace("ChangeIndicator", state.getIndicatorText(), newIndicatorText);
 		state.setIndicatorText(newIndicatorText);
 	}
@@ -68,24 +89,15 @@ public class RunnableAction {
 		new EvaluatableExpression(evaluateExpressionAction.getExpression()).evaluate(state);
 	}
 	
+	private void run(SoundAlarm soundAlarrmAction, State state) {
+		state.soundAlarm();
+	}
 	
-	private String extractValue(ChangeOutputAction changeOutputAction, State state) {
-		final Displayable displayable = changeOutputAction.getNewValue();
-		
-		final String value;
-		
-		if (displayable instanceof Constant) {
-			value = ((Constant) displayable).getValue();
-		
-		} else if (displayable instanceof Variable) {
-			final Time variableValue = state.getValueOf(((Variable)displayable));
-			
-			value = (variableValue == null ? null : variableValue.formatWith(TimeFormatter.twentyFourHourFormatter));
-		
-		} else {
-			throw new IllegalArgumentException("Unknown type of Displayable: " + displayable);			
-		}
-		
-		return value == null ? "" : value;
+	private void run(SilenceAlarm silenceAlarmAction, State state) {
+		state.silenceAlarm();
+	}
+
+	private String extractValue(Displayable newValue, State state) {
+		return new ReadableDisplayable(newValue).extractValue(state);
 	}
 }

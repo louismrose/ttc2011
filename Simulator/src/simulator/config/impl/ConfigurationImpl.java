@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import simulator.config.Action;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
 import simulator.config.Constant;
-import simulator.config.Event;
 import simulator.config.Mode;
 import simulator.config.Variable;
 
@@ -82,7 +82,7 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Event> events;
+	protected EList<Action> events;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,9 +144,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Event> getEvents() {
+	public EList<Action> getEvents() {
 		if (events == null) {
-			events = new EObjectContainmentEList<Event>(Event.class, this, ConfigPackage.CONFIGURATION__EVENTS);
+			events = new EObjectContainmentEList<Action>(Action.class, this, ConfigPackage.CONFIGURATION__EVENTS);
 		}
 		return events;
 	}
@@ -214,7 +214,7 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return;
 			case ConfigPackage.CONFIGURATION__EVENTS:
 				getEvents().clear();
-				getEvents().addAll((Collection<? extends Event>)newValue);
+				getEvents().addAll((Collection<? extends Action>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

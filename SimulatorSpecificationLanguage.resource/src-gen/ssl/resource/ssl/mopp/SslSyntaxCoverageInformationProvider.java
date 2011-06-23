@@ -18,6 +18,7 @@ public class SslSyntaxCoverageInformationProvider {
 			ssl.SslPackage.eINSTANCE.getCheckMode(),
 			ssl.SslPackage.eINSTANCE.getCheckLabel(),
 			ssl.SslPackage.eINSTANCE.getCheckTimePastOther(),
+			ssl.SslPackage.eINSTANCE.getEntersMode(),
 			ssl.SslPackage.eINSTANCE.getPressButton(),
 			ssl.SslPackage.eINSTANCE.getObserveMode(),
 			ssl.SslPackage.eINSTANCE.getObserveButton(),

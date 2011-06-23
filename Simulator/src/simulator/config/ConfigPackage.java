@@ -199,62 +199,6 @@ public interface ConfigPackage extends EPackage {
 	int BUTTON_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link simulator.config.impl.EventImpl <em>Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see simulator.config.impl.EventImpl
-	 * @see simulator.config.impl.ConfigPackageImpl#getEvent()
-	 * @generated
-	 */
-	int EVENT = 3;
-
-	/**
-	 * The number of structural features of the '<em>Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link simulator.config.impl.AlarmEventImpl <em>Alarm Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see simulator.config.impl.AlarmEventImpl
-	 * @see simulator.config.impl.ConfigPackageImpl#getAlarmEvent()
-	 * @generated
-	 */
-	int ALARM_EVENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Trigger</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALARM_EVENT__TRIGGER = EVENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Alarm Time</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALARM_EVENT__ALARM_TIME = EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Alarm Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALARM_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link simulator.config.impl.ActionImpl <em>Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -262,7 +206,16 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 5;
+	int ACTION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__GUARD = 0;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -271,7 +224,268 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 0;
+	int ACTION_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.ConditionImpl <em>Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.ConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getCondition()
+	 * @generated
+	 */
+	int CONDITION = 4;
+
+	/**
+	 * The number of structural features of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.OutputMatchesConditionImpl <em>Output Matches Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.OutputMatchesConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getOutputMatchesCondition()
+	 * @generated
+	 */
+	int OUTPUT_MATCHES_CONDITION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Value To Match</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_MATCHES_CONDITION__VALUE_TO_MATCH = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Output Matches Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_MATCHES_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.AndConditionImpl <em>And Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.AndConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getAndCondition()
+	 * @generated
+	 */
+	int AND_CONDITION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Subconditions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_CONDITION__SUBCONDITIONS = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>And Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.OrConditionImpl <em>Or Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.OrConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getOrCondition()
+	 * @generated
+	 */
+	int OR_CONDITION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Subconditions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_CONDITION__SUBCONDITIONS = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Or Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.NotConditionImpl <em>Not Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.NotConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getNotCondition()
+	 * @generated
+	 */
+	int NOT_CONDITION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Subcondition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION__SUBCONDITION = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Not Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.DisplayMatchesConditionImpl <em>Display Matches Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.DisplayMatchesConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getDisplayMatchesCondition()
+	 * @generated
+	 */
+	int DISPLAY_MATCHES_CONDITION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Value To Match</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_MATCHES_CONDITION__VALUE_TO_MATCH = OUTPUT_MATCHES_CONDITION__VALUE_TO_MATCH;
+
+	/**
+	 * The number of structural features of the '<em>Display Matches Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_MATCHES_CONDITION_FEATURE_COUNT = OUTPUT_MATCHES_CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.IndicatorMatchesConditionImpl <em>Indicator Matches Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.IndicatorMatchesConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getIndicatorMatchesCondition()
+	 * @generated
+	 */
+	int INDICATOR_MATCHES_CONDITION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Value To Match</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDICATOR_MATCHES_CONDITION__VALUE_TO_MATCH = OUTPUT_MATCHES_CONDITION__VALUE_TO_MATCH;
+
+	/**
+	 * The number of structural features of the '<em>Indicator Matches Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDICATOR_MATCHES_CONDITION_FEATURE_COUNT = OUTPUT_MATCHES_CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.VariableComparisonConditionImpl <em>Variable Comparison Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.VariableComparisonConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getVariableComparisonCondition()
+	 * @generated
+	 */
+	int VARIABLE_COMPARISON_CONDITION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_COMPARISON_CONDITION__VARIABLE = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_COMPARISON_CONDITION__VALUE = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Variable Comparison Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_COMPARISON_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.VariableEqualsConditionImpl <em>Variable Equals Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.VariableEqualsConditionImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getVariableEqualsCondition()
+	 * @generated
+	 */
+	int VARIABLE_EQUALS_CONDITION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_EQUALS_CONDITION__VARIABLE = VARIABLE_COMPARISON_CONDITION__VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_EQUALS_CONDITION__VALUE = VARIABLE_COMPARISON_CONDITION__VALUE;
+
+	/**
+	 * The number of structural features of the '<em>Variable Equals Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_EQUALS_CONDITION_FEATURE_COUNT = VARIABLE_COMPARISON_CONDITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simulator.config.impl.ChangeOutputActionImpl <em>Change Output Action</em>}' class.
@@ -281,7 +495,16 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeOutputAction()
 	 * @generated
 	 */
-	int CHANGE_OUTPUT_ACTION = 6;
+	int CHANGE_OUTPUT_ACTION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANGE_OUTPUT_ACTION__GUARD = ACTION__GUARD;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -309,7 +532,16 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeDisplay()
 	 * @generated
 	 */
-	int CHANGE_DISPLAY = 7;
+	int CHANGE_DISPLAY = 14;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANGE_DISPLAY__GUARD = CHANGE_OUTPUT_ACTION__GUARD;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -337,7 +569,16 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getChangeIndicator()
 	 * @generated
 	 */
-	int CHANGE_INDICATOR = 8;
+	int CHANGE_INDICATOR = 15;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHANGE_INDICATOR__GUARD = CHANGE_OUTPUT_ACTION__GUARD;
 
 	/**
 	 * The feature id for the '<em><b>New Value</b></em>' reference.
@@ -365,7 +606,16 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getNextMode()
 	 * @generated
 	 */
-	int NEXT_MODE = 9;
+	int NEXT_MODE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEXT_MODE__GUARD = ACTION__GUARD;
 
 	/**
 	 * The number of structural features of the '<em>Next Mode</em>' class.
@@ -377,6 +627,62 @@ public interface ConfigPackage extends EPackage {
 	int NEXT_MODE_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link simulator.config.impl.SoundAlarmImpl <em>Sound Alarm</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.SoundAlarmImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getSoundAlarm()
+	 * @generated
+	 */
+	int SOUND_ALARM = 17;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOUND_ALARM__GUARD = ACTION__GUARD;
+
+	/**
+	 * The number of structural features of the '<em>Sound Alarm</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOUND_ALARM_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.SilenceAlarmImpl <em>Silence Alarm</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.SilenceAlarmImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getSilenceAlarm()
+	 * @generated
+	 */
+	int SILENCE_ALARM = 18;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SILENCE_ALARM__GUARD = ACTION__GUARD;
+
+	/**
+	 * The number of structural features of the '<em>Silence Alarm</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SILENCE_ALARM_FEATURE_COUNT = ACTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link simulator.config.impl.EvaluateExpressionImpl <em>Evaluate Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,7 +690,16 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getEvaluateExpression()
 	 * @generated
 	 */
-	int EVALUATE_EXPRESSION = 10;
+	int EVALUATE_EXPRESSION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATE_EXPRESSION__GUARD = ACTION__GUARD;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -412,7 +727,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 11;
+	int EXPRESSION = 20;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -431,7 +746,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getIncrementTimeVariable()
 	 * @generated
 	 */
-	int INCREMENT_TIME_VARIABLE = 12;
+	int INCREMENT_TIME_VARIABLE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -468,7 +783,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getDisplayable()
 	 * @generated
 	 */
-	int DISPLAYABLE = 13;
+	int DISPLAYABLE = 22;
 
 	/**
 	 * The number of structural features of the '<em>Displayable</em>' class.
@@ -487,7 +802,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getConstant()
 	 * @generated
 	 */
-	int CONSTANT = 14;
+	int CONSTANT = 23;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -515,7 +830,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 15;
+	int VARIABLE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -543,7 +858,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getUnitOfTime()
 	 * @generated
 	 */
-	int UNIT_OF_TIME = 16;
+	int UNIT_OF_TIME = 25;
 
 
 	/**
@@ -676,48 +991,6 @@ public interface ConfigPackage extends EPackage {
 	EReference getButton_Behaviour();
 
 	/**
-	 * Returns the meta object for class '{@link simulator.config.Event <em>Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Event</em>'.
-	 * @see simulator.config.Event
-	 * @generated
-	 */
-	EClass getEvent();
-
-	/**
-	 * Returns the meta object for class '{@link simulator.config.AlarmEvent <em>Alarm Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Alarm Event</em>'.
-	 * @see simulator.config.AlarmEvent
-	 * @generated
-	 */
-	EClass getAlarmEvent();
-
-	/**
-	 * Returns the meta object for the reference '{@link simulator.config.AlarmEvent#getTrigger <em>Trigger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Trigger</em>'.
-	 * @see simulator.config.AlarmEvent#getTrigger()
-	 * @see #getAlarmEvent()
-	 * @generated
-	 */
-	EReference getAlarmEvent_Trigger();
-
-	/**
-	 * Returns the meta object for the reference '{@link simulator.config.AlarmEvent#getAlarmTime <em>Alarm Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Alarm Time</em>'.
-	 * @see simulator.config.AlarmEvent#getAlarmTime()
-	 * @see #getAlarmEvent()
-	 * @generated
-	 */
-	EReference getAlarmEvent_AlarmTime();
-
-	/**
 	 * Returns the meta object for class '{@link simulator.config.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -726,6 +999,173 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link simulator.config.Action#getGuard <em>Guard</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Guard</em>'.
+	 * @see simulator.config.Action#getGuard()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_Guard();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Condition</em>'.
+	 * @see simulator.config.Condition
+	 * @generated
+	 */
+	EClass getCondition();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.OutputMatchesCondition <em>Output Matches Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Matches Condition</em>'.
+	 * @see simulator.config.OutputMatchesCondition
+	 * @generated
+	 */
+	EClass getOutputMatchesCondition();
+
+	/**
+	 * Returns the meta object for the reference '{@link simulator.config.OutputMatchesCondition#getValueToMatch <em>Value To Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value To Match</em>'.
+	 * @see simulator.config.OutputMatchesCondition#getValueToMatch()
+	 * @see #getOutputMatchesCondition()
+	 * @generated
+	 */
+	EReference getOutputMatchesCondition_ValueToMatch();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.AndCondition <em>And Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>And Condition</em>'.
+	 * @see simulator.config.AndCondition
+	 * @generated
+	 */
+	EClass getAndCondition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link simulator.config.AndCondition#getSubconditions <em>Subconditions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Subconditions</em>'.
+	 * @see simulator.config.AndCondition#getSubconditions()
+	 * @see #getAndCondition()
+	 * @generated
+	 */
+	EReference getAndCondition_Subconditions();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.OrCondition <em>Or Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Or Condition</em>'.
+	 * @see simulator.config.OrCondition
+	 * @generated
+	 */
+	EClass getOrCondition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link simulator.config.OrCondition#getSubconditions <em>Subconditions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Subconditions</em>'.
+	 * @see simulator.config.OrCondition#getSubconditions()
+	 * @see #getOrCondition()
+	 * @generated
+	 */
+	EReference getOrCondition_Subconditions();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.NotCondition <em>Not Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Not Condition</em>'.
+	 * @see simulator.config.NotCondition
+	 * @generated
+	 */
+	EClass getNotCondition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link simulator.config.NotCondition#getSubcondition <em>Subcondition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Subcondition</em>'.
+	 * @see simulator.config.NotCondition#getSubcondition()
+	 * @see #getNotCondition()
+	 * @generated
+	 */
+	EReference getNotCondition_Subcondition();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.DisplayMatchesCondition <em>Display Matches Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Display Matches Condition</em>'.
+	 * @see simulator.config.DisplayMatchesCondition
+	 * @generated
+	 */
+	EClass getDisplayMatchesCondition();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.IndicatorMatchesCondition <em>Indicator Matches Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Indicator Matches Condition</em>'.
+	 * @see simulator.config.IndicatorMatchesCondition
+	 * @generated
+	 */
+	EClass getIndicatorMatchesCondition();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.VariableComparisonCondition <em>Variable Comparison Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Comparison Condition</em>'.
+	 * @see simulator.config.VariableComparisonCondition
+	 * @generated
+	 */
+	EClass getVariableComparisonCondition();
+
+	/**
+	 * Returns the meta object for the reference '{@link simulator.config.VariableComparisonCondition#getVariable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Variable</em>'.
+	 * @see simulator.config.VariableComparisonCondition#getVariable()
+	 * @see #getVariableComparisonCondition()
+	 * @generated
+	 */
+	EReference getVariableComparisonCondition_Variable();
+
+	/**
+	 * Returns the meta object for the reference '{@link simulator.config.VariableComparisonCondition#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value</em>'.
+	 * @see simulator.config.VariableComparisonCondition#getValue()
+	 * @see #getVariableComparisonCondition()
+	 * @generated
+	 */
+	EReference getVariableComparisonCondition_Value();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.VariableEqualsCondition <em>Variable Equals Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Equals Condition</em>'.
+	 * @see simulator.config.VariableEqualsCondition
+	 * @generated
+	 */
+	EClass getVariableEqualsCondition();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.config.ChangeOutputAction <em>Change Output Action</em>}'.
@@ -777,6 +1217,26 @@ public interface ConfigPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNextMode();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.SoundAlarm <em>Sound Alarm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sound Alarm</em>'.
+	 * @see simulator.config.SoundAlarm
+	 * @generated
+	 */
+	EClass getSoundAlarm();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.SilenceAlarm <em>Silence Alarm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Silence Alarm</em>'.
+	 * @see simulator.config.SilenceAlarm
+	 * @generated
+	 */
+	EClass getSilenceAlarm();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.config.EvaluateExpression <em>Evaluate Expression</em>}'.
@@ -1028,42 +1488,6 @@ public interface ConfigPackage extends EPackage {
 		EReference BUTTON__BEHAVIOUR = eINSTANCE.getButton_Behaviour();
 
 		/**
-		 * The meta object literal for the '{@link simulator.config.impl.EventImpl <em>Event</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see simulator.config.impl.EventImpl
-		 * @see simulator.config.impl.ConfigPackageImpl#getEvent()
-		 * @generated
-		 */
-		EClass EVENT = eINSTANCE.getEvent();
-
-		/**
-		 * The meta object literal for the '{@link simulator.config.impl.AlarmEventImpl <em>Alarm Event</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see simulator.config.impl.AlarmEventImpl
-		 * @see simulator.config.impl.ConfigPackageImpl#getAlarmEvent()
-		 * @generated
-		 */
-		EClass ALARM_EVENT = eINSTANCE.getAlarmEvent();
-
-		/**
-		 * The meta object literal for the '<em><b>Trigger</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ALARM_EVENT__TRIGGER = eINSTANCE.getAlarmEvent_Trigger();
-
-		/**
-		 * The meta object literal for the '<em><b>Alarm Time</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ALARM_EVENT__ALARM_TIME = eINSTANCE.getAlarmEvent_AlarmTime();
-
-		/**
 		 * The meta object literal for the '{@link simulator.config.impl.ActionImpl <em>Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1072,6 +1496,152 @@ public interface ConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Guard</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__GUARD = eINSTANCE.getAction_Guard();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.ConditionImpl <em>Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.ConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getCondition()
+		 * @generated
+		 */
+		EClass CONDITION = eINSTANCE.getCondition();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.OutputMatchesConditionImpl <em>Output Matches Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.OutputMatchesConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getOutputMatchesCondition()
+		 * @generated
+		 */
+		EClass OUTPUT_MATCHES_CONDITION = eINSTANCE.getOutputMatchesCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Value To Match</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_MATCHES_CONDITION__VALUE_TO_MATCH = eINSTANCE.getOutputMatchesCondition_ValueToMatch();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.AndConditionImpl <em>And Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.AndConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getAndCondition()
+		 * @generated
+		 */
+		EClass AND_CONDITION = eINSTANCE.getAndCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Subconditions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AND_CONDITION__SUBCONDITIONS = eINSTANCE.getAndCondition_Subconditions();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.OrConditionImpl <em>Or Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.OrConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getOrCondition()
+		 * @generated
+		 */
+		EClass OR_CONDITION = eINSTANCE.getOrCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Subconditions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OR_CONDITION__SUBCONDITIONS = eINSTANCE.getOrCondition_Subconditions();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.NotConditionImpl <em>Not Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.NotConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getNotCondition()
+		 * @generated
+		 */
+		EClass NOT_CONDITION = eINSTANCE.getNotCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Subcondition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NOT_CONDITION__SUBCONDITION = eINSTANCE.getNotCondition_Subcondition();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.DisplayMatchesConditionImpl <em>Display Matches Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.DisplayMatchesConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getDisplayMatchesCondition()
+		 * @generated
+		 */
+		EClass DISPLAY_MATCHES_CONDITION = eINSTANCE.getDisplayMatchesCondition();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.IndicatorMatchesConditionImpl <em>Indicator Matches Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.IndicatorMatchesConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getIndicatorMatchesCondition()
+		 * @generated
+		 */
+		EClass INDICATOR_MATCHES_CONDITION = eINSTANCE.getIndicatorMatchesCondition();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.VariableComparisonConditionImpl <em>Variable Comparison Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.VariableComparisonConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getVariableComparisonCondition()
+		 * @generated
+		 */
+		EClass VARIABLE_COMPARISON_CONDITION = eINSTANCE.getVariableComparisonCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_COMPARISON_CONDITION__VARIABLE = eINSTANCE.getVariableComparisonCondition_Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_COMPARISON_CONDITION__VALUE = eINSTANCE.getVariableComparisonCondition_Value();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.VariableEqualsConditionImpl <em>Variable Equals Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.VariableEqualsConditionImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getVariableEqualsCondition()
+		 * @generated
+		 */
+		EClass VARIABLE_EQUALS_CONDITION = eINSTANCE.getVariableEqualsCondition();
 
 		/**
 		 * The meta object literal for the '{@link simulator.config.impl.ChangeOutputActionImpl <em>Change Output Action</em>}' class.
@@ -1120,6 +1690,26 @@ public interface ConfigPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NEXT_MODE = eINSTANCE.getNextMode();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.SoundAlarmImpl <em>Sound Alarm</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.SoundAlarmImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getSoundAlarm()
+		 * @generated
+		 */
+		EClass SOUND_ALARM = eINSTANCE.getSoundAlarm();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.SilenceAlarmImpl <em>Silence Alarm</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.SilenceAlarmImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getSilenceAlarm()
+		 * @generated
+		 */
+		EClass SILENCE_ALARM = eINSTANCE.getSilenceAlarm();
 
 		/**
 		 * The meta object literal for the '{@link simulator.config.impl.EvaluateExpressionImpl <em>Evaluate Expression</em>}' class.

@@ -5,7 +5,7 @@ class Configuration {
    val Mode[*] modes;
    val Variable[*] variables;
    val Constant[*] constants;
-   val Event[*] events;
+   val Action[*] events;
 }
 
 class Mode {
@@ -19,14 +19,36 @@ class Button {
    val Action[1..*] behaviour;
 }
 
-abstract class Event {}
-
-class AlarmEvent extends Event {
-   ref Variable[1] trigger;
-   ref Variable[1] alarmTime;
+abstract class Action {
+	val Condition[0..1] guard;
 }
 
-abstract class Action {}
+abstract class Condition {}
+abstract class OutputMatchesCondition extends Condition {
+	ref Displayable[1] valueToMatch;
+}
+
+class AndCondition extends Condition {
+   val Condition[2..*] subconditions;
+}
+
+class OrCondition extends Condition {
+   val Condition[2..*] subconditions;
+}
+
+class NotCondition extends Condition {
+   val Condition[1] subcondition;
+}
+
+class DisplayMatchesCondition extends OutputMatchesCondition {}
+class IndicatorMatchesCondition extends OutputMatchesCondition {}
+
+abstract class VariableComparisonCondition extends Condition {
+   ref Variable[1] variable;
+   ref Displayable[1] value;
+}
+
+class VariableEqualsCondition extends VariableComparisonCondition {}
 
 abstract class ChangeOutputAction extends Action {
    ref Displayable[1] newValue;   
@@ -36,6 +58,9 @@ class ChangeDisplay extends ChangeOutputAction {}
 class ChangeIndicator extends ChangeOutputAction {}
 
 class NextMode extends Action {}
+
+class SoundAlarm extends Action {}
+class SilenceAlarm extends Action {}
 
 class EvaluateExpression extends Action {
    val Expression[1] expression;

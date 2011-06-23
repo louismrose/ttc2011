@@ -121,9 +121,9 @@ public class TestcaseImpl extends EObjectImpl implements Testcase {
     {
       NotificationChain msgs = null;
       if (given != null)
-        msgs = ((InternalEObject)given).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__GIVEN, null, msgs);
+        msgs = ((InternalEObject)given).eInverseRemove(this, SslPackage.GIVEN__TESTCASE, Given.class, msgs);
       if (newGiven != null)
-        msgs = ((InternalEObject)newGiven).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__GIVEN, null, msgs);
+        msgs = ((InternalEObject)newGiven).eInverseAdd(this, SslPackage.GIVEN__TESTCASE, Given.class, msgs);
       msgs = basicSetGiven(newGiven, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -166,9 +166,9 @@ public class TestcaseImpl extends EObjectImpl implements Testcase {
     {
       NotificationChain msgs = null;
       if (when != null)
-        msgs = ((InternalEObject)when).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__WHEN, null, msgs);
+        msgs = ((InternalEObject)when).eInverseRemove(this, SslPackage.WHEN__TESTCASE, When.class, msgs);
       if (newWhen != null)
-        msgs = ((InternalEObject)newWhen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__WHEN, null, msgs);
+        msgs = ((InternalEObject)newWhen).eInverseAdd(this, SslPackage.WHEN__TESTCASE, When.class, msgs);
       msgs = basicSetWhen(newWhen, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -211,9 +211,9 @@ public class TestcaseImpl extends EObjectImpl implements Testcase {
     {
       NotificationChain msgs = null;
       if (then != null)
-        msgs = ((InternalEObject)then).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__THEN, null, msgs);
+        msgs = ((InternalEObject)then).eInverseRemove(this, SslPackage.THEN__TESTCASE, Then.class, msgs);
       if (newThen != null)
-        msgs = ((InternalEObject)newThen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__THEN, null, msgs);
+        msgs = ((InternalEObject)newThen).eInverseAdd(this, SslPackage.THEN__TESTCASE, Then.class, msgs);
       msgs = basicSetThen(newThen, msgs);
       if (msgs != null) msgs.dispatch();
     }
@@ -222,6 +222,32 @@ public class TestcaseImpl extends EObjectImpl implements Testcase {
   }
 
 	/**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SslPackage.TESTCASE__GIVEN:
+        if (given != null)
+          msgs = ((InternalEObject)given).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__GIVEN, null, msgs);
+        return basicSetGiven((Given)otherEnd, msgs);
+      case SslPackage.TESTCASE__WHEN:
+        if (when != null)
+          msgs = ((InternalEObject)when).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__WHEN, null, msgs);
+        return basicSetWhen((When)otherEnd, msgs);
+      case SslPackage.TESTCASE__THEN:
+        if (then != null)
+          msgs = ((InternalEObject)then).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SslPackage.TESTCASE__THEN, null, msgs);
+        return basicSetThen((Then)otherEnd, msgs);
+    }
+    return super.eInverseAdd(otherEnd, featureID, msgs);
+  }
+
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated

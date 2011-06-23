@@ -8,11 +8,12 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.execution.model;
+package simulator.execution.model.actions;
 
 import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
 import simulator.config.Variable;
+import simulator.execution.model.Time;
 import simulator.execution.model.state.State;
 
 public class EvaluatableExpression {

@@ -53,13 +53,58 @@ public interface ConfigFactory extends EFactory {
 	Button createButton();
 
 	/**
-	 * Returns a new object of class '<em>Alarm Event</em>'.
+	 * Returns a new object of class '<em>And Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alarm Event</em>'.
+	 * @return a new object of class '<em>And Condition</em>'.
 	 * @generated
 	 */
-	AlarmEvent createAlarmEvent();
+	AndCondition createAndCondition();
+
+	/**
+	 * Returns a new object of class '<em>Or Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Or Condition</em>'.
+	 * @generated
+	 */
+	OrCondition createOrCondition();
+
+	/**
+	 * Returns a new object of class '<em>Not Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Not Condition</em>'.
+	 * @generated
+	 */
+	NotCondition createNotCondition();
+
+	/**
+	 * Returns a new object of class '<em>Display Matches Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Display Matches Condition</em>'.
+	 * @generated
+	 */
+	DisplayMatchesCondition createDisplayMatchesCondition();
+
+	/**
+	 * Returns a new object of class '<em>Indicator Matches Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Indicator Matches Condition</em>'.
+	 * @generated
+	 */
+	IndicatorMatchesCondition createIndicatorMatchesCondition();
+
+	/**
+	 * Returns a new object of class '<em>Variable Equals Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable Equals Condition</em>'.
+	 * @generated
+	 */
+	VariableEqualsCondition createVariableEqualsCondition();
 
 	/**
 	 * Returns a new object of class '<em>Change Display</em>'.
@@ -87,6 +132,24 @@ public interface ConfigFactory extends EFactory {
 	 * @generated
 	 */
 	NextMode createNextMode();
+
+	/**
+	 * Returns a new object of class '<em>Sound Alarm</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sound Alarm</em>'.
+	 * @generated
+	 */
+	SoundAlarm createSoundAlarm();
+
+	/**
+	 * Returns a new object of class '<em>Silence Alarm</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Silence Alarm</em>'.
+	 * @generated
+	 */
+	SilenceAlarm createSilenceAlarm();
 
 	/**
 	 * Returns a new object of class '<em>Evaluate Expression</em>'.

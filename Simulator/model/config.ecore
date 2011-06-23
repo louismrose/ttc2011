@@ -11,7 +11,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
         eType="#//Constant" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
-        eType="#//Event" containment="true"/>
+        eType="#//Action" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -25,14 +25,37 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" lowerBound="1"
         upperBound="-1" eType="#//Action" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Event" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AlarmEvent" eSuperTypes="#//Event">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" lowerBound="1"
-        eType="#//Variable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="alarmTime" lowerBound="1"
-        eType="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guard" eType="#//Condition"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputMatchesCondition" abstract="true"
+      eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueToMatch" lowerBound="1"
+        eType="#//Displayable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AndCondition" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subconditions" lowerBound="2"
+        upperBound="-1" eType="#//Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrCondition" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subconditions" lowerBound="2"
+        upperBound="-1" eType="#//Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NotCondition" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subcondition" lowerBound="1"
+        eType="#//Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayMatchesCondition" eSuperTypes="#//OutputMatchesCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IndicatorMatchesCondition" eSuperTypes="#//OutputMatchesCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableComparisonCondition" abstract="true"
+      eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
+        eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Displayable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableEqualsCondition" eSuperTypes="#//VariableComparisonCondition"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeOutputAction" abstract="true"
       eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="newValue" lowerBound="1"
@@ -41,6 +64,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ChangeDisplay" eSuperTypes="#//ChangeOutputAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeIndicator" eSuperTypes="#//ChangeOutputAction"/>
   <eClassifiers xsi:type="ecore:EClass" name="NextMode" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SoundAlarm" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SilenceAlarm" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="EvaluateExpression" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
         eType="#//Expression" containment="true"/>

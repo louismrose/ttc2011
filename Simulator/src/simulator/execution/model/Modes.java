@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
 import simulator.config.Action;
 import simulator.config.Button;
 import simulator.config.Mode;
+import simulator.execution.model.actions.RunnableActionGroup;
 import simulator.execution.model.state.ModeObserver;
 import simulator.execution.model.state.State;
 
@@ -56,8 +57,6 @@ public class Modes implements ModeObserver {
 	}
 
 	private void run(EList<Action> actions, State state) {
-		for (Action action : actions) {
-			new RunnableAction(action).run(state);
-		}
+		new RunnableActionGroup(actions).run(state);
 	}
 }

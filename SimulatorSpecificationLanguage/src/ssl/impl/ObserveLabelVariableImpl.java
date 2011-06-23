@@ -23,35 +23,14 @@ import ssl.SslPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ssl.impl.ObserveLabelVariableImpl#getLabelType <em>Label Type</em>}</li>
  *   <li>{@link ssl.impl.ObserveLabelVariableImpl#getVariableName <em>Variable Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ObserveLabelVariableImpl extends ObservationImpl implements ObserveLabelVariable
+public class ObserveLabelVariableImpl extends ObserveOutputImpl implements ObserveLabelVariable
 {
-  /**
-   * The default value of the '{@link #getLabelType() <em>Label Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLabelType()
-   * @generated
-   * @ordered
-   */
-  protected static final LabelType LABEL_TYPE_EDEFAULT = LabelType.DISPLAY;
-
-  /**
-   * The cached value of the '{@link #getLabelType() <em>Label Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLabelType()
-   * @generated
-   * @ordered
-   */
-  protected LabelType labelType = LABEL_TYPE_EDEFAULT;
-
   /**
    * The default value of the '{@link #getVariableName() <em>Variable Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -98,29 +77,6 @@ public class ObserveLabelVariableImpl extends ObservationImpl implements Observe
    * <!-- end-user-doc -->
    * @generated
    */
-  public LabelType getLabelType()
-  {
-    return labelType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLabelType(LabelType newLabelType)
-  {
-    LabelType oldLabelType = labelType;
-    labelType = newLabelType == null ? LABEL_TYPE_EDEFAULT : newLabelType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE, oldLabelType, labelType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getVariableName()
   {
     return variableName;
@@ -149,8 +105,6 @@ public class ObserveLabelVariableImpl extends ObservationImpl implements Observe
   {
     switch (featureID)
     {
-      case SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE:
-        return getLabelType();
       case SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME:
         return getVariableName();
     }
@@ -167,9 +121,6 @@ public class ObserveLabelVariableImpl extends ObservationImpl implements Observe
   {
     switch (featureID)
     {
-      case SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE:
-        setLabelType((LabelType)newValue);
-        return;
       case SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME:
         setVariableName((String)newValue);
         return;
@@ -187,9 +138,6 @@ public class ObserveLabelVariableImpl extends ObservationImpl implements Observe
   {
     switch (featureID)
     {
-      case SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE:
-        setLabelType(LABEL_TYPE_EDEFAULT);
-        return;
       case SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME:
         setVariableName(VARIABLE_NAME_EDEFAULT);
         return;
@@ -207,8 +155,6 @@ public class ObserveLabelVariableImpl extends ObservationImpl implements Observe
   {
     switch (featureID)
     {
-      case SslPackage.OBSERVE_LABEL_VARIABLE__LABEL_TYPE:
-        return labelType != LABEL_TYPE_EDEFAULT;
       case SslPackage.OBSERVE_LABEL_VARIABLE__VARIABLE_NAME:
         return VARIABLE_NAME_EDEFAULT == null ? variableName != null : !VARIABLE_NAME_EDEFAULT.equals(variableName);
     }
@@ -226,9 +172,7 @@ public class ObserveLabelVariableImpl extends ObservationImpl implements Observe
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (labelType: ");
-    result.append(labelType);
-    result.append(", variableName: ");
+    result.append(" (variableName: ");
     result.append(variableName);
     result.append(')');
     return result.toString();

@@ -8,27 +8,25 @@ package simulator.config.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import simulator.config.ConfigPackage;
-import simulator.config.Event;
+import simulator.config.SilenceAlarm;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Event</b></em>'.
+ * An implementation of the model object '<em><b>Silence Alarm</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class EventImpl extends EObjectImpl implements Event {
+public class SilenceAlarmImpl extends ActionImpl implements SilenceAlarm {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EventImpl() {
+	protected SilenceAlarmImpl() {
 		super();
 	}
 
@@ -39,7 +37,7 @@ public abstract class EventImpl extends EObjectImpl implements Event {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ConfigPackage.Literals.EVENT;
+		return ConfigPackage.Literals.SILENCE_ALARM;
 	}
 
-} //EventImpl
+} //SilenceAlarmImpl

@@ -98,6 +98,15 @@ public interface SslFactory extends EFactory {
   CheckLabel createCheckLabel();
 
   /**
+   * Returns a new object of class '<em>Enters Mode</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enters Mode</em>'.
+   * @generated
+   */
+  EntersMode createEntersMode();
+
+  /**
    * Returns a new object of class '<em>Press Button</em>'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

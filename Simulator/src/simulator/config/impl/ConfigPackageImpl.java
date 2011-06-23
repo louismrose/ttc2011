@@ -15,24 +15,33 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import simulator.config.Action;
-import simulator.config.AlarmEvent;
+import simulator.config.AndCondition;
 import simulator.config.Button;
 import simulator.config.ChangeDisplay;
 import simulator.config.ChangeIndicator;
 import simulator.config.ChangeOutputAction;
+import simulator.config.Condition;
 import simulator.config.ConfigFactory;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
 import simulator.config.Constant;
+import simulator.config.DisplayMatchesCondition;
 import simulator.config.Displayable;
 import simulator.config.EvaluateExpression;
-import simulator.config.Event;
 import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
+import simulator.config.IndicatorMatchesCondition;
 import simulator.config.Mode;
 import simulator.config.NextMode;
+import simulator.config.NotCondition;
+import simulator.config.OrCondition;
+import simulator.config.OutputMatchesCondition;
+import simulator.config.SilenceAlarm;
+import simulator.config.SoundAlarm;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
+import simulator.config.VariableComparisonCondition;
+import simulator.config.VariableEqualsCondition;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,21 +76,70 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass alarmEventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass outputMatchesConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass andConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass orConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass notConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass displayMatchesConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass indicatorMatchesConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableComparisonConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableEqualsConditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,6 +168,20 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * @generated
 	 */
 	private EClass nextModeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass soundAlarmEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass silenceAlarmEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -334,44 +406,152 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEvent() {
-		return eventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAlarmEvent() {
-		return alarmEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAlarmEvent_Trigger() {
-		return (EReference)alarmEventEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAlarmEvent_AlarmTime() {
-		return (EReference)alarmEventEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAction() {
 		return actionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAction_Guard() {
+		return (EReference)actionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCondition() {
+		return conditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOutputMatchesCondition() {
+		return outputMatchesConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutputMatchesCondition_ValueToMatch() {
+		return (EReference)outputMatchesConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAndCondition() {
+		return andConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAndCondition_Subconditions() {
+		return (EReference)andConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOrCondition() {
+		return orConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOrCondition_Subconditions() {
+		return (EReference)orConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNotCondition() {
+		return notConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNotCondition_Subcondition() {
+		return (EReference)notConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDisplayMatchesCondition() {
+		return displayMatchesConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIndicatorMatchesCondition() {
+		return indicatorMatchesConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariableComparisonCondition() {
+		return variableComparisonConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableComparisonCondition_Variable() {
+		return (EReference)variableComparisonConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableComparisonCondition_Value() {
+		return (EReference)variableComparisonConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariableEqualsCondition() {
+		return variableEqualsConditionEClass;
 	}
 
 	/**
@@ -417,6 +597,24 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 */
 	public EClass getNextMode() {
 		return nextModeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSoundAlarm() {
+		return soundAlarmEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSilenceAlarm() {
+		return silenceAlarmEClass;
 	}
 
 	/**
@@ -570,13 +768,32 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		createEAttribute(buttonEClass, BUTTON__NAME);
 		createEReference(buttonEClass, BUTTON__BEHAVIOUR);
 
-		eventEClass = createEClass(EVENT);
-
-		alarmEventEClass = createEClass(ALARM_EVENT);
-		createEReference(alarmEventEClass, ALARM_EVENT__TRIGGER);
-		createEReference(alarmEventEClass, ALARM_EVENT__ALARM_TIME);
-
 		actionEClass = createEClass(ACTION);
+		createEReference(actionEClass, ACTION__GUARD);
+
+		conditionEClass = createEClass(CONDITION);
+
+		outputMatchesConditionEClass = createEClass(OUTPUT_MATCHES_CONDITION);
+		createEReference(outputMatchesConditionEClass, OUTPUT_MATCHES_CONDITION__VALUE_TO_MATCH);
+
+		andConditionEClass = createEClass(AND_CONDITION);
+		createEReference(andConditionEClass, AND_CONDITION__SUBCONDITIONS);
+
+		orConditionEClass = createEClass(OR_CONDITION);
+		createEReference(orConditionEClass, OR_CONDITION__SUBCONDITIONS);
+
+		notConditionEClass = createEClass(NOT_CONDITION);
+		createEReference(notConditionEClass, NOT_CONDITION__SUBCONDITION);
+
+		displayMatchesConditionEClass = createEClass(DISPLAY_MATCHES_CONDITION);
+
+		indicatorMatchesConditionEClass = createEClass(INDICATOR_MATCHES_CONDITION);
+
+		variableComparisonConditionEClass = createEClass(VARIABLE_COMPARISON_CONDITION);
+		createEReference(variableComparisonConditionEClass, VARIABLE_COMPARISON_CONDITION__VARIABLE);
+		createEReference(variableComparisonConditionEClass, VARIABLE_COMPARISON_CONDITION__VALUE);
+
+		variableEqualsConditionEClass = createEClass(VARIABLE_EQUALS_CONDITION);
 
 		changeOutputActionEClass = createEClass(CHANGE_OUTPUT_ACTION);
 		createEReference(changeOutputActionEClass, CHANGE_OUTPUT_ACTION__NEW_VALUE);
@@ -586,6 +803,10 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		changeIndicatorEClass = createEClass(CHANGE_INDICATOR);
 
 		nextModeEClass = createEClass(NEXT_MODE);
+
+		soundAlarmEClass = createEClass(SOUND_ALARM);
+
+		silenceAlarmEClass = createEClass(SILENCE_ALARM);
 
 		evaluateExpressionEClass = createEClass(EVALUATE_EXPRESSION);
 		createEReference(evaluateExpressionEClass, EVALUATE_EXPRESSION__EXPRESSION);
@@ -636,11 +857,20 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		alarmEventEClass.getESuperTypes().add(this.getEvent());
+		outputMatchesConditionEClass.getESuperTypes().add(this.getCondition());
+		andConditionEClass.getESuperTypes().add(this.getCondition());
+		orConditionEClass.getESuperTypes().add(this.getCondition());
+		notConditionEClass.getESuperTypes().add(this.getCondition());
+		displayMatchesConditionEClass.getESuperTypes().add(this.getOutputMatchesCondition());
+		indicatorMatchesConditionEClass.getESuperTypes().add(this.getOutputMatchesCondition());
+		variableComparisonConditionEClass.getESuperTypes().add(this.getCondition());
+		variableEqualsConditionEClass.getESuperTypes().add(this.getVariableComparisonCondition());
 		changeOutputActionEClass.getESuperTypes().add(this.getAction());
 		changeDisplayEClass.getESuperTypes().add(this.getChangeOutputAction());
 		changeIndicatorEClass.getESuperTypes().add(this.getChangeOutputAction());
 		nextModeEClass.getESuperTypes().add(this.getAction());
+		soundAlarmEClass.getESuperTypes().add(this.getAction());
+		silenceAlarmEClass.getESuperTypes().add(this.getAction());
 		evaluateExpressionEClass.getESuperTypes().add(this.getAction());
 		incrementTimeVariableEClass.getESuperTypes().add(this.getExpression());
 		constantEClass.getESuperTypes().add(this.getDisplayable());
@@ -651,7 +881,7 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEReference(getConfiguration_Modes(), this.getMode(), null, "modes", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Variables(), this.getVariable(), null, "variables", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Constants(), this.getConstant(), null, "constants", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_Events(), this.getEvent(), null, "events", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_Events(), this.getAction(), null, "events", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modeEClass, Mode.class, "Mode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMode_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -662,13 +892,32 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEAttribute(getButton_Name(), ecorePackage.getEString(), "name", null, 1, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getButton_Behaviour(), this.getAction(), null, "behaviour", null, 1, -1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(eventEClass, Event.class, "Event", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(alarmEventEClass, AlarmEvent.class, "AlarmEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAlarmEvent_Trigger(), this.getVariable(), null, "trigger", null, 1, 1, AlarmEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAlarmEvent_AlarmTime(), this.getVariable(), null, "alarmTime", null, 1, 1, AlarmEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAction_Guard(), this.getCondition(), null, "guard", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(outputMatchesConditionEClass, OutputMatchesCondition.class, "OutputMatchesCondition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutputMatchesCondition_ValueToMatch(), this.getDisplayable(), null, "valueToMatch", null, 1, 1, OutputMatchesCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(andConditionEClass, AndCondition.class, "AndCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAndCondition_Subconditions(), this.getCondition(), null, "subconditions", null, 2, -1, AndCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(orConditionEClass, OrCondition.class, "OrCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOrCondition_Subconditions(), this.getCondition(), null, "subconditions", null, 2, -1, OrCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNotCondition_Subcondition(), this.getCondition(), null, "subcondition", null, 1, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(displayMatchesConditionEClass, DisplayMatchesCondition.class, "DisplayMatchesCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(indicatorMatchesConditionEClass, IndicatorMatchesCondition.class, "IndicatorMatchesCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(variableComparisonConditionEClass, VariableComparisonCondition.class, "VariableComparisonCondition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableComparisonCondition_Variable(), this.getVariable(), null, "variable", null, 1, 1, VariableComparisonCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVariableComparisonCondition_Value(), this.getDisplayable(), null, "value", null, 1, 1, VariableComparisonCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(variableEqualsConditionEClass, VariableEqualsCondition.class, "VariableEqualsCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(changeOutputActionEClass, ChangeOutputAction.class, "ChangeOutputAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChangeOutputAction_NewValue(), this.getDisplayable(), null, "newValue", null, 1, 1, ChangeOutputAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -678,6 +927,10 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		initEClass(changeIndicatorEClass, ChangeIndicator.class, "ChangeIndicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(nextModeEClass, NextMode.class, "NextMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(soundAlarmEClass, SoundAlarm.class, "SoundAlarm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(silenceAlarmEClass, SilenceAlarm.class, "SilenceAlarm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(evaluateExpressionEClass, EvaluateExpression.class, "EvaluateExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvaluateExpression_Expression(), this.getExpression(), null, "expression", null, 1, 1, EvaluateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

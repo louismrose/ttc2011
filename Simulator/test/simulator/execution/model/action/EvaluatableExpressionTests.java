@@ -8,7 +8,7 @@
  * Contributors:
  *     Louis Rose - initial API and implementation
  ******************************************************************************/
-package simulator.execution.model;
+package simulator.execution.model.action;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -21,6 +21,8 @@ import org.junit.Test;
 import simulator.config.Expression;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
+import simulator.execution.model.Time;
+import simulator.execution.model.actions.EvaluatableExpression;
 import simulator.execution.model.state.State;
 
 public class EvaluatableExpressionTests {

@@ -12,7 +12,7 @@ OPTIONS {
 RULES {
 	Specification ::= testcases* ;
 	
-	Testcase ::= given when? then;
+	Testcase ::= (given when? then) | (when then);
 	
 	Given ::= "Given" conditions+;
 	
@@ -30,6 +30,8 @@ RULES {
 	CheckTimePastOther ::= firstVariableName[TEXT] " is past " secondVariableName[TEXT];
 	
 	// Actions
+	
+	EntersMode ::= "the watch enters mode \"" mode[TEXT] "\"";
 	
 	PressButton ::= "the " button[TEXT] " button is pressed";
 	

@@ -64,10 +64,17 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 			case ConfigPackage.CONFIGURATION: return createConfiguration();
 			case ConfigPackage.MODE: return createMode();
 			case ConfigPackage.BUTTON: return createButton();
-			case ConfigPackage.ALARM_EVENT: return createAlarmEvent();
+			case ConfigPackage.AND_CONDITION: return createAndCondition();
+			case ConfigPackage.OR_CONDITION: return createOrCondition();
+			case ConfigPackage.NOT_CONDITION: return createNotCondition();
+			case ConfigPackage.DISPLAY_MATCHES_CONDITION: return createDisplayMatchesCondition();
+			case ConfigPackage.INDICATOR_MATCHES_CONDITION: return createIndicatorMatchesCondition();
+			case ConfigPackage.VARIABLE_EQUALS_CONDITION: return createVariableEqualsCondition();
 			case ConfigPackage.CHANGE_DISPLAY: return createChangeDisplay();
 			case ConfigPackage.CHANGE_INDICATOR: return createChangeIndicator();
 			case ConfigPackage.NEXT_MODE: return createNextMode();
+			case ConfigPackage.SOUND_ALARM: return createSoundAlarm();
+			case ConfigPackage.SILENCE_ALARM: return createSilenceAlarm();
 			case ConfigPackage.EVALUATE_EXPRESSION: return createEvaluateExpression();
 			case ConfigPackage.EXPRESSION: return createExpression();
 			case ConfigPackage.INCREMENT_TIME_VARIABLE: return createIncrementTimeVariable();
@@ -143,9 +150,59 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AlarmEvent createAlarmEvent() {
-		AlarmEventImpl alarmEvent = new AlarmEventImpl();
-		return alarmEvent;
+	public AndCondition createAndCondition() {
+		AndConditionImpl andCondition = new AndConditionImpl();
+		return andCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OrCondition createOrCondition() {
+		OrConditionImpl orCondition = new OrConditionImpl();
+		return orCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotCondition createNotCondition() {
+		NotConditionImpl notCondition = new NotConditionImpl();
+		return notCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DisplayMatchesCondition createDisplayMatchesCondition() {
+		DisplayMatchesConditionImpl displayMatchesCondition = new DisplayMatchesConditionImpl();
+		return displayMatchesCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IndicatorMatchesCondition createIndicatorMatchesCondition() {
+		IndicatorMatchesConditionImpl indicatorMatchesCondition = new IndicatorMatchesConditionImpl();
+		return indicatorMatchesCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableEqualsCondition createVariableEqualsCondition() {
+		VariableEqualsConditionImpl variableEqualsCondition = new VariableEqualsConditionImpl();
+		return variableEqualsCondition;
 	}
 
 	/**
@@ -176,6 +233,26 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	public NextMode createNextMode() {
 		NextModeImpl nextMode = new NextModeImpl();
 		return nextMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SoundAlarm createSoundAlarm() {
+		SoundAlarmImpl soundAlarm = new SoundAlarmImpl();
+		return soundAlarm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SilenceAlarm createSilenceAlarm() {
+		SilenceAlarmImpl silenceAlarm = new SilenceAlarmImpl();
+		return silenceAlarm;
 	}
 
 	/**

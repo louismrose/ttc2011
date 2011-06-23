@@ -68,6 +68,12 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof ssl.ObserveOutput) {
+			result = interprete_ssl_ObserveOutput((ssl.ObserveOutput) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof ssl.ObserveButton) {
 			result = interprete_ssl_ObserveButton((ssl.ObserveButton) object, context);
 		}
@@ -88,6 +94,12 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof ssl.PressButton) {
 			result = interprete_ssl_PressButton((ssl.PressButton) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof ssl.EntersMode) {
+			result = interprete_ssl_EntersMode((ssl.EntersMode) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -195,6 +207,10 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 		return null;
 	}
 	
+	public ResultType interprete_ssl_EntersMode(ssl.EntersMode object, ContextType context) {
+		return null;
+	}
+	
 	public ResultType interprete_ssl_PressButton(ssl.PressButton object, ContextType context) {
 		return null;
 	}
@@ -208,6 +224,10 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_ssl_ObserveButton(ssl.ObserveButton object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_ssl_ObserveOutput(ssl.ObserveOutput object, ContextType context) {
 		return null;
 	}
 	

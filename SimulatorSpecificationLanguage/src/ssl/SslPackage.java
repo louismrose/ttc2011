@@ -145,13 +145,22 @@ public interface SslPackage extends EPackage {
 	int GIVEN = 2;
 
 	/**
+   * The feature id for the '<em><b>Testcase</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GIVEN__TESTCASE = 0;
+
+  /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int GIVEN__CONDITIONS = 0;
+	int GIVEN__CONDITIONS = 1;
 
 	/**
    * The number of structural features of the '<em>Given</em>' class.
@@ -160,7 +169,7 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int GIVEN_FEATURE_COUNT = 1;
+	int GIVEN_FEATURE_COUNT = 2;
 
 	/**
    * The meta object id for the '{@link ssl.impl.WhenImpl <em>When</em>}' class.
@@ -173,13 +182,22 @@ public interface SslPackage extends EPackage {
 	int WHEN = 3;
 
 	/**
+   * The feature id for the '<em><b>Testcase</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHEN__TESTCASE = 0;
+
+  /**
    * The feature id for the '<em><b>Actions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int WHEN__ACTIONS = 0;
+	int WHEN__ACTIONS = 1;
 
 	/**
    * The number of structural features of the '<em>When</em>' class.
@@ -188,7 +206,7 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int WHEN_FEATURE_COUNT = 1;
+	int WHEN_FEATURE_COUNT = 2;
 
 	/**
    * The meta object id for the '{@link ssl.impl.ThenImpl <em>Then</em>}' class.
@@ -201,13 +219,22 @@ public interface SslPackage extends EPackage {
 	int THEN = 4;
 
 	/**
+   * The feature id for the '<em><b>Testcase</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEN__TESTCASE = 0;
+
+  /**
    * The feature id for the '<em><b>Observations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int THEN__OBSERVATIONS = 0;
+	int THEN__OBSERVATIONS = 1;
 
 	/**
    * The number of structural features of the '<em>Then</em>' class.
@@ -216,7 +243,7 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-	int THEN_FEATURE_COUNT = 1;
+	int THEN_FEATURE_COUNT = 2;
 
 	/**
    * The meta object id for the '{@link ssl.impl.ConditionImpl <em>Condition</em>}' class.
@@ -229,13 +256,22 @@ public interface SslPackage extends EPackage {
 	int CONDITION = 5;
 
 	/**
+   * The feature id for the '<em><b>Given</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__GIVEN = 0;
+
+  /**
    * The number of structural features of the '<em>Condition</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int CONDITION_FEATURE_COUNT = 0;
+	int CONDITION_FEATURE_COUNT = 1;
 
 	/**
    * The meta object id for the '{@link ssl.impl.CheckTimePastOtherImpl <em>Check Time Past Other</em>}' class.
@@ -246,6 +282,15 @@ public interface SslPackage extends EPackage {
    * @generated
    */
   int CHECK_TIME_PAST_OTHER = 6;
+
+  /**
+   * The feature id for the '<em><b>Given</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_TIME_PAST_OTHER__GIVEN = CONDITION__GIVEN;
 
   /**
    * The feature id for the '<em><b>First Variable Name</b></em>' attribute.
@@ -285,6 +330,15 @@ public interface SslPackage extends EPackage {
   int CHECK_MODE = 7;
 
   /**
+   * The feature id for the '<em><b>Given</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_MODE__GIVEN = CONDITION__GIVEN;
+
+  /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -311,6 +365,15 @@ public interface SslPackage extends EPackage {
    * @generated
    */
   int CHECK_LABEL = 8;
+
+  /**
+   * The feature id for the '<em><b>Given</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECK_LABEL__GIVEN = CONDITION__GIVEN;
 
   /**
    * The feature id for the '<em><b>Label Type</b></em>' attribute.
@@ -350,15 +413,61 @@ public interface SslPackage extends EPackage {
 	int ACTION = 9;
 
 	/**
+   * The feature id for the '<em><b>When</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__WHEN = 0;
+
+  /**
    * The number of structural features of the '<em>Action</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int ACTION_FEATURE_COUNT = 0;
+	int ACTION_FEATURE_COUNT = 1;
 
 	/**
+   * The meta object id for the '{@link ssl.impl.EntersModeImpl <em>Enters Mode</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ssl.impl.EntersModeImpl
+   * @see ssl.impl.SslPackageImpl#getEntersMode()
+   * @generated
+   */
+  int ENTERS_MODE = 10;
+
+  /**
+   * The feature id for the '<em><b>When</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERS_MODE__WHEN = ACTION__WHEN;
+
+  /**
+   * The feature id for the '<em><b>Mode</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERS_MODE__MODE = ACTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Enters Mode</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTERS_MODE_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link ssl.impl.PressButtonImpl <em>Press Button</em>}' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,9 +475,18 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getPressButton()
    * @generated
    */
-	int PRESS_BUTTON = 10;
+	int PRESS_BUTTON = 11;
 
 	/**
+   * The feature id for the '<em><b>When</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRESS_BUTTON__WHEN = ACTION__WHEN;
+
+  /**
    * The feature id for the '<em><b>Button</b></em>' attribute.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -394,16 +512,25 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getObservation()
    * @generated
    */
-	int OBSERVATION = 11;
+	int OBSERVATION = 12;
 
 	/**
+   * The feature id for the '<em><b>Then</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVATION__THEN = 0;
+
+  /**
    * The number of structural features of the '<em>Observation</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int OBSERVATION_FEATURE_COUNT = 0;
+	int OBSERVATION_FEATURE_COUNT = 1;
 
 	/**
    * The meta object id for the '{@link ssl.impl.ObserveModeImpl <em>Observe Mode</em>}' class.
@@ -413,9 +540,18 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getObserveMode()
    * @generated
    */
-	int OBSERVE_MODE = 12;
+	int OBSERVE_MODE = 13;
 
 	/**
+   * The feature id for the '<em><b>Then</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_MODE__THEN = OBSERVATION__THEN;
+
+  /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,7 +577,16 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getObserveButton()
    * @generated
    */
-  int OBSERVE_BUTTON = 13;
+  int OBSERVE_BUTTON = 14;
+
+  /**
+   * The feature id for the '<em><b>Then</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_BUTTON__THEN = OBSERVATION__THEN;
 
   /**
    * The feature id for the '<em><b>Button</b></em>' attribute.
@@ -471,14 +616,23 @@ public interface SslPackage extends EPackage {
   int OBSERVE_BUTTON_FEATURE_COUNT = OBSERVATION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link ssl.impl.ObserveLabelValueImpl <em>Observe Label Value</em>}' class.
+   * The meta object id for the '{@link ssl.impl.ObserveOutputImpl <em>Observe Output</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see ssl.impl.ObserveLabelValueImpl
-   * @see ssl.impl.SslPackageImpl#getObserveLabelValue()
+   * @see ssl.impl.ObserveOutputImpl
+   * @see ssl.impl.SslPackageImpl#getObserveOutput()
    * @generated
    */
-  int OBSERVE_LABEL_VALUE = 14;
+  int OBSERVE_OUTPUT = 15;
+
+  /**
+   * The feature id for the '<em><b>Then</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_OUTPUT__THEN = OBSERVATION__THEN;
 
   /**
    * The feature id for the '<em><b>Label Type</b></em>' attribute.
@@ -487,7 +641,44 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int OBSERVE_LABEL_VALUE__LABEL_TYPE = OBSERVATION_FEATURE_COUNT + 0;
+  int OBSERVE_OUTPUT__LABEL_TYPE = OBSERVATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Observe Output</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_OUTPUT_FEATURE_COUNT = OBSERVATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link ssl.impl.ObserveLabelValueImpl <em>Observe Label Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ssl.impl.ObserveLabelValueImpl
+   * @see ssl.impl.SslPackageImpl#getObserveLabelValue()
+   * @generated
+   */
+  int OBSERVE_LABEL_VALUE = 16;
+
+  /**
+   * The feature id for the '<em><b>Then</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_LABEL_VALUE__THEN = OBSERVE_OUTPUT__THEN;
+
+  /**
+   * The feature id for the '<em><b>Label Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_LABEL_VALUE__LABEL_TYPE = OBSERVE_OUTPUT__LABEL_TYPE;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -496,7 +687,7 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int OBSERVE_LABEL_VALUE__VALUE = OBSERVATION_FEATURE_COUNT + 1;
+  int OBSERVE_LABEL_VALUE__VALUE = OBSERVE_OUTPUT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Observe Label Value</em>' class.
@@ -505,7 +696,7 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int OBSERVE_LABEL_VALUE_FEATURE_COUNT = OBSERVATION_FEATURE_COUNT + 2;
+  int OBSERVE_LABEL_VALUE_FEATURE_COUNT = OBSERVE_OUTPUT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link ssl.impl.ObserveLabelVariableImpl <em>Observe Label Variable</em>}' class.
@@ -515,7 +706,16 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getObserveLabelVariable()
    * @generated
    */
-  int OBSERVE_LABEL_VARIABLE = 15;
+  int OBSERVE_LABEL_VARIABLE = 17;
+
+  /**
+   * The feature id for the '<em><b>Then</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_LABEL_VARIABLE__THEN = OBSERVE_OUTPUT__THEN;
 
   /**
    * The feature id for the '<em><b>Label Type</b></em>' attribute.
@@ -524,7 +724,7 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int OBSERVE_LABEL_VARIABLE__LABEL_TYPE = OBSERVATION_FEATURE_COUNT + 0;
+  int OBSERVE_LABEL_VARIABLE__LABEL_TYPE = OBSERVE_OUTPUT__LABEL_TYPE;
 
   /**
    * The feature id for the '<em><b>Variable Name</b></em>' attribute.
@@ -533,7 +733,7 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int OBSERVE_LABEL_VARIABLE__VARIABLE_NAME = OBSERVATION_FEATURE_COUNT + 1;
+  int OBSERVE_LABEL_VARIABLE__VARIABLE_NAME = OBSERVE_OUTPUT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Observe Label Variable</em>' class.
@@ -542,7 +742,7 @@ public interface SslPackage extends EPackage {
    * @generated
    * @ordered
    */
-  int OBSERVE_LABEL_VARIABLE_FEATURE_COUNT = OBSERVATION_FEATURE_COUNT + 2;
+  int OBSERVE_LABEL_VARIABLE_FEATURE_COUNT = OBSERVE_OUTPUT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link ssl.impl.ObserveVariableChangeImpl <em>Observe Variable Change</em>}' class.
@@ -552,7 +752,16 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getObserveVariableChange()
    * @generated
    */
-  int OBSERVE_VARIABLE_CHANGE = 16;
+  int OBSERVE_VARIABLE_CHANGE = 18;
+
+  /**
+   * The feature id for the '<em><b>Then</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_VARIABLE_CHANGE__THEN = OBSERVATION__THEN;
 
   /**
    * The feature id for the '<em><b>Variable Name</b></em>' attribute.
@@ -589,7 +798,16 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getObserveRing()
    * @generated
    */
-  int OBSERVE_RING = 17;
+  int OBSERVE_RING = 19;
+
+  /**
+   * The feature id for the '<em><b>Then</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBSERVE_RING__THEN = OBSERVATION__THEN;
 
   /**
    * The number of structural features of the '<em>Observe Ring</em>' class.
@@ -608,7 +826,7 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getLabelType()
    * @generated
    */
-  int LABEL_TYPE = 18;
+  int LABEL_TYPE = 20;
 
   /**
    * The meta object id for the '{@link ssl.UnitOfTime <em>Unit Of Time</em>}' enum.
@@ -618,7 +836,7 @@ public interface SslPackage extends EPackage {
    * @see ssl.impl.SslPackageImpl#getUnitOfTime()
    * @generated
    */
-  int UNIT_OF_TIME = 19;
+  int UNIT_OF_TIME = 21;
 
   /**
    * Returns the meta object for class '{@link ssl.Specification <em>Specification</em>}'.
@@ -695,6 +913,17 @@ public interface SslPackage extends EPackage {
 	EClass getGiven();
 
 	/**
+   * Returns the meta object for the container reference '{@link ssl.Given#getTestcase <em>Testcase</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Testcase</em>'.
+   * @see ssl.Given#getTestcase()
+   * @see #getGiven()
+   * @generated
+   */
+  EReference getGiven_Testcase();
+
+  /**
    * Returns the meta object for the containment reference list '{@link ssl.Given#getConditions <em>Conditions</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -716,6 +945,17 @@ public interface SslPackage extends EPackage {
 	EClass getWhen();
 
 	/**
+   * Returns the meta object for the container reference '{@link ssl.When#getTestcase <em>Testcase</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Testcase</em>'.
+   * @see ssl.When#getTestcase()
+   * @see #getWhen()
+   * @generated
+   */
+  EReference getWhen_Testcase();
+
+  /**
    * Returns the meta object for the containment reference list '{@link ssl.When#getActions <em>Actions</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -737,6 +977,17 @@ public interface SslPackage extends EPackage {
 	EClass getThen();
 
 	/**
+   * Returns the meta object for the container reference '{@link ssl.Then#getTestcase <em>Testcase</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Testcase</em>'.
+   * @see ssl.Then#getTestcase()
+   * @see #getThen()
+   * @generated
+   */
+  EReference getThen_Testcase();
+
+  /**
    * Returns the meta object for the containment reference list '{@link ssl.Then#getObservations <em>Observations</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -758,6 +1009,17 @@ public interface SslPackage extends EPackage {
 	EClass getCondition();
 
 	/**
+   * Returns the meta object for the container reference '{@link ssl.Condition#getGiven <em>Given</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Given</em>'.
+   * @see ssl.Condition#getGiven()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Given();
+
+  /**
    * Returns the meta object for class '{@link ssl.CheckTimePastOther <em>Check Time Past Other</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -853,6 +1115,38 @@ public interface SslPackage extends EPackage {
 	EClass getAction();
 
 	/**
+   * Returns the meta object for the container reference '{@link ssl.Action#getWhen <em>When</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>When</em>'.
+   * @see ssl.Action#getWhen()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_When();
+
+  /**
+   * Returns the meta object for class '{@link ssl.EntersMode <em>Enters Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enters Mode</em>'.
+   * @see ssl.EntersMode
+   * @generated
+   */
+  EClass getEntersMode();
+
+  /**
+   * Returns the meta object for the attribute '{@link ssl.EntersMode#getMode <em>Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mode</em>'.
+   * @see ssl.EntersMode#getMode()
+   * @see #getEntersMode()
+   * @generated
+   */
+  EAttribute getEntersMode_Mode();
+
+  /**
    * Returns the meta object for class '{@link ssl.PressButton <em>Press Button</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -884,6 +1178,17 @@ public interface SslPackage extends EPackage {
 	EClass getObservation();
 
 	/**
+   * Returns the meta object for the container reference '{@link ssl.Observation#getThen <em>Then</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the container reference '<em>Then</em>'.
+   * @see ssl.Observation#getThen()
+   * @see #getObservation()
+   * @generated
+   */
+  EReference getObservation_Then();
+
+  /**
    * Returns the meta object for class '{@link ssl.ObserveMode <em>Observe Mode</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -937,6 +1242,27 @@ public interface SslPackage extends EPackage {
   EAttribute getObserveButton_Name();
 
   /**
+   * Returns the meta object for class '{@link ssl.ObserveOutput <em>Observe Output</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Observe Output</em>'.
+   * @see ssl.ObserveOutput
+   * @generated
+   */
+  EClass getObserveOutput();
+
+  /**
+   * Returns the meta object for the attribute '{@link ssl.ObserveOutput#getLabelType <em>Label Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Label Type</em>'.
+   * @see ssl.ObserveOutput#getLabelType()
+   * @see #getObserveOutput()
+   * @generated
+   */
+  EAttribute getObserveOutput_LabelType();
+
+  /**
    * Returns the meta object for class '{@link ssl.ObserveLabelValue <em>Observe Label Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -945,17 +1271,6 @@ public interface SslPackage extends EPackage {
    * @generated
    */
   EClass getObserveLabelValue();
-
-  /**
-   * Returns the meta object for the attribute '{@link ssl.ObserveLabelValue#getLabelType <em>Label Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Label Type</em>'.
-   * @see ssl.ObserveLabelValue#getLabelType()
-   * @see #getObserveLabelValue()
-   * @generated
-   */
-  EAttribute getObserveLabelValue_LabelType();
 
   /**
    * Returns the meta object for the attribute '{@link ssl.ObserveLabelValue#getValue <em>Value</em>}'.
@@ -977,17 +1292,6 @@ public interface SslPackage extends EPackage {
    * @generated
    */
   EClass getObserveLabelVariable();
-
-  /**
-   * Returns the meta object for the attribute '{@link ssl.ObserveLabelVariable#getLabelType <em>Label Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Label Type</em>'.
-   * @see ssl.ObserveLabelVariable#getLabelType()
-   * @see #getObserveLabelVariable()
-   * @generated
-   */
-  EAttribute getObserveLabelVariable_LabelType();
 
   /**
    * Returns the meta object for the attribute '{@link ssl.ObserveLabelVariable#getVariableName <em>Variable Name</em>}'.
@@ -1147,6 +1451,14 @@ public interface SslPackage extends EPackage {
 		EClass GIVEN = eINSTANCE.getGiven();
 
 		/**
+     * The meta object literal for the '<em><b>Testcase</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GIVEN__TESTCASE = eINSTANCE.getGiven_Testcase();
+
+    /**
      * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1165,6 +1477,14 @@ public interface SslPackage extends EPackage {
 		EClass WHEN = eINSTANCE.getWhen();
 
 		/**
+     * The meta object literal for the '<em><b>Testcase</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHEN__TESTCASE = eINSTANCE.getWhen_Testcase();
+
+    /**
      * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1183,6 +1503,14 @@ public interface SslPackage extends EPackage {
 		EClass THEN = eINSTANCE.getThen();
 
 		/**
+     * The meta object literal for the '<em><b>Testcase</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THEN__TESTCASE = eINSTANCE.getThen_Testcase();
+
+    /**
      * The meta object literal for the '<em><b>Observations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1201,6 +1529,14 @@ public interface SslPackage extends EPackage {
 		EClass CONDITION = eINSTANCE.getCondition();
 
 		/**
+     * The meta object literal for the '<em><b>Given</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__GIVEN = eINSTANCE.getCondition_Given();
+
+    /**
      * The meta object literal for the '{@link ssl.impl.CheckTimePastOtherImpl <em>Check Time Past Other</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1281,6 +1617,32 @@ public interface SslPackage extends EPackage {
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
+     * The meta object literal for the '<em><b>When</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__WHEN = eINSTANCE.getAction_When();
+
+    /**
+     * The meta object literal for the '{@link ssl.impl.EntersModeImpl <em>Enters Mode</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ssl.impl.EntersModeImpl
+     * @see ssl.impl.SslPackageImpl#getEntersMode()
+     * @generated
+     */
+    EClass ENTERS_MODE = eINSTANCE.getEntersMode();
+
+    /**
+     * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTERS_MODE__MODE = eINSTANCE.getEntersMode_Mode();
+
+    /**
      * The meta object literal for the '{@link ssl.impl.PressButtonImpl <em>Press Button</em>}' class.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1309,6 +1671,14 @@ public interface SslPackage extends EPackage {
 		EClass OBSERVATION = eINSTANCE.getObservation();
 
 		/**
+     * The meta object literal for the '<em><b>Then</b></em>' container reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OBSERVATION__THEN = eINSTANCE.getObservation_Then();
+
+    /**
      * The meta object literal for the '{@link ssl.impl.ObserveModeImpl <em>Observe Mode</em>}' class.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1353,6 +1723,24 @@ public interface SslPackage extends EPackage {
     EAttribute OBSERVE_BUTTON__NAME = eINSTANCE.getObserveButton_Name();
 
     /**
+     * The meta object literal for the '{@link ssl.impl.ObserveOutputImpl <em>Observe Output</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ssl.impl.ObserveOutputImpl
+     * @see ssl.impl.SslPackageImpl#getObserveOutput()
+     * @generated
+     */
+    EClass OBSERVE_OUTPUT = eINSTANCE.getObserveOutput();
+
+    /**
+     * The meta object literal for the '<em><b>Label Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OBSERVE_OUTPUT__LABEL_TYPE = eINSTANCE.getObserveOutput_LabelType();
+
+    /**
      * The meta object literal for the '{@link ssl.impl.ObserveLabelValueImpl <em>Observe Label Value</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1361,14 +1749,6 @@ public interface SslPackage extends EPackage {
      * @generated
      */
     EClass OBSERVE_LABEL_VALUE = eINSTANCE.getObserveLabelValue();
-
-    /**
-     * The meta object literal for the '<em><b>Label Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute OBSERVE_LABEL_VALUE__LABEL_TYPE = eINSTANCE.getObserveLabelValue_LabelType();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1387,14 +1767,6 @@ public interface SslPackage extends EPackage {
      * @generated
      */
     EClass OBSERVE_LABEL_VARIABLE = eINSTANCE.getObserveLabelVariable();
-
-    /**
-     * The meta object literal for the '<em><b>Label Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute OBSERVE_LABEL_VARIABLE__LABEL_TYPE = eINSTANCE.getObserveLabelVariable_LabelType();
 
     /**
      * The meta object literal for the '<em><b>Variable Name</b></em>' attribute feature.

@@ -21,6 +21,8 @@ import org.eclipse.emf.common.util.EList;
 import org.junit.Test;
 
 import simulator.config.UnitOfTime;
+import simulator.execution.model.actions.EvaluatableExpression;
+import simulator.execution.model.actions.RunnableAction;
 import simulator.execution.model.state.State;
 import simulator.trace.EnvironmentalChange;
 import simulator.trace.Response;

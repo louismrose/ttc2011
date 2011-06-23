@@ -10,9 +10,7 @@
  ******************************************************************************/
 package simulator.execution.model.state;
 
+public interface StateObserver {
 
-public interface VariableObserver {
-
-	public void variableChanged(VariableWithValueDelta variable, State state);
-	
+	public void stateChanged(State state);
 }

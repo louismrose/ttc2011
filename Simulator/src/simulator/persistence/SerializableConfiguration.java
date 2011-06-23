@@ -25,10 +25,10 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
+import simulator.config.Action;
 import simulator.config.ConfigPackage;
 import simulator.config.Configuration;
 import simulator.config.Constant;
-import simulator.config.Event;
 import simulator.config.Mode;
 import simulator.config.Variable;
 
@@ -63,7 +63,7 @@ public class SerializableConfiguration implements Configuration, Serializable {
 	}
 	
 	@Override
-	public EList<Event> getEvents() {
+	public EList<Action> getEvents() {
 		return getConfiguration().getEvents();
 	}
 

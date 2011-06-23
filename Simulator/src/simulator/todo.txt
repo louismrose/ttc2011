@@ -7,7 +7,9 @@
 * Tracing for stimuli
 * Tracing for other actions
 * Represent variable changes as environmental changes in trace?
+* Change type of Configuration.events to Action[*] (trigger is a condition)?
 - Anything else needed for Alarm.xmi to work properly
+
 
 
 Other functions?

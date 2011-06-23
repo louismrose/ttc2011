@@ -73,6 +73,7 @@ public class SslFactoryImpl extends EFactoryImpl implements SslFactory {
       case SslPackage.CHECK_TIME_PAST_OTHER: return createCheckTimePastOther();
       case SslPackage.CHECK_MODE: return createCheckMode();
       case SslPackage.CHECK_LABEL: return createCheckLabel();
+      case SslPackage.ENTERS_MODE: return createEntersMode();
       case SslPackage.PRESS_BUTTON: return createPressButton();
       case SslPackage.OBSERVE_MODE: return createObserveMode();
       case SslPackage.OBSERVE_BUTTON: return createObserveButton();
@@ -204,6 +205,17 @@ public class SslFactoryImpl extends EFactoryImpl implements SslFactory {
   {
     CheckLabelImpl checkLabel = new CheckLabelImpl();
     return checkLabel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EntersMode createEntersMode()
+  {
+    EntersModeImpl entersMode = new EntersModeImpl();
+    return entersMode;
   }
 
   /**

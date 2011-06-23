@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link ssl.When#getTestcase <em>Testcase</em>}</li>
  *   <li>{@link ssl.When#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
@@ -28,8 +29,37 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface When extends EObject {
 	/**
+   * Returns the value of the '<em><b>Testcase</b></em>' container reference.
+   * It is bidirectional and its opposite is '{@link ssl.Testcase#getWhen <em>When</em>}'.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Testcase</em>' container reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Testcase</em>' container reference.
+   * @see #setTestcase(Testcase)
+   * @see ssl.SslPackage#getWhen_Testcase()
+   * @see ssl.Testcase#getWhen
+   * @model opposite="when" required="true" transient="false"
+   * @generated
+   */
+  Testcase getTestcase();
+
+  /**
+   * Sets the value of the '{@link ssl.When#getTestcase <em>Testcase</em>}' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Testcase</em>' container reference.
+   * @see #getTestcase()
+   * @generated
+   */
+  void setTestcase(Testcase value);
+
+  /**
    * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
    * The list contents are of type {@link ssl.Action}.
+   * It is bidirectional and its opposite is '{@link ssl.Action#getWhen <em>When</em>}'.
    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
@@ -38,7 +68,8 @@ public interface When extends EObject {
 	 * <!-- end-user-doc -->
    * @return the value of the '<em>Actions</em>' containment reference list.
    * @see ssl.SslPackage#getWhen_Actions()
-   * @model containment="true" required="true"
+   * @see ssl.Action#getWhen
+   * @model opposite="when" containment="true" required="true"
    * @generated
    */
 	EList<Action> getActions();

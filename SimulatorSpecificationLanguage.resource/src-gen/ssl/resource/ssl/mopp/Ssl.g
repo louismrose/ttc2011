@@ -302,6 +302,9 @@ options {
 			if (type.getInstanceClass() == ssl.CheckTimePastOther.class) {
 				return parse_ssl_CheckTimePastOther();
 			}
+			if (type.getInstanceClass() == ssl.EntersMode.class) {
+				return parse_ssl_EntersMode();
+			}
 			if (type.getInstanceClass() == ssl.PressButton.class) {
 				return parse_ssl_PressButton();
 			}
@@ -434,7 +437,7 @@ options {
 				break;
 			}
 		}
-		int followSetID = 46;
+		int followSetID = 53;
 		int i;
 		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
 			org.antlr.runtime3_2_0.CommonToken nextToken = (org.antlr.runtime3_2_0.CommonToken) tokenStream.get(i);
@@ -712,6 +715,7 @@ start returns [ org.eclipse.emf.ecore.EObject element = null]
 	{
 		// follow set for start rule(s)
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 		expectedElementsIndexOfLastCompleteElement = expectedElements.size() - 1;
 	}
 	(
@@ -750,6 +754,7 @@ parse_ssl_Specification returns [ssl.Specification element = null]
 	)*	{
 		// expected elements (follow set)
 		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 1, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 1, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -759,35 +764,8 @@ parse_ssl_Testcase returns [ssl.Testcase element = null]
 }
 :
 	(
-		a0_0 = parse_ssl_Given		{
-			if (terminateParsing) {
-				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
-			}
-			if (element == null) {
-				element = ssl.SslFactory.eINSTANCE.createTestcase();
-				incompleteObjects.push(element);
-				// initialize boolean attributes
-			}
-			if (a0_0 != null) {
-				if (a0_0 != null) {
-					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.TESTCASE__GIVEN), a0_0);
-					completedElement(a0_0, true);
-				}
-				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_1_0_0_0, a0_0);
-				copyLocalizationInfos(a0_0, element);
-			}
-		}
-	)
-	{
-		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
-	}
-	
-	(
 		(
-			a1_0 = parse_ssl_When			{
+			a0_0 = parse_ssl_Given			{
 				if (terminateParsing) {
 					throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
 				}
@@ -796,47 +774,145 @@ parse_ssl_Testcase returns [ssl.Testcase element = null]
 					incompleteObjects.push(element);
 					// initialize boolean attributes
 				}
-				if (a1_0 != null) {
-					if (a1_0 != null) {
-						element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.TESTCASE__WHEN), a1_0);
-						completedElement(a1_0, true);
+				if (a0_0 != null) {
+					if (a0_0 != null) {
+						element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.TESTCASE__GIVEN), a0_0);
+						completedElement(a0_0, true);
 					}
 					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_1_0_0_1, a1_0);
-					copyLocalizationInfos(a1_0, element);
+					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_1_0_0_0_0_0_0, a0_0);
+					copyLocalizationInfos(a0_0, element);
 				}
 			}
 		)
-		
-	)?	{
-		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 3, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
-	}
-	
-	(
-		a2_0 = parse_ssl_Then		{
-			if (terminateParsing) {
-				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
-			}
-			if (element == null) {
-				element = ssl.SslFactory.eINSTANCE.createTestcase();
-				incompleteObjects.push(element);
-				// initialize boolean attributes
-			}
-			if (a2_0 != null) {
-				if (a2_0 != null) {
-					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.TESTCASE__THEN), a2_0);
-					completedElement(a2_0, true);
-				}
-				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_1_0_0_2, a2_0);
-				copyLocalizationInfos(a2_0, element);
-			}
+		{
+			// expected elements (follow set)
+			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
+			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 		}
+		
+		(
+			(
+				a1_0 = parse_ssl_When				{
+					if (terminateParsing) {
+						throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+					}
+					if (element == null) {
+						element = ssl.SslFactory.eINSTANCE.createTestcase();
+						incompleteObjects.push(element);
+						// initialize boolean attributes
+					}
+					if (a1_0 != null) {
+						if (a1_0 != null) {
+							element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.TESTCASE__WHEN), a1_0);
+							completedElement(a1_0, true);
+						}
+						collectHiddenTokens(element);
+						retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_1_0_0_0_0_0_1, a1_0);
+						copyLocalizationInfos(a1_0, element);
+					}
+				}
+			)
+			
+		)?		{
+			// expected elements (follow set)
+			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 3, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		}
+		
+		(
+			a2_0 = parse_ssl_Then			{
+				if (terminateParsing) {
+					throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+				}
+				if (element == null) {
+					element = ssl.SslFactory.eINSTANCE.createTestcase();
+					incompleteObjects.push(element);
+					// initialize boolean attributes
+				}
+				if (a2_0 != null) {
+					if (a2_0 != null) {
+						element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.TESTCASE__THEN), a2_0);
+						completedElement(a2_0, true);
+					}
+					collectHiddenTokens(element);
+					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_1_0_0_0_0_0_2, a2_0);
+					copyLocalizationInfos(a2_0, element);
+				}
+			}
+		)
+		{
+			// expected elements (follow set)
+			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 4, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 4, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		}
+		
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 4, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 5, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 5, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+	}
+	
+	
+	|	(
+		(
+			a3_0 = parse_ssl_When			{
+				if (terminateParsing) {
+					throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+				}
+				if (element == null) {
+					element = ssl.SslFactory.eINSTANCE.createTestcase();
+					incompleteObjects.push(element);
+					// initialize boolean attributes
+				}
+				if (a3_0 != null) {
+					if (a3_0 != null) {
+						element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.TESTCASE__WHEN), a3_0);
+						completedElement(a3_0, true);
+					}
+					collectHiddenTokens(element);
+					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_1_0_1_0_0_0_0, a3_0);
+					copyLocalizationInfos(a3_0, element);
+				}
+			}
+		)
+		{
+			// expected elements (follow set)
+			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		}
+		
+		(
+			a4_0 = parse_ssl_Then			{
+				if (terminateParsing) {
+					throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+				}
+				if (element == null) {
+					element = ssl.SslFactory.eINSTANCE.createTestcase();
+					incompleteObjects.push(element);
+					// initialize boolean attributes
+				}
+				if (a4_0 != null) {
+					if (a4_0 != null) {
+						element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.TESTCASE__THEN), a4_0);
+						completedElement(a4_0, true);
+					}
+					collectHiddenTokens(element);
+					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_1_0_1_0_0_0_1, a4_0);
+					copyLocalizationInfos(a4_0, element);
+				}
+			}
+		)
+		{
+			// expected elements (follow set)
+			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 7, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 7, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		}
+		
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 8, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 8, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -857,9 +933,9 @@ parse_ssl_Given returns [ssl.Given element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 5, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 5, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 5, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
 	}
 	
 	(
@@ -887,11 +963,11 @@ parse_ssl_Given returns [ssl.Given element = null]
 		
 	)+	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
 ;
@@ -912,7 +988,8 @@ parse_ssl_When returns [ssl.When element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 7, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 11, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 11, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
 	}
 	
 	(
@@ -940,8 +1017,9 @@ parse_ssl_When returns [ssl.When element = null]
 		
 	)+	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 8, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 8, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 12, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 12, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 12, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
 ;
@@ -962,12 +1040,12 @@ parse_ssl_Then returns [ssl.Then element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
 	}
 	
 	(
@@ -995,13 +1073,14 @@ parse_ssl_Then returns [ssl.Then element = null]
 		
 	)+	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -1022,7 +1101,7 @@ parse_ssl_CheckMode returns [ssl.CheckMode element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 11);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 15);
 	}
 	
 	(
@@ -1058,7 +1137,7 @@ parse_ssl_CheckMode returns [ssl.CheckMode element = null]
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 12);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_15, 16);
 	}
 	
 	a2 = '\"' {
@@ -1073,11 +1152,11 @@ parse_ssl_CheckMode returns [ssl.CheckMode element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
 ;
@@ -1098,7 +1177,7 @@ parse_ssl_CheckLabel returns [ssl.CheckLabel element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_15, 14);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_16, 18);
 	}
 	
 	(
@@ -1134,7 +1213,7 @@ parse_ssl_CheckLabel returns [ssl.CheckLabel element = null]
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_16, 15);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_17, 19);
 	}
 	
 	a2 = '\" is showing \"' {
@@ -1149,8 +1228,8 @@ parse_ssl_CheckLabel returns [ssl.CheckLabel element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_17, 16);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_18, 16);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_18, 20);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_19, 20);
 	}
 	
 	(
@@ -1188,7 +1267,7 @@ parse_ssl_CheckLabel returns [ssl.CheckLabel element = null]
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_18, 17);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_19, 21);
 	}
 	
 	a4 = '\"' {
@@ -1203,11 +1282,11 @@ parse_ssl_CheckLabel returns [ssl.CheckLabel element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 18, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
 ;
@@ -1249,7 +1328,7 @@ parse_ssl_CheckTimePastOther returns [ssl.CheckTimePastOther element = null]
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_19, 19);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_20, 23);
 	}
 	
 	a1 = ' is past ' {
@@ -1264,7 +1343,7 @@ parse_ssl_CheckTimePastOther returns [ssl.CheckTimePastOther element = null]
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_20, 20);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_21, 24);
 	}
 	
 	(
@@ -1300,11 +1379,85 @@ parse_ssl_CheckTimePastOther returns [ssl.CheckTimePastOther element = null]
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 21, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+	}
+	
+;
+
+parse_ssl_EntersMode returns [ssl.EntersMode element = null]
+@init{
+}
+:
+	a0 = 'the watch enters mode \"' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createEntersMode();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_0, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_22, 26);
+	}
+	
+	(
+		a1 = TEXT		
+		{
+			if (terminateParsing) {
+				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+			}
+			if (element == null) {
+				element = ssl.SslFactory.eINSTANCE.createEntersMode();
+				incompleteObjects.push(element);
+				// initialize boolean attributes
+			}
+			if (a1 != null) {
+				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+				tokenResolver.setOptions(getOptions());
+				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+				tokenResolver.resolve(a1.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.ENTERS_MODE__MODE), result);
+				Object resolvedObject = result.getResolvedToken();
+				if (resolvedObject == null) {
+					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a1).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a1).getStopIndex());
+				}
+				java.lang.String resolved = (java.lang.String)resolvedObject;
+				if (resolved != null) {
+					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.ENTERS_MODE__MODE), resolved);
+					completedElement(resolved, false);
+				}
+				collectHiddenTokens(element);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_1, resolved);
+				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
+			}
+		}
+	)
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_23, 27);
+	}
+	
+	a2 = '\"' {
+		if (element == null) {
+			element = ssl.SslFactory.eINSTANCE.createEntersMode();
+			incompleteObjects.push(element);
+			// initialize boolean attributes
+		}
+		collectHiddenTokens(element);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_2, null);
+		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
+	}
+	{
+		// expected elements (follow set)
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
 ;
@@ -1320,12 +1473,12 @@ parse_ssl_PressButton returns [ssl.PressButton element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_21, 22);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_24, 29);
 	}
 	
 	(
@@ -1354,14 +1507,14 @@ parse_ssl_PressButton returns [ssl.PressButton element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_22, 23);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_25, 30);
 	}
 	
 	a2 = ' button is pressed' {
@@ -1371,13 +1524,14 @@ parse_ssl_PressButton returns [ssl.PressButton element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 24, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 24, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
 	}
 	
 ;
@@ -1393,12 +1547,12 @@ parse_ssl_ObserveMode returns [ssl.ObserveMode element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_23, 25);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_26, 32);
 	}
 	
 	(
@@ -1427,14 +1581,14 @@ parse_ssl_ObserveMode returns [ssl.ObserveMode element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_24, 26);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_27, 33);
 	}
 	
 	a2 = '\"' {
@@ -1444,18 +1598,19 @@ parse_ssl_ObserveMode returns [ssl.ObserveMode element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 27, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -1471,12 +1626,12 @@ parse_ssl_ObserveButton returns [ssl.ObserveButton element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_25, 28);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_28, 35);
 	}
 	
 	(
@@ -1505,14 +1660,14 @@ parse_ssl_ObserveButton returns [ssl.ObserveButton element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_26, 29);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_29, 36);
 	}
 	
 	a2 = ' button must be called \"' {
@@ -1522,12 +1677,12 @@ parse_ssl_ObserveButton returns [ssl.ObserveButton element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_27, 30);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_30, 37);
 	}
 	
 	(
@@ -1556,14 +1711,14 @@ parse_ssl_ObserveButton returns [ssl.ObserveButton element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_3, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_3, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_28, 31);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_31, 38);
 	}
 	
 	a4 = '\"' {
@@ -1573,18 +1728,19 @@ parse_ssl_ObserveButton returns [ssl.ObserveButton element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_4, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_4, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a4, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 32, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -1600,12 +1756,12 @@ parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_29, 33);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_32, 40);
 	}
 	
 	(
@@ -1634,14 +1790,14 @@ parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_30, 34);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_33, 41);
 	}
 	
 	a2 = '\" must show \"' {
@@ -1651,13 +1807,13 @@ parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_31, 35);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_32, 35);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_34, 42);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_35, 42);
 	}
 	
 	(
@@ -1687,7 +1843,7 @@ parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null]
 						completedElement(resolved, false);
 					}
 					collectHiddenTokens(element);
-					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_3, resolved);
+					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_3, resolved);
 					copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
 				}
 			}
@@ -1695,7 +1851,7 @@ parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null]
 		
 	)?	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_32, 36);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_35, 43);
 	}
 	
 	a4 = '\"' {
@@ -1705,18 +1861,19 @@ parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_4, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_4, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a4, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -1732,12 +1889,12 @@ parse_ssl_ObserveLabelVariable returns [ssl.ObserveLabelVariable element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_33, 38);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_36, 45);
 	}
 	
 	(
@@ -1766,14 +1923,14 @@ parse_ssl_ObserveLabelVariable returns [ssl.ObserveLabelVariable element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_1, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_1, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_34, 39);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_37, 46);
 	}
 	
 	a2 = '\" must show the ' {
@@ -1783,12 +1940,12 @@ parse_ssl_ObserveLabelVariable returns [ssl.ObserveLabelVariable element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_2, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_2, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_35, 40);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_38, 47);
 	}
 	
 	(
@@ -1817,20 +1974,21 @@ parse_ssl_ObserveLabelVariable returns [ssl.ObserveLabelVariable element = null]
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_3, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_3, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 41, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -1865,14 +2023,14 @@ parse_ssl_ObserveVariableChange returns [ssl.ObserveVariableChange element = nul
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_0, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_0, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_36, 42);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_39, 49);
 	}
 	
 	a1 = ' must be incremented by 1 ' {
@@ -1882,12 +2040,12 @@ parse_ssl_ObserveVariableChange returns [ssl.ObserveVariableChange element = nul
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_1, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_1, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_37, 43);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_40, 50);
 	}
 	
 	(
@@ -1916,20 +2074,21 @@ parse_ssl_ObserveVariableChange returns [ssl.ObserveVariableChange element = nul
 					completedElement(resolved, false);
 				}
 				collectHiddenTokens(element);
-				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_2, resolved);
+				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_2, resolved);
 				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, element);
 			}
 		}
 	)
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -1945,18 +2104,19 @@ parse_ssl_ObserveRing returns [ssl.ObserveRing element = null]
 			// initialize boolean attributes
 		}
 		collectHiddenTokens(element);
-		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_0, null);
+		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_15_0_0_0, null);
 		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
 	}
 	{
 		// expected elements (follow set)
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 45, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
 	}
 	
 ;
@@ -1971,7 +2131,8 @@ parse_ssl_Condition returns [ssl.Condition element = null]
 
 parse_ssl_Action returns [ssl.Action element = null]
 :
-	c0 = parse_ssl_PressButton{ element = c0; /* this is a subclass or primitive expression choice */ }
+	c0 = parse_ssl_EntersMode{ element = c0; /* this is a subclass or primitive expression choice */ }
+	|	c1 = parse_ssl_PressButton{ element = c1; /* this is a subclass or primitive expression choice */ }
 	
 ;
 

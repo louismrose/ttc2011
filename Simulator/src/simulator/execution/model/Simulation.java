@@ -15,11 +15,12 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import simulator.config.Configuration;
-import simulator.config.Event;
 import simulator.config.Mode;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
+import simulator.execution.model.actions.RunnableActionGroup;
 import simulator.execution.model.state.State;
+import simulator.execution.model.state.StateObserver;
 import simulator.execution.model.state.VariableWithValue;
 import simulator.persistence.SerializableConfiguration;
 import simulator.trace.Trace;
@@ -37,9 +38,9 @@ public class Simulation implements Serializable {
 	public Simulation(Configuration configuration) throws IOException {
 		this.configuration = new SerializableConfiguration(configuration);
 		this.state = new State(configuration.getModes().size());
-		
+			
 		initialiseVariables();
-		initialiseEvents();
+		scheduleEvents();
 		initialiseFirstMode();
 	}
 
@@ -49,10 +50,19 @@ public class Simulation implements Serializable {
 		}
 	}
 	
-	private void initialiseEvents() {
-		for (final Event event : configuration.getEvents()) {
-			state.addVariableObserver(new SchedulableEvent(event));
-		}
+	private void scheduleEvents() {
+		this.state.addObserver(new StateObserver() {
+			
+			@Override
+			public void stateChanged(State state) {
+				// If any of the events edit the state, we will be notified
+				// and try to invoke the events again, so we turn off
+				// notifications while the events are running
+				state.removeObserve(this);
+				new RunnableActionGroup(configuration.getEvents()).run(state);
+				state.addObserver(this);
+			}
+		});
 	}
 	
 	private void initialiseFirstMode() {

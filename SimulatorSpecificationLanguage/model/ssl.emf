@@ -6,24 +6,28 @@ class Specification {
 }
 
 class Testcase {
-  val Given[1] given;
-  val When when;
-  val Then[1] then;
+  val Given[0..1]#testcase given;
+  val When[0..1]#testcase when;
+  val Then[1]#testcase then;
 }
 
 class Given {
-  val Condition[+] conditions;
+  ref Testcase[1]#given testcase;
+  val Condition[+]#given conditions;
 }
 
 class When {
-  val Action[+] actions;
+  ref Testcase[1]#when testcase;
+  val Action[+]#when actions;
 }
 
 class Then {
-  val Observation[+] observations;
+  ref Testcase[1]#then testcase;
+  val Observation[+]#then observations;
 }
 
 abstract class Condition {
+  ref Given[1]#conditions given;
 }
 
 class CheckTimePastOther extends Condition {
@@ -41,6 +45,11 @@ class CheckLabel extends Condition {
 }
 
 abstract class Action {
+  ref When[1]#actions when;
+}
+
+class EntersMode extends Action {
+   attr String[1] mode;
 }
 
 class PressButton extends Action {
@@ -48,6 +57,7 @@ class PressButton extends Action {
 }
 
 abstract class Observation {
+  ref Then[1]#observations then;
 }
 
 class ObserveMode extends Observation {
@@ -59,13 +69,15 @@ class ObserveButton extends Observation {
   attr String[1] name;
 }
 
-class ObserveLabelValue extends Observation {
-  attr LabelType[1] labelType;
+abstract class ObserveOutput extends Observation {
+  attr LabelType[1] labelType;   
+}
+
+class ObserveLabelValue extends ObserveOutput {
   attr String value;
 }
 
-class ObserveLabelVariable extends Observation {
-  attr LabelType[1] labelType;
+class ObserveLabelVariable extends ObserveOutput {
   attr String[1] variableName;
 }
 

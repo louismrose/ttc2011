@@ -23,15 +23,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssl.ecore#//Testcase/then"/>
     </genClasses>
     <genClasses ecoreClass="ssl.ecore#//Given">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ssl.ecore#//Given/testcase"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssl.ecore#//Given/conditions"/>
     </genClasses>
     <genClasses ecoreClass="ssl.ecore#//When">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ssl.ecore#//When/testcase"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssl.ecore#//When/actions"/>
     </genClasses>
     <genClasses ecoreClass="ssl.ecore#//Then">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ssl.ecore#//Then/testcase"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ssl.ecore#//Then/observations"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="ssl.ecore#//Condition"/>
+    <genClasses image="false" ecoreClass="ssl.ecore#//Condition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ssl.ecore#//Condition/given"/>
+    </genClasses>
     <genClasses ecoreClass="ssl.ecore#//CheckTimePastOther">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckTimePastOther/firstVariableName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckTimePastOther/secondVariableName"/>
@@ -43,11 +48,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckLabel/labelType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckLabel/value"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="ssl.ecore#//Action"/>
+    <genClasses image="false" ecoreClass="ssl.ecore#//Action">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ssl.ecore#//Action/when"/>
+    </genClasses>
+    <genClasses ecoreClass="ssl.ecore#//EntersMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//EntersMode/mode"/>
+    </genClasses>
     <genClasses ecoreClass="ssl.ecore#//PressButton">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//PressButton/button"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="ssl.ecore#//Observation"/>
+    <genClasses image="false" ecoreClass="ssl.ecore#//Observation">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ssl.ecore#//Observation/then"/>
+    </genClasses>
     <genClasses ecoreClass="ssl.ecore#//ObserveMode">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveMode/mode"/>
     </genClasses>
@@ -55,12 +67,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveButton/button"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveButton/name"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="ssl.ecore#//ObserveOutput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveOutput/labelType"/>
+    </genClasses>
     <genClasses ecoreClass="ssl.ecore#//ObserveLabelValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveLabelValue/labelType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveLabelValue/value"/>
     </genClasses>
     <genClasses ecoreClass="ssl.ecore#//ObserveLabelVariable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveLabelVariable/labelType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//ObserveLabelVariable/variableName"/>
     </genClasses>
     <genClasses ecoreClass="ssl.ecore#//ObserveVariableChange">

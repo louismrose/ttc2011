@@ -10,13 +10,13 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Event</b></em>'.
+ * A representation of the model object '<em><b>Condition</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see simulator.config.ConfigPackage#getEvent()
+ * @see simulator.config.ConfigPackage#getCondition()
  * @model abstract="true"
  * @generated
  */
-public interface Event extends EObject {
-} // Event
+public interface Condition extends EObject {
+} // Condition

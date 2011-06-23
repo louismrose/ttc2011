@@ -80,7 +80,7 @@ public interface Configuration extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
-	 * The list contents are of type {@link simulator.config.Event}.
+	 * The list contents are of type {@link simulator.config.Action}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Events</em>' containment reference list isn't clear,
@@ -92,6 +92,6 @@ public interface Configuration extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Event> getEvents();
+	EList<Action> getEvents();
 
 } // Configuration

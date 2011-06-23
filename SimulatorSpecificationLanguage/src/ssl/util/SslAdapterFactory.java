@@ -126,6 +126,11 @@ public class SslAdapterFactory extends AdapterFactoryImpl {
         return createActionAdapter();
       }
       @Override
+      public Adapter caseEntersMode(EntersMode object)
+      {
+        return createEntersModeAdapter();
+      }
+      @Override
       public Adapter casePressButton(PressButton object)
       {
         return createPressButtonAdapter();
@@ -144,6 +149,11 @@ public class SslAdapterFactory extends AdapterFactoryImpl {
       public Adapter caseObserveButton(ObserveButton object)
       {
         return createObserveButtonAdapter();
+      }
+      @Override
+      public Adapter caseObserveOutput(ObserveOutput object)
+      {
+        return createObserveOutputAdapter();
       }
       @Override
       public Adapter caseObserveLabelValue(ObserveLabelValue object)
@@ -330,6 +340,21 @@ public class SslAdapterFactory extends AdapterFactoryImpl {
   }
 
 	/**
+   * Creates a new adapter for an object of class '{@link ssl.EntersMode <em>Enters Mode</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ssl.EntersMode
+   * @generated
+   */
+  public Adapter createEntersModeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link ssl.PressButton <em>Press Button</em>}'.
    * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -382,6 +407,21 @@ public class SslAdapterFactory extends AdapterFactoryImpl {
    * @generated
    */
   public Adapter createObserveButtonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ssl.ObserveOutput <em>Observe Output</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ssl.ObserveOutput
+   * @generated
+   */
+  public Adapter createObserveOutputAdapter()
   {
     return null;
   }

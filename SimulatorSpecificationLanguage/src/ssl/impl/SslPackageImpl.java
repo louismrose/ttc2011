@@ -18,6 +18,7 @@ import ssl.CheckLabel;
 import ssl.CheckMode;
 import ssl.CheckTimePastOther;
 import ssl.Condition;
+import ssl.EntersMode;
 import ssl.Given;
 import ssl.LabelType;
 import ssl.Observation;
@@ -25,6 +26,7 @@ import ssl.ObserveButton;
 import ssl.ObserveLabelValue;
 import ssl.ObserveLabelVariable;
 import ssl.ObserveMode;
+import ssl.ObserveOutput;
 import ssl.ObserveRing;
 import ssl.ObserveVariableChange;
 import ssl.PressButton;
@@ -115,6 +117,13 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass entersModeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
@@ -140,6 +149,13 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
    * @generated
    */
   private EClass observeButtonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass observeOutputEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -309,11 +325,21 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGiven_Testcase()
+  {
+    return (EReference)givenEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
 	public EReference getGiven_Conditions() {
-    return (EReference)givenEClass.getEStructuralFeatures().get(0);
+    return (EReference)givenEClass.getEStructuralFeatures().get(1);
   }
 
 	/**
@@ -327,11 +353,21 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWhen_Testcase()
+  {
+    return (EReference)whenEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
 	public EReference getWhen_Actions() {
-    return (EReference)whenEClass.getEStructuralFeatures().get(0);
+    return (EReference)whenEClass.getEStructuralFeatures().get(1);
   }
 
 	/**
@@ -345,11 +381,21 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getThen_Testcase()
+  {
+    return (EReference)thenEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
 	public EReference getThen_Observations() {
-    return (EReference)thenEClass.getEStructuralFeatures().get(0);
+    return (EReference)thenEClass.getEStructuralFeatures().get(1);
   }
 
 	/**
@@ -362,6 +408,16 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
   }
 
 	/**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_Given()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -452,6 +508,36 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAction_When()
+  {
+    return (EReference)actionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEntersMode()
+  {
+    return entersModeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEntersMode_Mode()
+  {
+    return (EAttribute)entersModeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
@@ -478,6 +564,16 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
   }
 
 	/**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getObservation_Then()
+  {
+    return (EReference)observationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
@@ -530,6 +626,26 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getObserveOutput()
+  {
+    return observeOutputEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getObserveOutput_LabelType()
+  {
+    return (EAttribute)observeOutputEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getObserveLabelValue()
   {
     return observeLabelValueEClass;
@@ -540,19 +656,9 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getObserveLabelValue_LabelType()
-  {
-    return (EAttribute)observeLabelValueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getObserveLabelValue_Value()
   {
-    return (EAttribute)observeLabelValueEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)observeLabelValueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -570,19 +676,9 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getObserveLabelVariable_LabelType()
-  {
-    return (EAttribute)observeLabelVariableEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getObserveLabelVariable_VariableName()
   {
-    return (EAttribute)observeLabelVariableEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)observeLabelVariableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -682,15 +778,19 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
     createEReference(testcaseEClass, TESTCASE__THEN);
 
     givenEClass = createEClass(GIVEN);
+    createEReference(givenEClass, GIVEN__TESTCASE);
     createEReference(givenEClass, GIVEN__CONDITIONS);
 
     whenEClass = createEClass(WHEN);
+    createEReference(whenEClass, WHEN__TESTCASE);
     createEReference(whenEClass, WHEN__ACTIONS);
 
     thenEClass = createEClass(THEN);
+    createEReference(thenEClass, THEN__TESTCASE);
     createEReference(thenEClass, THEN__OBSERVATIONS);
 
     conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__GIVEN);
 
     checkTimePastOtherEClass = createEClass(CHECK_TIME_PAST_OTHER);
     createEAttribute(checkTimePastOtherEClass, CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME);
@@ -704,11 +804,16 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
     createEAttribute(checkLabelEClass, CHECK_LABEL__VALUE);
 
     actionEClass = createEClass(ACTION);
+    createEReference(actionEClass, ACTION__WHEN);
+
+    entersModeEClass = createEClass(ENTERS_MODE);
+    createEAttribute(entersModeEClass, ENTERS_MODE__MODE);
 
     pressButtonEClass = createEClass(PRESS_BUTTON);
     createEAttribute(pressButtonEClass, PRESS_BUTTON__BUTTON);
 
     observationEClass = createEClass(OBSERVATION);
+    createEReference(observationEClass, OBSERVATION__THEN);
 
     observeModeEClass = createEClass(OBSERVE_MODE);
     createEAttribute(observeModeEClass, OBSERVE_MODE__MODE);
@@ -717,12 +822,13 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
     createEAttribute(observeButtonEClass, OBSERVE_BUTTON__BUTTON);
     createEAttribute(observeButtonEClass, OBSERVE_BUTTON__NAME);
 
+    observeOutputEClass = createEClass(OBSERVE_OUTPUT);
+    createEAttribute(observeOutputEClass, OBSERVE_OUTPUT__LABEL_TYPE);
+
     observeLabelValueEClass = createEClass(OBSERVE_LABEL_VALUE);
-    createEAttribute(observeLabelValueEClass, OBSERVE_LABEL_VALUE__LABEL_TYPE);
     createEAttribute(observeLabelValueEClass, OBSERVE_LABEL_VALUE__VALUE);
 
     observeLabelVariableEClass = createEClass(OBSERVE_LABEL_VARIABLE);
-    createEAttribute(observeLabelVariableEClass, OBSERVE_LABEL_VARIABLE__LABEL_TYPE);
     createEAttribute(observeLabelVariableEClass, OBSERVE_LABEL_VARIABLE__VARIABLE_NAME);
 
     observeVariableChangeEClass = createEClass(OBSERVE_VARIABLE_CHANGE);
@@ -767,11 +873,13 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
     checkTimePastOtherEClass.getESuperTypes().add(this.getCondition());
     checkModeEClass.getESuperTypes().add(this.getCondition());
     checkLabelEClass.getESuperTypes().add(this.getCondition());
+    entersModeEClass.getESuperTypes().add(this.getAction());
     pressButtonEClass.getESuperTypes().add(this.getAction());
     observeModeEClass.getESuperTypes().add(this.getObservation());
     observeButtonEClass.getESuperTypes().add(this.getObservation());
-    observeLabelValueEClass.getESuperTypes().add(this.getObservation());
-    observeLabelVariableEClass.getESuperTypes().add(this.getObservation());
+    observeOutputEClass.getESuperTypes().add(this.getObservation());
+    observeLabelValueEClass.getESuperTypes().add(this.getObserveOutput());
+    observeLabelVariableEClass.getESuperTypes().add(this.getObserveOutput());
     observeVariableChangeEClass.getESuperTypes().add(this.getObservation());
     observeRingEClass.getESuperTypes().add(this.getObservation());
 
@@ -780,20 +888,24 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
     initEReference(getSpecification_Testcases(), this.getTestcase(), null, "testcases", null, 0, -1, Specification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(testcaseEClass, Testcase.class, "Testcase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTestcase_Given(), this.getGiven(), null, "given", null, 1, 1, Testcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTestcase_When(), this.getWhen(), null, "when", null, 0, 1, Testcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTestcase_Then(), this.getThen(), null, "then", null, 1, 1, Testcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTestcase_Given(), this.getGiven(), this.getGiven_Testcase(), "given", null, 0, 1, Testcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTestcase_When(), this.getWhen(), this.getWhen_Testcase(), "when", null, 0, 1, Testcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTestcase_Then(), this.getThen(), this.getThen_Testcase(), "then", null, 1, 1, Testcase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(givenEClass, Given.class, "Given", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGiven_Conditions(), this.getCondition(), null, "conditions", null, 1, -1, Given.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGiven_Testcase(), this.getTestcase(), this.getTestcase_Given(), "testcase", null, 1, 1, Given.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGiven_Conditions(), this.getCondition(), this.getCondition_Given(), "conditions", null, 1, -1, Given.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(whenEClass, When.class, "When", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getWhen_Actions(), this.getAction(), null, "actions", null, 1, -1, When.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhen_Testcase(), this.getTestcase(), this.getTestcase_When(), "testcase", null, 1, 1, When.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhen_Actions(), this.getAction(), this.getAction_When(), "actions", null, 1, -1, When.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(thenEClass, Then.class, "Then", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getThen_Observations(), this.getObservation(), null, "observations", null, 1, -1, Then.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getThen_Testcase(), this.getTestcase(), this.getTestcase_Then(), "testcase", null, 1, 1, Then.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getThen_Observations(), this.getObservation(), this.getObservation_Then(), "observations", null, 1, -1, Then.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_Given(), this.getGiven(), this.getGiven_Conditions(), "given", null, 1, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkTimePastOtherEClass, CheckTimePastOther.class, "CheckTimePastOther", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCheckTimePastOther_FirstVariableName(), ecorePackage.getEString(), "firstVariableName", null, 1, 1, CheckTimePastOther.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -807,11 +919,16 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
     initEAttribute(getCheckLabel_Value(), ecorePackage.getEString(), "value", null, 0, 1, CheckLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAction_When(), this.getWhen(), this.getWhen_Actions(), "when", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(entersModeEClass, EntersMode.class, "EntersMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEntersMode_Mode(), ecorePackage.getEString(), "mode", null, 1, 1, EntersMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pressButtonEClass, PressButton.class, "PressButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPressButton_Button(), ecorePackage.getEString(), "button", null, 1, 1, PressButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(observationEClass, Observation.class, "Observation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getObservation_Then(), this.getThen(), this.getThen_Observations(), "then", null, 1, 1, Observation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(observeModeEClass, ObserveMode.class, "ObserveMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getObserveMode_Mode(), ecorePackage.getEString(), "mode", null, 1, 1, ObserveMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -820,12 +937,13 @@ public class SslPackageImpl extends EPackageImpl implements SslPackage {
     initEAttribute(getObserveButton_Button(), ecorePackage.getEString(), "button", null, 1, 1, ObserveButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getObserveButton_Name(), ecorePackage.getEString(), "name", null, 1, 1, ObserveButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(observeOutputEClass, ObserveOutput.class, "ObserveOutput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getObserveOutput_LabelType(), this.getLabelType(), "labelType", null, 1, 1, ObserveOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(observeLabelValueEClass, ObserveLabelValue.class, "ObserveLabelValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getObserveLabelValue_LabelType(), this.getLabelType(), "labelType", null, 1, 1, ObserveLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getObserveLabelValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, ObserveLabelValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(observeLabelVariableEClass, ObserveLabelVariable.class, "ObserveLabelVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getObserveLabelVariable_LabelType(), this.getLabelType(), "labelType", null, 1, 1, ObserveLabelVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getObserveLabelVariable_VariableName(), ecorePackage.getEString(), "variableName", null, 1, 1, ObserveLabelVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(observeVariableChangeEClass, ObserveVariableChange.class, "ObserveVariableChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -84,16 +84,44 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 				return createButtonAdapter();
 			}
 			@Override
-			public Adapter caseEvent(Event object) {
-				return createEventAdapter();
-			}
-			@Override
-			public Adapter caseAlarmEvent(AlarmEvent object) {
-				return createAlarmEventAdapter();
-			}
-			@Override
 			public Adapter caseAction(Action object) {
 				return createActionAdapter();
+			}
+			@Override
+			public Adapter caseCondition(Condition object) {
+				return createConditionAdapter();
+			}
+			@Override
+			public Adapter caseOutputMatchesCondition(OutputMatchesCondition object) {
+				return createOutputMatchesConditionAdapter();
+			}
+			@Override
+			public Adapter caseAndCondition(AndCondition object) {
+				return createAndConditionAdapter();
+			}
+			@Override
+			public Adapter caseOrCondition(OrCondition object) {
+				return createOrConditionAdapter();
+			}
+			@Override
+			public Adapter caseNotCondition(NotCondition object) {
+				return createNotConditionAdapter();
+			}
+			@Override
+			public Adapter caseDisplayMatchesCondition(DisplayMatchesCondition object) {
+				return createDisplayMatchesConditionAdapter();
+			}
+			@Override
+			public Adapter caseIndicatorMatchesCondition(IndicatorMatchesCondition object) {
+				return createIndicatorMatchesConditionAdapter();
+			}
+			@Override
+			public Adapter caseVariableComparisonCondition(VariableComparisonCondition object) {
+				return createVariableComparisonConditionAdapter();
+			}
+			@Override
+			public Adapter caseVariableEqualsCondition(VariableEqualsCondition object) {
+				return createVariableEqualsConditionAdapter();
 			}
 			@Override
 			public Adapter caseChangeOutputAction(ChangeOutputAction object) {
@@ -110,6 +138,14 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNextMode(NextMode object) {
 				return createNextModeAdapter();
+			}
+			@Override
+			public Adapter caseSoundAlarm(SoundAlarm object) {
+				return createSoundAlarmAdapter();
+			}
+			@Override
+			public Adapter caseSilenceAlarm(SilenceAlarm object) {
+				return createSilenceAlarmAdapter();
 			}
 			@Override
 			public Adapter caseEvaluateExpression(EvaluateExpression object) {
@@ -198,34 +234,6 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link simulator.config.Event <em>Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see simulator.config.Event
-	 * @generated
-	 */
-	public Adapter createEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link simulator.config.AlarmEvent <em>Alarm Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see simulator.config.AlarmEvent
-	 * @generated
-	 */
-	public Adapter createAlarmEventAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link simulator.config.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -236,6 +244,132 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.Condition
+	 * @generated
+	 */
+	public Adapter createConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.OutputMatchesCondition <em>Output Matches Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.OutputMatchesCondition
+	 * @generated
+	 */
+	public Adapter createOutputMatchesConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.AndCondition <em>And Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.AndCondition
+	 * @generated
+	 */
+	public Adapter createAndConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.OrCondition <em>Or Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.OrCondition
+	 * @generated
+	 */
+	public Adapter createOrConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.NotCondition <em>Not Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.NotCondition
+	 * @generated
+	 */
+	public Adapter createNotConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.DisplayMatchesCondition <em>Display Matches Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.DisplayMatchesCondition
+	 * @generated
+	 */
+	public Adapter createDisplayMatchesConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.IndicatorMatchesCondition <em>Indicator Matches Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.IndicatorMatchesCondition
+	 * @generated
+	 */
+	public Adapter createIndicatorMatchesConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.VariableComparisonCondition <em>Variable Comparison Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.VariableComparisonCondition
+	 * @generated
+	 */
+	public Adapter createVariableComparisonConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.VariableEqualsCondition <em>Variable Equals Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.VariableEqualsCondition
+	 * @generated
+	 */
+	public Adapter createVariableEqualsConditionAdapter() {
 		return null;
 	}
 
@@ -292,6 +426,34 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNextModeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.SoundAlarm <em>Sound Alarm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.SoundAlarm
+	 * @generated
+	 */
+	public Adapter createSoundAlarmAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.SilenceAlarm <em>Silence Alarm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.SilenceAlarm
+	 * @generated
+	 */
+	public Adapter createSilenceAlarmAdapter() {
 		return null;
 	}
 

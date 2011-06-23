@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Testcase extends EObject {
 	/**
    * Returns the value of the '<em><b>Given</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link ssl.Given#getTestcase <em>Testcase</em>}'.
    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Given</em>' containment reference isn't clear,
@@ -38,7 +39,8 @@ public interface Testcase extends EObject {
    * @return the value of the '<em>Given</em>' containment reference.
    * @see #setGiven(Given)
    * @see ssl.SslPackage#getTestcase_Given()
-   * @model containment="true" required="true"
+   * @see ssl.Given#getTestcase
+   * @model opposite="testcase" containment="true"
    * @generated
    */
 	Given getGiven();
@@ -55,6 +57,7 @@ public interface Testcase extends EObject {
 
 	/**
    * Returns the value of the '<em><b>When</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link ssl.When#getTestcase <em>Testcase</em>}'.
    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>When</em>' containment reference isn't clear,
@@ -64,7 +67,8 @@ public interface Testcase extends EObject {
    * @return the value of the '<em>When</em>' containment reference.
    * @see #setWhen(When)
    * @see ssl.SslPackage#getTestcase_When()
-   * @model containment="true"
+   * @see ssl.When#getTestcase
+   * @model opposite="testcase" containment="true"
    * @generated
    */
 	When getWhen();
@@ -81,6 +85,7 @@ public interface Testcase extends EObject {
 
 	/**
    * Returns the value of the '<em><b>Then</b></em>' containment reference.
+   * It is bidirectional and its opposite is '{@link ssl.Then#getTestcase <em>Testcase</em>}'.
    * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Then</em>' containment reference isn't clear,
@@ -90,7 +95,8 @@ public interface Testcase extends EObject {
    * @return the value of the '<em>Then</em>' containment reference.
    * @see #setThen(Then)
    * @see ssl.SslPackage#getTestcase_Then()
-   * @model containment="true" required="true"
+   * @see ssl.Then#getTestcase
+   * @model opposite="testcase" containment="true" required="true"
    * @generated
    */
 	Then getThen();

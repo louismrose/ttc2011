@@ -38,8 +38,8 @@ public class State implements Serializable {
 	private final VariableState variables = new VariableState();
 	private final int totalNumberOfModes;
 	
+	private final List<StateObserver> observers = new LinkedList<StateObserver>();
 	private transient List<ModeObserver> modeObservers;
-	private final List<VariableObserver> variableObservers = new LinkedList<VariableObserver>();
 
 	
 	public State() {
@@ -54,8 +54,17 @@ public class State implements Serializable {
 		return alarmRinging;
 	}
 
-	public void setAlarmRinging(boolean alarmRinging) {
+	public void soundAlarm() {
+		setAlarmRinging(true);
+	}
+	
+	public void silenceAlarm() {
+		setAlarmRinging(false);
+	}
+	
+	private void setAlarmRinging(boolean alarmRinging) {
 		this.alarmRinging = alarmRinging;
+		notifyObservers();
 	}
 
 	public String getDisplayText() {
@@ -64,6 +73,7 @@ public class State implements Serializable {
 	
 	public void setDisplayText(String displayText) {
 		this.displayText = displayText;
+		notifyObservers();
 	}
 	
 	public String getIndicatorText() {
@@ -72,6 +82,7 @@ public class State implements Serializable {
 	
 	public void setIndicatorText(String indicatorText) {
 		this.indicatorText = indicatorText;
+		notifyObservers();
 	}
 	
 	public Trace getTrace() {
@@ -113,9 +124,8 @@ public class State implements Serializable {
 	}
 
 	public void setValueOf(String variableName, Time newValue) {
-		final Time oldValue = variables.getValueOf(variableName);
 		variables.setValueOf(variableName, newValue);
-		notifyVariableObservers(new VariableWithValueDelta(variableName, oldValue, newValue));
+		notifyObservers();
 	}
 	
 	public Time initialiseValueOf(Variable variable) {
@@ -123,13 +133,9 @@ public class State implements Serializable {
 	}
 		
 	public Time initialiseValueOf(String variableName) {
-		return variables.initialiseValueOf(variableName);
-	}
-	
-	private void notifyVariableObservers(VariableWithValueDelta variable) {
-		for (VariableObserver observer : variableObservers) {
-			observer.variableChanged(variable, this);
-		}
+		final Time initialValue = variables.initialiseValueOf(variableName);
+		notifyObservers();
+		return initialValue;
 	}
 	
 	public Collection<VariableWithValue> getVariableValues() {
@@ -142,24 +148,9 @@ public class State implements Serializable {
 		
 		addEnvironmetalChangeToTrace("ManualIncrementVariable", currentValue.toString(), newValue.toString());
 		setValueOf(variableName, newValue);
+		notifyObservers();
 	}
 
-	public int getCurrentModeIndex() {
-		return currentModeIndex;
-	}
-
-	public int getNextModeIndex() {
-		return (currentModeIndex + 1) % totalNumberOfModes;
-	}
-	
-	public void addModeObserver(ModeObserver observer) {
-		getModeObservers().add(observer);
-	}
-	
-	public void addVariableObserver(VariableObserver observer) {
-		variableObservers.add(observer);
-	}
-	
 	public void nextMode() {
 		incrementModeIndex();
 		notifyModeObservers();
@@ -169,7 +160,34 @@ public class State implements Serializable {
 		currentModeIndex = getNextModeIndex();
 	}
 	
+	public int getCurrentModeIndex() {
+		return currentModeIndex;
+	}
+
+	public int getNextModeIndex() {
+		return (currentModeIndex + 1) % totalNumberOfModes;
+	}
+	
+	public void addObserver(StateObserver observer) {
+		observers.add(observer);
+	}
+
+	public void removeObserve(StateObserver observer) {
+		observers.remove(observer);
+	}
+	
+	private void notifyObservers() {
+		for (StateObserver observer : observers) {
+			observer.stateChanged(this);
+		}
+	}
+	
+	public void addModeObserver(ModeObserver observer) {
+		getModeObservers().add(observer);
+	}
+	
 	private void notifyModeObservers() {
+		notifyObservers();
 		for (ModeObserver observer : getModeObservers()) {
 			observer.modeChanged(this);
 		}
