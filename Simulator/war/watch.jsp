@@ -20,9 +20,6 @@
 	final Simulation simulation = new SessionManager(session).getOrCreateSimulation();
 %>
 <body>
-	<div id="debug">
-		<p><%=session.getId()%> : <%=session.getCreationTime()%></p>
-	</div>
 	<div id="simulation">
 	  <div id="outputs">
 	    <span id="time">
