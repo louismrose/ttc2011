@@ -16,7 +16,7 @@ import static simulator.test.util.ConfigurationFactory.createVariable;
 
 import org.junit.Test;
 
-import simulator.config.Variable;
+import simulator.scl.Variable;
 
 public class SimulationTests {
 

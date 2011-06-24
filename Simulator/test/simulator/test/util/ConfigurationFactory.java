@@ -12,22 +12,22 @@ package simulator.test.util;
 
 import java.util.Arrays;
 
-import simulator.config.Action;
-import simulator.config.Button;
-import simulator.config.ChangeDisplay;
-import simulator.config.ChangeIndicator;
-import simulator.config.ConfigFactory;
-import simulator.config.Configuration;
-import simulator.config.DisplayMatchesCondition;
-import simulator.config.Displayable;
-import simulator.config.Expression;
-import simulator.config.IncrementTimeVariable;
-import simulator.config.Mode;
-import simulator.config.NextMode;
-import simulator.config.StringConstant;
-import simulator.config.TimeConstant;
-import simulator.config.UnitOfTime;
-import simulator.config.Variable;
+import simulator.scl.Action;
+import simulator.scl.Button;
+import simulator.scl.ChangeDisplay;
+import simulator.scl.ChangeIndicator;
+import simulator.scl.ConfigFactory;
+import simulator.scl.Configuration;
+import simulator.scl.DisplayMatchesCondition;
+import simulator.scl.Displayable;
+import simulator.scl.Expression;
+import simulator.scl.IncrementTimeVariable;
+import simulator.scl.Mode;
+import simulator.scl.NextMode;
+import simulator.scl.StringConstant;
+import simulator.scl.TimeConstant;
+import simulator.scl.UnitOfTime;
+import simulator.scl.Variable;
 
 public class ConfigurationFactory {
 

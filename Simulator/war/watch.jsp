@@ -1,14 +1,14 @@
+<%@page import="simulator.srl.SimulationElement"%>
 <%@page import="simulator.SessionManager"%>
 <%@page import="simulator.execution.model.state.VariableWithValue"%>
-<%@page import="simulator.config.Button"%>
+<%@page import="simulator.scl.Button"%>
 <%@page import="simulator.config.factory.FileBasedConfigurationFactory"%>
 <%@page import="simulator.execution.model.Simulation"%>
-<%@page import="simulator.config.Configuration"%>
+<%@page import="simulator.scl.Configuration"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="java.util.Collections"%>
 <%@page import="java.util.List"%>
-<%@page import="simulator.trace.presenter.TraceElementPresenter"%>
-<%@page import="simulator.trace.TraceElement"%>
+<%@page import="simulator.presenter.SimulationElementPresenter"%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
@@ -41,11 +41,19 @@
 	  	<h3>Buttons</h3>
 	  	
 	    <ul>
-	    <% int buttonIndex = 0; %>
-	    <% for (Button button : simulation.getCurrentMode().getButtons()) { %>
+	    <%
+	    	int buttonIndex = 0;
+	    %>
+	    <%
+	    	for (Button button : simulation.getCurrentMode().getButtons()) {
+	    %>
 	      <li><a href="/button?id=<%=buttonIndex%>"/><%=button.getName()%></a></li>
-	    <% 	buttonIndex++; %>
-	    <% } %>
+	    <%
+	    	buttonIndex++;
+	    %>
+	    <%
+	    	}
+	    %>
 	    </ul>
 	  </div>
 	  
@@ -58,8 +66,12 @@
 	    		<th>Value</th>
 	    		<th>Controls</th>
 	    	</tr>
-	    	<% int variableIndex = 0; %>
-			<% for (VariableWithValue variable : simulation.getVariableValues()) { %>
+	    	<%
+	    		int variableIndex = 0;
+	    	%>
+			<%
+				for (VariableWithValue variable : simulation.getVariableValues()) {
+			%>
 			<tr>
 				<td><%=variable.getName()%></td>
 				<td><%=variable.getValue()%></td>
@@ -68,8 +80,12 @@
 				    <a href="/variables?name=<%=variable.getName()%>&command=minute">+1 minute</a>
 				</td>
 			</tr>
-			<% 	variableIndex++; %>
-			<% } %>
+			<%
+				variableIndex++;
+			%>
+			<%
+				}
+			%>
 	    </table>
 	  </div>
 	  
@@ -84,15 +100,20 @@
   </div>
   
   <div id="output">
-  	<h2>Simulation Output</h2>
+  	<h2>Simulation Results</h2>
   	<ul id="trace">
-  		<% int index = 0;
-  		   final List<TraceElement> elements = new LinkedList<TraceElement>(simulation.getTrace().getElements());
-  		   Collections.reverse(elements);
+  		<%
+  			int index = 0;
+  		  		  		   final List<SimulationElement> elements = new LinkedList<SimulationElement>(simulation.getResults().getElements());
+  		  		  		   Collections.reverse(elements);
   		%>
-  		<% for (TraceElement element : elements) { %>
-  			<% if (index < 10) { %>
-  				<li><%=TraceElementPresenter.present(element)%></li>
+  		<%
+  			for (SimulationElement element : elements) {
+  		%>
+  			<%
+  				if (index < 10) {
+  			%>
+  				<li><%=SimulationElementPresenter.present(element)%></li>
   			<% } else { %>
   				 <li>...</li>
   		    <% 

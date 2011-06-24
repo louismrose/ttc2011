@@ -20,9 +20,9 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import simulator.config.Action;
-import simulator.config.Mode;
 import simulator.execution.model.state.State;
+import simulator.scl.Action;
+import simulator.scl.Mode;
 
 public class ModesTests {
 

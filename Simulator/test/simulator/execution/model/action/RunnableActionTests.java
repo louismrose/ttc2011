@@ -20,13 +20,13 @@ import static simulator.test.util.ConfigurationFactory.createVariable;
 
 import org.junit.Test;
 
-import simulator.config.Action;
-import simulator.config.ConfigFactory;
-import simulator.config.Variable;
 import simulator.execution.model.Time;
 import simulator.execution.model.TimeFormatter;
 import simulator.execution.model.actions.RunnableAction;
 import simulator.execution.model.state.State;
+import simulator.scl.Action;
+import simulator.scl.ConfigFactory;
+import simulator.scl.Variable;
 
 public class RunnableActionTests {
 

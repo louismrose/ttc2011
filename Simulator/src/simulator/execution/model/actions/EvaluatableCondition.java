@@ -10,15 +10,15 @@
  ******************************************************************************/
 package simulator.execution.model.actions;
 
-import simulator.config.AndCondition;
-import simulator.config.Condition;
-import simulator.config.DisplayMatchesCondition;
-import simulator.config.Displayable;
-import simulator.config.IndicatorMatchesCondition;
-import simulator.config.NotCondition;
-import simulator.config.OrCondition;
-import simulator.config.VariableEqualsCondition;
 import simulator.execution.model.state.State;
+import simulator.scl.AndCondition;
+import simulator.scl.Condition;
+import simulator.scl.DisplayMatchesCondition;
+import simulator.scl.Displayable;
+import simulator.scl.IndicatorMatchesCondition;
+import simulator.scl.NotCondition;
+import simulator.scl.OrCondition;
+import simulator.scl.VariableEqualsCondition;
 
 public abstract class EvaluatableCondition {
 

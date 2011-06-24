@@ -6,9 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import simulator.config.Configuration;
-import simulator.config.factory.UploadedConfigurationFactory;
 import simulator.execution.model.Simulation;
+import simulator.scl.Configuration;
+import simulator.scl.factory.UploadedConfigurationFactory;
 
 @SuppressWarnings("serial")
 public class ConfigureServlet extends AbstractServlet {

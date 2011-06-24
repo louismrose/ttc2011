@@ -10,11 +10,11 @@
  ******************************************************************************/
 package simulator.execution.model.actions;
 
-import simulator.config.Expression;
-import simulator.config.IncrementTimeVariable;
-import simulator.config.Variable;
 import simulator.execution.model.Time;
 import simulator.execution.model.state.State;
+import simulator.scl.Expression;
+import simulator.scl.IncrementTimeVariable;
+import simulator.scl.Variable;
 
 public class EvaluatableExpression {
 
@@ -38,7 +38,7 @@ public class EvaluatableExpression {
 		final Time currentValue = state.getValueOf(variable);
 		final Time newValue     = currentValue.increment(expression.getUnit());
 		
-		state.addResponseToTrace("IncrementVariable", variable.getName(), currentValue, newValue);
+		state.addResponseToResults("IncrementVariable", variable.getName(), currentValue, newValue);
 		state.setValueOf(variable, newValue);
 	}
 }

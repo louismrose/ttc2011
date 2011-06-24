@@ -18,12 +18,12 @@ import static simulator.test.util.ConfigurationFactory.createVariable;
 
 import org.junit.Test;
 
-import simulator.config.Expression;
-import simulator.config.UnitOfTime;
-import simulator.config.Variable;
 import simulator.execution.model.Time;
 import simulator.execution.model.actions.EvaluatableExpression;
 import simulator.execution.model.state.State;
+import simulator.scl.Expression;
+import simulator.scl.UnitOfTime;
+import simulator.scl.Variable;
 
 public class EvaluatableExpressionTests {
 

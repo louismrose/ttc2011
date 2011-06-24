@@ -26,6 +26,6 @@ public class TraceServlet extends AbstractServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		final Simulation simulation = getOrCreateSimulation(req.getSession());
 		resp.setContentType("text/xml");
-		EmfUtil.serialise(simulation.getTrace(), resp.getOutputStream());		
+		EmfUtil.serialise(simulation.getResults(), resp.getOutputStream());		
 	}
 }

@@ -14,16 +14,16 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collection;
 
-import simulator.config.Configuration;
-import simulator.config.Mode;
-import simulator.config.UnitOfTime;
-import simulator.config.Variable;
 import simulator.execution.model.actions.RunnableActionGroup;
 import simulator.execution.model.state.State;
 import simulator.execution.model.state.StateObserver;
 import simulator.execution.model.state.VariableWithValue;
 import simulator.persistence.SerializableConfiguration;
-import simulator.trace.Trace;
+import simulator.scl.Configuration;
+import simulator.scl.Mode;
+import simulator.scl.UnitOfTime;
+import simulator.scl.Variable;
+import simulator.srl.Results;
 
 public class Simulation implements Serializable {
 
@@ -94,8 +94,8 @@ public class Simulation implements Serializable {
 		return state.isAlarmRinging() ? "ringing" : "silent";
 	}
 	
-	public Trace getTrace() {
-		return state.getTrace();
+	public Results getResults() {
+		return state.getResults();
 	}
 	
 	public void pressButton(int buttonIndex) {

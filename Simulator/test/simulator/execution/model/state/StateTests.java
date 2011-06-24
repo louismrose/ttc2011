@@ -16,9 +16,9 @@ import static org.mockito.Mockito.verify;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import simulator.config.ConfigFactory;
-import simulator.config.Variable;
 import simulator.execution.model.Time;
+import simulator.scl.ConfigFactory;
+import simulator.scl.Variable;
 
 public class StateTests {
 

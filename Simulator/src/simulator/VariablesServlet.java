@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import simulator.config.UnitOfTime;
 import simulator.execution.model.Simulation;
+import simulator.scl.UnitOfTime;
 
 @SuppressWarnings("serial")
 public class VariablesServlet extends AbstractServlet {

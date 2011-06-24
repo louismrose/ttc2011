@@ -19,7 +19,7 @@
    <extension
          point="org.eclipse.emf.ecore.generated_package">
       <package
-            class="simulator.config.ConfigPackage"
+            class="simulator.scl.ConfigPackage"
             genModel="model/config.genmodel"
             uri="simulatorConfig">
       </package>

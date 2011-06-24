@@ -22,7 +22,7 @@ import simulator.execution.model.state.StateTests;
 @RunWith(Suite.class)
 @SuiteClasses({TimeTests.class,
                EvaluatableExpressionTests.class, RunnableActionTests.class, RunnableActionGroupTests.class,
-               StateTests.class, ModesTests.class, SimulationTests.class, TracingTests.class})
+               StateTests.class, ModesTests.class, SimulationTests.class, ResultsTests.class})
 public class ExecutionTestSuite {
 
 }

@@ -1,0 +1,23 @@
+@namespace(uri="srl", prefix="srl")
+package srl;
+
+class Results {
+   val SimulationElement[*] elements;
+}
+
+abstract class SimulationElement {
+   	attr String type;
+	attr String[*] params;
+}
+
+class Stimulus extends SimulationElement {
+ 
+}
+
+class Response extends SimulationElement {
+   
+}
+
+class EnvironmentalChange extends SimulationElement {
+   
+}

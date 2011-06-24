@@ -21,10 +21,10 @@ import static simulator.test.util.ConfigurationFactory.createDisplayMatchesCondi
 
 import org.junit.Test;
 
-import simulator.config.ChangeDisplay;
 import simulator.execution.model.actions.RunnableAction;
 import simulator.execution.model.actions.RunnableActionGroup;
 import simulator.execution.model.state.State;
+import simulator.scl.ChangeDisplay;
 
 public class RunnableActionGroupTests {
 

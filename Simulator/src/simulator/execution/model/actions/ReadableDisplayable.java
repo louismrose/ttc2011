@@ -10,13 +10,13 @@
  ******************************************************************************/
 package simulator.execution.model.actions;
 
-import simulator.config.Displayable;
-import simulator.config.StringConstant;
-import simulator.config.TimeConstant;
-import simulator.config.Variable;
 import simulator.execution.model.Time;
 import simulator.execution.model.TimeFormatter;
 import simulator.execution.model.state.State;
+import simulator.scl.Displayable;
+import simulator.scl.StringConstant;
+import simulator.scl.TimeConstant;
+import simulator.scl.Variable;
 
 public class ReadableDisplayable {
 

@@ -15,8 +15,8 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-import simulator.config.Action;
 import simulator.execution.model.state.State;
+import simulator.scl.Action;
 
 public class RunnableActionGroup {
 	

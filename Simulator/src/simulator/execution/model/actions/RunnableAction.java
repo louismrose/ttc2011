@@ -10,15 +10,15 @@
  ******************************************************************************/
 package simulator.execution.model.actions;
 
-import simulator.config.Action;
-import simulator.config.ChangeDisplay;
-import simulator.config.ChangeIndicator;
-import simulator.config.Displayable;
-import simulator.config.EvaluateExpression;
-import simulator.config.NextMode;
-import simulator.config.SilenceAlarm;
-import simulator.config.SoundAlarm;
 import simulator.execution.model.state.State;
+import simulator.scl.Action;
+import simulator.scl.ChangeDisplay;
+import simulator.scl.ChangeIndicator;
+import simulator.scl.Displayable;
+import simulator.scl.EvaluateExpression;
+import simulator.scl.NextMode;
+import simulator.scl.SilenceAlarm;
+import simulator.scl.SoundAlarm;
 
 public class RunnableAction {
 
@@ -70,18 +70,18 @@ public class RunnableAction {
 	
 	private void run(ChangeDisplay changeDisplayAction, State state) {
 		final String newDisplayText = extractValue(changeDisplayAction.getNewValue(), state);
-		state.addResponseToTrace("ChangeDisplay", state.getDisplayText(), newDisplayText);
+		state.addResponseToResults("ChangeDisplay", state.getDisplayText(), newDisplayText);
 		state.setDisplayText(newDisplayText);
 	}
 	
 	private void run(ChangeIndicator changeIndicatorAction, State state) {
 		final String newIndicatorText = extractValue(changeIndicatorAction.getNewValue(), state);
-		state.addResponseToTrace("ChangeIndicator", state.getIndicatorText(), newIndicatorText);
+		state.addResponseToResults("ChangeIndicator", state.getIndicatorText(), newIndicatorText);
 		state.setIndicatorText(newIndicatorText);
 	}
 	
 	private void run(NextMode nextModeAction, State state) {
-		state.addResponseToTrace("NextMode", state.getCurrentModeIndex(), state.getNextModeIndex());
+		state.addResponseToResults("NextMode", state.getCurrentModeIndex(), state.getNextModeIndex());
 		state.nextMode();
 	}
 	

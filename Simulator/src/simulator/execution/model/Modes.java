@@ -15,12 +15,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 
-import simulator.config.Action;
-import simulator.config.Button;
-import simulator.config.Mode;
 import simulator.execution.model.actions.RunnableActionGroup;
 import simulator.execution.model.state.ModeObserver;
 import simulator.execution.model.state.State;
+import simulator.scl.Action;
+import simulator.scl.Button;
+import simulator.scl.Mode;
 
 public class Modes implements ModeObserver {
 	
@@ -39,7 +39,7 @@ public class Modes implements ModeObserver {
 	}
 	
 	public void pressButton(int buttonIndex, State state) {
-		state.addStimulusToTrace("ButtonPress", "" + buttonIndex);
+		state.addStimulusToResults("ButtonPress", "" + buttonIndex);
 		run(getButton(buttonIndex, state).getBehaviour(), state);
 	}
 

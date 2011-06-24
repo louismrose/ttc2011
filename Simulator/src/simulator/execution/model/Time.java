@@ -14,8 +14,8 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-import simulator.config.TimeConstant;
-import simulator.config.UnitOfTime;
+import simulator.scl.TimeConstant;
+import simulator.scl.UnitOfTime;
 
 public class Time implements Serializable {
 

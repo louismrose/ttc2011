@@ -15,13 +15,13 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-import simulator.config.UnitOfTime;
-import simulator.config.Variable;
 import simulator.execution.model.Time;
-import simulator.persistence.SerializableTrace;
-import simulator.trace.Trace;
-import simulator.trace.TraceElement;
-import simulator.trace.TraceFactory;
+import simulator.persistence.SerializableResults;
+import simulator.scl.UnitOfTime;
+import simulator.scl.Variable;
+import simulator.srl.Results;
+import simulator.srl.SimulationElement;
+import simulator.srl.ResultsFactory;
 
 public class State implements Serializable {
 
@@ -33,7 +33,7 @@ public class State implements Serializable {
 	private int currentModeIndex = 0;
 	private boolean alarmRinging = false;
 	
-	private final SerializableTrace trace = new SerializableTrace();
+	private final SerializableResults results = new SerializableResults();
 	
 	private final VariableState variables = new VariableState();
 	private final int totalNumberOfModes;
@@ -85,30 +85,30 @@ public class State implements Serializable {
 		notifyObservers();
 	}
 	
-	public Trace getTrace() {
-		return trace.getTrace();
+	public Results getResults() {
+		return results.getResults();
 	}
 	
-	public void addStimulusToTrace(String type, Object... params) {
-		addToTrace(TraceFactory.eINSTANCE.createStimulus(), type, params);
+	public void addStimulusToResults(String type, Object... params) {
+		addToResults(ResultsFactory.eINSTANCE.createStimulus(), type, params);
 	}
 	
-	public void addResponseToTrace(String type, Object... params) {
-		addToTrace(TraceFactory.eINSTANCE.createResponse(), type, params);
+	public void addResponseToResults(String type, Object... params) {
+		addToResults(ResultsFactory.eINSTANCE.createResponse(), type, params);
 	}
 	
-	public void addEnvironmetalChangeToTrace(String type, Object... params) {
-		addToTrace(TraceFactory.eINSTANCE.createEnvironmentalChange(), type, params);
+	public void addEnvironmentalChangeToResults(String type, Object... params) {
+		addToResults(ResultsFactory.eINSTANCE.createEnvironmentalChange(), type, params);
 	}
 
-	private void addToTrace(TraceElement traceElement, String type, Object... params) {
-		traceElement.setType(type);
+	private void addToResults(SimulationElement element, String type, Object... params) {
+		element.setType(type);
 		
 		for (Object param : params) {
-			traceElement.getParams().add(param.toString());			
+			element.getParams().add(param.toString());			
 		}
 		
-		trace.getElements().add(traceElement);
+		results.getElements().add(element);
 	}
 	
 	public Time getValueOf(String variableName) {
@@ -146,7 +146,7 @@ public class State implements Serializable {
 		final Time currentValue = getValueOf(variableName);
 		final Time newValue     = currentValue.increment(unit);
 		
-		addEnvironmetalChangeToTrace("ManualIncrementVariable", currentValue.toString(), newValue.toString());
+		addEnvironmentalChangeToResults("ManualIncrementVariable", currentValue.toString(), newValue.toString());
 		setValueOf(variableName, newValue);
 		notifyObservers();
 	}

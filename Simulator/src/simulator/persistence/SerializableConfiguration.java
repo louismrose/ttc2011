@@ -25,12 +25,12 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import simulator.config.Action;
-import simulator.config.ConfigPackage;
-import simulator.config.Configuration;
-import simulator.config.Constant;
-import simulator.config.Mode;
-import simulator.config.Variable;
+import simulator.scl.Action;
+import simulator.scl.ConfigPackage;
+import simulator.scl.Configuration;
+import simulator.scl.Constant;
+import simulator.scl.Mode;
+import simulator.scl.Variable;
 
 public class SerializableConfiguration implements Configuration, Serializable {
 

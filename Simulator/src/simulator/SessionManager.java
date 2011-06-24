@@ -14,9 +14,9 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpSession;
 
-import simulator.config.Configuration;
-import simulator.config.factory.FileBasedConfigurationFactory;
 import simulator.execution.model.Simulation;
+import simulator.scl.Configuration;
+import simulator.scl.factory.FileBasedConfigurationFactory;
 
 public class SessionManager {
 
