@@ -52,7 +52,7 @@ The simulation engine is configured with a model that conforms to the configurat
 
 The core metaclasses of the configuration language are shown below. Briefly, a @Configuration@ comprises @Modes@ and @Events@. Each @Mode@ can contain any number of @Buttons@ which have a name and a behaviour, which is specified with a set of @Actions@. Similarly, each @Mode@ has a set of @Actions@ that are executed when the watch enters that @Mode@; and a @Configuration@ can specify events: @Actions@ that are executed whenever the state of the watch changes. @Actions@ can specify a guard @Condition@, which must be satisfied for the @Action@ to be executed. Some @Actions@ make use of @Constants@ (fixed values, such as the string @"Hello"@ or the time @13:37@) and @Variables@ (symbolic names whose values can change as the simulation executes).
 
-!https://github.com/louismrose/ttc2011/raw/master/Metamodels/config/config.png!(A class diagram of the core metaclasses of the simulator configuration language)!
+!https://github.com/louismrose/ttc2011/raw/master/Metamodels/config/config.png(A class diagram of the core metaclasses of the simulator configuration language)!
 
 A complete list of the simulation configuration metaclasses can be found in the "configuration language metamodel":https://github.com/louismrose/ttc2011/blob/master/Metamodels/config/config.emf.
 
@@ -62,7 +62,7 @@ While the simulation engine is being used to perform a simulation of a particula
 
 The simulation results metamodel is shown below. Briefly, a results model comprises a set of @SimulationElements@ which are instances of either @Stimulus@, @EnvironmentalChange@ or @Response@. Each @SimulationElement@ has a @type@ (such as @ModeChange@) and a set of @parameters@ (such as @alarmMode, timeMode@).
 
-!https://github.com/louismrose/ttc2011/raw/master/Metamodels/results/results.png!(A class diagram for the simulator results language)!
+!https://github.com/louismrose/ttc2011/raw/master/Metamodels/results/results.png(A class diagram for the simulator results language)!
 
 The above metamodel can also be found in the "results language metamodel":https://github.com/louismrose/ttc2011/blob/master/Metamodels/results/results.emf.
 
