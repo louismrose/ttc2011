@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="copy">
+
+	<macrodef name="copy-metamodel">
+		<attribute name="project"/>
+		<attribute name="metamodelName"/>
+
+		<sequential>
+			<copy todir="@{metamodelName}">
+				<fileset dir="../@{project}/model">
+					<include name="@{metamodelName}.*"/>
+					<exclude name="*.genmodel"/>
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+	
+	<target name="copy">
+		<copy-metamodel metamodelName="ssl" project="SimulatorSpecificationLanguage"/>
+		<copy-metamodel metamodelName="config" project="Simulator"/>
+		<copy-metamodel metamodelName="trace" project="Simulator"/>
+    </target>
+</project>

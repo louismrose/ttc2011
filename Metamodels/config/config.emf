@@ -1,0 +1,96 @@
+@namespace(uri="simulatorConfig", prefix="simulatorConfig")
+package config;
+
+class Configuration {
+   val Mode[*] modes;
+   val Variable[*] variables;
+   val Constant[*] constants;
+   val Action[*] events;
+}
+
+class Mode {
+   attr String name;
+   val Action[*] entryActions;
+   val Button[*] buttons;
+}
+
+class Button {
+   attr String[1] name;
+   val Action[1..*] behaviour;
+}
+
+abstract class Action {
+	val Condition[0..1] guard;
+}
+
+abstract class Condition {}
+abstract class OutputMatchesCondition extends Condition {
+	ref Displayable[1] valueToMatch;
+}
+
+class AndCondition extends Condition {
+   val Condition[2..*] subconditions;
+}
+
+class OrCondition extends Condition {
+   val Condition[2..*] subconditions;
+}
+
+class NotCondition extends Condition {
+   val Condition[1] subcondition;
+}
+
+class DisplayMatchesCondition extends OutputMatchesCondition {}
+class IndicatorMatchesCondition extends OutputMatchesCondition {}
+
+abstract class VariableComparisonCondition extends Condition {
+   ref Variable[1] variable;
+   ref Displayable[1] value;
+}
+
+class VariableEqualsCondition extends VariableComparisonCondition {}
+
+abstract class ChangeOutputAction extends Action {
+   ref Displayable[1] newValue;   
+} 
+
+class ChangeDisplay extends ChangeOutputAction {}
+class ChangeIndicator extends ChangeOutputAction {}
+
+class NextMode extends Action {}
+
+class SoundAlarm extends Action {}
+class SilenceAlarm extends Action {}
+
+class EvaluateExpression extends Action {
+   val Expression[1] expression;
+}
+
+class Expression {}
+
+class IncrementTimeVariable extends Expression {
+   ref Variable[1] variable;
+   attr UnitOfTime[1] unit;
+}
+
+abstract class Displayable {}
+
+abstract class Constant extends Displayable {} 
+
+class StringConstant extends Constant {
+   attr String[1] value;
+}
+
+class TimeConstant extends Constant {
+   attr Integer[1] hours;
+   attr Integer[1] minutes;
+}
+
+class Variable extends Displayable {
+   attr String[1] name;
+}
+
+enum UnitOfTime {
+   hour = 0;
+   minute = 1;
+}

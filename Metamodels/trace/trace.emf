@@ -1,0 +1,23 @@
+@namespace(uri="simulatorTrace", prefix="simulatorTrace")
+package trace;
+
+class Trace {
+   val TraceElement[*] elements;
+}
+
+abstract class TraceElement {
+   	attr String type;
+	attr String[*] params;
+}
+
+class Stimulus extends TraceElement {
+ 
+}
+
+class Response extends TraceElement {
+   
+}
+
+class EnvironmentalChange extends TraceElement {
+   
+}
