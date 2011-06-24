@@ -12,16 +12,16 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="simulatorTrace"
-            class="simulator.trace.TracePackage"
-            genModel="model/trace.genmodel"/>
+            uri="stl"
+            class="simulator.srl.ResultsPackage"
+            genModel="model/results.genmodel"/>
    </extension>
    <extension
          point="org.eclipse.emf.ecore.generated_package">
       <package
             class="simulator.scl.ConfigPackage"
             genModel="model/config.genmodel"
-            uri="simulatorConfig">
+            uri="scl">
       </package>
    </extension>
 
