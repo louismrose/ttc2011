@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.epsilon.migration.eclipse.dt.launching.MigrationLaunchConfigurationDelegate">
+<intAttribute key="migratedModel" value="1"/>
+<listAttribute key="models">
+<listEntry value="#&#10;#Fri Jun 24 11:16:22 BST 2011&#10;isMetamodelFileBased=false&#10;name=Original&#10;readOnLoad=true&#10;storeOnDisposal=false&#10;aliases=&#10;cached=true&#10;fileBasedMetamodelUri=&#10;metamodelUri=ssl&#10;modelUri=platform\:/resource/WatchSpecifications/ssl/OnOff.ssl&#10;type=EMF&#10;modelFile=/WatchSpecifications/ssl/OnOff.ssl&#10;expand=true&#10;metamodelFile=&#10;"/>
+<listEntry value="#&#10;#Fri Jun 24 11:16:26 BST 2011&#10;isMetamodelFileBased=false&#10;name=Migrated&#10;readOnLoad=false&#10;storeOnDisposal=true&#10;aliases=&#10;cached=true&#10;fileBasedMetamodelUri=&#10;metamodelUri=ssl&#10;modelUri=platform\:/resource/WatchSpecifications/OnOff.xmi&#10;type=EMF&#10;modelFile=/WatchSpecifications/OnOff.xmi&#10;expand=true&#10;metamodelFile=&#10;"/>
+</listAttribute>
+<intAttribute key="originalModel" value="0"/>
+<stringAttribute key="source" value="/WatchSpecifications/ssl2xmi/Identity.mig"/>
+</launchConfiguration>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ssl:Specification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ssl="ssl">
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="time"/>
+    </given>
+    <then>
+      <observations xsi:type="ssl:ObserveButton" button="first" name="mode"/>
+      <observations xsi:type="ssl:ObserveButton" button="second" name="setAlarm"/>
+    </then>
+  </testcases>
+  <testcases>
+    <when>
+      <actions xsi:type="ssl:EntersMode" mode="time"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveLabelVariable" variableName="time"/>
+      <observations xsi:type="ssl:ObserveLabelValue" labelType="indicator" value="unset"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="alarmTime"/>
+    </given>
+    <then>
+      <observations xsi:type="ssl:ObserveButton" button="first" name="mode"/>
+      <observations xsi:type="ssl:ObserveButton" button="second" name="hour"/>
+      <observations xsi:type="ssl:ObserveButton" button="third" name="minute"/>
+    </then>
+  </testcases>
+  <testcases>
+    <when>
+      <actions xsi:type="ssl:EntersMode" mode="alarmTime"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveLabelVariable" variableName="alarmTime"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="time"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="first"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveMode" mode="alarmTime"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="time"/>
+      <conditions xsi:type="ssl:CheckLabel" labelType="indicator" value="unset"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="second"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveLabelValue" labelType="indicator" value="set"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="time"/>
+      <conditions xsi:type="ssl:CheckLabel" labelType="indicator" value="set"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="second"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveLabelValue" labelType="indicator" value="unset"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="alarmTime"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="first"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveMode" mode="time"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="alarmTime"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="second"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveVariableChange" variableName="alarmTime"/>
+      <observations xsi:type="ssl:ObserveLabelVariable" variableName="alarmTime"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="alarmTime"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="third"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveVariableChange" variableName="alarmTime" unit="minute"/>
+      <observations xsi:type="ssl:ObserveLabelVariable" variableName="alarmTime"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckLabel" labelType="indicator" value="set"/>
+      <conditions xsi:type="ssl:CheckVariableEqualsVariable" firstVariableName="time" secondVariableName="alarmTime"/>
+    </given>
+    <then>
+      <observations xsi:type="ssl:ObserveRing"/>
+    </then>
+  </testcases>
+</ssl:Specification>

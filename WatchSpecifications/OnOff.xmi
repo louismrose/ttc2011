@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ssl:Specification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ssl="ssl">
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="on"/>
+    </given>
+    <then>
+      <observations xsi:type="ssl:ObserveButton" button="first" name="mode"/>
+    </then>
+  </testcases>
+  <testcases>
+    <when>
+      <actions xsi:type="ssl:EntersMode" mode="on"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveLabelValue" value="hello"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="on"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="first"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveMode" mode="off"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="off"/>
+    </given>
+    <then>
+      <observations xsi:type="ssl:ObserveButton" button="first" name="mode"/>
+    </then>
+  </testcases>
+  <testcases>
+    <when>
+      <actions xsi:type="ssl:EntersMode" mode="off"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveLabelValue"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="off"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="first"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveMode" mode="on"/>
+    </then>
+  </testcases>
+</ssl:Specification>

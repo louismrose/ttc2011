@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ssl:Specification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ssl="ssl">
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="setTime"/>
+    </given>
+    <then>
+      <observations xsi:type="ssl:ObserveButton" button="second" name="minute"/>
+      <observations xsi:type="ssl:ObserveButton" button="first" name="hour"/>
+    </then>
+  </testcases>
+  <testcases>
+    <when>
+      <actions xsi:type="ssl:EntersMode" mode="setTime"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveLabelVariable" variableName="time"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="setTime"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="first"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveVariableChange" variableName="time"/>
+      <observations xsi:type="ssl:ObserveLabelVariable" variableName="time"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="setTime"/>
+    </given>
+    <when>
+      <actions xsi:type="ssl:PressButton" button="second"/>
+    </when>
+    <then>
+      <observations xsi:type="ssl:ObserveVariableChange" variableName="time" unit="minute"/>
+      <observations xsi:type="ssl:ObserveLabelVariable" variableName="time"/>
+    </then>
+  </testcases>
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckVariableEqualsTime" firstVariableName="time" time="1337"/>
+    </given>
+    <then>
+      <observations xsi:type="ssl:ObserveRing"/>
+    </then>
+  </testcases>
+</ssl:Specification>

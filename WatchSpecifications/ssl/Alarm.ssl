@@ -1,0 +1,50 @@
+Given the watch is in mode "time"
+Then the first button must be called "mode"
+     the second button must be called "setAlarm"
+
+When the watch enters mode "time"
+Then the "display" must show the time
+     the "indicator" must show "unset"
+
+Given the watch is in mode "alarmTime"
+Then the first button must be called "mode"
+     the second button must be called "hour"
+     the third button must be called "minute"
+
+When the watch enters mode "alarmTime"
+Then the "display" must show the alarmTime
+
+Given the watch is in mode "time"
+When the first button is pressed
+Then the watch must be in mode "alarmTime"
+     
+Given the watch is in mode "time"
+      the "indicator" is showing "unset"
+When the second button is pressed
+Then the "indicator" must show "set"
+
+Given the watch is in mode "time"
+      the "indicator" is showing "set"
+When the second button is pressed
+Then the "indicator" must show "unset"
+
+   
+   
+Given the watch is in mode "alarmTime"
+When the first button is pressed
+Then the watch must be in mode "time"
+     
+Given the watch is in mode "alarmTime"
+When the second button is pressed
+Then alarmTime must be incremented by 1 hour
+     the "display" must show the alarmTime
+     
+Given the watch is in mode "alarmTime"
+When the third button is pressed
+Then alarmTime must be incremented by 1 minute
+     the "display" must show the alarmTime
+     
+     
+Given the "indicator" is showing "set"
+      time is equal to alarmTime
+Then the alarm must ring
