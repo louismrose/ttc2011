@@ -108,7 +108,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_Qod89ZZfEeCPlsMpPu9iag" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_QoekAJZfEeCPlsMpPu9iag" fontName="Lucida Grande"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QoekAZZfEeCPlsMpPu9iag" points="[0, 0, -73, 60]$[0, -30, -73, 30]$[73, -30, 0, 30]$[73, -60, 0, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QoekAZZfEeCPlsMpPu9iag" points="[0, 0, -74, 62]$[0, -26, -74, 36]$[76, -26, 2, 36]$[76, -62, 2, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QqLNIJZfEeCPlsMpPu9iag" id="(0.5,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QqLNIZZfEeCPlsMpPu9iag" id="(0.3963963963963964,1.0)"/>
   </edges>
@@ -116,7 +116,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_QofLEZZfEeCPlsMpPu9iag" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_QofLEpZfEeCPlsMpPu9iag" fontName="Lucida Grande"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QofLE5ZfEeCPlsMpPu9iag" points="[0, 0, 122, 63]$[0, -36, 122, 27]$[-120, -36, 2, 27]$[-120, -63, 2, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QofLE5ZfEeCPlsMpPu9iag" points="[0, 0, 120, 63]$[0, -27, 120, 36]$[-117, -27, 3, 36]$[-117, -63, 3, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QqKmEJZfEeCPlsMpPu9iag" id="(0.5,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QqKmEZZfEeCPlsMpPu9iag" id="(0.7927927927927928,1.0)"/>
   </edges>
@@ -124,7 +124,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_LOW-QZ5uEeCI_pJb1ixhRA" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_LOW-Qp5uEeCI_pJb1ixhRA" fontName="Lucida Grande"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LOW-Q55uEeCI_pJb1ixhRA" points="[1, 0, -297, -32]$[243, 26, -55, -6]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LOW-Q55uEeCI_pJb1ixhRA" points="[-17, -20, 2, 72]$[-17, -83, 2, 9]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MvwfkJ5uEeCI_pJb1ixhRA" id="(0.6194690265486725,0.8615384615384616)"/>
   </edges>
 </notation:Diagram>
