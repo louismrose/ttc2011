@@ -122,8 +122,14 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof ssl.CheckTimePastOther) {
-			result = interprete_ssl_CheckTimePastOther((ssl.CheckTimePastOther) object, context);
+		if (object instanceof ssl.CheckVariableEqualsTime) {
+			result = interprete_ssl_CheckVariableEqualsTime((ssl.CheckVariableEqualsTime) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof ssl.CheckVariableEqualsVariable) {
+			result = interprete_ssl_CheckVariableEqualsVariable((ssl.CheckVariableEqualsVariable) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -191,7 +197,11 @@ public class AbstractSslInterpreter<ResultType, ContextType> {
 		return null;
 	}
 	
-	public ResultType interprete_ssl_CheckTimePastOther(ssl.CheckTimePastOther object, ContextType context) {
+	public ResultType interprete_ssl_CheckVariableEqualsVariable(ssl.CheckVariableEqualsVariable object, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_ssl_CheckVariableEqualsTime(ssl.CheckVariableEqualsTime object, ContextType context) {
 		return null;
 	}
 	

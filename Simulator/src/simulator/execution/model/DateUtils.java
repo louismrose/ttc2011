@@ -22,4 +22,35 @@ public class DateUtils {
 		calendar.add(unit, amount);
 		return calendar.getTime();
 	}
+	
+	public static Date todayAt(int hours, int minutes) {
+		final Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		calendar.set(Calendar.HOUR, hours);
+		calendar.set(Calendar.MINUTE, minutes);
+		return calendar.getTime();
+	}
+	
+	/**
+	 * Checks whether the two parameters represent the same
+	 * date (but not necessarily the same time).
+	 */
+	public static boolean sameDate(Date first, Date second) {
+		return getDayOfYearOf(first) == getDayOfYearOf(second) &&
+		       getYearOf(first) == getYearOf(second);
+	}
+
+	private static int getDayOfYearOf(Date date) {
+		return getFieldOf(date, Calendar.DAY_OF_YEAR);
+	}
+	
+	private static int getYearOf(Date date) {
+		return getFieldOf(date, Calendar.YEAR);
+	}
+	
+	private static int getFieldOf(Date date, int field) {
+		final Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.get(field);
+	}
 }

@@ -63,7 +63,7 @@ public class TracingTests {
 	@Test
 	public void changingDisplayGeneratesResponseTraceElement() throws Exception {
 		state.setDisplayText("foo");
-		new RunnableAction(createChangeDisplayAction(createConstant("bar"))).run(state);
+		new RunnableAction(createChangeDisplayAction(createStringConstant("bar"))).run(state);
 		
 		final EList<TraceElement> traceElements = state.getTrace().getElements();
 		
@@ -74,7 +74,7 @@ public class TracingTests {
 	@Test
 	public void changingIndicatorGeneratesResponseTraceElement() throws Exception {
 		state.setIndicatorText("foo");
-		new RunnableAction(createChangeIndicatorAction(createConstant("bar"))).run(state);
+		new RunnableAction(createChangeIndicatorAction(createStringConstant("bar"))).run(state);
 		
 		final EList<TraceElement> traceElements = state.getTrace().getElements();
 		

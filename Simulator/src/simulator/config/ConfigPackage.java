@@ -805,22 +805,78 @@ public interface ConfigPackage extends EPackage {
 	int CONSTANT = 23;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTANT__VALUE = DISPLAYABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Constant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTANT_FEATURE_COUNT = DISPLAYABLE_FEATURE_COUNT + 1;
+	int CONSTANT_FEATURE_COUNT = DISPLAYABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.StringConstantImpl <em>String Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.StringConstantImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getStringConstant()
+	 * @generated
+	 */
+	int STRING_CONSTANT = 24;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONSTANT__VALUE = CONSTANT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_CONSTANT_FEATURE_COUNT = CONSTANT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link simulator.config.impl.TimeConstantImpl <em>Time Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see simulator.config.impl.TimeConstantImpl
+	 * @see simulator.config.impl.ConfigPackageImpl#getTimeConstant()
+	 * @generated
+	 */
+	int TIME_CONSTANT = 25;
+
+	/**
+	 * The feature id for the '<em><b>Hours</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONSTANT__HOURS = CONSTANT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Minutes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONSTANT__MINUTES = CONSTANT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Time Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONSTANT_FEATURE_COUNT = CONSTANT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link simulator.config.impl.VariableImpl <em>Variable</em>}' class.
@@ -830,7 +886,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 24;
+	int VARIABLE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -858,7 +914,7 @@ public interface ConfigPackage extends EPackage {
 	 * @see simulator.config.impl.ConfigPackageImpl#getUnitOfTime()
 	 * @generated
 	 */
-	int UNIT_OF_TIME = 25;
+	int UNIT_OF_TIME = 27;
 
 
 	/**
@@ -1322,15 +1378,57 @@ public interface ConfigPackage extends EPackage {
 	EClass getConstant();
 
 	/**
-	 * Returns the meta object for the attribute '{@link simulator.config.Constant#getValue <em>Value</em>}'.
+	 * Returns the meta object for class '{@link simulator.config.StringConstant <em>String Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Constant</em>'.
+	 * @see simulator.config.StringConstant
+	 * @generated
+	 */
+	EClass getStringConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link simulator.config.StringConstant#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see simulator.config.Constant#getValue()
-	 * @see #getConstant()
+	 * @see simulator.config.StringConstant#getValue()
+	 * @see #getStringConstant()
 	 * @generated
 	 */
-	EAttribute getConstant_Value();
+	EAttribute getStringConstant_Value();
+
+	/**
+	 * Returns the meta object for class '{@link simulator.config.TimeConstant <em>Time Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Time Constant</em>'.
+	 * @see simulator.config.TimeConstant
+	 * @generated
+	 */
+	EClass getTimeConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link simulator.config.TimeConstant#getHours <em>Hours</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hours</em>'.
+	 * @see simulator.config.TimeConstant#getHours()
+	 * @see #getTimeConstant()
+	 * @generated
+	 */
+	EAttribute getTimeConstant_Hours();
+
+	/**
+	 * Returns the meta object for the attribute '{@link simulator.config.TimeConstant#getMinutes <em>Minutes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Minutes</em>'.
+	 * @see simulator.config.TimeConstant#getMinutes()
+	 * @see #getTimeConstant()
+	 * @generated
+	 */
+	EAttribute getTimeConstant_Minutes();
 
 	/**
 	 * Returns the meta object for class '{@link simulator.config.Variable <em>Variable</em>}'.
@@ -1786,12 +1884,48 @@ public interface ConfigPackage extends EPackage {
 		EClass CONSTANT = eINSTANCE.getConstant();
 
 		/**
+		 * The meta object literal for the '{@link simulator.config.impl.StringConstantImpl <em>String Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.StringConstantImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getStringConstant()
+		 * @generated
+		 */
+		EClass STRING_CONSTANT = eINSTANCE.getStringConstant();
+
+		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONSTANT__VALUE = eINSTANCE.getConstant_Value();
+		EAttribute STRING_CONSTANT__VALUE = eINSTANCE.getStringConstant_Value();
+
+		/**
+		 * The meta object literal for the '{@link simulator.config.impl.TimeConstantImpl <em>Time Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see simulator.config.impl.TimeConstantImpl
+		 * @see simulator.config.impl.ConfigPackageImpl#getTimeConstant()
+		 * @generated
+		 */
+		EClass TIME_CONSTANT = eINSTANCE.getTimeConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Hours</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_CONSTANT__HOURS = eINSTANCE.getTimeConstant_Hours();
+
+		/**
+		 * The meta object literal for the '<em><b>Minutes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_CONSTANT__MINUTES = eINSTANCE.getTimeConstant_Minutes();
 
 		/**
 		 * The meta object literal for the '{@link simulator.config.impl.VariableImpl <em>Variable</em>}' class.

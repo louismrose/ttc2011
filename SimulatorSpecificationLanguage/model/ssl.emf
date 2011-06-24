@@ -30,9 +30,14 @@ abstract class Condition {
   ref Given[1]#conditions given;
 }
 
-class CheckTimePastOther extends Condition {
+class CheckVariableEqualsVariable extends Condition {
     attr String[1] firstVariableName;
     attr String[1] secondVariableName;
+}
+
+class CheckVariableEqualsTime extends Condition {
+    attr String[1] firstVariableName;
+    attr String[1] time;
 }
 
 class CheckMode extends Condition {

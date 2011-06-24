@@ -20,27 +20,24 @@ import ssl.SslPackage;
  *
  * @generated
  */
-public class ObserveRingImpl extends ObservationImpl implements ObserveRing
-{
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ObserveRingImpl()
-  {
-    super();
-  }
+public class ObserveRingImpl extends ObservationImpl implements ObserveRing {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ObserveRingImpl() {
+		super();
+	}
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected EClass eStaticClass()
-  {
-    return SslPackage.Literals.OBSERVE_RING;
-  }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return SslPackage.Literals.OBSERVE_RING;
+	}
 
 } //ObserveRingImpl

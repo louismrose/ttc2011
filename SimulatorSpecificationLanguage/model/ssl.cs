@@ -27,7 +27,9 @@ RULES {
 	
 	CheckLabel ::= "the \"" labelType[TEXT] "\" is showing \"" value[TEXT]? "\"";
 	
-	CheckTimePastOther ::= firstVariableName[TEXT] " is past " secondVariableName[TEXT];
+	CheckVariableEqualsVariable ::= firstVariableName[TEXT] " is equal to " secondVariableName[TEXT];
+
+	CheckVariableEqualsTime ::= firstVariableName[TEXT] " is equal to time " time[TEXT];
 	
 	// Actions
 	

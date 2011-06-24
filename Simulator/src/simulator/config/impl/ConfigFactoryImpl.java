@@ -78,7 +78,8 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 			case ConfigPackage.EVALUATE_EXPRESSION: return createEvaluateExpression();
 			case ConfigPackage.EXPRESSION: return createExpression();
 			case ConfigPackage.INCREMENT_TIME_VARIABLE: return createIncrementTimeVariable();
-			case ConfigPackage.CONSTANT: return createConstant();
+			case ConfigPackage.STRING_CONSTANT: return createStringConstant();
+			case ConfigPackage.TIME_CONSTANT: return createTimeConstant();
 			case ConfigPackage.VARIABLE: return createVariable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -290,9 +291,19 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Constant createConstant() {
-		ConstantImpl constant = new ConstantImpl();
-		return constant;
+	public StringConstant createStringConstant() {
+		StringConstantImpl stringConstant = new StringConstantImpl();
+		return stringConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimeConstant createTimeConstant() {
+		TimeConstantImpl timeConstant = new TimeConstantImpl();
+		return timeConstant;
 	}
 
 	/**

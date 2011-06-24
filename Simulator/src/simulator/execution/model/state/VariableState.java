@@ -53,7 +53,7 @@ public class VariableState implements Serializable {
 		if (variableValues.containsKey(variableName))
 			return null;
 			
-		final Time newValue = new Time();
+		final Time newValue = Time.now();
 		variableValues.put(variableName, newValue);
 		return newValue;
 	}

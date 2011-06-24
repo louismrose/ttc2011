@@ -179,13 +179,22 @@ public interface ConfigFactory extends EFactory {
 	IncrementTimeVariable createIncrementTimeVariable();
 
 	/**
-	 * Returns a new object of class '<em>Constant</em>'.
+	 * Returns a new object of class '<em>String Constant</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Constant</em>'.
+	 * @return a new object of class '<em>String Constant</em>'.
 	 * @generated
 	 */
-	Constant createConstant();
+	StringConstant createStringConstant();
+
+	/**
+	 * Returns a new object of class '<em>Time Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time Constant</em>'.
+	 * @generated
+	 */
+	TimeConstant createTimeConstant();
 
 	/**
 	 * Returns a new object of class '<em>Variable</em>'.

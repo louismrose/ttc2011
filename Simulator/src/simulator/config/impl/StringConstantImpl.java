@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package ssl.impl;
+package simulator.config.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -12,50 +12,49 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import ssl.LabelType;
-import ssl.ObserveOutput;
-import ssl.SslPackage;
+import simulator.config.ConfigPackage;
+import simulator.config.StringConstant;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Observe Output</b></em>'.
+ * An implementation of the model object '<em><b>String Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ssl.impl.ObserveOutputImpl#getLabelType <em>Label Type</em>}</li>
+ *   <li>{@link simulator.config.impl.StringConstantImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class ObserveOutputImpl extends ObservationImpl implements ObserveOutput {
+public class StringConstantImpl extends ConstantImpl implements StringConstant {
 	/**
-	 * The default value of the '{@link #getLabelType() <em>Label Type</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabelType()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final LabelType LABEL_TYPE_EDEFAULT = LabelType.DISPLAY;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLabelType() <em>Label Type</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabelType()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected LabelType labelType = LABEL_TYPE_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ObserveOutputImpl() {
+	protected StringConstantImpl() {
 		super();
 	}
 
@@ -66,7 +65,7 @@ public abstract class ObserveOutputImpl extends ObservationImpl implements Obser
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SslPackage.Literals.OBSERVE_OUTPUT;
+		return ConfigPackage.Literals.STRING_CONSTANT;
 	}
 
 	/**
@@ -74,8 +73,8 @@ public abstract class ObserveOutputImpl extends ObservationImpl implements Obser
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LabelType getLabelType() {
-		return labelType;
+	public String getValue() {
+		return value;
 	}
 
 	/**
@@ -83,11 +82,11 @@ public abstract class ObserveOutputImpl extends ObservationImpl implements Obser
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabelType(LabelType newLabelType) {
-		LabelType oldLabelType = labelType;
-		labelType = newLabelType == null ? LABEL_TYPE_EDEFAULT : newLabelType;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SslPackage.OBSERVE_OUTPUT__LABEL_TYPE, oldLabelType, labelType));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.STRING_CONSTANT__VALUE, oldValue, value));
 	}
 
 	/**
@@ -98,8 +97,8 @@ public abstract class ObserveOutputImpl extends ObservationImpl implements Obser
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SslPackage.OBSERVE_OUTPUT__LABEL_TYPE:
-				return getLabelType();
+			case ConfigPackage.STRING_CONSTANT__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,8 +111,8 @@ public abstract class ObserveOutputImpl extends ObservationImpl implements Obser
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SslPackage.OBSERVE_OUTPUT__LABEL_TYPE:
-				setLabelType((LabelType)newValue);
+			case ConfigPackage.STRING_CONSTANT__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,8 +126,8 @@ public abstract class ObserveOutputImpl extends ObservationImpl implements Obser
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SslPackage.OBSERVE_OUTPUT__LABEL_TYPE:
-				setLabelType(LABEL_TYPE_EDEFAULT);
+			case ConfigPackage.STRING_CONSTANT__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -142,8 +141,8 @@ public abstract class ObserveOutputImpl extends ObservationImpl implements Obser
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SslPackage.OBSERVE_OUTPUT__LABEL_TYPE:
-				return labelType != LABEL_TYPE_EDEFAULT;
+			case ConfigPackage.STRING_CONSTANT__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -158,10 +157,10 @@ public abstract class ObserveOutputImpl extends ObservationImpl implements Obser
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (labelType: ");
-		result.append(labelType);
+		result.append(" (value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ObserveOutputImpl
+} //StringConstantImpl

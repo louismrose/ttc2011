@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
+import simulator.config.TimeConstant;
 import simulator.config.UnitOfTime;
 
 public class Time implements Serializable {
@@ -23,18 +24,22 @@ public class Time implements Serializable {
 	
 	private final Date value;
 
-	public static Time hoursAgo(int numberOfHours) {
-		return new Time().add(Calendar.HOUR, -numberOfHours);
+	public static Time now() {
+		return new Time(new Date());
 	}
 	
-	public Time() {
-		this.value = new Date();
+	public static Time hoursAgo(int numberOfHours) {
+		return now().add(Calendar.HOUR, -numberOfHours);
+	}
+	
+	public Time(TimeConstant constant) {
+		this(DateUtils.todayAt(constant.getHours(), constant.getMinutes()));
 	}
 	
 	private Time(Date value) {
 		this.value = value;
 	}
-	
+
 	public String formatWith(TimeFormatter formatter) {
 		return formatter.format(value);
 	}
@@ -47,6 +52,10 @@ public class Time implements Serializable {
 
 	private Time add(final int calendarUnit, final int step) {
 		return new Time(DateUtils.add(value, calendarUnit, step));
+	}
+	
+	public boolean sameDateAs(Time other) {
+		return DateUtils.sameDate(value, other.value);
 	}
 	
 	@Override

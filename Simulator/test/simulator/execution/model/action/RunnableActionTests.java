@@ -15,7 +15,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static simulator.test.util.ConfigurationFactory.createChangeDisplayAction;
 import static simulator.test.util.ConfigurationFactory.createChangeIndicatorAction;
-import static simulator.test.util.ConfigurationFactory.createConstant;
+import static simulator.test.util.ConfigurationFactory.createStringConstant;
 import static simulator.test.util.ConfigurationFactory.createVariable;
 
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class RunnableActionTests {
  
 	@Test
 	public void changeDisplayToConstant() throws Exception {
-		final Action action = createChangeDisplayAction(createConstant("foo"));
+		final Action action = createChangeDisplayAction(createStringConstant("foo"));
 		
 		new RunnableAction(action).run(state);
 		
@@ -43,7 +43,7 @@ public class RunnableActionTests {
 	
 	@Test
 	public void changeIndicatorToConstant() throws Exception {
-		final Action action = createChangeIndicatorAction(createConstant("bar"));
+		final Action action = createChangeIndicatorAction(createStringConstant("bar"));
 		
 		new RunnableAction(action).run(state);
 		
@@ -55,7 +55,7 @@ public class RunnableActionTests {
 		final Variable variable = createVariable("time");
 		final Action action = createChangeDisplayAction(variable);
 		
-		final Time variableValue = new Time();
+		final Time variableValue = Time.now();
 		when(state.getValueOf(variable)).thenReturn(variableValue);
 		
 		new RunnableAction(action).run(state);

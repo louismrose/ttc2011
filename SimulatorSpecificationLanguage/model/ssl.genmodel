@@ -37,9 +37,13 @@
     <genClasses image="false" ecoreClass="ssl.ecore#//Condition">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ssl.ecore#//Condition/given"/>
     </genClasses>
-    <genClasses ecoreClass="ssl.ecore#//CheckTimePastOther">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckTimePastOther/firstVariableName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckTimePastOther/secondVariableName"/>
+    <genClasses ecoreClass="ssl.ecore#//CheckVariableEqualsVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckVariableEqualsVariable/firstVariableName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckVariableEqualsVariable/secondVariableName"/>
+    </genClasses>
+    <genClasses ecoreClass="ssl.ecore#//CheckVariableEqualsTime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckVariableEqualsTime/firstVariableName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckVariableEqualsTime/time"/>
     </genClasses>
     <genClasses ecoreClass="ssl.ecore#//CheckMode">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ssl.ecore#//CheckMode/mode"/>

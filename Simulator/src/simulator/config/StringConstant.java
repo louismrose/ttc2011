@@ -4,26 +4,26 @@
  *
  * $Id$
  */
-package ssl;
+package simulator.config;
 
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Observe Label Value</b></em>'.
+ * A representation of the model object '<em><b>String Constant</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ssl.ObserveLabelValue#getValue <em>Value</em>}</li>
+ *   <li>{@link simulator.config.StringConstant#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see ssl.SslPackage#getObserveLabelValue()
+ * @see simulator.config.ConfigPackage#getStringConstant()
  * @model
  * @generated
  */
-public interface ObserveLabelValue extends ObserveOutput {
+public interface StringConstant extends Constant {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -34,14 +34,14 @@ public interface ObserveLabelValue extends ObserveOutput {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
-	 * @see ssl.SslPackage#getObserveLabelValue_Value()
-	 * @model
+	 * @see simulator.config.ConfigPackage#getStringConstant_Value()
+	 * @model required="true"
 	 * @generated
 	 */
 	String getValue();
 
 	/**
-	 * Sets the value of the '{@link ssl.ObserveLabelValue#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link simulator.config.StringConstant#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
@@ -50,4 +50,4 @@ public interface ObserveLabelValue extends ObserveOutput {
 	 */
 	void setValue(String value);
 
-} // ObserveLabelValue
+} // StringConstant

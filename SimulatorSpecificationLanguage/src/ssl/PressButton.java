@@ -25,29 +25,29 @@ package ssl;
  */
 public interface PressButton extends Action {
 	/**
-   * Returns the value of the '<em><b>Button</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Button</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Button</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-   * @return the value of the '<em>Button</em>' attribute.
-   * @see #setButton(String)
-   * @see ssl.SslPackage#getPressButton_Button()
-   * @model required="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Button</em>' attribute.
+	 * @see #setButton(String)
+	 * @see ssl.SslPackage#getPressButton_Button()
+	 * @model required="true"
+	 * @generated
+	 */
 	String getButton();
 
 	/**
-   * Sets the value of the '{@link ssl.PressButton#getButton <em>Button</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ssl.PressButton#getButton <em>Button</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Button</em>' attribute.
-   * @see #getButton()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Button</em>' attribute.
+	 * @see #getButton()
+	 * @generated
+	 */
 	void setButton(String value);
 
 } // PressButton

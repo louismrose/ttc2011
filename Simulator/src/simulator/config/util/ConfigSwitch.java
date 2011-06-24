@@ -253,6 +253,22 @@ public class ConfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ConfigPackage.STRING_CONSTANT: {
+				StringConstant stringConstant = (StringConstant)theEObject;
+				T result = caseStringConstant(stringConstant);
+				if (result == null) result = caseConstant(stringConstant);
+				if (result == null) result = caseDisplayable(stringConstant);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ConfigPackage.TIME_CONSTANT: {
+				TimeConstant timeConstant = (TimeConstant)theEObject;
+				T result = caseTimeConstant(timeConstant);
+				if (result == null) result = caseConstant(timeConstant);
+				if (result == null) result = caseDisplayable(timeConstant);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ConfigPackage.VARIABLE: {
 				Variable variable = (Variable)theEObject;
 				T result = caseVariable(variable);
@@ -621,6 +637,36 @@ public class ConfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseConstant(Constant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Constant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringConstant(StringConstant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Time Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Time Constant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTimeConstant(TimeConstant object) {
 		return null;
 	}
 

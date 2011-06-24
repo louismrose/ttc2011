@@ -13,7 +13,7 @@ package simulator.execution.model;
 import static org.junit.Assert.assertEquals;
 import static simulator.test.util.ConfigurationFactory.createChangeDisplayAction;
 import static simulator.test.util.ConfigurationFactory.createChangeIndicatorAction;
-import static simulator.test.util.ConfigurationFactory.createConstant;
+import static simulator.test.util.ConfigurationFactory.createStringConstant;
 import static simulator.test.util.ConfigurationFactory.createMode;
 
 import java.util.Arrays;
@@ -32,8 +32,8 @@ public class ModesTests {
 		final Mode secondMode = createMode("Second");
 		final Modes modes     = new Modes(Arrays.asList(firstMode, secondMode));
 		
-		final Action firstAction  = createChangeDisplayAction(createConstant("foo"));
-		final Action secondAction = createChangeIndicatorAction(createConstant("bar"));
+		final Action firstAction  = createChangeDisplayAction(createStringConstant("foo"));
+		final Action secondAction = createChangeIndicatorAction(createStringConstant("bar"));
 		
 		secondMode.getEntryActions().add(firstAction);
 		secondMode.getEntryActions().add(secondAction);

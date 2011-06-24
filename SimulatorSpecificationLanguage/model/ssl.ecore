@@ -37,11 +37,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="given" lowerBound="1" eType="#//Given"
         eOpposite="#//Given/conditions"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CheckTimePastOther" eSuperTypes="#//Condition">
+  <eClassifiers xsi:type="ecore:EClass" name="CheckVariableEqualsVariable" eSuperTypes="#//Condition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstVariableName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="secondVariableName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckVariableEqualsTime" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstVariableName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CheckMode" eSuperTypes="#//Condition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

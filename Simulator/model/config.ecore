@@ -77,8 +77,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" lowerBound="1" eType="#//UnitOfTime"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Displayable" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//Displayable">
+  <eClassifiers xsi:type="ecore:EClass" name="Constant" abstract="true" eSuperTypes="#//Displayable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringConstant" eSuperTypes="#//Constant">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeConstant" eSuperTypes="#//Constant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minutes" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Displayable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

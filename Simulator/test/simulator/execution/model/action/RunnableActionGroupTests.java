@@ -16,7 +16,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static simulator.test.util.ConfigurationFactory.createChangeDisplayAction;
-import static simulator.test.util.ConfigurationFactory.createConstant;
+import static simulator.test.util.ConfigurationFactory.createStringConstant;
 import static simulator.test.util.ConfigurationFactory.createDisplayMatchesCondition;
 
 import org.junit.Test;
@@ -68,8 +68,8 @@ public class RunnableActionGroupTests {
 	}
 
 	private RunnableAction createConditionalChangeDisplayAction(String requiredText, String newText) {
-		final ChangeDisplay action = createChangeDisplayAction(createConstant(newText));
-		action.setGuard(createDisplayMatchesCondition(createConstant(requiredText)));
+		final ChangeDisplay action = createChangeDisplayAction(createStringConstant(newText));
+		action.setGuard(createDisplayMatchesCondition(createStringConstant(requiredText)));
 		return new RunnableAction(action);
 	}
 }

@@ -76,8 +76,12 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 			print_ssl_CheckLabel((ssl.CheckLabel) element, globaltab, out);
 			return;
 		}
-		if (element instanceof ssl.CheckTimePastOther) {
-			print_ssl_CheckTimePastOther((ssl.CheckTimePastOther) element, globaltab, out);
+		if (element instanceof ssl.CheckVariableEqualsVariable) {
+			print_ssl_CheckVariableEqualsVariable((ssl.CheckVariableEqualsVariable) element, globaltab, out);
+			return;
+		}
+		if (element instanceof ssl.CheckVariableEqualsTime) {
+			print_ssl_CheckVariableEqualsTime((ssl.CheckVariableEqualsTime) element, globaltab, out);
 			return;
 		}
 		if (element instanceof ssl.EntersMode) {
@@ -463,7 +467,7 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		out.print(" ");
 	}
 	
-	public void print_ssl_CheckTimePastOther(ssl.CheckTimePastOther element, String outertab, java.io.PrintWriter out) {
+	public void print_ssl_CheckVariableEqualsVariable(ssl.CheckVariableEqualsVariable element, String outertab, java.io.PrintWriter out) {
 		// The printCountingMap contains a mapping from feature names to the number of
 		// remaining elements that still need to be printed. The map is initialized with
 		// the number of elements stored in each structural feature. For lists this is the
@@ -471,40 +475,85 @@ public class SslPrinter implements ssl.resource.ssl.ISslTextPrinter {
 		// 0 (if the feature is null).
 		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
 		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__GIVEN));
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__GIVEN));
 		printCountingMap.put("given", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME));
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__FIRST_VARIABLE_NAME));
 		printCountingMap.put("firstVariableName", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME));
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__SECOND_VARIABLE_NAME));
 		printCountingMap.put("secondVariableName", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("firstVariableName");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__FIRST_VARIABLE_NAME));
 			if (o != null) {
 				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
 				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME), element));
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__FIRST_VARIABLE_NAME), element));
 				out.print(" ");
 			}
 			printCountingMap.put("firstVariableName", count - 1);
 		}
 		// DEFINITION PART BEGINS (CsString)
-		out.print(" is past ");
+		out.print(" is equal to ");
 		out.print(" ");
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("secondVariableName");
 		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME));
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__SECOND_VARIABLE_NAME));
 			if (o != null) {
 				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
 				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME), element));
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__SECOND_VARIABLE_NAME), element));
 				out.print(" ");
 			}
 			printCountingMap.put("secondVariableName", count - 1);
+		}
+	}
+	
+	public void print_ssl_CheckVariableEqualsTime(ssl.CheckVariableEqualsTime element, String outertab, java.io.PrintWriter out) {
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__GIVEN));
+		printCountingMap.put("given", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__FIRST_VARIABLE_NAME));
+		printCountingMap.put("firstVariableName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__TIME));
+		printCountingMap.put("time", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		int count;
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("firstVariableName");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__FIRST_VARIABLE_NAME));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__FIRST_VARIABLE_NAME), element));
+				out.print(" ");
+			}
+			printCountingMap.put("firstVariableName", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(" is equal to time ");
+		out.print(" ");
+		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
+		count = printCountingMap.get("time");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__TIME));
+			if (o != null) {
+				ssl.resource.ssl.ISslTokenResolver resolver = tokenResolverFactory.createTokenResolver("TEXT");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__TIME), element));
+				out.print(" ");
+			}
+			printCountingMap.put("time", count - 1);
 		}
 	}
 	

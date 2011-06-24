@@ -17,6 +17,5 @@ package ssl;
  * @model
  * @generated
  */
-public interface ObserveRing extends Observation
-{
+public interface ObserveRing extends Observation {
 } // ObserveRing

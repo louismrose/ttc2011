@@ -39,7 +39,7 @@ public class StateTests {
 	public void variableShouldBeSharedBetweenModes() throws Exception {
 		final State state = new State(2);
 		
-		final Time value = new Time();
+		final Time value = Time.now();
 		state.setValueOf(variable, value);
 		state.nextMode();
 		
@@ -51,7 +51,7 @@ public class StateTests {
 		final State state = new State();
 		
 		state.initialiseValueOf(variable);
-		assertEquals(new Time(), state.getValueOf(variable));
+		assertEquals(Time.now(), state.getValueOf(variable));
 	}
 	
 	@Test

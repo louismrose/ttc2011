@@ -75,8 +75,15 @@ class IncrementTimeVariable extends Expression {
 
 abstract class Displayable {}
 
-class Constant extends Displayable {
+abstract class Constant extends Displayable {} 
+
+class StringConstant extends Constant {
    attr String[1] value;
+}
+
+class TimeConstant extends Constant {
+   attr Integer[1] hours;
+   attr Integer[1] minutes;
 }
 
 class Variable extends Displayable {

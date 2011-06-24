@@ -8,8 +8,9 @@ import java.util.HashMap;
 @SuppressWarnings("unused")
 public class SslParser extends SslANTLRParserBase {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "TEXT", "WHITESPACE", "LINEBREAK", "'Given'", "'When'", "'Then'", "'the watch is in mode \\\"'", "'\\\"'", "'the \\\"'", "'\\\" is showing \\\"'", "' is past '", "'the watch enters mode \\\"'", "'the '", "' button is pressed'", "'the watch must be in mode \\\"'", "' button must be called \\\"'", "'\\\" must show \\\"'", "'\\\" must show the '", "' must be incremented by 1 '", "'the alarm must ring'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "TEXT", "WHITESPACE", "LINEBREAK", "'Given'", "'When'", "'Then'", "'the watch is in mode \\\"'", "'\\\"'", "'the \\\"'", "'\\\" is showing \\\"'", "' is equal to '", "' is equal to time '", "'the watch enters mode \\\"'", "'the '", "' button is pressed'", "'the watch must be in mode \\\"'", "' button must be called \\\"'", "'\\\" must show \\\"'", "'\\\" must show the '", "' must be incremented by 1 '", "'the alarm must ring'"
     };
+    public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
     public static final int T__21=21;
@@ -41,7 +42,7 @@ public class SslParser extends SslANTLRParserBase {
         }
         public SslParser(TokenStream input, RecognizerSharedState state) {
             super(input, state);
-            this.state.ruleMemo = new HashMap[36+1];
+            this.state.ruleMemo = new HashMap[38+1];
              
              
         }
@@ -326,8 +327,11 @@ public class SslParser extends SslANTLRParserBase {
     			if (type.getInstanceClass() == ssl.CheckLabel.class) {
     				return parse_ssl_CheckLabel();
     			}
-    			if (type.getInstanceClass() == ssl.CheckTimePastOther.class) {
-    				return parse_ssl_CheckTimePastOther();
+    			if (type.getInstanceClass() == ssl.CheckVariableEqualsVariable.class) {
+    				return parse_ssl_CheckVariableEqualsVariable();
+    			}
+    			if (type.getInstanceClass() == ssl.CheckVariableEqualsTime.class) {
+    				return parse_ssl_CheckVariableEqualsTime();
     			}
     			if (type.getInstanceClass() == ssl.EntersMode.class) {
     				return parse_ssl_EntersMode();
@@ -464,7 +468,7 @@ public class SslParser extends SslANTLRParserBase {
     				break;
     			}
     		}
-    		int followSetID = 53;
+    		int followSetID = 56;
     		int i;
     		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
     			org.antlr.runtime3_2_0.CommonToken nextToken = (org.antlr.runtime3_2_0.CommonToken) tokenStream.get(i);
@@ -739,7 +743,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "start"
-    // Ssl.g:713:1: start returns [ org.eclipse.emf.ecore.EObject element = null] : (c0= parse_ssl_Specification ) EOF ;
+    // Ssl.g:716:1: start returns [ org.eclipse.emf.ecore.EObject element = null] : (c0= parse_ssl_Specification ) EOF ;
     public final org.eclipse.emf.ecore.EObject start() throws RecognitionException {
         org.eclipse.emf.ecore.EObject element =  null;
         int start_StartIndex = input.index();
@@ -748,8 +752,8 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return element; }
-            // Ssl.g:714:1: ( (c0= parse_ssl_Specification ) EOF )
-            // Ssl.g:715:2: (c0= parse_ssl_Specification ) EOF
+            // Ssl.g:717:1: ( (c0= parse_ssl_Specification ) EOF )
+            // Ssl.g:718:2: (c0= parse_ssl_Specification ) EOF
             {
             if ( state.backtracking==0 ) {
 
@@ -759,8 +763,8 @@ public class SslParser extends SslANTLRParserBase {
               		expectedElementsIndexOfLastCompleteElement = expectedElements.size() - 1;
               	
             }
-            // Ssl.g:721:2: (c0= parse_ssl_Specification )
-            // Ssl.g:722:3: c0= parse_ssl_Specification
+            // Ssl.g:724:2: (c0= parse_ssl_Specification )
+            // Ssl.g:725:3: c0= parse_ssl_Specification
             {
             pushFollow(FOLLOW_parse_ssl_Specification_in_start82);
             c0=parse_ssl_Specification();
@@ -791,7 +795,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_Specification"
-    // Ssl.g:727:1: parse_ssl_Specification returns [ssl.Specification element = null] : ( (a0_0= parse_ssl_Testcase ) )* ;
+    // Ssl.g:730:1: parse_ssl_Specification returns [ssl.Specification element = null] : ( (a0_0= parse_ssl_Testcase ) )* ;
     public final ssl.Specification parse_ssl_Specification() throws RecognitionException {
         ssl.Specification element =  null;
         int parse_ssl_Specification_StartIndex = input.index();
@@ -802,10 +806,10 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return element; }
-            // Ssl.g:730:1: ( ( (a0_0= parse_ssl_Testcase ) )* )
-            // Ssl.g:731:2: ( (a0_0= parse_ssl_Testcase ) )*
+            // Ssl.g:733:1: ( ( (a0_0= parse_ssl_Testcase ) )* )
+            // Ssl.g:734:2: ( (a0_0= parse_ssl_Testcase ) )*
             {
-            // Ssl.g:731:2: ( (a0_0= parse_ssl_Testcase ) )*
+            // Ssl.g:734:2: ( (a0_0= parse_ssl_Testcase ) )*
             loop1:
             do {
                 int alt1=2;
@@ -818,10 +822,10 @@ public class SslParser extends SslANTLRParserBase {
 
                 switch (alt1) {
             	case 1 :
-            	    // Ssl.g:732:3: (a0_0= parse_ssl_Testcase )
+            	    // Ssl.g:735:3: (a0_0= parse_ssl_Testcase )
             	    {
-            	    // Ssl.g:732:3: (a0_0= parse_ssl_Testcase )
-            	    // Ssl.g:733:4: a0_0= parse_ssl_Testcase
+            	    // Ssl.g:735:3: (a0_0= parse_ssl_Testcase )
+            	    // Ssl.g:736:4: a0_0= parse_ssl_Testcase
             	    {
             	    pushFollow(FOLLOW_parse_ssl_Testcase_in_parse_ssl_Specification121);
             	    a0_0=parse_ssl_Testcase();
@@ -885,7 +889,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_Testcase"
-    // Ssl.g:762:1: parse_ssl_Testcase returns [ssl.Testcase element = null] : ( ( (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then ) ) | ( (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then ) ) );
+    // Ssl.g:765:1: parse_ssl_Testcase returns [ssl.Testcase element = null] : ( ( (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then ) ) | ( (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then ) ) );
     public final ssl.Testcase parse_ssl_Testcase() throws RecognitionException {
         ssl.Testcase element =  null;
         int parse_ssl_Testcase_StartIndex = input.index();
@@ -904,7 +908,7 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return element; }
-            // Ssl.g:765:1: ( ( (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then ) ) | ( (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then ) ) )
+            // Ssl.g:768:1: ( ( (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then ) ) | ( (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then ) ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -923,13 +927,13 @@ public class SslParser extends SslANTLRParserBase {
             }
             switch (alt3) {
                 case 1 :
-                    // Ssl.g:766:2: ( (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then ) )
+                    // Ssl.g:769:2: ( (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then ) )
                     {
-                    // Ssl.g:766:2: ( (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then ) )
-                    // Ssl.g:767:3: (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then )
+                    // Ssl.g:769:2: ( (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then ) )
+                    // Ssl.g:770:3: (a0_0= parse_ssl_Given ) ( (a1_0= parse_ssl_When ) )? (a2_0= parse_ssl_Then )
                     {
-                    // Ssl.g:767:3: (a0_0= parse_ssl_Given )
-                    // Ssl.g:768:4: a0_0= parse_ssl_Given
+                    // Ssl.g:770:3: (a0_0= parse_ssl_Given )
+                    // Ssl.g:771:4: a0_0= parse_ssl_Given
                     {
                     pushFollow(FOLLOW_parse_ssl_Given_in_parse_ssl_Testcase171);
                     a0_0=parse_ssl_Given();
@@ -967,7 +971,7 @@ public class SslParser extends SslANTLRParserBase {
                       			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
                       		
                     }
-                    // Ssl.g:794:3: ( (a1_0= parse_ssl_When ) )?
+                    // Ssl.g:797:3: ( (a1_0= parse_ssl_When ) )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -976,10 +980,10 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     switch (alt2) {
                         case 1 :
-                            // Ssl.g:795:4: (a1_0= parse_ssl_When )
+                            // Ssl.g:798:4: (a1_0= parse_ssl_When )
                             {
-                            // Ssl.g:795:4: (a1_0= parse_ssl_When )
-                            // Ssl.g:796:5: a1_0= parse_ssl_When
+                            // Ssl.g:798:4: (a1_0= parse_ssl_When )
+                            // Ssl.g:799:5: a1_0= parse_ssl_When
                             {
                             pushFollow(FOLLOW_parse_ssl_When_in_parse_ssl_Testcase205);
                             a1_0=parse_ssl_When();
@@ -1022,8 +1026,8 @@ public class SslParser extends SslANTLRParserBase {
                       			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 3, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
                       		
                     }
-                    // Ssl.g:822:3: (a2_0= parse_ssl_Then )
-                    // Ssl.g:823:4: a2_0= parse_ssl_Then
+                    // Ssl.g:825:3: (a2_0= parse_ssl_Then )
+                    // Ssl.g:826:4: a2_0= parse_ssl_Then
                     {
                     pushFollow(FOLLOW_parse_ssl_Then_in_parse_ssl_Testcase243);
                     a2_0=parse_ssl_Then();
@@ -1075,13 +1079,13 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Ssl.g:857:4: ( (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then ) )
+                    // Ssl.g:860:4: ( (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then ) )
                     {
-                    // Ssl.g:857:4: ( (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then ) )
-                    // Ssl.g:858:3: (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then )
+                    // Ssl.g:860:4: ( (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then ) )
+                    // Ssl.g:861:3: (a3_0= parse_ssl_When ) (a4_0= parse_ssl_Then )
                     {
-                    // Ssl.g:858:3: (a3_0= parse_ssl_When )
-                    // Ssl.g:859:4: a3_0= parse_ssl_When
+                    // Ssl.g:861:3: (a3_0= parse_ssl_When )
+                    // Ssl.g:862:4: a3_0= parse_ssl_When
                     {
                     pushFollow(FOLLOW_parse_ssl_When_in_parse_ssl_Testcase286);
                     a3_0=parse_ssl_When();
@@ -1118,8 +1122,8 @@ public class SslParser extends SslANTLRParserBase {
                       			addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 6, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
                       		
                     }
-                    // Ssl.g:884:3: (a4_0= parse_ssl_Then )
-                    // Ssl.g:885:4: a4_0= parse_ssl_Then
+                    // Ssl.g:887:3: (a4_0= parse_ssl_Then )
+                    // Ssl.g:888:4: a4_0= parse_ssl_Then
                     {
                     pushFollow(FOLLOW_parse_ssl_Then_in_parse_ssl_Testcase314);
                     a4_0=parse_ssl_Then();
@@ -1186,7 +1190,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_Given"
-    // Ssl.g:920:1: parse_ssl_Given returns [ssl.Given element = null] : a0= 'Given' ( (a1_0= parse_ssl_Condition ) )+ ;
+    // Ssl.g:923:1: parse_ssl_Given returns [ssl.Given element = null] : a0= 'Given' ( (a1_0= parse_ssl_Condition ) )+ ;
     public final ssl.Given parse_ssl_Given() throws RecognitionException {
         ssl.Given element =  null;
         int parse_ssl_Given_StartIndex = input.index();
@@ -1198,8 +1202,8 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return element; }
-            // Ssl.g:923:1: (a0= 'Given' ( (a1_0= parse_ssl_Condition ) )+ )
-            // Ssl.g:924:2: a0= 'Given' ( (a1_0= parse_ssl_Condition ) )+
+            // Ssl.g:926:1: (a0= 'Given' ( (a1_0= parse_ssl_Condition ) )+ )
+            // Ssl.g:927:2: a0= 'Given' ( (a1_0= parse_ssl_Condition ) )+
             {
             a0=(Token)match(input,7,FOLLOW_7_in_parse_ssl_Given359); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1220,9 +1224,10 @@ public class SslParser extends SslANTLRParserBase {
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 9, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               	
             }
-            // Ssl.g:941:2: ( (a1_0= parse_ssl_Condition ) )+
+            // Ssl.g:945:2: ( (a1_0= parse_ssl_Condition ) )+
             int cnt4=0;
             loop4:
             do {
@@ -1236,10 +1241,10 @@ public class SslParser extends SslANTLRParserBase {
 
                 switch (alt4) {
             	case 1 :
-            	    // Ssl.g:942:3: (a1_0= parse_ssl_Condition )
+            	    // Ssl.g:946:3: (a1_0= parse_ssl_Condition )
             	    {
-            	    // Ssl.g:942:3: (a1_0= parse_ssl_Condition )
-            	    // Ssl.g:943:4: a1_0= parse_ssl_Condition
+            	    // Ssl.g:946:3: (a1_0= parse_ssl_Condition )
+            	    // Ssl.g:947:4: a1_0= parse_ssl_Condition
             	    {
             	    pushFollow(FOLLOW_parse_ssl_Condition_in_parse_ssl_Given382);
             	    a1_0=parse_ssl_Condition();
@@ -1290,6 +1295,7 @@ public class SslParser extends SslANTLRParserBase {
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 10, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
               	
@@ -1311,7 +1317,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_When"
-    // Ssl.g:975:1: parse_ssl_When returns [ssl.When element = null] : a0= 'When' ( (a1_0= parse_ssl_Action ) )+ ;
+    // Ssl.g:980:1: parse_ssl_When returns [ssl.When element = null] : a0= 'When' ( (a1_0= parse_ssl_Action ) )+ ;
     public final ssl.When parse_ssl_When() throws RecognitionException {
         ssl.When element =  null;
         int parse_ssl_When_StartIndex = input.index();
@@ -1323,8 +1329,8 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return element; }
-            // Ssl.g:978:1: (a0= 'When' ( (a1_0= parse_ssl_Action ) )+ )
-            // Ssl.g:979:2: a0= 'When' ( (a1_0= parse_ssl_Action ) )+
+            // Ssl.g:983:1: (a0= 'When' ( (a1_0= parse_ssl_Action ) )+ )
+            // Ssl.g:984:2: a0= 'When' ( (a1_0= parse_ssl_Action ) )+
             {
             a0=(Token)match(input,8,FOLLOW_8_in_parse_ssl_When423); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1342,28 +1348,28 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 11, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 11, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 11, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
               	
             }
-            // Ssl.g:995:2: ( (a1_0= parse_ssl_Action ) )+
+            // Ssl.g:1000:2: ( (a1_0= parse_ssl_Action ) )+
             int cnt5=0;
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( ((LA5_0>=15 && LA5_0<=16)) ) {
+                if ( ((LA5_0>=16 && LA5_0<=17)) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // Ssl.g:996:3: (a1_0= parse_ssl_Action )
+            	    // Ssl.g:1001:3: (a1_0= parse_ssl_Action )
             	    {
-            	    // Ssl.g:996:3: (a1_0= parse_ssl_Action )
-            	    // Ssl.g:997:4: a1_0= parse_ssl_Action
+            	    // Ssl.g:1001:3: (a1_0= parse_ssl_Action )
+            	    // Ssl.g:1002:4: a1_0= parse_ssl_Action
             	    {
             	    pushFollow(FOLLOW_parse_ssl_Action_in_parse_ssl_When446);
             	    a1_0=parse_ssl_Action();
@@ -1411,8 +1417,8 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 12, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 12, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 12, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 12, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
               	
             }
@@ -1433,7 +1439,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_Then"
-    // Ssl.g:1027:1: parse_ssl_Then returns [ssl.Then element = null] : a0= 'Then' ( (a1_0= parse_ssl_Observation ) )+ ;
+    // Ssl.g:1032:1: parse_ssl_Then returns [ssl.Then element = null] : a0= 'Then' ( (a1_0= parse_ssl_Observation ) )+ ;
     public final ssl.Then parse_ssl_Then() throws RecognitionException {
         ssl.Then element =  null;
         int parse_ssl_Then_StartIndex = input.index();
@@ -1445,8 +1451,8 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return element; }
-            // Ssl.g:1030:1: (a0= 'Then' ( (a1_0= parse_ssl_Observation ) )+ )
-            // Ssl.g:1031:2: a0= 'Then' ( (a1_0= parse_ssl_Observation ) )+
+            // Ssl.g:1035:1: (a0= 'Then' ( (a1_0= parse_ssl_Observation ) )+ )
+            // Ssl.g:1036:2: a0= 'Then' ( (a1_0= parse_ssl_Observation ) )+
             {
             a0=(Token)match(input,9,FOLLOW_9_in_parse_ssl_Then487); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1464,32 +1470,32 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 13, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               	
             }
-            // Ssl.g:1051:2: ( (a1_0= parse_ssl_Observation ) )+
+            // Ssl.g:1056:2: ( (a1_0= parse_ssl_Observation ) )+
             int cnt6=0;
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==TEXT||LA6_0==12||LA6_0==16||LA6_0==18||LA6_0==23) ) {
+                if ( (LA6_0==TEXT||LA6_0==12||LA6_0==17||LA6_0==19||LA6_0==24) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // Ssl.g:1052:3: (a1_0= parse_ssl_Observation )
+            	    // Ssl.g:1057:3: (a1_0= parse_ssl_Observation )
             	    {
-            	    // Ssl.g:1052:3: (a1_0= parse_ssl_Observation )
-            	    // Ssl.g:1053:4: a1_0= parse_ssl_Observation
+            	    // Ssl.g:1057:3: (a1_0= parse_ssl_Observation )
+            	    // Ssl.g:1058:4: a1_0= parse_ssl_Observation
             	    {
             	    pushFollow(FOLLOW_parse_ssl_Observation_in_parse_ssl_Then510);
             	    a1_0=parse_ssl_Observation();
@@ -1537,12 +1543,12 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 14, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
               	
@@ -1564,7 +1570,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_CheckMode"
-    // Ssl.g:1088:1: parse_ssl_CheckMode returns [ssl.CheckMode element = null] : a0= 'the watch is in mode \\\"' (a1= TEXT ) a2= '\\\"' ;
+    // Ssl.g:1093:1: parse_ssl_CheckMode returns [ssl.CheckMode element = null] : a0= 'the watch is in mode \\\"' (a1= TEXT ) a2= '\\\"' ;
     public final ssl.CheckMode parse_ssl_CheckMode() throws RecognitionException {
         ssl.CheckMode element =  null;
         int parse_ssl_CheckMode_StartIndex = input.index();
@@ -1576,8 +1582,8 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return element; }
-            // Ssl.g:1091:1: (a0= 'the watch is in mode \\\"' (a1= TEXT ) a2= '\\\"' )
-            // Ssl.g:1092:2: a0= 'the watch is in mode \\\"' (a1= TEXT ) a2= '\\\"'
+            // Ssl.g:1096:1: (a0= 'the watch is in mode \\\"' (a1= TEXT ) a2= '\\\"' )
+            // Ssl.g:1097:2: a0= 'the watch is in mode \\\"' (a1= TEXT ) a2= '\\\"'
             {
             a0=(Token)match(input,10,FOLLOW_10_in_parse_ssl_CheckMode551); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1595,11 +1601,11 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 15);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_15, 15);
               	
             }
-            // Ssl.g:1107:2: (a1= TEXT )
-            // Ssl.g:1108:3: a1= TEXT
+            // Ssl.g:1112:2: (a1= TEXT )
+            // Ssl.g:1113:3: a1= TEXT
             {
             a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckMode569); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1638,7 +1644,7 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_15, 16);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_16, 16);
               	
             }
             a2=(Token)match(input,11,FOLLOW_11_in_parse_ssl_CheckMode590); if (state.failed) return element;
@@ -1660,6 +1666,7 @@ public class SslParser extends SslANTLRParserBase {
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 17, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
               	
@@ -1681,7 +1688,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_CheckLabel"
-    // Ssl.g:1164:1: parse_ssl_CheckLabel returns [ssl.CheckLabel element = null] : a0= 'the \\\"' (a1= TEXT ) a2= '\\\" is showing \\\"' ( (a3= TEXT ) )? a4= '\\\"' ;
+    // Ssl.g:1170:1: parse_ssl_CheckLabel returns [ssl.CheckLabel element = null] : a0= 'the \\\"' (a1= TEXT ) a2= '\\\" is showing \\\"' ( (a3= TEXT ) )? a4= '\\\"' ;
     public final ssl.CheckLabel parse_ssl_CheckLabel() throws RecognitionException {
         ssl.CheckLabel element =  null;
         int parse_ssl_CheckLabel_StartIndex = input.index();
@@ -1695,8 +1702,8 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return element; }
-            // Ssl.g:1167:1: (a0= 'the \\\"' (a1= TEXT ) a2= '\\\" is showing \\\"' ( (a3= TEXT ) )? a4= '\\\"' )
-            // Ssl.g:1168:2: a0= 'the \\\"' (a1= TEXT ) a2= '\\\" is showing \\\"' ( (a3= TEXT ) )? a4= '\\\"'
+            // Ssl.g:1173:1: (a0= 'the \\\"' (a1= TEXT ) a2= '\\\" is showing \\\"' ( (a3= TEXT ) )? a4= '\\\"' )
+            // Ssl.g:1174:2: a0= 'the \\\"' (a1= TEXT ) a2= '\\\" is showing \\\"' ( (a3= TEXT ) )? a4= '\\\"'
             {
             a0=(Token)match(input,12,FOLLOW_12_in_parse_ssl_CheckLabel619); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1714,11 +1721,11 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_16, 18);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_17, 18);
               	
             }
-            // Ssl.g:1183:2: (a1= TEXT )
-            // Ssl.g:1184:3: a1= TEXT
+            // Ssl.g:1189:2: (a1= TEXT )
+            // Ssl.g:1190:3: a1= TEXT
             {
             a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckLabel637); if (state.failed) return element;
             if ( state.backtracking==0 ) {
@@ -1757,7 +1764,7 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_17, 19);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_18, 19);
               	
             }
             a2=(Token)match(input,13,FOLLOW_13_in_parse_ssl_CheckLabel658); if (state.failed) return element;
@@ -1776,11 +1783,11 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_18, 20);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_19, 20);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_20, 20);
               	
             }
-            // Ssl.g:1235:2: ( (a3= TEXT ) )?
+            // Ssl.g:1241:2: ( (a3= TEXT ) )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1789,10 +1796,10 @@ public class SslParser extends SslANTLRParserBase {
             }
             switch (alt7) {
                 case 1 :
-                    // Ssl.g:1236:3: (a3= TEXT )
+                    // Ssl.g:1242:3: (a3= TEXT )
                     {
-                    // Ssl.g:1236:3: (a3= TEXT )
-                    // Ssl.g:1237:4: a3= TEXT
+                    // Ssl.g:1242:3: (a3= TEXT )
+                    // Ssl.g:1243:4: a3= TEXT
                     {
                     a3=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckLabel681); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
@@ -1837,7 +1844,7 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_19, 21);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_20, 21);
               	
             }
             a4=(Token)match(input,11,FOLLOW_11_in_parse_ssl_CheckLabel711); if (state.failed) return element;
@@ -1859,6 +1866,7 @@ public class SslParser extends SslANTLRParserBase {
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 22, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
               	
@@ -1879,11 +1887,11 @@ public class SslParser extends SslANTLRParserBase {
     // $ANTLR end "parse_ssl_CheckLabel"
 
 
-    // $ANTLR start "parse_ssl_CheckTimePastOther"
-    // Ssl.g:1294:1: parse_ssl_CheckTimePastOther returns [ssl.CheckTimePastOther element = null] : (a0= TEXT ) a1= ' is past ' (a2= TEXT ) ;
-    public final ssl.CheckTimePastOther parse_ssl_CheckTimePastOther() throws RecognitionException {
-        ssl.CheckTimePastOther element =  null;
-        int parse_ssl_CheckTimePastOther_StartIndex = input.index();
+    // $ANTLR start "parse_ssl_CheckVariableEqualsVariable"
+    // Ssl.g:1301:1: parse_ssl_CheckVariableEqualsVariable returns [ssl.CheckVariableEqualsVariable element = null] : (a0= TEXT ) a1= ' is equal to ' (a2= TEXT ) ;
+    public final ssl.CheckVariableEqualsVariable parse_ssl_CheckVariableEqualsVariable() throws RecognitionException {
+        ssl.CheckVariableEqualsVariable element =  null;
+        int parse_ssl_CheckVariableEqualsVariable_StartIndex = input.index();
         Token a0=null;
         Token a1=null;
         Token a2=null;
@@ -1892,20 +1900,20 @@ public class SslParser extends SslANTLRParserBase {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return element; }
-            // Ssl.g:1297:1: ( (a0= TEXT ) a1= ' is past ' (a2= TEXT ) )
-            // Ssl.g:1298:2: (a0= TEXT ) a1= ' is past ' (a2= TEXT )
+            // Ssl.g:1304:1: ( (a0= TEXT ) a1= ' is equal to ' (a2= TEXT ) )
+            // Ssl.g:1305:2: (a0= TEXT ) a1= ' is equal to ' (a2= TEXT )
             {
-            // Ssl.g:1298:2: (a0= TEXT )
-            // Ssl.g:1299:3: a0= TEXT
+            // Ssl.g:1305:2: (a0= TEXT )
+            // Ssl.g:1306:3: a0= TEXT
             {
-            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckTimePastOther744); if (state.failed) return element;
+            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckVariableEqualsVariable744); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
               				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
               			}
               			if (element == null) {
-              				element = ssl.SslFactory.eINSTANCE.createCheckTimePastOther();
+              				element = ssl.SslFactory.eINSTANCE.createCheckVariableEqualsVariable();
               				incompleteObjects.push(element);
               				// initialize boolean attributes
               			}
@@ -1913,14 +1921,14 @@ public class SslParser extends SslANTLRParserBase {
               				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
               				tokenResolver.setOptions(getOptions());
               				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
-              				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME), result);
+              				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__FIRST_VARIABLE_NAME), result);
               				Object resolvedObject = result.getResolvedToken();
               				if (resolvedObject == null) {
               					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
               				}
               				java.lang.String resolved = (java.lang.String)resolvedObject;
               				if (resolved != null) {
-              					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__FIRST_VARIABLE_NAME), resolved);
+              					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__FIRST_VARIABLE_NAME), resolved);
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
@@ -1935,14 +1943,14 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_20, 23);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_21, 23);
               	
             }
-            a1=(Token)match(input,14,FOLLOW_14_in_parse_ssl_CheckTimePastOther765); if (state.failed) return element;
+            a1=(Token)match(input,14,FOLLOW_14_in_parse_ssl_CheckVariableEqualsVariable765); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
-              			element = ssl.SslFactory.eINSTANCE.createCheckTimePastOther();
+              			element = ssl.SslFactory.eINSTANCE.createCheckVariableEqualsVariable();
               			incompleteObjects.push(element);
               			// initialize boolean attributes
               		}
@@ -1954,20 +1962,20 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_21, 24);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_22, 24);
               	
             }
-            // Ssl.g:1349:2: (a2= TEXT )
-            // Ssl.g:1350:3: a2= TEXT
+            // Ssl.g:1356:2: (a2= TEXT )
+            // Ssl.g:1357:3: a2= TEXT
             {
-            a2=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckTimePastOther783); if (state.failed) return element;
+            a2=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckVariableEqualsVariable783); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
               				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
               			}
               			if (element == null) {
-              				element = ssl.SslFactory.eINSTANCE.createCheckTimePastOther();
+              				element = ssl.SslFactory.eINSTANCE.createCheckVariableEqualsVariable();
               				incompleteObjects.push(element);
               				// initialize boolean attributes
               			}
@@ -1975,14 +1983,14 @@ public class SslParser extends SslANTLRParserBase {
               				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
               				tokenResolver.setOptions(getOptions());
               				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
-              				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME), result);
+              				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__SECOND_VARIABLE_NAME), result);
               				Object resolvedObject = result.getResolvedToken();
               				if (resolvedObject == null) {
               					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStopIndex());
               				}
               				java.lang.String resolved = (java.lang.String)resolvedObject;
               				if (resolved != null) {
-              					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_TIME_PAST_OTHER__SECOND_VARIABLE_NAME), resolved);
+              					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_VARIABLE__SECOND_VARIABLE_NAME), resolved);
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
@@ -2000,6 +2008,7 @@ public class SslParser extends SslANTLRParserBase {
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
               		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 25, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
               	
@@ -2013,15 +2022,157 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 9, parse_ssl_CheckTimePastOther_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 9, parse_ssl_CheckVariableEqualsVariable_StartIndex); }
         }
         return element;
     }
-    // $ANTLR end "parse_ssl_CheckTimePastOther"
+    // $ANTLR end "parse_ssl_CheckVariableEqualsVariable"
+
+
+    // $ANTLR start "parse_ssl_CheckVariableEqualsTime"
+    // Ssl.g:1399:1: parse_ssl_CheckVariableEqualsTime returns [ssl.CheckVariableEqualsTime element = null] : (a0= TEXT ) a1= ' is equal to time ' (a2= TEXT ) ;
+    public final ssl.CheckVariableEqualsTime parse_ssl_CheckVariableEqualsTime() throws RecognitionException {
+        ssl.CheckVariableEqualsTime element =  null;
+        int parse_ssl_CheckVariableEqualsTime_StartIndex = input.index();
+        Token a0=null;
+        Token a1=null;
+        Token a2=null;
+
+
+
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return element; }
+            // Ssl.g:1402:1: ( (a0= TEXT ) a1= ' is equal to time ' (a2= TEXT ) )
+            // Ssl.g:1403:2: (a0= TEXT ) a1= ' is equal to time ' (a2= TEXT )
+            {
+            // Ssl.g:1403:2: (a0= TEXT )
+            // Ssl.g:1404:3: a0= TEXT
+            {
+            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckVariableEqualsTime823); if (state.failed) return element;
+            if ( state.backtracking==0 ) {
+
+              			if (terminateParsing) {
+              				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+              			}
+              			if (element == null) {
+              				element = ssl.SslFactory.eINSTANCE.createCheckVariableEqualsTime();
+              				incompleteObjects.push(element);
+              				// initialize boolean attributes
+              			}
+              			if (a0 != null) {
+              				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+              				tokenResolver.setOptions(getOptions());
+              				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+              				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__FIRST_VARIABLE_NAME), result);
+              				Object resolvedObject = result.getResolvedToken();
+              				if (resolvedObject == null) {
+              					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a0).getStopIndex());
+              				}
+              				java.lang.String resolved = (java.lang.String)resolvedObject;
+              				if (resolved != null) {
+              					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__FIRST_VARIABLE_NAME), resolved);
+              					completedElement(resolved, false);
+              				}
+              				collectHiddenTokens(element);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_0, resolved);
+              				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
+              			}
+              		
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              		// expected elements (follow set)
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_23, 26);
+              	
+            }
+            a1=(Token)match(input,15,FOLLOW_15_in_parse_ssl_CheckVariableEqualsTime844); if (state.failed) return element;
+            if ( state.backtracking==0 ) {
+
+              		if (element == null) {
+              			element = ssl.SslFactory.eINSTANCE.createCheckVariableEqualsTime();
+              			incompleteObjects.push(element);
+              			// initialize boolean attributes
+              		}
+              		collectHiddenTokens(element);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_1, null);
+              		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
+              	
+            }
+            if ( state.backtracking==0 ) {
+
+              		// expected elements (follow set)
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_24, 27);
+              	
+            }
+            // Ssl.g:1454:2: (a2= TEXT )
+            // Ssl.g:1455:3: a2= TEXT
+            {
+            a2=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_CheckVariableEqualsTime862); if (state.failed) return element;
+            if ( state.backtracking==0 ) {
+
+              			if (terminateParsing) {
+              				throw new ssl.resource.ssl.mopp.SslTerminateParsingException();
+              			}
+              			if (element == null) {
+              				element = ssl.SslFactory.eINSTANCE.createCheckVariableEqualsTime();
+              				incompleteObjects.push(element);
+              				// initialize boolean attributes
+              			}
+              			if (a2 != null) {
+              				ssl.resource.ssl.ISslTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("TEXT");
+              				tokenResolver.setOptions(getOptions());
+              				ssl.resource.ssl.ISslTokenResolveResult result = getFreshTokenResolveResult();
+              				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__TIME), result);
+              				Object resolvedObject = result.getResolvedToken();
+              				if (resolvedObject == null) {
+              					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_2_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_2_0.CommonToken) a2).getStopIndex());
+              				}
+              				java.lang.String resolved = (java.lang.String)resolvedObject;
+              				if (resolved != null) {
+              					element.eSet(element.eClass().getEStructuralFeature(ssl.SslPackage.CHECK_VARIABLE_EQUALS_TIME__TIME), resolved);
+              					completedElement(resolved, false);
+              				}
+              				collectHiddenTokens(element);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_2, resolved);
+              				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, element);
+              			}
+              		
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              		// expected elements (follow set)
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_3, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_4, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_5, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_4);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+              	
+            }
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 10, parse_ssl_CheckVariableEqualsTime_StartIndex); }
+        }
+        return element;
+    }
+    // $ANTLR end "parse_ssl_CheckVariableEqualsTime"
 
 
     // $ANTLR start "parse_ssl_EntersMode"
-    // Ssl.g:1391:1: parse_ssl_EntersMode returns [ssl.EntersMode element = null] : a0= 'the watch enters mode \\\"' (a1= TEXT ) a2= '\\\"' ;
+    // Ssl.g:1497:1: parse_ssl_EntersMode returns [ssl.EntersMode element = null] : a0= 'the watch enters mode \\\"' (a1= TEXT ) a2= '\\\"' ;
     public final ssl.EntersMode parse_ssl_EntersMode() throws RecognitionException {
         ssl.EntersMode element =  null;
         int parse_ssl_EntersMode_StartIndex = input.index();
@@ -2032,11 +2183,11 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return element; }
-            // Ssl.g:1394:1: (a0= 'the watch enters mode \\\"' (a1= TEXT ) a2= '\\\"' )
-            // Ssl.g:1395:2: a0= 'the watch enters mode \\\"' (a1= TEXT ) a2= '\\\"'
+            if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return element; }
+            // Ssl.g:1500:1: (a0= 'the watch enters mode \\\"' (a1= TEXT ) a2= '\\\"' )
+            // Ssl.g:1501:2: a0= 'the watch enters mode \\\"' (a1= TEXT ) a2= '\\\"'
             {
-            a0=(Token)match(input,15,FOLLOW_15_in_parse_ssl_EntersMode819); if (state.failed) return element;
+            a0=(Token)match(input,16,FOLLOW_16_in_parse_ssl_EntersMode898); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2045,20 +2196,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_0, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_0, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_22, 26);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_25, 29);
               	
             }
-            // Ssl.g:1410:2: (a1= TEXT )
-            // Ssl.g:1411:3: a1= TEXT
+            // Ssl.g:1516:2: (a1= TEXT )
+            // Ssl.g:1517:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_EntersMode837); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_EntersMode916); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2084,7 +2235,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_1, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_1, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
               			}
               		
@@ -2095,10 +2246,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_23, 27);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_26, 30);
               	
             }
-            a2=(Token)match(input,11,FOLLOW_11_in_parse_ssl_EntersMode858); if (state.failed) return element;
+            a2=(Token)match(input,11,FOLLOW_11_in_parse_ssl_EntersMode937); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2107,16 +2258,16 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_8_0_0_2, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_2, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 28, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
               	
             }
 
@@ -2128,7 +2279,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 10, parse_ssl_EntersMode_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 11, parse_ssl_EntersMode_StartIndex); }
         }
         return element;
     }
@@ -2136,7 +2287,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_PressButton"
-    // Ssl.g:1465:1: parse_ssl_PressButton returns [ssl.PressButton element = null] : a0= 'the ' (a1= TEXT ) a2= ' button is pressed' ;
+    // Ssl.g:1571:1: parse_ssl_PressButton returns [ssl.PressButton element = null] : a0= 'the ' (a1= TEXT ) a2= ' button is pressed' ;
     public final ssl.PressButton parse_ssl_PressButton() throws RecognitionException {
         ssl.PressButton element =  null;
         int parse_ssl_PressButton_StartIndex = input.index();
@@ -2147,11 +2298,11 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return element; }
-            // Ssl.g:1468:1: (a0= 'the ' (a1= TEXT ) a2= ' button is pressed' )
-            // Ssl.g:1469:2: a0= 'the ' (a1= TEXT ) a2= ' button is pressed'
+            if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return element; }
+            // Ssl.g:1574:1: (a0= 'the ' (a1= TEXT ) a2= ' button is pressed' )
+            // Ssl.g:1575:2: a0= 'the ' (a1= TEXT ) a2= ' button is pressed'
             {
-            a0=(Token)match(input,16,FOLLOW_16_in_parse_ssl_PressButton887); if (state.failed) return element;
+            a0=(Token)match(input,17,FOLLOW_17_in_parse_ssl_PressButton966); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2160,20 +2311,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_0, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_0, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_24, 29);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_27, 32);
               	
             }
-            // Ssl.g:1484:2: (a1= TEXT )
-            // Ssl.g:1485:3: a1= TEXT
+            // Ssl.g:1590:2: (a1= TEXT )
+            // Ssl.g:1591:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_PressButton905); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_PressButton984); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2199,7 +2350,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_1, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_1, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
               			}
               		
@@ -2210,10 +2361,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_25, 30);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_28, 33);
               	
             }
-            a2=(Token)match(input,17,FOLLOW_17_in_parse_ssl_PressButton926); if (state.failed) return element;
+            a2=(Token)match(input,18,FOLLOW_18_in_parse_ssl_PressButton1005); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2222,16 +2373,16 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_9_0_0_2, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_2, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_6, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 31, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_7, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_5);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_2, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_3);
               	
             }
 
@@ -2243,7 +2394,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 11, parse_ssl_PressButton_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 12, parse_ssl_PressButton_StartIndex); }
         }
         return element;
     }
@@ -2251,7 +2402,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_ObserveMode"
-    // Ssl.g:1539:1: parse_ssl_ObserveMode returns [ssl.ObserveMode element = null] : a0= 'the watch must be in mode \\\"' (a1= TEXT ) a2= '\\\"' ;
+    // Ssl.g:1645:1: parse_ssl_ObserveMode returns [ssl.ObserveMode element = null] : a0= 'the watch must be in mode \\\"' (a1= TEXT ) a2= '\\\"' ;
     public final ssl.ObserveMode parse_ssl_ObserveMode() throws RecognitionException {
         ssl.ObserveMode element =  null;
         int parse_ssl_ObserveMode_StartIndex = input.index();
@@ -2262,11 +2413,11 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return element; }
-            // Ssl.g:1542:1: (a0= 'the watch must be in mode \\\"' (a1= TEXT ) a2= '\\\"' )
-            // Ssl.g:1543:2: a0= 'the watch must be in mode \\\"' (a1= TEXT ) a2= '\\\"'
+            if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return element; }
+            // Ssl.g:1648:1: (a0= 'the watch must be in mode \\\"' (a1= TEXT ) a2= '\\\"' )
+            // Ssl.g:1649:2: a0= 'the watch must be in mode \\\"' (a1= TEXT ) a2= '\\\"'
             {
-            a0=(Token)match(input,18,FOLLOW_18_in_parse_ssl_ObserveMode955); if (state.failed) return element;
+            a0=(Token)match(input,19,FOLLOW_19_in_parse_ssl_ObserveMode1034); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2275,20 +2426,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_0, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_0, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_26, 32);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_29, 35);
               	
             }
-            // Ssl.g:1558:2: (a1= TEXT )
-            // Ssl.g:1559:3: a1= TEXT
+            // Ssl.g:1664:2: (a1= TEXT )
+            // Ssl.g:1665:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveMode973); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveMode1052); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2314,7 +2465,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_1, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_1, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
               			}
               		
@@ -2325,10 +2476,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_27, 33);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_30, 36);
               	
             }
-            a2=(Token)match(input,11,FOLLOW_11_in_parse_ssl_ObserveMode994); if (state.failed) return element;
+            a2=(Token)match(input,11,FOLLOW_11_in_parse_ssl_ObserveMode1073); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2337,21 +2488,21 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_10_0_0_2, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_2, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 34, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 37, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
               	
             }
 
@@ -2363,7 +2514,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 12, parse_ssl_ObserveMode_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 13, parse_ssl_ObserveMode_StartIndex); }
         }
         return element;
     }
@@ -2371,7 +2522,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_ObserveButton"
-    // Ssl.g:1618:1: parse_ssl_ObserveButton returns [ssl.ObserveButton element = null] : a0= 'the ' (a1= TEXT ) a2= ' button must be called \\\"' (a3= TEXT ) a4= '\\\"' ;
+    // Ssl.g:1724:1: parse_ssl_ObserveButton returns [ssl.ObserveButton element = null] : a0= 'the ' (a1= TEXT ) a2= ' button must be called \\\"' (a3= TEXT ) a4= '\\\"' ;
     public final ssl.ObserveButton parse_ssl_ObserveButton() throws RecognitionException {
         ssl.ObserveButton element =  null;
         int parse_ssl_ObserveButton_StartIndex = input.index();
@@ -2384,11 +2535,11 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return element; }
-            // Ssl.g:1621:1: (a0= 'the ' (a1= TEXT ) a2= ' button must be called \\\"' (a3= TEXT ) a4= '\\\"' )
-            // Ssl.g:1622:2: a0= 'the ' (a1= TEXT ) a2= ' button must be called \\\"' (a3= TEXT ) a4= '\\\"'
+            if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return element; }
+            // Ssl.g:1727:1: (a0= 'the ' (a1= TEXT ) a2= ' button must be called \\\"' (a3= TEXT ) a4= '\\\"' )
+            // Ssl.g:1728:2: a0= 'the ' (a1= TEXT ) a2= ' button must be called \\\"' (a3= TEXT ) a4= '\\\"'
             {
-            a0=(Token)match(input,16,FOLLOW_16_in_parse_ssl_ObserveButton1023); if (state.failed) return element;
+            a0=(Token)match(input,17,FOLLOW_17_in_parse_ssl_ObserveButton1102); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2397,20 +2548,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_0, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_0, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_28, 35);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_31, 38);
               	
             }
-            // Ssl.g:1637:2: (a1= TEXT )
-            // Ssl.g:1638:3: a1= TEXT
+            // Ssl.g:1743:2: (a1= TEXT )
+            // Ssl.g:1744:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveButton1041); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveButton1120); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2436,7 +2587,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_1, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_1, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
               			}
               		
@@ -2447,10 +2598,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_29, 36);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_32, 39);
               	
             }
-            a2=(Token)match(input,19,FOLLOW_19_in_parse_ssl_ObserveButton1062); if (state.failed) return element;
+            a2=(Token)match(input,20,FOLLOW_20_in_parse_ssl_ObserveButton1141); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2459,20 +2610,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_2, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_2, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_30, 37);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_33, 40);
               	
             }
-            // Ssl.g:1688:2: (a3= TEXT )
-            // Ssl.g:1689:3: a3= TEXT
+            // Ssl.g:1794:2: (a3= TEXT )
+            // Ssl.g:1795:3: a3= TEXT
             {
-            a3=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveButton1080); if (state.failed) return element;
+            a3=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveButton1159); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2498,7 +2649,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_3, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_3, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
               			}
               		
@@ -2509,10 +2660,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_31, 38);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_34, 41);
               	
             }
-            a4=(Token)match(input,11,FOLLOW_11_in_parse_ssl_ObserveButton1101); if (state.failed) return element;
+            a4=(Token)match(input,11,FOLLOW_11_in_parse_ssl_ObserveButton1180); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2521,21 +2672,21 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_11_0_0_4, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_4, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a4, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 39, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 42, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 42, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 42, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 42, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 42, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 42, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 42, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 42, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
               	
             }
 
@@ -2547,7 +2698,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 13, parse_ssl_ObserveButton_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 14, parse_ssl_ObserveButton_StartIndex); }
         }
         return element;
     }
@@ -2555,7 +2706,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_ObserveLabelValue"
-    // Ssl.g:1748:1: parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null] : a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show \\\"' ( (a3= TEXT ) )? a4= '\\\"' ;
+    // Ssl.g:1854:1: parse_ssl_ObserveLabelValue returns [ssl.ObserveLabelValue element = null] : a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show \\\"' ( (a3= TEXT ) )? a4= '\\\"' ;
     public final ssl.ObserveLabelValue parse_ssl_ObserveLabelValue() throws RecognitionException {
         ssl.ObserveLabelValue element =  null;
         int parse_ssl_ObserveLabelValue_StartIndex = input.index();
@@ -2568,11 +2719,11 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return element; }
-            // Ssl.g:1751:1: (a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show \\\"' ( (a3= TEXT ) )? a4= '\\\"' )
-            // Ssl.g:1752:2: a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show \\\"' ( (a3= TEXT ) )? a4= '\\\"'
+            if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return element; }
+            // Ssl.g:1857:1: (a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show \\\"' ( (a3= TEXT ) )? a4= '\\\"' )
+            // Ssl.g:1858:2: a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show \\\"' ( (a3= TEXT ) )? a4= '\\\"'
             {
-            a0=(Token)match(input,12,FOLLOW_12_in_parse_ssl_ObserveLabelValue1130); if (state.failed) return element;
+            a0=(Token)match(input,12,FOLLOW_12_in_parse_ssl_ObserveLabelValue1209); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2581,20 +2732,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_0, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_0, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_32, 40);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_35, 43);
               	
             }
-            // Ssl.g:1767:2: (a1= TEXT )
-            // Ssl.g:1768:3: a1= TEXT
+            // Ssl.g:1873:2: (a1= TEXT )
+            // Ssl.g:1874:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveLabelValue1148); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveLabelValue1227); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2620,7 +2771,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_1, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_1, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
               			}
               		
@@ -2631,10 +2782,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_33, 41);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_36, 44);
               	
             }
-            a2=(Token)match(input,20,FOLLOW_20_in_parse_ssl_ObserveLabelValue1169); if (state.failed) return element;
+            a2=(Token)match(input,21,FOLLOW_21_in_parse_ssl_ObserveLabelValue1248); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2643,18 +2794,18 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_2, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_2, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_34, 42);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_35, 42);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_37, 45);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_38, 45);
               	
             }
-            // Ssl.g:1819:2: ( (a3= TEXT ) )?
+            // Ssl.g:1925:2: ( (a3= TEXT ) )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -2663,12 +2814,12 @@ public class SslParser extends SslANTLRParserBase {
             }
             switch (alt8) {
                 case 1 :
-                    // Ssl.g:1820:3: (a3= TEXT )
+                    // Ssl.g:1926:3: (a3= TEXT )
                     {
-                    // Ssl.g:1820:3: (a3= TEXT )
-                    // Ssl.g:1821:4: a3= TEXT
+                    // Ssl.g:1926:3: (a3= TEXT )
+                    // Ssl.g:1927:4: a3= TEXT
                     {
-                    a3=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveLabelValue1192); if (state.failed) return element;
+                    a3=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveLabelValue1271); if (state.failed) return element;
                     if ( state.backtracking==0 ) {
 
                       				if (terminateParsing) {
@@ -2694,7 +2845,7 @@ public class SslParser extends SslANTLRParserBase {
                       						completedElement(resolved, false);
                       					}
                       					collectHiddenTokens(element);
-                      					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_3, resolved);
+                      					retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_3, resolved);
                       					copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
                       				}
                       			
@@ -2711,10 +2862,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_35, 43);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_38, 46);
               	
             }
-            a4=(Token)match(input,11,FOLLOW_11_in_parse_ssl_ObserveLabelValue1222); if (state.failed) return element;
+            a4=(Token)match(input,11,FOLLOW_11_in_parse_ssl_ObserveLabelValue1301); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2723,21 +2874,21 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_12_0_0_4, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_4, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a4, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 44, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 47, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 47, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 47, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 47, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 47, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 47, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 47, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 47, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
               	
             }
 
@@ -2749,7 +2900,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 14, parse_ssl_ObserveLabelValue_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 15, parse_ssl_ObserveLabelValue_StartIndex); }
         }
         return element;
     }
@@ -2757,7 +2908,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_ObserveLabelVariable"
-    // Ssl.g:1881:1: parse_ssl_ObserveLabelVariable returns [ssl.ObserveLabelVariable element = null] : a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show the ' (a3= TEXT ) ;
+    // Ssl.g:1987:1: parse_ssl_ObserveLabelVariable returns [ssl.ObserveLabelVariable element = null] : a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show the ' (a3= TEXT ) ;
     public final ssl.ObserveLabelVariable parse_ssl_ObserveLabelVariable() throws RecognitionException {
         ssl.ObserveLabelVariable element =  null;
         int parse_ssl_ObserveLabelVariable_StartIndex = input.index();
@@ -2769,11 +2920,11 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return element; }
-            // Ssl.g:1884:1: (a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show the ' (a3= TEXT ) )
-            // Ssl.g:1885:2: a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show the ' (a3= TEXT )
+            if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return element; }
+            // Ssl.g:1990:1: (a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show the ' (a3= TEXT ) )
+            // Ssl.g:1991:2: a0= 'the \\\"' (a1= TEXT ) a2= '\\\" must show the ' (a3= TEXT )
             {
-            a0=(Token)match(input,12,FOLLOW_12_in_parse_ssl_ObserveLabelVariable1251); if (state.failed) return element;
+            a0=(Token)match(input,12,FOLLOW_12_in_parse_ssl_ObserveLabelVariable1330); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2782,20 +2933,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_0, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_0, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_36, 45);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_39, 48);
               	
             }
-            // Ssl.g:1900:2: (a1= TEXT )
-            // Ssl.g:1901:3: a1= TEXT
+            // Ssl.g:2006:2: (a1= TEXT )
+            // Ssl.g:2007:3: a1= TEXT
             {
-            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveLabelVariable1269); if (state.failed) return element;
+            a1=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveLabelVariable1348); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2821,7 +2972,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_1, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_1, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a1, element);
               			}
               		
@@ -2832,10 +2983,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_37, 46);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_40, 49);
               	
             }
-            a2=(Token)match(input,21,FOLLOW_21_in_parse_ssl_ObserveLabelVariable1290); if (state.failed) return element;
+            a2=(Token)match(input,22,FOLLOW_22_in_parse_ssl_ObserveLabelVariable1369); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2844,20 +2995,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_2, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_2, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a2, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_38, 47);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_41, 50);
               	
             }
-            // Ssl.g:1951:2: (a3= TEXT )
-            // Ssl.g:1952:3: a3= TEXT
+            // Ssl.g:2057:2: (a3= TEXT )
+            // Ssl.g:2058:3: a3= TEXT
             {
-            a3=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveLabelVariable1308); if (state.failed) return element;
+            a3=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveLabelVariable1387); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2883,7 +3034,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_13_0_0_3, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_3, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a3, element);
               			}
               		
@@ -2894,14 +3045,14 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 48, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
               	
             }
 
@@ -2913,7 +3064,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 15, parse_ssl_ObserveLabelVariable_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 16, parse_ssl_ObserveLabelVariable_StartIndex); }
         }
         return element;
     }
@@ -2921,7 +3072,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_ObserveVariableChange"
-    // Ssl.g:1996:1: parse_ssl_ObserveVariableChange returns [ssl.ObserveVariableChange element = null] : (a0= TEXT ) a1= ' must be incremented by 1 ' (a2= TEXT ) ;
+    // Ssl.g:2102:1: parse_ssl_ObserveVariableChange returns [ssl.ObserveVariableChange element = null] : (a0= TEXT ) a1= ' must be incremented by 1 ' (a2= TEXT ) ;
     public final ssl.ObserveVariableChange parse_ssl_ObserveVariableChange() throws RecognitionException {
         ssl.ObserveVariableChange element =  null;
         int parse_ssl_ObserveVariableChange_StartIndex = input.index();
@@ -2932,14 +3083,14 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return element; }
-            // Ssl.g:1999:1: ( (a0= TEXT ) a1= ' must be incremented by 1 ' (a2= TEXT ) )
-            // Ssl.g:2000:2: (a0= TEXT ) a1= ' must be incremented by 1 ' (a2= TEXT )
+            if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return element; }
+            // Ssl.g:2105:1: ( (a0= TEXT ) a1= ' must be incremented by 1 ' (a2= TEXT ) )
+            // Ssl.g:2106:2: (a0= TEXT ) a1= ' must be incremented by 1 ' (a2= TEXT )
             {
-            // Ssl.g:2000:2: (a0= TEXT )
-            // Ssl.g:2001:3: a0= TEXT
+            // Ssl.g:2106:2: (a0= TEXT )
+            // Ssl.g:2107:3: a0= TEXT
             {
-            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveVariableChange1348); if (state.failed) return element;
+            a0=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveVariableChange1427); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -2965,7 +3116,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_0, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_15_0_0_0, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a0, element);
               			}
               		
@@ -2976,10 +3127,10 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_39, 49);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_42, 52);
               	
             }
-            a1=(Token)match(input,22,FOLLOW_22_in_parse_ssl_ObserveVariableChange1369); if (state.failed) return element;
+            a1=(Token)match(input,23,FOLLOW_23_in_parse_ssl_ObserveVariableChange1448); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -2988,20 +3139,20 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_1, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_15_0_0_1, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a1, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_40, 50);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_43, 53);
               	
             }
-            // Ssl.g:2051:2: (a2= TEXT )
-            // Ssl.g:2052:3: a2= TEXT
+            // Ssl.g:2157:2: (a2= TEXT )
+            // Ssl.g:2158:3: a2= TEXT
             {
-            a2=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveVariableChange1387); if (state.failed) return element;
+            a2=(Token)match(input,TEXT,FOLLOW_TEXT_in_parse_ssl_ObserveVariableChange1466); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               			if (terminateParsing) {
@@ -3027,7 +3178,7 @@ public class SslParser extends SslANTLRParserBase {
               					completedElement(resolved, false);
               				}
               				collectHiddenTokens(element);
-              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_14_0_0_2, resolved);
+              				retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_15_0_0_2, resolved);
               				copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken) a2, element);
               			}
               		
@@ -3038,14 +3189,14 @@ public class SslParser extends SslANTLRParserBase {
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 51, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 54, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 54, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 54, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 54, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 54, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 54, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 54, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 54, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
               	
             }
 
@@ -3057,7 +3208,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 16, parse_ssl_ObserveVariableChange_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 17, parse_ssl_ObserveVariableChange_StartIndex); }
         }
         return element;
     }
@@ -3065,7 +3216,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_ObserveRing"
-    // Ssl.g:2096:1: parse_ssl_ObserveRing returns [ssl.ObserveRing element = null] : a0= 'the alarm must ring' ;
+    // Ssl.g:2202:1: parse_ssl_ObserveRing returns [ssl.ObserveRing element = null] : a0= 'the alarm must ring' ;
     public final ssl.ObserveRing parse_ssl_ObserveRing() throws RecognitionException {
         ssl.ObserveRing element =  null;
         int parse_ssl_ObserveRing_StartIndex = input.index();
@@ -3074,11 +3225,11 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return element; }
-            // Ssl.g:2099:1: (a0= 'the alarm must ring' )
-            // Ssl.g:2100:2: a0= 'the alarm must ring'
+            if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return element; }
+            // Ssl.g:2205:1: (a0= 'the alarm must ring' )
+            // Ssl.g:2206:2: a0= 'the alarm must ring'
             {
-            a0=(Token)match(input,23,FOLLOW_23_in_parse_ssl_ObserveRing1423); if (state.failed) return element;
+            a0=(Token)match(input,24,FOLLOW_24_in_parse_ssl_ObserveRing1502); if (state.failed) return element;
             if ( state.backtracking==0 ) {
 
               		if (element == null) {
@@ -3087,21 +3238,21 @@ public class SslParser extends SslANTLRParserBase {
               			// initialize boolean attributes
               		}
               		collectHiddenTokens(element);
-              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_15_0_0_0, null);
+              		retrieveLayoutInformation(element, ssl.resource.ssl.grammar.SslGrammarInformationProvider.SSL_16_0_0_0, null);
               		copyLocalizationInfos((org.antlr.runtime3_2_0.CommonToken)a0, element);
               	
             }
             if ( state.backtracking==0 ) {
 
               		// expected elements (follow set)
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_8, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
-              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 52, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_9, 55, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_10, 55, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_11, 55, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_12, 55, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_13, 55, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_14, 55, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_6);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_0, 55, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_0, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
+              		addExpectedElement(ssl.resource.ssl.grammar.SslFollowSetProvider.TERMINAL_1, 55, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_2, ssl.resource.ssl.grammar.SslFollowSetProvider.FEATURE_1);
               	
             }
 
@@ -3113,7 +3264,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 17, parse_ssl_ObserveRing_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 18, parse_ssl_ObserveRing_StartIndex); }
         }
         return element;
     }
@@ -3121,7 +3272,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_Condition"
-    // Ssl.g:2124:1: parse_ssl_Condition returns [ssl.Condition element = null] : (c0= parse_ssl_CheckMode | c1= parse_ssl_CheckLabel | c2= parse_ssl_CheckTimePastOther );
+    // Ssl.g:2230:1: parse_ssl_Condition returns [ssl.Condition element = null] : (c0= parse_ssl_CheckMode | c1= parse_ssl_CheckLabel | c2= parse_ssl_CheckVariableEqualsVariable | c3= parse_ssl_CheckVariableEqualsTime );
     public final ssl.Condition parse_ssl_Condition() throws RecognitionException {
         ssl.Condition element =  null;
         int parse_ssl_Condition_StartIndex = input.index();
@@ -3129,13 +3280,15 @@ public class SslParser extends SslANTLRParserBase {
 
         ssl.CheckLabel c1 = null;
 
-        ssl.CheckTimePastOther c2 = null;
+        ssl.CheckVariableEqualsVariable c2 = null;
+
+        ssl.CheckVariableEqualsTime c3 = null;
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return element; }
-            // Ssl.g:2125:1: (c0= parse_ssl_CheckMode | c1= parse_ssl_CheckLabel | c2= parse_ssl_CheckTimePastOther )
-            int alt9=3;
+            if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return element; }
+            // Ssl.g:2231:1: (c0= parse_ssl_CheckMode | c1= parse_ssl_CheckLabel | c2= parse_ssl_CheckVariableEqualsVariable | c3= parse_ssl_CheckVariableEqualsTime )
+            int alt9=4;
             switch ( input.LA(1) ) {
             case 10:
                 {
@@ -3149,7 +3302,21 @@ public class SslParser extends SslANTLRParserBase {
                 break;
             case TEXT:
                 {
-                alt9=3;
+                int LA9_3 = input.LA(2);
+
+                if ( (LA9_3==14) ) {
+                    alt9=3;
+                }
+                else if ( (LA9_3==15) ) {
+                    alt9=4;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return element;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 9, 3, input);
+
+                    throw nvae;
+                }
                 }
                 break;
             default:
@@ -3162,9 +3329,9 @@ public class SslParser extends SslANTLRParserBase {
 
             switch (alt9) {
                 case 1 :
-                    // Ssl.g:2126:2: c0= parse_ssl_CheckMode
+                    // Ssl.g:2232:2: c0= parse_ssl_CheckMode
                     {
-                    pushFollow(FOLLOW_parse_ssl_CheckMode_in_parse_ssl_Condition1448);
+                    pushFollow(FOLLOW_parse_ssl_CheckMode_in_parse_ssl_Condition1527);
                     c0=parse_ssl_CheckMode();
 
                     state._fsp--;
@@ -3176,9 +3343,9 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Ssl.g:2127:4: c1= parse_ssl_CheckLabel
+                    // Ssl.g:2233:4: c1= parse_ssl_CheckLabel
                     {
-                    pushFollow(FOLLOW_parse_ssl_CheckLabel_in_parse_ssl_Condition1458);
+                    pushFollow(FOLLOW_parse_ssl_CheckLabel_in_parse_ssl_Condition1537);
                     c1=parse_ssl_CheckLabel();
 
                     state._fsp--;
@@ -3190,15 +3357,29 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Ssl.g:2128:4: c2= parse_ssl_CheckTimePastOther
+                    // Ssl.g:2234:4: c2= parse_ssl_CheckVariableEqualsVariable
                     {
-                    pushFollow(FOLLOW_parse_ssl_CheckTimePastOther_in_parse_ssl_Condition1468);
-                    c2=parse_ssl_CheckTimePastOther();
+                    pushFollow(FOLLOW_parse_ssl_CheckVariableEqualsVariable_in_parse_ssl_Condition1547);
+                    c2=parse_ssl_CheckVariableEqualsVariable();
 
                     state._fsp--;
                     if (state.failed) return element;
                     if ( state.backtracking==0 ) {
                        element = c2; /* this is a subclass or primitive expression choice */ 
+                    }
+
+                    }
+                    break;
+                case 4 :
+                    // Ssl.g:2235:4: c3= parse_ssl_CheckVariableEqualsTime
+                    {
+                    pushFollow(FOLLOW_parse_ssl_CheckVariableEqualsTime_in_parse_ssl_Condition1557);
+                    c3=parse_ssl_CheckVariableEqualsTime();
+
+                    state._fsp--;
+                    if (state.failed) return element;
+                    if ( state.backtracking==0 ) {
+                       element = c3; /* this is a subclass or primitive expression choice */ 
                     }
 
                     }
@@ -3211,7 +3392,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 18, parse_ssl_Condition_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 19, parse_ssl_Condition_StartIndex); }
         }
         return element;
     }
@@ -3219,7 +3400,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_Action"
-    // Ssl.g:2132:1: parse_ssl_Action returns [ssl.Action element = null] : (c0= parse_ssl_EntersMode | c1= parse_ssl_PressButton );
+    // Ssl.g:2239:1: parse_ssl_Action returns [ssl.Action element = null] : (c0= parse_ssl_EntersMode | c1= parse_ssl_PressButton );
     public final ssl.Action parse_ssl_Action() throws RecognitionException {
         ssl.Action element =  null;
         int parse_ssl_Action_StartIndex = input.index();
@@ -3229,15 +3410,15 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return element; }
-            // Ssl.g:2133:1: (c0= parse_ssl_EntersMode | c1= parse_ssl_PressButton )
+            if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return element; }
+            // Ssl.g:2240:1: (c0= parse_ssl_EntersMode | c1= parse_ssl_PressButton )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==15) ) {
+            if ( (LA10_0==16) ) {
                 alt10=1;
             }
-            else if ( (LA10_0==16) ) {
+            else if ( (LA10_0==17) ) {
                 alt10=2;
             }
             else {
@@ -3249,9 +3430,9 @@ public class SslParser extends SslANTLRParserBase {
             }
             switch (alt10) {
                 case 1 :
-                    // Ssl.g:2134:2: c0= parse_ssl_EntersMode
+                    // Ssl.g:2241:2: c0= parse_ssl_EntersMode
                     {
-                    pushFollow(FOLLOW_parse_ssl_EntersMode_in_parse_ssl_Action1489);
+                    pushFollow(FOLLOW_parse_ssl_EntersMode_in_parse_ssl_Action1578);
                     c0=parse_ssl_EntersMode();
 
                     state._fsp--;
@@ -3263,9 +3444,9 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Ssl.g:2135:4: c1= parse_ssl_PressButton
+                    // Ssl.g:2242:4: c1= parse_ssl_PressButton
                     {
-                    pushFollow(FOLLOW_parse_ssl_PressButton_in_parse_ssl_Action1499);
+                    pushFollow(FOLLOW_parse_ssl_PressButton_in_parse_ssl_Action1588);
                     c1=parse_ssl_PressButton();
 
                     state._fsp--;
@@ -3284,7 +3465,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 19, parse_ssl_Action_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 20, parse_ssl_Action_StartIndex); }
         }
         return element;
     }
@@ -3292,7 +3473,7 @@ public class SslParser extends SslANTLRParserBase {
 
 
     // $ANTLR start "parse_ssl_Observation"
-    // Ssl.g:2139:1: parse_ssl_Observation returns [ssl.Observation element = null] : (c0= parse_ssl_ObserveMode | c1= parse_ssl_ObserveButton | c2= parse_ssl_ObserveLabelValue | c3= parse_ssl_ObserveLabelVariable | c4= parse_ssl_ObserveVariableChange | c5= parse_ssl_ObserveRing );
+    // Ssl.g:2246:1: parse_ssl_Observation returns [ssl.Observation element = null] : (c0= parse_ssl_ObserveMode | c1= parse_ssl_ObserveButton | c2= parse_ssl_ObserveLabelValue | c3= parse_ssl_ObserveLabelVariable | c4= parse_ssl_ObserveVariableChange | c5= parse_ssl_ObserveRing );
     public final ssl.Observation parse_ssl_Observation() throws RecognitionException {
         ssl.Observation element =  null;
         int parse_ssl_Observation_StartIndex = input.index();
@@ -3310,16 +3491,16 @@ public class SslParser extends SslANTLRParserBase {
 
 
         try {
-            if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return element; }
-            // Ssl.g:2140:1: (c0= parse_ssl_ObserveMode | c1= parse_ssl_ObserveButton | c2= parse_ssl_ObserveLabelValue | c3= parse_ssl_ObserveLabelVariable | c4= parse_ssl_ObserveVariableChange | c5= parse_ssl_ObserveRing )
+            if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return element; }
+            // Ssl.g:2247:1: (c0= parse_ssl_ObserveMode | c1= parse_ssl_ObserveButton | c2= parse_ssl_ObserveLabelValue | c3= parse_ssl_ObserveLabelVariable | c4= parse_ssl_ObserveVariableChange | c5= parse_ssl_ObserveRing )
             int alt11=6;
             switch ( input.LA(1) ) {
-            case 18:
+            case 19:
                 {
                 alt11=1;
                 }
                 break;
-            case 16:
+            case 17:
                 {
                 alt11=2;
                 }
@@ -3331,11 +3512,11 @@ public class SslParser extends SslANTLRParserBase {
                 if ( (LA11_3==TEXT) ) {
                     int LA11_6 = input.LA(3);
 
-                    if ( (LA11_6==20) ) {
-                        alt11=3;
+                    if ( (LA11_6==22) ) {
+                        alt11=4;
                     }
                     else if ( (LA11_6==21) ) {
-                        alt11=4;
+                        alt11=3;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return element;}
@@ -3359,7 +3540,7 @@ public class SslParser extends SslANTLRParserBase {
                 alt11=5;
                 }
                 break;
-            case 23:
+            case 24:
                 {
                 alt11=6;
                 }
@@ -3374,9 +3555,9 @@ public class SslParser extends SslANTLRParserBase {
 
             switch (alt11) {
                 case 1 :
-                    // Ssl.g:2141:2: c0= parse_ssl_ObserveMode
+                    // Ssl.g:2248:2: c0= parse_ssl_ObserveMode
                     {
-                    pushFollow(FOLLOW_parse_ssl_ObserveMode_in_parse_ssl_Observation1520);
+                    pushFollow(FOLLOW_parse_ssl_ObserveMode_in_parse_ssl_Observation1609);
                     c0=parse_ssl_ObserveMode();
 
                     state._fsp--;
@@ -3388,9 +3569,9 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Ssl.g:2142:4: c1= parse_ssl_ObserveButton
+                    // Ssl.g:2249:4: c1= parse_ssl_ObserveButton
                     {
-                    pushFollow(FOLLOW_parse_ssl_ObserveButton_in_parse_ssl_Observation1530);
+                    pushFollow(FOLLOW_parse_ssl_ObserveButton_in_parse_ssl_Observation1619);
                     c1=parse_ssl_ObserveButton();
 
                     state._fsp--;
@@ -3402,9 +3583,9 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Ssl.g:2143:4: c2= parse_ssl_ObserveLabelValue
+                    // Ssl.g:2250:4: c2= parse_ssl_ObserveLabelValue
                     {
-                    pushFollow(FOLLOW_parse_ssl_ObserveLabelValue_in_parse_ssl_Observation1540);
+                    pushFollow(FOLLOW_parse_ssl_ObserveLabelValue_in_parse_ssl_Observation1629);
                     c2=parse_ssl_ObserveLabelValue();
 
                     state._fsp--;
@@ -3416,9 +3597,9 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 4 :
-                    // Ssl.g:2144:4: c3= parse_ssl_ObserveLabelVariable
+                    // Ssl.g:2251:4: c3= parse_ssl_ObserveLabelVariable
                     {
-                    pushFollow(FOLLOW_parse_ssl_ObserveLabelVariable_in_parse_ssl_Observation1550);
+                    pushFollow(FOLLOW_parse_ssl_ObserveLabelVariable_in_parse_ssl_Observation1639);
                     c3=parse_ssl_ObserveLabelVariable();
 
                     state._fsp--;
@@ -3430,9 +3611,9 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 5 :
-                    // Ssl.g:2145:4: c4= parse_ssl_ObserveVariableChange
+                    // Ssl.g:2252:4: c4= parse_ssl_ObserveVariableChange
                     {
-                    pushFollow(FOLLOW_parse_ssl_ObserveVariableChange_in_parse_ssl_Observation1560);
+                    pushFollow(FOLLOW_parse_ssl_ObserveVariableChange_in_parse_ssl_Observation1649);
                     c4=parse_ssl_ObserveVariableChange();
 
                     state._fsp--;
@@ -3444,9 +3625,9 @@ public class SslParser extends SslANTLRParserBase {
                     }
                     break;
                 case 6 :
-                    // Ssl.g:2146:4: c5= parse_ssl_ObserveRing
+                    // Ssl.g:2253:4: c5= parse_ssl_ObserveRing
                     {
-                    pushFollow(FOLLOW_parse_ssl_ObserveRing_in_parse_ssl_Observation1570);
+                    pushFollow(FOLLOW_parse_ssl_ObserveRing_in_parse_ssl_Observation1659);
                     c5=parse_ssl_ObserveRing();
 
                     state._fsp--;
@@ -3465,7 +3646,7 @@ public class SslParser extends SslANTLRParserBase {
             recover(input,re);
         }
         finally {
-            if ( state.backtracking>0 ) { memoize(input, 20, parse_ssl_Observation_StartIndex); }
+            if ( state.backtracking>0 ) { memoize(input, 21, parse_ssl_Observation_StartIndex); }
         }
         return element;
     }
@@ -3486,10 +3667,10 @@ public class SslParser extends SslANTLRParserBase {
     public static final BitSet FOLLOW_parse_ssl_Then_in_parse_ssl_Testcase314 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_7_in_parse_ssl_Given359 = new BitSet(new long[]{0x0000000000001410L});
     public static final BitSet FOLLOW_parse_ssl_Condition_in_parse_ssl_Given382 = new BitSet(new long[]{0x0000000000001412L});
-    public static final BitSet FOLLOW_8_in_parse_ssl_When423 = new BitSet(new long[]{0x0000000000018000L});
-    public static final BitSet FOLLOW_parse_ssl_Action_in_parse_ssl_When446 = new BitSet(new long[]{0x0000000000018002L});
-    public static final BitSet FOLLOW_9_in_parse_ssl_Then487 = new BitSet(new long[]{0x0000000000851010L});
-    public static final BitSet FOLLOW_parse_ssl_Observation_in_parse_ssl_Then510 = new BitSet(new long[]{0x0000000000851012L});
+    public static final BitSet FOLLOW_8_in_parse_ssl_When423 = new BitSet(new long[]{0x0000000000030000L});
+    public static final BitSet FOLLOW_parse_ssl_Action_in_parse_ssl_When446 = new BitSet(new long[]{0x0000000000030002L});
+    public static final BitSet FOLLOW_9_in_parse_ssl_Then487 = new BitSet(new long[]{0x00000000010A1010L});
+    public static final BitSet FOLLOW_parse_ssl_Observation_in_parse_ssl_Then510 = new BitSet(new long[]{0x00000000010A1012L});
     public static final BitSet FOLLOW_10_in_parse_ssl_CheckMode551 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_TEXT_in_parse_ssl_CheckMode569 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_11_in_parse_ssl_CheckMode590 = new BitSet(new long[]{0x0000000000000002L});
@@ -3498,46 +3679,50 @@ public class SslParser extends SslANTLRParserBase {
     public static final BitSet FOLLOW_13_in_parse_ssl_CheckLabel658 = new BitSet(new long[]{0x0000000000000810L});
     public static final BitSet FOLLOW_TEXT_in_parse_ssl_CheckLabel681 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_11_in_parse_ssl_CheckLabel711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_CheckTimePastOther744 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_parse_ssl_CheckTimePastOther765 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_CheckTimePastOther783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_parse_ssl_EntersMode819 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_EntersMode837 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_parse_ssl_EntersMode858 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_parse_ssl_PressButton887 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_PressButton905 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_parse_ssl_PressButton926 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_parse_ssl_ObserveMode955 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveMode973 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_parse_ssl_ObserveMode994 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_parse_ssl_ObserveButton1023 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveButton1041 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_parse_ssl_ObserveButton1062 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveButton1080 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_parse_ssl_ObserveButton1101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_parse_ssl_ObserveLabelValue1130 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveLabelValue1148 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_parse_ssl_ObserveLabelValue1169 = new BitSet(new long[]{0x0000000000000810L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveLabelValue1192 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_parse_ssl_ObserveLabelValue1222 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_parse_ssl_ObserveLabelVariable1251 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveLabelVariable1269 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_parse_ssl_ObserveLabelVariable1290 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveLabelVariable1308 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveVariableChange1348 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_parse_ssl_ObserveVariableChange1369 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveVariableChange1387 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_parse_ssl_ObserveRing1423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_CheckMode_in_parse_ssl_Condition1448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_CheckLabel_in_parse_ssl_Condition1458 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_CheckTimePastOther_in_parse_ssl_Condition1468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_EntersMode_in_parse_ssl_Action1489 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_PressButton_in_parse_ssl_Action1499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_ObserveMode_in_parse_ssl_Observation1520 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_ObserveButton_in_parse_ssl_Observation1530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_ObserveLabelValue_in_parse_ssl_Observation1540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_ObserveLabelVariable_in_parse_ssl_Observation1550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_ObserveVariableChange_in_parse_ssl_Observation1560 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_ssl_ObserveRing_in_parse_ssl_Observation1570 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_CheckVariableEqualsVariable744 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_parse_ssl_CheckVariableEqualsVariable765 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_CheckVariableEqualsVariable783 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_CheckVariableEqualsTime823 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_parse_ssl_CheckVariableEqualsTime844 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_CheckVariableEqualsTime862 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_parse_ssl_EntersMode898 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_EntersMode916 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_parse_ssl_EntersMode937 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_parse_ssl_PressButton966 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_PressButton984 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_parse_ssl_PressButton1005 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_parse_ssl_ObserveMode1034 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveMode1052 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_parse_ssl_ObserveMode1073 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_parse_ssl_ObserveButton1102 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveButton1120 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_parse_ssl_ObserveButton1141 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveButton1159 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_parse_ssl_ObserveButton1180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_parse_ssl_ObserveLabelValue1209 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveLabelValue1227 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_parse_ssl_ObserveLabelValue1248 = new BitSet(new long[]{0x0000000000000810L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveLabelValue1271 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_parse_ssl_ObserveLabelValue1301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_parse_ssl_ObserveLabelVariable1330 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveLabelVariable1348 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_parse_ssl_ObserveLabelVariable1369 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveLabelVariable1387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveVariableChange1427 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_parse_ssl_ObserveVariableChange1448 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_TEXT_in_parse_ssl_ObserveVariableChange1466 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_parse_ssl_ObserveRing1502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_CheckMode_in_parse_ssl_Condition1527 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_CheckLabel_in_parse_ssl_Condition1537 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_CheckVariableEqualsVariable_in_parse_ssl_Condition1547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_CheckVariableEqualsTime_in_parse_ssl_Condition1557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_EntersMode_in_parse_ssl_Action1578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_PressButton_in_parse_ssl_Action1588 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_ObserveMode_in_parse_ssl_Observation1609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_ObserveButton_in_parse_ssl_Observation1619 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_ObserveLabelValue_in_parse_ssl_Observation1629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_ObserveLabelVariable_in_parse_ssl_Observation1639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_ObserveVariableChange_in_parse_ssl_Observation1649 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_ssl_ObserveRing_in_parse_ssl_Observation1659 = new BitSet(new long[]{0x0000000000000002L});
 
 }

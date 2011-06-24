@@ -18,13 +18,14 @@ import simulator.config.ChangeDisplay;
 import simulator.config.ChangeIndicator;
 import simulator.config.ConfigFactory;
 import simulator.config.Configuration;
-import simulator.config.Constant;
 import simulator.config.DisplayMatchesCondition;
 import simulator.config.Displayable;
 import simulator.config.Expression;
 import simulator.config.IncrementTimeVariable;
 import simulator.config.Mode;
 import simulator.config.NextMode;
+import simulator.config.StringConstant;
+import simulator.config.TimeConstant;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 
@@ -74,9 +75,23 @@ public class ConfigurationFactory {
 		return expression;
 	}
 
-	public static Constant createConstant(String value) {
-		final Constant constant = ConfigFactory.eINSTANCE.createConstant();
+	public static StringConstant createStringConstant(String value) {
+		final StringConstant constant = ConfigFactory.eINSTANCE.createStringConstant();
 		constant.setValue(value);
+		return constant;
+	}
+	
+	public static TimeConstant createTimeConstant(String time) {
+		final int hours   = Integer.parseInt(time.split(":")[0]);
+		final int minutes = Integer.parseInt(time.split(":")[1]);
+		
+		return createTimeConstant(hours, minutes);
+	}
+	
+	public static TimeConstant createTimeConstant(int hours, int minutes) {
+		final TimeConstant constant = ConfigFactory.eINSTANCE.createTimeConstant();
+		constant.setHours(hours);
+		constant.setMinutes(minutes);
 		return constant;
 	}
 	

@@ -10,7 +10,7 @@
  ******************************************************************************/
 package simulator.execution.model;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static simulator.test.util.ConfigurationFactory.createConfiguration;
 import static simulator.test.util.ConfigurationFactory.createVariable;
 
@@ -27,7 +27,7 @@ public class SimulationTests {
 
 		final Simulation simulation = new Simulation(createConfiguration(firstVariable, secondVariable));
 		
-		assertEquals(new Time(), simulation.getValueOf(firstVariable.getName()));
-		assertEquals(new Time(), simulation.getValueOf(secondVariable.getName()));
+		assertNotNull(simulation.getValueOf(firstVariable.getName()));
+		assertNotNull(simulation.getValueOf(secondVariable.getName()));
 	}
 }

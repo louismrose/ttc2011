@@ -20,7 +20,8 @@ import simulator.execution.model.action.RunnableActionTests;
 import simulator.execution.model.state.StateTests;
 
 @RunWith(Suite.class)
-@SuiteClasses({EvaluatableExpressionTests.class, RunnableActionTests.class, RunnableActionGroupTests.class,
+@SuiteClasses({TimeTests.class,
+               EvaluatableExpressionTests.class, RunnableActionTests.class, RunnableActionGroupTests.class,
                StateTests.class, ModesTests.class, SimulationTests.class, TracingTests.class})
 public class ExecutionTestSuite {
 

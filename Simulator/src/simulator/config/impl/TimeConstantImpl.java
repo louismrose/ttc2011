@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package ssl.impl;
+package simulator.config.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -12,71 +12,70 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import ssl.CheckLabel;
-import ssl.LabelType;
-import ssl.SslPackage;
+import simulator.config.ConfigPackage;
+import simulator.config.TimeConstant;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Check Label</b></em>'.
+ * An implementation of the model object '<em><b>Time Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ssl.impl.CheckLabelImpl#getLabelType <em>Label Type</em>}</li>
- *   <li>{@link ssl.impl.CheckLabelImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link simulator.config.impl.TimeConstantImpl#getHours <em>Hours</em>}</li>
+ *   <li>{@link simulator.config.impl.TimeConstantImpl#getMinutes <em>Minutes</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
+public class TimeConstantImpl extends ConstantImpl implements TimeConstant {
 	/**
-	 * The default value of the '{@link #getLabelType() <em>Label Type</em>}' attribute.
+	 * The default value of the '{@link #getHours() <em>Hours</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabelType()
+	 * @see #getHours()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final LabelType LABEL_TYPE_EDEFAULT = LabelType.DISPLAY;
+	protected static final Integer HOURS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLabelType() <em>Label Type</em>}' attribute.
+	 * The cached value of the '{@link #getHours() <em>Hours</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabelType()
+	 * @see #getHours()
 	 * @generated
 	 * @ordered
 	 */
-	protected LabelType labelType = LABEL_TYPE_EDEFAULT;
+	protected Integer hours = HOURS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #getMinutes() <em>Minutes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getMinutes()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final Integer MINUTES_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getMinutes() <em>Minutes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getMinutes()
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected Integer minutes = MINUTES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CheckLabelImpl() {
+	protected TimeConstantImpl() {
 		super();
 	}
 
@@ -87,7 +86,7 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SslPackage.Literals.CHECK_LABEL;
+		return ConfigPackage.Literals.TIME_CONSTANT;
 	}
 
 	/**
@@ -95,8 +94,8 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LabelType getLabelType() {
-		return labelType;
+	public Integer getHours() {
+		return hours;
 	}
 
 	/**
@@ -104,11 +103,11 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabelType(LabelType newLabelType) {
-		LabelType oldLabelType = labelType;
-		labelType = newLabelType == null ? LABEL_TYPE_EDEFAULT : newLabelType;
+	public void setHours(Integer newHours) {
+		Integer oldHours = hours;
+		hours = newHours;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SslPackage.CHECK_LABEL__LABEL_TYPE, oldLabelType, labelType));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.TIME_CONSTANT__HOURS, oldHours, hours));
 	}
 
 	/**
@@ -116,8 +115,8 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
-		return value;
+	public Integer getMinutes() {
+		return minutes;
 	}
 
 	/**
@@ -125,11 +124,11 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
+	public void setMinutes(Integer newMinutes) {
+		Integer oldMinutes = minutes;
+		minutes = newMinutes;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SslPackage.CHECK_LABEL__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigPackage.TIME_CONSTANT__MINUTES, oldMinutes, minutes));
 	}
 
 	/**
@@ -140,10 +139,10 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SslPackage.CHECK_LABEL__LABEL_TYPE:
-				return getLabelType();
-			case SslPackage.CHECK_LABEL__VALUE:
-				return getValue();
+			case ConfigPackage.TIME_CONSTANT__HOURS:
+				return getHours();
+			case ConfigPackage.TIME_CONSTANT__MINUTES:
+				return getMinutes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,11 +155,11 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SslPackage.CHECK_LABEL__LABEL_TYPE:
-				setLabelType((LabelType)newValue);
+			case ConfigPackage.TIME_CONSTANT__HOURS:
+				setHours((Integer)newValue);
 				return;
-			case SslPackage.CHECK_LABEL__VALUE:
-				setValue((String)newValue);
+			case ConfigPackage.TIME_CONSTANT__MINUTES:
+				setMinutes((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,11 +173,11 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SslPackage.CHECK_LABEL__LABEL_TYPE:
-				setLabelType(LABEL_TYPE_EDEFAULT);
+			case ConfigPackage.TIME_CONSTANT__HOURS:
+				setHours(HOURS_EDEFAULT);
 				return;
-			case SslPackage.CHECK_LABEL__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case ConfigPackage.TIME_CONSTANT__MINUTES:
+				setMinutes(MINUTES_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +191,10 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SslPackage.CHECK_LABEL__LABEL_TYPE:
-				return labelType != LABEL_TYPE_EDEFAULT;
-			case SslPackage.CHECK_LABEL__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case ConfigPackage.TIME_CONSTANT__HOURS:
+				return HOURS_EDEFAULT == null ? hours != null : !HOURS_EDEFAULT.equals(hours);
+			case ConfigPackage.TIME_CONSTANT__MINUTES:
+				return MINUTES_EDEFAULT == null ? minutes != null : !MINUTES_EDEFAULT.equals(minutes);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,12 +209,12 @@ public class CheckLabelImpl extends ConditionImpl implements CheckLabel {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (labelType: ");
-		result.append(labelType);
-		result.append(", value: ");
-		result.append(value);
+		result.append(" (hours: ");
+		result.append(hours);
+		result.append(", minutes: ");
+		result.append(minutes);
 		result.append(')');
 		return result.toString();
 	}
 
-} //CheckLabelImpl
+} //TimeConstantImpl

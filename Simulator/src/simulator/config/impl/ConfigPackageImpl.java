@@ -38,6 +38,8 @@ import simulator.config.OrCondition;
 import simulator.config.OutputMatchesCondition;
 import simulator.config.SilenceAlarm;
 import simulator.config.SoundAlarm;
+import simulator.config.StringConstant;
+import simulator.config.TimeConstant;
 import simulator.config.UnitOfTime;
 import simulator.config.Variable;
 import simulator.config.VariableComparisonCondition;
@@ -217,6 +219,20 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * @generated
 	 */
 	private EClass constantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringConstantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass timeConstantEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -694,8 +710,44 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConstant_Value() {
-		return (EAttribute)constantEClass.getEStructuralFeatures().get(0);
+	public EClass getStringConstant() {
+		return stringConstantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringConstant_Value() {
+		return (EAttribute)stringConstantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTimeConstant() {
+		return timeConstantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimeConstant_Hours() {
+		return (EAttribute)timeConstantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimeConstant_Minutes() {
+		return (EAttribute)timeConstantEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -820,7 +872,13 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		displayableEClass = createEClass(DISPLAYABLE);
 
 		constantEClass = createEClass(CONSTANT);
-		createEAttribute(constantEClass, CONSTANT__VALUE);
+
+		stringConstantEClass = createEClass(STRING_CONSTANT);
+		createEAttribute(stringConstantEClass, STRING_CONSTANT__VALUE);
+
+		timeConstantEClass = createEClass(TIME_CONSTANT);
+		createEAttribute(timeConstantEClass, TIME_CONSTANT__HOURS);
+		createEAttribute(timeConstantEClass, TIME_CONSTANT__MINUTES);
 
 		variableEClass = createEClass(VARIABLE);
 		createEAttribute(variableEClass, VARIABLE__NAME);
@@ -874,6 +932,8 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 		evaluateExpressionEClass.getESuperTypes().add(this.getAction());
 		incrementTimeVariableEClass.getESuperTypes().add(this.getExpression());
 		constantEClass.getESuperTypes().add(this.getDisplayable());
+		stringConstantEClass.getESuperTypes().add(this.getConstant());
+		timeConstantEClass.getESuperTypes().add(this.getConstant());
 		variableEClass.getESuperTypes().add(this.getDisplayable());
 
 		// Initialize classes and features; add operations and parameters
@@ -943,8 +1003,14 @@ public class ConfigPackageImpl extends EPackageImpl implements ConfigPackage {
 
 		initEClass(displayableEClass, Displayable.class, "Displayable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConstant_Value(), ecorePackage.getEString(), "value", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(constantEClass, Constant.class, "Constant", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(stringConstantEClass, StringConstant.class, "StringConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringConstant_Value(), ecorePackage.getEString(), "value", null, 1, 1, StringConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(timeConstantEClass, TimeConstant.class, "TimeConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTimeConstant_Hours(), ecorePackage.getEIntegerObject(), "hours", null, 1, 1, TimeConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeConstant_Minutes(), ecorePackage.getEIntegerObject(), "minutes", null, 1, 1, TimeConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

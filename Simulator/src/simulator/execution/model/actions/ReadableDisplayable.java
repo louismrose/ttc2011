@@ -10,8 +10,9 @@
  ******************************************************************************/
 package simulator.execution.model.actions;
 
-import simulator.config.Constant;
 import simulator.config.Displayable;
+import simulator.config.StringConstant;
+import simulator.config.TimeConstant;
 import simulator.config.Variable;
 import simulator.execution.model.Time;
 import simulator.execution.model.TimeFormatter;
@@ -20,6 +21,7 @@ import simulator.execution.model.state.State;
 public class ReadableDisplayable {
 
 	private final Displayable displayable;
+	private final TimeFormatter timeFormatter = TimeFormatter.twentyFourHourFormatter;
 	
 	public ReadableDisplayable(Displayable displayable) {
 		this.displayable = displayable;
@@ -28,9 +30,12 @@ public class ReadableDisplayable {
 	public String extractValue(State state) {
 		final String value;
 		
-		if (displayable instanceof Constant) {
-			value = extractValue((Constant)displayable);
+		if (displayable instanceof StringConstant) {
+			value = extractValue((StringConstant)displayable);
 		
+		} else if (displayable instanceof TimeConstant) {
+			value = extractValue((TimeConstant)displayable);
+			
 		} else if (displayable instanceof Variable) {
 			value = extractValue((Variable)displayable, state);
 		
@@ -41,13 +46,17 @@ public class ReadableDisplayable {
 		return value == null ? "" : value;
 	}
 
-	private String extractValue(Constant constant) {
+	private String extractValue(StringConstant constant) {
 		return constant.getValue();
+	}
+	
+	private String extractValue(TimeConstant constant) {
+		return new Time(constant).formatWith(timeFormatter);
 	}
 	
 	private String extractValue(Variable variable, State state) {
 		final Time variableValue = state.getValueOf(((Variable)variable));
 		
-		return (variableValue == null ? null : variableValue.formatWith(TimeFormatter.twentyFourHourFormatter));
+		return (variableValue == null ? null : variableValue.formatWith(timeFormatter));
 	}
 }

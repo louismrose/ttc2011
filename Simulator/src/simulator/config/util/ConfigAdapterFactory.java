@@ -168,6 +168,14 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 				return createConstantAdapter();
 			}
 			@Override
+			public Adapter caseStringConstant(StringConstant object) {
+				return createStringConstantAdapter();
+			}
+			@Override
+			public Adapter caseTimeConstant(TimeConstant object) {
+				return createTimeConstantAdapter();
+			}
+			@Override
 			public Adapter caseVariable(Variable object) {
 				return createVariableAdapter();
 			}
@@ -524,6 +532,34 @@ public class ConfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.StringConstant <em>String Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.StringConstant
+	 * @generated
+	 */
+	public Adapter createStringConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link simulator.config.TimeConstant <em>Time Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see simulator.config.TimeConstant
+	 * @generated
+	 */
+	public Adapter createTimeConstantAdapter() {
 		return null;
 	}
 

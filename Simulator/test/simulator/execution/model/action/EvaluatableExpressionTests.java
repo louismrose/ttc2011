@@ -32,7 +32,7 @@ public class EvaluatableExpressionTests {
 	 
 	@Test
 	public void incrementTimeVariableByAnHour() throws Exception {
-		final Time originalValue = new Time();		
+		final Time originalValue = Time.now();		
 		when(state.getValueOf(variable)).thenReturn(originalValue);
 
 		final Expression expression = createIncrementTimeVariableExpression(variable, UnitOfTime.HOUR);
@@ -43,7 +43,7 @@ public class EvaluatableExpressionTests {
 	
 	@Test
 	public void incrementTimeVariableByAMinute() throws Exception {
-		final Time originalValue = new Time();		
+		final Time originalValue = Time.now();		
 		when(state.getValueOf(variable)).thenReturn(originalValue);
 
 		final Expression expression = createIncrementTimeVariableExpression(variable, UnitOfTime.MINUTE);
