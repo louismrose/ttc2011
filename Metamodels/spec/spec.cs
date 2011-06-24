@@ -1,5 +1,5 @@
 SYNTAXDEF ssl
-FOR <ssl> <ssl.genmodel>
+FOR <ssl> <spec.genmodel>
 START Specification
 
 OPTIONS {

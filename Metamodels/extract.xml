@@ -16,8 +16,8 @@
 	</macrodef>
 	
 	<target name="copy">
-		<copy-metamodel metamodelName="ssl" project="SimulatorSpecificationLanguage"/>
+		<copy-metamodel metamodelName="spec" project="SimulatorSpecificationLanguage"/>
 		<copy-metamodel metamodelName="config" project="Simulator"/>
-		<copy-metamodel metamodelName="trace" project="Simulator"/>
+		<copy-metamodel metamodelName="results" project="Simulator"/>
     </target>
 </project>

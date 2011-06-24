@@ -1,5 +1,5 @@
-@namespace(uri="simulatorConfig", prefix="simulatorConfig")
-package config;
+@namespace(uri="scl", prefix="scl")
+package scl;
 
 class Configuration {
    val Mode[*] modes;
