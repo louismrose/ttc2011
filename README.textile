@@ -22,7 +22,7 @@ h3. The Simulation Engine
 
 At the heart of the Live Contest problem is a simulation engine that has been tailored to the domain of digital watches. Users can upload configuration models to specify the structure and behaviour of a digital watch, which can then be simulated by the engine. The simulation engine is "deployed as a Google App":http://ttcsim.appspot.com. For reference, an Eclipse project containing the source code of the simulator is included in this repository (the Simulator folder). Please note that _it is not necessary to understand the simulator source code to compete in the Live Contest_.
 
-!Simulator.png(A screenshot of the simulator running via a web browser)!
+!https://github.com/louismrose/ttc2011/raw/master/Simulator.png(A screenshot of the simulator running via a web browser)!
 
 h3. The Simulator Specification Language (SSL) 
 
@@ -42,9 +42,9 @@ Then the alarm must ring
 
 This syntax is similar to that of Behaviour-Driven Development (BDD) tools, such as "Cucumber":http://cukes.info/ or "JBehave":http://jbehave.org/.
 
-In addition to @Given, When, Then@ syntax, the specification language includes @Conditions@, @Actions@ and @Observations@ that are specific to the digital watch domain, such as @CheckMode@, @PressButton@ and @ObserveRing@. A complete list of the @Conditions@, @Actions@ and @Observations@ can be found in the "specification language metamodel":https://github.com/louismrose/ttc2011/blob/master/Metamodels/ssl/ssl.emf.
+In addition to @Given, When, Then@ syntax, the specification language includes @Conditions@, @Actions@ and @Observations@ that are specific to the digital watch domain, such as @CheckMode@, @PressButton@ and @ObserveRing@. A complete list of the @Conditions@, @Actions@ and @Observations@ can be found in the "specification language metamodel":https://github.com/louismrose/ttc2011/blob/master/Metamodels/spec/spec.emf.
 
-For reference, an Eclipse project that implements a textual concrete syntax and parser for the specification language is included in this repository (the SpecificationLanguage folders). Please note that _it is not necessary to use the parser included in this repository to compete in the Live Contest, though the "grammar definition":https://github.com/louismrose/ttc2011/blob/master/Metamodels/ssl/ssl.cs might be helpful_.  
+For reference, an Eclipse project that implements a textual concrete syntax and parser for the specification language is included in this repository (the SpecificationLanguage folders). Please note that _it is not necessary to use the parser included in this repository to compete in the Live Contest, though the "grammar definition":https://github.com/louismrose/ttc2011/blob/master/Metamodels/spec/spec.cs might be helpful_.  
 
 h3. The Simulator Configuration Language (SCL)
 
