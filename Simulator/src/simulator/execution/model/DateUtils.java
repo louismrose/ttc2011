@@ -26,7 +26,7 @@ public class DateUtils {
 	public static Date todayAt(int hours, int minutes) {
 		final Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
-		calendar.set(Calendar.HOUR, hours);
+		calendar.set(Calendar.HOUR_OF_DAY, hours);
 		calendar.set(Calendar.MINUTE, minutes);
 		return calendar.getTime();
 	}
