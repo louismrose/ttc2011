@@ -1,1 +1,73 @@
 h1. TTC 2011 Live Contest
+
+This repository contains the resources required to participate in the Live Contest at the "2011 edition of the Transformation Tool Contest workshop":http://planet-research20.org/ttc2011/.
+
+What is the TTC Live Contest? A transformation problem is announced at the start of the workshop. Participants develop a solution with their favourite transformation tool (in just a few hours!). The solutions are compared via a peer evaluation during the workshop.
+
+
+h2. An Overview of the 2011 Live Contest Problem
+
+This year's transformation problem incorporates the following themes:
+
+* Transformation for interoperability
+* Behavioural modelling
+* Model matching
+* (A little) model-based testing
+
+The core task involves transforming specification models into configuration models for a simulation tool. The optional extra tasks involve analysing and matching simulation models with the original specification models.
+
+The domain of the simulator is digital watches, and the tasks make use of a simulation engine, and three small domain-specific languages for specification, configuration and analysis of a watch simulation.
+
+h3. The Simulation Engine
+
+At the heart of the Live Contest problem is a simulation engine that has been tailored to the domain of digital watches. Users can upload configuration models to specify the structure and behaviour of a digital watch, which can then be simulated by the engine. The simulation engine is "deployed as a Google App":http://ttcsim.appspot.com. For reference, an Eclipse project containing the source code of the simulator is included in this repository (the Simulator folder). Please note that _it is not necessary to understand the simulator source code to compete in the Live Contest_.
+
+!Simulator.png(A screenshot of the simulator running via a web browser)!
+
+h3. The Simulator Specification Language (SSL) 
+
+Watches are designed with a (relatively) high-level specification language. Some pre-defined specifications are used for the core and optional Live Contest tasks.
+
+Each specification contains any number of testcases, and each testcase defines some part of the structure of behaviour of a particular watch.  Testcases comprise three types of statement:
+
+# @Given@ statements describe a set of pre-conditions for the testcase.
+# @When@ statements describe actions that are executed to perform the testcase.
+# @Then@ statements describe observations that are used to determine whether the testcase has passed.
+
+For example, the following testcase specifies the behaviour of a button:
+
+bc. Given the watch is in mode "time"
+When the first button is pressed
+Then the alarm must ring
+
+This syntax is similar to that of Behaviour-Driven Development (BDD) tools, such as "Cucumber":http://cukes.info/ or "JBehave":http://jbehave.org/.
+
+In addition to @Given, When, Then@ syntax, the specification language includes @Conditions@, @Actions@ and @Observations@ that are specific to the digital watch domain, such as @CheckMode@, @PressButton@ and @ObserveRing@. A complete list of the @Conditions@, @Actions@ and @Observations@ can be found in the "specification language metamodel":https://github.com/louismrose/ttc2011/blob/master/Metamodels/ssl/ssl.emf.
+
+For reference, an Eclipse project that implements a textual concrete syntax and parser for the specification language is included in this repository (the SpecificationLanguage folders). Please note that _it is not necessary to use the parser included in this repository to compete in the Live Contest, though the "grammar definition":https://github.com/louismrose/ttc2011/blob/master/Metamodels/ssl/ssl.cs might be helpful_.  
+
+h3. The Simulator Configuration Language (SCL)
+
+The simulation engine is configured with a model that conforms to the configuration language. The configuration language defines structural elements (such as @Modes@ and @Buttons@) and behavioural elements (such as @Actions@, @Expresssions@ and @Conditions@). Users of the simulation engine can upload a new configuration to custom the simulation.
+
+The core metaclasses of the configuration language are shown below. Briefly, a @Configuration@ comprises @Modes@ and @Events@. Each @Mode@ can contain any number of @Buttons@ which have a name and a behaviour, which is specified with a set of @Actions@. Similarly, each @Mode@ has a set of @Actions@ that are executed when the watch enters that @Mode@; and a @Configuration@ can specify events: @Actions@ that are executed whenever the state of the watch changes. @Actions@ can specify a guard @Condition@, which must be satisfied for the @Action@ to be executed. Some @Actions@ make use of @Constants@ (fixed values, such as the string @"Hello"@ or the time @13:37@) and @Variables@ (symbolic names whose values can change as the simulation executes).
+
+!https://github.com/louismrose/ttc2011/raw/master/Metamodels/config/config.png!(A class diagram of the core metaclasses of the simulator configuration language)!
+
+A complete list of the simulation configuration metaclasses can be found in the "configuration language metamodel":https://github.com/louismrose/ttc2011/blob/master/Metamodels/config/config.emf.
+
+h3. The Simulator Results Language (SRL)
+
+While the simulation engine is being used to perform a simulation of a particular watch, a simulation results model is automatically constructed. Users of the simulation engine can download the results model at any time by clicking the "download EMF model" link.
+
+The simulation results metamodel is shown below. Briefly, a results model comprises a set of @SimulationElements@ which are instances of either @Stimulus@, @EnvironmentalChange@ or @Response@. Each @SimulationElement@ has a @type@ (such as @ModeChange@) and a set of @parameters@ (such as @alarmMode, timeMode@).
+
+!https://github.com/louismrose/ttc2011/raw/master/Metamodels/results/results.png!(A class diagram for the simulator results language)!
+
+The above metamodel can also be found in the "results language metamodel":https://github.com/louismrose/ttc2011/blob/master/Metamodels/results/results.emf.
+
+
+h2. The Core Task
+
+
+h2. Optional Extensions to the Core Task
