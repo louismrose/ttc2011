@@ -4,6 +4,17 @@ This repository contains the resources required to participate in the Live Conte
 
 What is the TTC Live Contest? A transformation problem is announced at the start of the workshop. Participants develop a solution with their favourite transformation tool (in just a few hours!). The solutions are compared via a peer evaluation during the workshop.
 
+h2. Cloning this Repository
+
+Assuming that git is installed on your machine, clone this repository with the following command:
+
+bc. git clone git://github.com/louismrose/ttc2011.git
+
+If you're behind a firewall, you may need to use HTTP, rather than the git protocol:
+
+bc. git clone http://github.com/louismrose/ttc2011.git
+
+Participants will need to use the Ecore models in the Metamodels directory, and the domain-specific models in the WatchSpecifications directory. The other directories contain the source code of a simulation engine (described below), which may or (may not!) be useful for reference.
 
 h2. An Overview of the 2011 Live Contest Problem
 
@@ -69,5 +80,75 @@ The above metamodel can also be found in the "results language metamodel":https:
 
 h2. The Core Task
 
+The core task involves constructing a transformation between the Simulator Specification Language (SSL) and the Simulator Configuration Language (SCL). In particular, this repository includes SSL models for three different watches, and the SSL models should be transformed to produce equivalent SCL models. The three watches vary in size. Briefly:
+
+# OnOff: The simplest watch, which demonstrates modes, entry actions and buttons. "Specification":https://github.com/louismrose/ttc2011/raw/master/WatchSpecifications/ssl/OnOff.xmi "Configuration Reference Solution":https://github.com/louismrose/ttc2011/raw/master/WatchSpecifications/scl/OnOff.xmi
+# SetTime: Introduces variables, the alarm, and conditional actions. "Specification":https://github.com/louismrose/ttc2011/raw/master/WatchSpecifications/ssl/SetTime.xmi "Configuration Reference Solution":https://github.com/louismrose/ttc2011/raw/master/WatchSpecifications/scl/SetTime.xmi
+# Alarm: A combination of the two previous watches. "Specification":https://github.com/louismrose/ttc2011/raw/master/WatchSpecifications/ssl/Alarm.xmi "Configuration Reference Solution":https://github.com/louismrose/ttc2011/raw/master/WatchSpecifications/scl/Alarm.xmi
+
+h3. A note on completeness of the transformation
+
+In general, it's not possible to map every SSL model into a valid SCL. For example, a valid specification can contain inconsistencies that cannot be transformed into a meaningful configuration. For example, consider the following testcase, which, although contradictory, is valid in the specification language:
+
+bc. Given the watch is in mode "alarmTime"
+Then the watch must be in mode "time" 
+
+Solutions to the core task will need to consider how such contradictions will be managed. For example, participants might like to consider the following questions:
+
+* Will specification models be validated before or during the transformation, or not at all?
+* Can a more restrictive metamodel for the SSL be identified (by considering the way in which the three watch specifications are constructed) and used for transformation?
+
+A non-exhaustive set of contradictory and inconsistent specifications are included in the "@WatchSpecifications/ssl/inconsistent@":https://github.com/louismrose/ttc2011/tree/master/WatchSpecifications/ssl/inconsistent directory.
 
 h2. Optional Extensions to the Core Task
+
+Two optional extensions to the core task (described above) are now discussed.
+
+h3. Robustness of the transformation
+
+Clearly, the watch specifications provided in this repository are not varied enough to fully test the transformation constructed for the core task. For example, transforming specifications with the following properties might be necessary, but the watch specifications included in the core transformation do not exhibit these properties. 
+
+* An unusual ordering of @ObserveButton@ elements:
+
+bc. Given the watch is in mode "alarmTime"
+Then the third button must be called "minute"
+     the first button must be called "mode"
+     the second button must be called "hour"
+
+* Buttons that have multiple actions, all guarded by the same condition:
+
+bc. Given the watch is in mode "time"
+      the "indicator" is showing "unset"
+When the second button is pressed
+Then the "indicator" must show "set"
+     the alarm must ring
+     the display must show "alarm"
+
+* Other properties (to be identified by the participants)...
+
+
+h3. Matching results models with specification models 
+
+As discussed in the overview of the task, the simulation engine produces a results model that describes the way in which a user has interacted with the simulation. Therefore, one way to test the transformation constructed for the core task is to follow the steps defined in a watch specification and check the outputs of the simulation against the specification.
+
+For this extension, participants should:
+
+# Generate a results model by using the simulation engine to manually execute the testcases of a watch specification.
+# Construct a transformation that matches the results model with the specification model to indicate which testcases have passed. (A testcase _passes_ when the outputs of the simulator satisfy all of the observations of the testcase, and _fails_ otherwise).
+
+Tip: the "inconsistent watch specifications":https://github.com/louismrose/ttc2011/tree/master/WatchSpecifications/ssl/inconsistent directory provide examples of testcases that will probably fail (depending on how the transformation for the core task has been implemented).  
+
+h2. Evaluation Criteria
+
+Solutions will be evaluated, and a winner announced in each of the following categories:
+
+* Core task (SSL to SCL)
+* Extension 1 (Robustness)
+* Extension 2 (Matching)
+* Overall
+
+Participants might like to consider the following criteria when assessing the solutions:
+
+* Clarity: the ease with which the solution can be understood due to, for example, the expressiveness of the code.
+* Conciseness: the number of modules, rules, etc. used in the solution
+* Architecture: the modularity / abstraction of the solution.
