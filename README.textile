@@ -150,5 +150,5 @@ Solutions will be evaluated, and a winner announced in each of the following cat
 Participants might like to consider the following criteria when assessing the solutions:
 
 * Clarity: the ease with which the solution can be understood due to, for example, the expressiveness of the code.
-* Conciseness: the number of modules, rules, etc. used in the solution
+* Conciseness: the number of modules, rules, etc. used in the solution.
 * Architecture: the modularity / abstraction of the solution.
