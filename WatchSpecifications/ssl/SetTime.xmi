@@ -5,8 +5,8 @@
       <conditions xsi:type="ssl:CheckMode" mode="setTime"/>
     </given>
     <then>
-      <observations xsi:type="ssl:ObserveButton" button="second" name="minute"/>
       <observations xsi:type="ssl:ObserveButton" button="first" name="hour"/>
+      <observations xsi:type="ssl:ObserveButton" button="second" name="minute"/>
     </then>
   </testcases>
   <testcases>

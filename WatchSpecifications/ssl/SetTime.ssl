@@ -1,6 +1,6 @@
 Given the watch is in mode "setTime"
-Then the second button must be called "minute"
-     the first button must be called "hour"
+Then the first button must be called "hour"
+     the second button must be called "minute"
 
 When the watch enters mode "setTime"
 Then the "display" must show the time
