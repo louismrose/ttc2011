@@ -1,0 +1,2 @@
+Given the watch is in mode "alarmTime"
+Then the watch must be in mode "time"

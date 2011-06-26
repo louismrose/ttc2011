@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ssl:Specification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ssl="ssl">
+  <testcases>
+    <given>
+      <conditions xsi:type="ssl:CheckMode" mode="alarmTime"/>
+    </given>
+    <then>
+      <observations xsi:type="ssl:ObserveMode" mode="time"/>
+    </then>
+  </testcases>
+</ssl:Specification>

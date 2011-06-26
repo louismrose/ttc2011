@@ -1,0 +1,13 @@
+Given the watch is in mode "default"
+Then the first button must be called "show"
+
+When the watch enters mode "default"
+Then the "display" must show ""
+
+Given the watch is in mode "default"
+When the first button is pressed
+Then the "display" must show "foo"
+
+Given the watch is in mode "default"
+When the first button is pressed
+Then the "display" must show "bar"

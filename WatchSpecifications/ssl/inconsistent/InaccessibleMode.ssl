@@ -1,0 +1,16 @@
+Given the watch is in mode "on"
+Then the first button must be called "mode"
+
+When the watch enters mode "on"
+Then the "display" must show "hello"
+
+
+Given the watch is in mode "off"
+Then the first button must be called "mode"
+
+When the watch enters mode "off"
+Then the "display" must show ""
+
+Given the watch is in mode "off"
+When the first button is pressed
+Then the watch must be in mode "on"
