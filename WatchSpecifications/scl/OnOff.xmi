@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulatorConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulatorConfig="simulatorConfig">
+  <modes name="off">
+    <entryActions xsi:type="simulatorConfig:ChangeDisplay" newValue="//@constants.0"/>
+    <buttons name="mode">
+      <behaviour xsi:type="simulatorConfig:NextMode"/>
+    </buttons>
+  </modes>
+  <modes name="on">
+    <entryActions xsi:type="simulatorConfig:ChangeDisplay" newValue="//@constants.1"/>
+    <buttons name="mode">
+      <behaviour xsi:type="simulatorConfig:NextMode"/>
+    </buttons>
+  </modes>
+  <constants xsi:type="simulatorConfig:StringConstant"/>
+  <constants xsi:type="simulatorConfig:StringConstant" value="hello"/>
+</simulatorConfig:Configuration>

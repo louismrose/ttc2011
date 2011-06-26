@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulatorConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulatorConfig="simulatorConfig">
+  <modes name="setTime">
+    <entryActions xsi:type="simulatorConfig:ChangeDisplay" newValue="//@variables.0"/>
+    <buttons name="hour">
+      <behaviour xsi:type="simulatorConfig:EvaluateExpression">
+        <expression xsi:type="simulatorConfig:IncrementTimeVariable" variable="//@variables.0"/>
+      </behaviour>
+      <behaviour xsi:type="simulatorConfig:ChangeDisplay" newValue="//@variables.0"/>
+    </buttons>
+    <buttons name="minute">
+      <behaviour xsi:type="simulatorConfig:EvaluateExpression">
+        <expression xsi:type="simulatorConfig:IncrementTimeVariable" variable="//@variables.0" unit="minute"/>
+      </behaviour>
+      <behaviour xsi:type="simulatorConfig:ChangeDisplay" newValue="//@variables.0"/>
+    </buttons>
+  </modes>
+  <variables name="time"/>
+  <constants xsi:type="simulatorConfig:TimeConstant" hours="13" minutes="37"/>
+  <events xsi:type="simulatorConfig:SoundAlarm">
+    <guard xsi:type="simulatorConfig:VariableEqualsCondition" variable="//@variables.0" value="//@constants.0"/>
+  </events>
+  <events xsi:type="simulatorConfig:SilenceAlarm">
+    <guard xsi:type="simulatorConfig:NotCondition">
+      <subcondition xsi:type="simulatorConfig:VariableEqualsCondition" variable="//@variables.0" value="//@constants.0"/>
+    </guard>
+  </events>
+</simulatorConfig:Configuration>

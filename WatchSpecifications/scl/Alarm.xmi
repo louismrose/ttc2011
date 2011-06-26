@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulatorConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulatorConfig="simulatorConfig">
+  <modes name="time">
+    <entryActions xsi:type="simulatorConfig:ChangeDisplay" newValue="//@variables.0"/>
+    <entryActions xsi:type="simulatorConfig:ChangeIndicator" newValue="//@constants.1"/>
+    <buttons name="mode">
+      <behaviour xsi:type="simulatorConfig:NextMode"/>
+    </buttons>
+    <buttons name="setAlarm">
+      <behaviour xsi:type="simulatorConfig:ChangeIndicator" newValue="//@constants.0">
+        <guard xsi:type="simulatorConfig:IndicatorMatchesCondition" valueToMatch="//@constants.1"/>
+      </behaviour>
+      <behaviour xsi:type="simulatorConfig:ChangeIndicator" newValue="//@constants.1">
+        <guard xsi:type="simulatorConfig:IndicatorMatchesCondition" valueToMatch="//@constants.0"/>
+      </behaviour>
+    </buttons>
+  </modes>
+  <modes name="alarmTime">
+    <entryActions xsi:type="simulatorConfig:ChangeDisplay" newValue="//@variables.1"/>
+    <buttons name="mode">
+      <behaviour xsi:type="simulatorConfig:NextMode"/>
+    </buttons>
+    <buttons name="hour">
+      <behaviour xsi:type="simulatorConfig:EvaluateExpression">
+        <expression xsi:type="simulatorConfig:IncrementTimeVariable" variable="//@variables.1"/>
+      </behaviour>
+      <behaviour xsi:type="simulatorConfig:ChangeDisplay" newValue="//@variables.1"/>
+    </buttons>
+    <buttons name="minute">
+      <behaviour xsi:type="simulatorConfig:EvaluateExpression">
+        <expression xsi:type="simulatorConfig:IncrementTimeVariable" variable="//@variables.1" unit="minute"/>
+      </behaviour>
+      <behaviour xsi:type="simulatorConfig:ChangeDisplay" newValue="//@variables.1"/>
+    </buttons>
+  </modes>
+  <variables name="time"/>
+  <variables name="alarmTime"/>
+  <constants xsi:type="simulatorConfig:StringConstant" value="set"/>
+  <constants xsi:type="simulatorConfig:StringConstant" value="unset"/>
+  <events xsi:type="simulatorConfig:SoundAlarm">
+    <guard xsi:type="simulatorConfig:AndCondition">
+      <subconditions xsi:type="simulatorConfig:IndicatorMatchesCondition" valueToMatch="//@constants.0"/>
+      <subconditions xsi:type="simulatorConfig:VariableEqualsCondition" variable="//@variables.0" value="//@variables.1"/>
+    </guard>
+  </events>
+  <events xsi:type="simulatorConfig:SilenceAlarm">
+    <guard xsi:type="simulatorConfig:NotCondition">
+      <subcondition xsi:type="simulatorConfig:AndCondition">
+        <subconditions xsi:type="simulatorConfig:IndicatorMatchesCondition" valueToMatch="//@constants.0"/>
+        <subconditions xsi:type="simulatorConfig:VariableEqualsCondition" variable="//@variables.0" value="//@variables.1"/>
+      </subcondition>
+    </guard>
+  </events>
+</simulatorConfig:Configuration>
