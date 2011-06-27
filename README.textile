@@ -14,6 +14,8 @@ If you're behind a firewall, you may need to use HTTP, rather than the git proto
 
 bc. git clone http://github.com/louismrose/ttc2011.git
 
+Alternatively, you can directly download ("TAR":https://github.com/louismrose/ttc2011/tarball/master, "ZIP":https://github.com/louismrose/ttc2011/zipball/master) a current snapshot of the entire repository.
+
 Participants will need to use the Ecore models in the Metamodels directory, and the domain-specific models in the WatchSpecifications directory. The other directories contain the source code of a simulation engine (described below), which may or (may not!) be useful for reference.
 
 h2. An Overview of the 2011 Live Contest Problem
