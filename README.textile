@@ -138,19 +138,18 @@ For this extension, participants should:
 # Generate a results model by using the simulation engine to manually execute the testcases of a watch specification.
 # Construct a transformation that matches the results model with the specification model to indicate which testcases have passed. (A testcase _passes_ when the outputs of the simulator satisfy all of the observations of the testcase, and _fails_ otherwise).
 
-Tip: the "inconsistent watch specifications":https://github.com/louismrose/ttc2011/tree/master/WatchSpecifications/ssl/inconsistent directory provide examples of testcases that will probably fail (depending on how the transformation for the core task has been implemented).  
+Tips:
+* the "inconsistent watch specifications":https://github.com/louismrose/ttc2011/tree/master/WatchSpecifications/ssl/inconsistent directory provide examples of testcases that will probably fail (depending on how the transformation for the core task has been implemented).  
+* Participants might like to use a different form to match (or even animate) the specification language, such as a diagrammatic concrete syntax.
 
 h2. Evaluation Criteria
 
-Solutions will be evaluated, and a winner announced in each of the following categories:
+Solutions will be evaluated according to the following criteria:
 
-* Core task (SSL to SCL)
-* Extension 1 (Robustness)
-* Extension 2 (Matching)
-* Overall
-
-Participants might like to consider the following criteria when assessing the solutions:
-
-* Clarity: the ease with which the solution can be understood due to, for example, the expressiveness of the code.
-* Conciseness: the number of modules, rules, etc. used in the solution.
-* Architecture: the modularity / abstraction of the solution.
+* Completeness
+** Core task: 1 point for each watch (OnOff, SetTime, Alarm)
+** Extension 1 (Robustness): 1 point
+** Extension 2 (Matching): 1 point
+* Clarity: the ease with which the solution can be understood due to, for example, the expressiveness of the code (a mark out of 5)
+* Conciseness: the number of modules, rules, etc. used in the solution (a mark out of 5)
+* Architecture: the modularity / abstraction of the solution (a mark out of 5).
