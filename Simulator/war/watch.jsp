@@ -2,7 +2,6 @@
 <%@page import="simulator.SessionManager"%>
 <%@page import="simulator.execution.model.state.VariableWithValue"%>
 <%@page import="simulator.scl.Button"%>
-<%@page import="simulator.config.factory.FileBasedConfigurationFactory"%>
 <%@page import="simulator.execution.model.Simulation"%>
 <%@page import="simulator.scl.Configuration"%>
 <%@page import="java.util.LinkedList"%>
