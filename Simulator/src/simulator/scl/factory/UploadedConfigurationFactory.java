@@ -11,11 +11,11 @@
 package simulator.scl.factory;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -39,11 +39,10 @@ public class UploadedConfigurationFactory implements ConfigurationFactory {
 			final FileItemFactory factory = new DiskFileItemFactory();
 			final ServletFileUpload upload = new ServletFileUpload(factory);
 			
-			final FileItem uploadedFile = (FileItem)upload.parseRequest(request).get(0);
+			final InputStream stream = upload.getItemIterator(request).next().openStream(); 
 				
-			final Resource resource = EmfUtil.createResource(ConfigPackage.eINSTANCE);
-			
-			resource.load(uploadedFile.getInputStream(), Collections.emptyMap());
+			final Resource resource = EmfUtil.createResource(ConfigPackage.eINSTANCE);			
+			resource.load(stream, Collections.emptyMap());
 		
 			return (Configuration)resource.getContents().get(0);
 		
