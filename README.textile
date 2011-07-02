@@ -153,3 +153,19 @@ Solutions will be evaluated according to the following criteria:
 * Clarity: the ease with which the solution can be understood due to, for example, the expressiveness of the code (a mark out of 5)
 * Conciseness: the number of modules, rules, etc. used in the solution (a mark out of 5)
 * Architecture: the modularity / abstraction of the solution (a mark out of 5).
+
+h2. Results and Feedback
+
+The winners have now been published on the "TTC 2011 Awards page":http://planet-research20.org/ttc2011/index.php?option=com_content&view=article&id=148&Itemid=160. Congratulations to GReTL, Tefkat and EMFTVM!
+
+I've begun to collate feedback on the live contest, which we'll use to improve next year's contest. An anonymised list is below.
+
+* This year's problem was very challenging, and several participants felt they needed 1-2 hours more to solve the core tasks.
+* However, the difficulty of the problem was not off-putting: many people were very engaged with the contest and keen to finish. 
+* The models and metamodels provided in the repository were constructed with EMF, and not all model and graph transformation tools can import/export EMF. Next year, we will consider:
+** Releasing technical requirements for tools in advance of the workshop (e.g. This year's live contest requires that tools can import model stored in XMI 2.0).
+** Releasing a sanitised version of the metamodels (e.g. replace all names with some junk text), which participants can import into (or reconstruct with) their tools in advance of the contest.
+* Several participants noted that understanding the specification and configuration metamodels required a considerable amount of effort. A better explanation of the semantics of the metamodel elements would have been a welcome addition to the introductory slides.
+** Generally speaking, there were roughly two approaches to metamodel understanding / transformation design. Some teams worked "bottom-up" implementing just the transformation rules needed for each specification; while other teams worked "top-down" planning their transformation in more depth and introducing abstraction earlier. Teams working in a "bottom-up" fashion tended to score more highly for the completeness criterion, while teams working in a "top-down" fashion tended to score more highly for the architecture criterion.
+
+
