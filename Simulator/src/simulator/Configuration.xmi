@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<simulatorConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulatorConfig="simulatorConfig" xmi:id="_fuYBUJvfEeCu7pen7GHQ0w">
+<simulatorConfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulatorConfig="scl" xmi:id="_fuYBUJvfEeCu7pen7GHQ0w">
   <modes xmi:id="_fuYoYJvfEeCu7pen7GHQ0w" name="setTime">
     <entryActions xsi:type="simulatorConfig:ChangeDisplay" xmi:id="_i8Jk4JvfEeCu7pen7GHQ0w" newValue="_fudg4JvfEeCu7pen7GHQ0w"/>
     <buttons xmi:id="_fuZ2gJvfEeCu7pen7GHQ0w" name="hour">

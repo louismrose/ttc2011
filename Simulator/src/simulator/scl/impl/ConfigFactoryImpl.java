@@ -32,7 +32,7 @@ public class ConfigFactoryImpl extends EFactoryImpl implements ConfigFactory {
 	 */
 	public static ConfigFactory init() {
 		try {
-			ConfigFactory theConfigFactory = (ConfigFactory)EPackage.Registry.INSTANCE.getEFactory("simulatorConfig"); 
+			ConfigFactory theConfigFactory = (ConfigFactory)EPackage.Registry.INSTANCE.getEFactory("scl"); 
 			if (theConfigFactory != null) {
 				return theConfigFactory;
 			}

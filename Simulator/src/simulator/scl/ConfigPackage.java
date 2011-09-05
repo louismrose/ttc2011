@@ -34,7 +34,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "config";
+	String eNAME = "scl";
 
 	/**
 	 * The package namespace URI.
@@ -42,7 +42,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "simulatorConfig";
+	String eNS_URI = "scl";
 
 	/**
 	 * The package namespace name.
@@ -50,7 +50,7 @@ public interface ConfigPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "simulatorConfig";
+	String eNS_PREFIX = "scl";
 
 	/**
 	 * The singleton instance of the package.
