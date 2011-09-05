@@ -169,6 +169,6 @@ I've begun to collate feedback on the live contest, which we'll use to improve n
 ** Generally speaking, there were roughly two approaches to metamodel understanding / transformation design. Some teams worked "bottom-up" implementing just the transformation rules needed for each specification; while other teams worked "top-down" planning their transformation in more depth and introducing abstraction earlier. Teams working in a "bottom-up" fashion tended to score more highly for the completeness criterion, while teams working in a "top-down" fashion tended to score more highly for the architecture criterion.
 
 
-h2. Videos
+h2. Videos (new!)
 
-notextile. <iframe width="420" height="345" src="http://www.youtube.com/embed/mWHpcztVTNA" frameborder="0" allowfullscreen></iframe>
+Steffen Mazanek has provided "video recordings of the presentations, awards ceremony and avid hacking":http://www.youtube.com/user/TransfToolContest#p/u. 
